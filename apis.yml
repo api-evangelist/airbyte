@@ -1,31 +1,38 @@
 aid: airbyte
-name: Airbyte
-description: >-
-  The Airbyte API provides a way for developers to programmatically interact
-  with Airbyte. It is available for all Airbyte products: Airbyte OSS, ...
-type: Index
-position: Consumer
-access: 3rd-Party
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
-created: '2025-01-08'
-modified: '2025-01-08'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/apis.yml
-specificationVersion: '0.19'
 apis:
   - aid: airbyte:airbyte
     name: Airbyte
+    tags:
+      - API
+    humanURL: https://airbyte.com
+    properties:
+      - url: https://airbyte.com
+        type: Documentation
     description: >-
       The Airbyte API provides a way for developers to programmatically interact
       with Airbyte. It is available for all Airbyte products: Airbyte OSS, ...
-    humanURL: https://airbyte.com
-    tags:
-      - API
-    properties:
-      - type: Documentation
-        url: https://airbyte.com
+name: Airbyte
+tags:
+  - Integrations
+  - Platform
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+created: '2025-01-08'
+modified: '2025-01-13'
+position: Consumer
+description: >-
+  Airbyte is a data integration platform that enables businesses to easily and
+  efficiently move and consolidate their data from various sources into one
+  centralized location. With Airbyte, organizations can seamlessly connect and
+  synchronize data from sources such as databases, APIs, and other third-party
+  applications, allowing for real-time insights and analysis. By providing a
+  flexible and user-friendly interface, Airbyte empowers businesses to
+  streamline their data integration process, ultimately improving data accuracy,
+  accessibility, and decision-making capabilities.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
+specificationVersion: '0.19'
