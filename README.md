@@ -16,7 +16,7 @@ Airbyte is a data integration platform that enables businesses to easily and eff
 ## Timestamps
 
 - **Created:** 2025-01-08 
-- **Modified:** 2025-01-13 
+- **Modified:** 2025-02-12 
 
 ## APIs
 
@@ -42,6 +42,13 @@ The Airbyte API provides a way for developers to programmatically interact with 
 - [Tutorials](https://airbyte.com/tutorials)
 - [Support](https://support.airbyte.com/hc/en-us)
 - [ChangeLog](https://docs.airbyte.com/category/release-notes/?_gl=1*d945eo*_gcl_au*MTMwNzI2OTU2MC4xNzM2Nzk3MDM1)
+- [GitHubOrganization](https://github.com/airbytehq)
+- [RoadMap](https://github.com/orgs/airbytehq/projects/37/views/1)
+- [Tutorials](https://airbyte.com/tutorials)
+- [Support](https://support.airbyte.com/hc/en-us)
+- [PrivacyPolicy](https://airbyte.com/company/privacy-policy)
+- [TermsOfService](https://airbyte.com/company/terms)
+- [Newsletter](https://airbyte.com/community/newsletter)
 
 ## Maintainers
 
