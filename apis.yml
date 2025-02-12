@@ -5,7 +5,10 @@ apis:
   - aid: airbyte:airbyte
     name: Airbyte
     tags:
-      - API
+      - Integrations
+      - Workflows
+      - Sync
+      - Pipelines
     humanURL: https://airbyte.com
     properties:
       - url: https://airbyte.com
