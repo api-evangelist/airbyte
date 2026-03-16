@@ -74,7 +74,7 @@ common:
     type: Newsletter
     description: 'null'
 created: '2025-01-08'
-modified: '2026-01-02'
+modified: '2026-03-16'
 position: Consumer
 description: >-
   Airbyte is a data integration platform that enables businesses to easily and
@@ -87,5 +87,5 @@ description: >-
   accessibility, and decision-making capabilities.
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
