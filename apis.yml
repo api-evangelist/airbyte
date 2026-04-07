@@ -77,14 +77,11 @@ created: '2025-01-08'
 modified: '2026-03-16'
 position: Consumer
 description: >-
-  Airbyte is a data integration platform that enables businesses to easily and
-  efficiently move and consolidate their data from various sources into one
-  centralized location. With Airbyte, organizations can seamlessly connect and
-  synchronize data from sources such as databases, APIs, and other third-party
-  applications, allowing for real-time insights and analysis. By providing a
-  flexible and user-friendly interface, Airbyte empowers businesses to
-  streamline their data integration process, ultimately improving data accuracy,
-  accessibility, and decision-making capabilities.
+  Airbyte is a data integration platform that enables businesses to easily and efficiently
+  move and consolidate their data from various sources into one centralized location.
+  With Airbyte, organizations can seamlessly connect and synchronize data from sources
+  such as databases, APIs, and other third-party applications, allowing for real-time
+  insights and analysis.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
