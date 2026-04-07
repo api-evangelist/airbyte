@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: airbyte:airbyte
     name: Airbyte
-    tags:
-      - API
+    tags: []
     humanURL: https://airbyte.com
     properties:
       - url: https://airbyte.com
@@ -15,9 +14,9 @@ apis:
       with Airbyte. It is available for all Airbyte products: Airbyte OSS, ...
 name: Airbyte
 tags:
+  - Data
   - Integrations
   - Platform
-  - Data
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
