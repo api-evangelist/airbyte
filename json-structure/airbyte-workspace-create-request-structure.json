@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-workspace-create-request-structure.json",
+  "name": "WorkspaceCreateRequest",
+  "description": "WorkspaceCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the workspace",
+      "type": "string"
+    },
+    "organizationId": {
+      "description": "ID of organization to add workspace to.",
+      "type": "uuid"
+    },
+    "notifications": {
+      "$ref": "#/components/schemas/NotificationsConfig"
+    },
+    "regionId": {
+      "type": "uuid"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

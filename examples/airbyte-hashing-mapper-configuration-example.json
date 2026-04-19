@@ -1,0 +1,5 @@
+{
+  "fieldNameSuffix": "example-fieldnamesuffix",
+  "method": "SHA-512",
+  "targetField": "example-value"
+}

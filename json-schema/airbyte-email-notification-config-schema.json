@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-email-notification-config-schema.json",
+  "title": "EmailNotificationConfig",
+  "description": "Configures an email notification.",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    }
+  }
+}

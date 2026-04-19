@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-organization-response-schema.json",
+  "title": "OrganizationResponse",
+  "description": "Provides details of a single organization for a user.",
+  "type": "object",
+  "properties": {
+    "organizationId": {
+      "$ref": "#/components/schemas/OrganizationId"
+    },
+    "organizationName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "required": [
+    "organizationId",
+    "organizationName",
+    "email"
+  ]
+}

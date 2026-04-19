@@ -1,0 +1,8 @@
+{
+  "cpu_request": "example-value",
+  "cpu_limit": "example-value",
+  "memory_request": "example-value",
+  "memory_limit": "example-value",
+  "ephemeral_storage_request": "example-value",
+  "ephemeral_storage_limit": "example-value"
+}

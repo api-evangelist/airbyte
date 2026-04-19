@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-destination-put-request-schema.json",
+  "title": "DestinationPutRequest",
+  "description": "DestinationPutRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/DestinationConfiguration"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "name",
+    "configuration"
+  ]
+}

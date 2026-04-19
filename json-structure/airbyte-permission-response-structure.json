@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-permission-response-structure.json",
+  "name": "PermissionResponse",
+  "description": "Provides details of a single permission.",
+  "type": "object",
+  "properties": {
+    "permissionId": {
+      "type": "uuid"
+    },
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "userId": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    },
+    "organizationId": {
+      "$ref": "#/components/schemas/OrganizationId"
+    }
+  },
+  "required": [
+    "permissionId",
+    "permissionType",
+    "userId"
+  ]
+}

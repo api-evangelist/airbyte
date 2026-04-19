@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-tag-response-structure.json",
+  "name": "TagResponse",
+  "description": "Provides details of a single tag.",
+  "type": "object",
+  "properties": {
+    "tagId": {
+      "$ref": "#/components/schemas/TagId"
+    },
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "description": "A hexadecimal color value",
+      "type": "string"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    }
+  },
+  "required": [
+    "tagId",
+    "name",
+    "color",
+    "workspaceId"
+  ]
+}

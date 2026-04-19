@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-source-patch-request-schema.json",
+  "title": "SourcePatchRequest",
+  "description": "SourcePatchRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "My source"
+    },
+    "workspaceId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "secretId": {
+      "description": "Optional secretID obtained through the  OAuth redirect flow.",
+      "type": "string"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-groups-response-structure.json",
+  "name": "GroupsResponse",
+  "description": "List/Array of multiple groups",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupResponse"
+      }
+    },
+    "next": {
+      "type": "string",
+      "description": "Link to the next page of results",
+      "nullable": true
+    },
+    "previous": {
+      "type": "string",
+      "description": "Link to the previous page of results",
+      "nullable": true
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

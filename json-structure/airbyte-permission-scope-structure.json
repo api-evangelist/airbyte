@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-permission-scope-structure.json",
+  "name": "PermissionScope",
+  "description": "Scope of a single permission, e.g. workspace, organization",
+  "type": "string",
+  "enum": [
+    "workspace",
+    "organization",
+    "none"
+  ]
+}

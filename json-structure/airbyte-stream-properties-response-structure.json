@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-stream-properties-response-structure.json",
+  "name": "StreamPropertiesResponse",
+  "description": "A list of stream properties.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/StreamProperties"
+  }
+}

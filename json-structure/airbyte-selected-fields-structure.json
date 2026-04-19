@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-selected-fields-structure.json",
+  "name": "SelectedFields",
+  "description": "Paths to the fields that will be included in the configured catalog.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SelectedFieldInfo"
+  },
+  "format": "set"
+}

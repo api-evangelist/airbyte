@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-non-breaking-schema-updates-behavior-enum-structure.json",
+  "name": "NonBreakingSchemaUpdatesBehaviorEnum",
+  "description": "Set how Airbyte handles syncs when it detects a non-breaking schema change in the source",
+  "type": "string",
+  "enum": [
+    "ignore",
+    "disable_connection",
+    "propagate_columns",
+    "propagate_fully"
+  ],
+  "default": "ignore"
+}

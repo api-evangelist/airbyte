@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-connections-response-structure.json",
+  "name": "ConnectionsResponse",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "previous": {
+      "type": "string"
+    },
+    "next": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConnectionResponse"
+      },
+      "default": []
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

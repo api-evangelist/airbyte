@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-group-response-schema.json",
+  "title": "GroupResponse",
+  "description": "Provides details of a single group",
+  "type": "object",
+  "properties": {
+    "groupId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the group"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the group"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional description of the group"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the organization the group belongs to"
+    },
+    "memberCount": {
+      "type": "integer",
+      "format": "int64",
+      "description": "The number of members in the group"
+    }
+  },
+  "required": [
+    "groupId",
+    "name",
+    "organizationId",
+    "memberCount"
+  ]
+}

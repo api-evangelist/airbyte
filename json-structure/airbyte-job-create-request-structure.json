@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-job-create-request-structure.json",
+  "name": "JobCreateRequest",
+  "description": "Creates a new Job from the configuration provided in the request body.",
+  "type": "object",
+  "properties": {
+    "connectionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "jobType": {
+      "$ref": "#/components/schemas/JobTypeEnum"
+    }
+  },
+  "required": [
+    "jobType",
+    "connectionId"
+  ]
+}

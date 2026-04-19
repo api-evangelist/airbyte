@@ -1,0 +1,6 @@
+{
+  "name": "example-name",
+  "organizationId": "abc123def456",
+  "notifications": "example-value",
+  "regionId": "abc123def456"
+}

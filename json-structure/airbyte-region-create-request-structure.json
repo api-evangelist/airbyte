@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-region-create-request-structure.json",
+  "name": "RegionCreateRequest",
+  "description": "RegionCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name",
+    "organizationId"
+  ]
+}

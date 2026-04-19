@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-stream-configurations-structure.json",
+  "name": "StreamConfigurations",
+  "description": "A list of configured stream options for a connection.",
+  "type": "object",
+  "properties": {
+    "streams": {
+      "type": "array",
+      "format": "set",
+      "items": {
+        "$ref": "#/components/schemas/StreamConfiguration"
+      }
+    }
+  }
+}

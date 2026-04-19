@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-job-type-enum-structure.json",
+  "name": "JobTypeEnum",
+  "description": "Enum that describes the different types of jobs that the platform runs.",
+  "type": "string",
+  "enum": [
+    "sync",
+    "reset",
+    "refresh",
+    "clear"
+  ]
+}

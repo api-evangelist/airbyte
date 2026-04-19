@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-update-declarative-source-definition-request-structure.json",
+  "name": "UpdateDeclarativeSourceDefinitionRequest",
+  "description": "UpdateDeclarativeSourceDefinitionRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "manifest": {
+      "$ref": "#/components/schemas/DeclarativeManifest"
+    }
+  },
+  "required": [
+    "manifest"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-permission-create-request-schema.json",
+  "title": "PermissionCreateRequest",
+  "description": "PermissionCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "permissionType": {
+      "$ref": "#/components/schemas/PublicPermissionType"
+    },
+    "userId": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    },
+    "organizationId": {
+      "$ref": "#/components/schemas/OrganizationId"
+    }
+  },
+  "required": [
+    "permissionType",
+    "userId"
+  ]
+}

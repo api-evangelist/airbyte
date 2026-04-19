@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-embedded-widget-request-structure.json",
+  "name": "EmbeddedWidgetRequest",
+  "description": "EmbeddedWidgetRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "allowedOrigin": {
+      "type": "string"
+    },
+    "externalUserId": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "uuid"
+    }
+  },
+  "required": [
+    "allowedOrigin",
+    "externalUserId",
+    "organizationId"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-application-token-request-with-grant-schema.json",
+  "title": "ApplicationTokenRequestWithGrant",
+  "description": "ApplicationTokenRequestWithGrant schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "client_secret": {
+      "type": "string"
+    },
+    "grant-type": {
+      "enum": [
+        "client_credentials"
+      ]
+    }
+  },
+  "required": [
+    "client_id",
+    "client_secret",
+    "grant_type"
+  ]
+}

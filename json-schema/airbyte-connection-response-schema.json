@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-connection-response-schema.json",
+  "title": "ConnectionResponse",
+  "description": "Provides details of a single connection.",
+  "type": "object",
+  "properties": {
+    "connectionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sourceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "destinationId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ConnectionStatusEnum"
+    },
+    "schedule": {
+      "$ref": "#/components/schemas/ConnectionScheduleResponse"
+    },
+    "nonBreakingSchemaUpdatesBehavior": {
+      "$ref": "#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnum"
+    },
+    "namespaceDefinition": {
+      "$ref": "#/components/schemas/NamespaceDefinitionEnum"
+    },
+    "namespaceFormat": {
+      "type": "string"
+    },
+    "prefix": {
+      "type": "string"
+    },
+    "configurations": {
+      "$ref": "#/components/schemas/StreamConfigurations"
+    },
+    "createdAt": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    },
+    "statusReason": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "connectionId",
+    "name",
+    "sourceId",
+    "destinationId",
+    "workspaceId",
+    "status",
+    "schedule",
+    "configurations",
+    "createdAt",
+    "tags"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-stream-mapper-type-structure.json",
+  "name": "StreamMapperType",
+  "description": "StreamMapperType schema from Airbyte API",
+  "type": "string",
+  "enum": [
+    "hashing",
+    "field-renaming",
+    "row-filtering",
+    "encryption",
+    "field-filtering"
+  ]
+}

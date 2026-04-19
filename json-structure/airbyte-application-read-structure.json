@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-application-read-structure.json",
+  "name": "ApplicationRead",
+  "description": "ApplicationRead schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "clientSecret": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "int64"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "clientId",
+    "clientSecret",
+    "createdAt"
+  ]
+}

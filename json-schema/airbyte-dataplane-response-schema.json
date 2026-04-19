@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-dataplane-response-schema.json",
+  "title": "DataplaneResponse",
+  "description": "DataplaneResponse schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "dataplaneId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "regionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataplaneId",
+    "name",
+    "regionId",
+    "enabled",
+    "createdAt",
+    "updatedAt"
+  ]
+}

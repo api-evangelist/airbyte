@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-namespace-definition-enum-schema.json",
+  "title": "NamespaceDefinitionEnum",
+  "description": "Define the location where the data will be stored in the destination",
+  "type": "string",
+  "enum": [
+    "source",
+    "destination",
+    "custom_format"
+  ],
+  "default": "destination"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-user-response-schema.json",
+  "title": "UserResponse",
+  "description": "Provides details of a single user in an organization.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the user",
+      "type": "string"
+    },
+    "id": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "email"
+  ]
+}

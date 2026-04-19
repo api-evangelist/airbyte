@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-workspace-response-structure.json",
+  "name": "WorkspaceResponse",
+  "description": "Provides details of a single workspace.",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "dataResidency": {
+      "type": "string"
+    },
+    "notifications": {
+      "$ref": "#/components/schemas/NotificationsConfig"
+    }
+  },
+  "required": [
+    "workspaceId",
+    "name",
+    "dataResidency",
+    "notifications"
+  ]
+}

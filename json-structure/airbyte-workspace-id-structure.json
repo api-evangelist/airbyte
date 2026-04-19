@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-workspace-id-structure.json",
+  "name": "WorkspaceId",
+  "description": "WorkspaceId schema from Airbyte API",
+  "type": "uuid"
+}

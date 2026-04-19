@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-tag-create-request-schema.json",
+  "title": "TagCreateRequest",
+  "description": "TagCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    }
+  },
+  "required": [
+    "name",
+    "color",
+    "workspaceId"
+  ]
+}

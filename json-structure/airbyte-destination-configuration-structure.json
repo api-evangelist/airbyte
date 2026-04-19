@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-destination-configuration-structure.json",
+  "name": "DestinationConfiguration",
+  "description": "The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.",
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "destinationId": "abc123def456",
+  "name": "example-name",
+  "destinationType": "standard",
+  "definitionId": "abc123def456",
+  "workspaceId": "abc123def456",
+  "configuration": "example-value",
+  "createdAt": 85,
+  "resourceAllocation": "example-value"
+}

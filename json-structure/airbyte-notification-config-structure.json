@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-notification-config-structure.json",
+  "name": "NotificationConfig",
+  "description": "Configures a notification.",
+  "type": "object",
+  "properties": {
+    "email": {
+      "$ref": "#/components/schemas/EmailNotificationConfig"
+    },
+    "webhook": {
+      "$ref": "#/components/schemas/WebhookNotificationConfig"
+    }
+  }
+}

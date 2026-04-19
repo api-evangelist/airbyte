@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-airbyte-api-connection-schedule-schema.json",
+  "title": "AirbyteApiConnectionSchedule",
+  "description": "schedule for when the the connection should run, per the schedule type",
+  "type": "object",
+  "properties": {
+    "scheduleType": {
+      "$ref": "#/components/schemas/ScheduleTypeEnum"
+    },
+    "cronExpression": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "scheduleType"
+  ]
+}

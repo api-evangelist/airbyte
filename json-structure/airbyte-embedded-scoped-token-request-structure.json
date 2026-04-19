@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-embedded-scoped-token-request-structure.json",
+  "name": "EmbeddedScopedTokenRequest",
+  "description": "EmbeddedScopedTokenRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "workspaceId": {
+      "type": "uuid"
+    }
+  },
+  "required": [
+    "workspaceId"
+  ]
+}

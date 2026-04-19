@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-tag-structure.json",
+  "name": "Tag",
+  "description": "A tag that can be associated with a connection. Useful for grouping and organizing connections in a workspace.",
+  "type": "object",
+  "properties": {
+    "tagId": {
+      "$ref": "#/components/schemas/TagId"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    },
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "tagId",
+    "workspaceId",
+    "name",
+    "color"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-schedule-type-with-basic-enum-structure.json",
+  "name": "ScheduleTypeWithBasicEnum",
+  "description": "ScheduleTypeWithBasicEnum schema from Airbyte API",
+  "type": "string",
+  "enum": [
+    "manual",
+    "cron",
+    "basic"
+  ]
+}

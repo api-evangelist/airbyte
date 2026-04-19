@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-permission-update-request-schema.json",
+  "title": "PermissionUpdateRequest",
+  "description": "PermissionUpdateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    }
+  },
+  "required": [
+    "permissionType"
+  ]
+}

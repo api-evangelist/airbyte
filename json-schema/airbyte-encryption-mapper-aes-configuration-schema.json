@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-encryption-mapper-aes-configuration-schema.json",
+  "title": "EncryptionMapperAESConfiguration",
+  "description": "EncryptionMapperAESConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "algorithm": {
+      "$ref": "#/components/schemas/EncryptionMapperAlgorithm"
+    },
+    "fieldNameSuffix": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string",
+      "x-speakeasy-param-sensitive": true
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "CBC",
+        "CFB",
+        "OFB",
+        "CTR",
+        "GCM",
+        "ECB"
+      ]
+    },
+    "padding": {
+      "type": "string",
+      "enum": [
+        "NoPadding",
+        "PKCS5Padding"
+      ]
+    },
+    "targetField": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "algorithm",
+    "key",
+    "mode",
+    "padding",
+    "targetField",
+    "fieldNameSuffix"
+  ]
+}

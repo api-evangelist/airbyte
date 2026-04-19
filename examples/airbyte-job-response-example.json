@@ -1,0 +1,11 @@
+{
+  "jobId": 71,
+  "status": "active",
+  "jobType": "standard",
+  "startTime": "example-value",
+  "connectionId": "abc123def456",
+  "lastUpdatedAt": "example-value",
+  "duration": "example-value",
+  "bytesSynced": 59,
+  "rowsSynced": 89
+}

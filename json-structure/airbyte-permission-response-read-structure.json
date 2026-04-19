@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-permission-response-read-structure.json",
+  "name": "PermissionResponseRead",
+  "description": "Reformat PermissionResponse with permission scope",
+  "type": "object",
+  "properties": {
+    "permissionId": {
+      "type": "uuid"
+    },
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "userId": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "scopeId": {
+      "type": "uuid"
+    },
+    "scope": {
+      "$ref": "#/components/schemas/PermissionScope"
+    }
+  },
+  "required": [
+    "permissionId",
+    "permissionType",
+    "userId",
+    "scope",
+    "scopeId"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "dataplaneId": "abc123def456",
+  "name": "example-name",
+  "regionId": "abc123def456",
+  "enabled": true,
+  "createdAt": "example-value",
+  "updatedAt": "example-value"
+}

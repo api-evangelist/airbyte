@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-destination-response-schema.json",
+  "title": "DestinationResponse",
+  "description": "Provides details of a single destination.",
+  "type": "object",
+  "properties": {
+    "destinationId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "destinationType": {
+      "type": "string"
+    },
+    "definitionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/DestinationConfiguration"
+    },
+    "createdAt": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "destinationId",
+    "name",
+    "destinationType",
+    "definitionId",
+    "workspaceId",
+    "configuration",
+    "createdAt"
+  ]
+}

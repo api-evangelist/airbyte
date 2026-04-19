@@ -1,0 +1,8 @@
+{
+  "failure": "example-value",
+  "success": "example-value",
+  "connectionUpdate": "example-value",
+  "connectionUpdateActionRequired": "example-value",
+  "syncDisabled": "example-value",
+  "syncDisabledWarning": "example-value"
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-connection-patch-request-schema.json",
+  "title": "ConnectionPatchRequest",
+  "description": "ConnectionPatchRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Optional name of the connection",
+      "type": "string"
+    },
+    "configurations": {
+      "$ref": "#/components/schemas/StreamConfigurations"
+    },
+    "schedule": {
+      "$ref": "#/components/schemas/AirbyteApiConnectionSchedule"
+    },
+    "dataResidency": {
+      "deprecated": true,
+      "x-speakeasy-deprecation-message": "We no longer support modifying dataResidency on Community and Enterprise connections. All connections will use the dataResidency of their associated workspace.",
+      "type": "string"
+    },
+    "namespaceDefinition": {
+      "$ref": "#/components/schemas/NamespaceDefinitionEnumNoDefault"
+    },
+    "namespaceFormat": {
+      "type": "string",
+      "description": "Used when namespaceDefinition is 'custom_format'. If blank then behaves like namespaceDefinition = 'destination'. If \"${SOURCE_NAMESPACE}\" then behaves like namespaceDefinition = 'source'.",
+      "default": null,
+      "example": "${SOURCE_NAMESPACE}"
+    },
+    "prefix": {
+      "type": "string",
+      "description": "Prefix that will be prepended to the name of each stream when it is written to the destination (ex. \u201cairbyte_\u201d causes \u201cprojects\u201d => \u201cairbyte_projects\u201d)."
+    },
+    "nonBreakingSchemaUpdatesBehavior": {
+      "$ref": "#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnumNoDefault"
+    },
+    "status": {
+      "$ref": "#/components/schemas/ConnectionStatusEnum"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    }
+  }
+}

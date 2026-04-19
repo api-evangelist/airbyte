@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-configured-stream-mapper-schema.json",
+  "title": "ConfiguredStreamMapper",
+  "description": "ConfiguredStreamMapper schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "$ref": "#/components/schemas/StreamMapperType"
+    },
+    "mapperConfiguration": {
+      "$ref": "#/components/schemas/MapperConfiguration"
+    }
+  },
+  "required": [
+    "type",
+    "mapperConfiguration"
+  ]
+}

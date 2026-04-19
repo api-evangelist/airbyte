@@ -1,0 +1,7 @@
+{
+  "name": "example-name",
+  "definitionId": "abc123def456",
+  "workspaceId": "abc123def456",
+  "configuration": "example-value",
+  "resourceAllocation": "example-value"
+}

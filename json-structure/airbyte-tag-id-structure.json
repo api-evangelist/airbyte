@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-tag-id-structure.json",
+  "name": "TagId",
+  "description": "TagId schema from Airbyte API",
+  "type": "uuid"
+}

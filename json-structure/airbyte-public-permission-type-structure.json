@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-public-permission-type-structure.json",
+  "name": "PublicPermissionType",
+  "description": "Subset of `PermissionType` (removing `instance_admin`), could be used in public-api.",
+  "type": "string",
+  "enum": [
+    "organization_admin",
+    "organization_editor",
+    "organization_runner",
+    "organization_reader",
+    "organization_member",
+    "workspace_admin",
+    "workspace_editor",
+    "workspace_runner",
+    "workspace_reader"
+  ]
+}

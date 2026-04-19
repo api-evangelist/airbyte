@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-stream-properties-schema.json",
+  "title": "StreamProperties",
+  "description": "The stream properties associated with a connection.",
+  "type": "object",
+  "properties": {
+    "streamName": {
+      "type": "string"
+    },
+    "syncModes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConnectionSyncModeEnum"
+      }
+    },
+    "streamnamespace": {
+      "type": "string"
+    },
+    "defaultCursorField": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceDefinedCursorField": {
+      "type": "boolean"
+    },
+    "sourceDefinedPrimaryKey": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "propertyFields": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

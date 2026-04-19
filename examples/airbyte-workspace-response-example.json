@@ -1,0 +1,6 @@
+{
+  "workspaceId": "abc123def456",
+  "name": "example-name",
+  "dataResidency": "abc123def456",
+  "notifications": "example-value"
+}

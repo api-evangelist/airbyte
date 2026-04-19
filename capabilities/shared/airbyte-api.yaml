@@ -1,0 +1,410 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Airbyte API"
+  description: "Programmatic control over Airbyte data integration platform — sources, destinations, connections, jobs, workspaces, and organizations."
+  tags:
+    - Airbyte
+    - Data Integration
+    - ETL
+    - ELT
+    - Open Source
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AIRBYTE_API_TOKEN: AIRBYTE_API_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: airbyte
+      baseUri: https://api.airbyte.com/v1
+      description: "Airbyte Public API for managing data integration pipelines."
+      authentication:
+        type: bearer
+        token: "{{AIRBYTE_API_TOKEN}}"
+      resources:
+        - name: sources
+          path: /sources
+          description: "Manage data source connectors."
+          operations:
+            - name: list-sources
+              method: GET
+              description: "List all sources in a workspace."
+              inputParameters:
+                - name: workspaceId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by workspace ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-source
+              method: POST
+              description: "Create a new data source."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  workspaceId: "{{tools.workspaceId}}"
+                  name: "{{tools.name}}"
+                  configuration: "{{tools.configuration}}"
+            - name: get-source
+              method: GET
+              description: "Get a source by ID."
+              inputParameters:
+                - name: sourceId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Source ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-source
+              method: DELETE
+              description: "Delete a source by ID."
+              inputParameters:
+                - name: sourceId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Source ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: destinations
+          path: /destinations
+          description: "Manage data destination connectors."
+          operations:
+            - name: list-destinations
+              method: GET
+              description: "List all destinations in a workspace."
+              inputParameters:
+                - name: workspaceId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by workspace ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-destination
+              method: POST
+              description: "Create a new destination."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  workspaceId: "{{tools.workspaceId}}"
+                  name: "{{tools.name}}"
+                  configuration: "{{tools.configuration}}"
+
+        - name: connections
+          path: /connections
+          description: "Manage connections between sources and destinations."
+          operations:
+            - name: list-connections
+              method: GET
+              description: "List all connections in a workspace."
+              inputParameters:
+                - name: workspaceId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by workspace ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-connection
+              method: POST
+              description: "Create a connection between a source and destination."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  sourceId: "{{tools.sourceId}}"
+                  destinationId: "{{tools.destinationId}}"
+                  name: "{{tools.name}}"
+            - name: get-connection
+              method: GET
+              description: "Get a connection by ID."
+              inputParameters:
+                - name: connectionId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Connection ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: jobs
+          path: /jobs
+          description: "Monitor and trigger sync jobs."
+          operations:
+            - name: list-jobs
+              method: GET
+              description: "List sync jobs with optional filtering."
+              inputParameters:
+                - name: connectionId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by connection ID."
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by job status."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-job
+              method: POST
+              description: "Trigger a new sync job."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  connectionId: "{{tools.connectionId}}"
+                  jobType: "{{tools.jobType}}"
+            - name: get-job
+              method: GET
+              description: "Get job status by ID."
+              inputParameters:
+                - name: jobId
+                  in: path
+                  type: integer
+                  required: true
+                  description: "Job ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: workspaces
+          path: /workspaces
+          description: "Manage workspaces for organizing resources."
+          operations:
+            - name: list-workspaces
+              method: GET
+              description: "List all workspaces."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-workspace
+              method: GET
+              description: "Get a workspace by ID."
+              inputParameters:
+                - name: workspaceId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Workspace ID."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: organizations
+          path: /organizations
+          description: "Manage organizations and users."
+          operations:
+            - name: list-organizations
+              method: GET
+              description: "List organizations the current user belongs to."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: airbyte-rest-api
+      resources:
+        - path: /v1/sources
+          name: sources
+          description: "Airbyte data sources."
+          operations:
+            - method: GET
+              name: list-sources
+              description: "List all sources."
+              call: "airbyte.list-sources"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-source
+              description: "Create a source."
+              call: "airbyte.create-source"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/destinations
+          name: destinations
+          description: "Airbyte data destinations."
+          operations:
+            - method: GET
+              name: list-destinations
+              description: "List all destinations."
+              call: "airbyte.list-destinations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/connections
+          name: connections
+          description: "Airbyte connections."
+          operations:
+            - method: GET
+              name: list-connections
+              description: "List all connections."
+              call: "airbyte.list-connections"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/jobs
+          name: jobs
+          description: "Airbyte sync jobs."
+          operations:
+            - method: GET
+              name: list-jobs
+              description: "List sync jobs."
+              call: "airbyte.list-jobs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: trigger-job
+              description: "Trigger a sync job."
+              call: "airbyte.create-job"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: airbyte-mcp
+      transport: http
+      tools:
+        - name: list-sources
+          description: "List Airbyte data source connectors."
+          hints:
+            readOnly: true
+          call: "airbyte.list-sources"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-source
+          description: "Create an Airbyte data source connector."
+          hints:
+            readOnly: false
+          call: "airbyte.create-source"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-destinations
+          description: "List Airbyte data destination connectors."
+          hints:
+            readOnly: true
+          call: "airbyte.list-destinations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-destination
+          description: "Create an Airbyte data destination connector."
+          hints:
+            readOnly: false
+          call: "airbyte.create-destination"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-connections
+          description: "List Airbyte connections between sources and destinations."
+          hints:
+            readOnly: true
+          call: "airbyte.list-connections"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-connection
+          description: "Create a connection between a source and destination."
+          hints:
+            readOnly: false
+          call: "airbyte.create-connection"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-jobs
+          description: "List Airbyte sync jobs."
+          hints:
+            readOnly: true
+          call: "airbyte.list-jobs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: trigger-sync
+          description: "Trigger an Airbyte sync job for a connection."
+          hints:
+            readOnly: false
+          call: "airbyte.create-job"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-job-status
+          description: "Get the status of an Airbyte sync job."
+          hints:
+            readOnly: true
+          call: "airbyte.get-job"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-workspaces
+          description: "List Airbyte workspaces."
+          hints:
+            readOnly: true
+          call: "airbyte.list-workspaces"
+          outputParameters:
+            - type: object
+              mapping: "$."

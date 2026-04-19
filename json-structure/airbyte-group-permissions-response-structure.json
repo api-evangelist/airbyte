@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-group-permissions-response-structure.json",
+  "name": "GroupPermissionsResponse",
+  "description": "List/Array of group permissions",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupPermissionResponse"
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "example-name",
+  "namespace": "example-namespace",
+  "syncMode": "example-value",
+  "cursorField": [
+    "example-value"
+  ],
+  "primaryKey": [
+    [
+      "example-value"
+    ]
+  ],
+  "includeFiles": true,
+  "destinationObjectName": "example-destinationobjectname",
+  "selectedFields": "example-value",
+  "mappers": [
+    "example-value"
+  ]
+}

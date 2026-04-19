@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-field-renaming-mapper-configuration-structure.json",
+  "name": "FieldRenamingMapperConfiguration",
+  "description": "FieldRenamingMapperConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "newFieldName": {
+      "type": "string",
+      "title": "New Field Name",
+      "description": "The new name for the field after renaming."
+    },
+    "originalFieldName": {
+      "type": "string",
+      "title": "Original Field Name",
+      "description": "The current name of the field to rename."
+    }
+  },
+  "required": [
+    "newFieldName",
+    "originalFieldName"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-connector-definition-response-schema.json",
+  "title": "ConnectorDefinitionResponse",
+  "description": "Provides details of a single connector definition.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "connectorDefinitionType": {
+      "$ref": "#/components/schemas/ConnectorType"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "connectorDefinitionType",
+    "name",
+    "version"
+  ]
+}

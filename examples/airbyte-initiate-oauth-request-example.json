@@ -1,0 +1,13 @@
+{
+  "name": "example-name",
+  "sourceType": "standard",
+  "redirectUrl": "https://example.com/resource",
+  "workspaceId": "abc123def456",
+  "oAuthInputConfiguration": "example-value",
+  "requestedScopes": [
+    "example-value"
+  ],
+  "requestedOptionalScopes": [
+    "example-value"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "regionId": "abc123def456",
+  "name": "example-name",
+  "organizationId": "abc123def456",
+  "enabled": true,
+  "createdAt": "example-value",
+  "updatedAt": "example-value"
+}

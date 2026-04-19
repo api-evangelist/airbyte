@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-group-create-request-schema.json",
+  "title": "GroupCreateRequest",
+  "description": "Request body for creating a group",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the group"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "Optional description of the group"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the organization the group belongs to"
+    }
+  },
+  "required": [
+    "name",
+    "organizationId"
+  ]
+}

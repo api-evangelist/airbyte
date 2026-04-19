@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-update-declarative-source-definition-request-schema.json",
+  "title": "UpdateDeclarativeSourceDefinitionRequest",
+  "description": "UpdateDeclarativeSourceDefinitionRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "manifest": {
+      "$ref": "#/components/schemas/DeclarativeManifest"
+    }
+  },
+  "required": [
+    "manifest"
+  ]
+}

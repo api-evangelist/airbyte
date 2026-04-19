@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-group-update-request-structure.json",
+  "name": "GroupUpdateRequest",
+  "description": "Request body for updating a group",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The updated name of the group"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "The updated description of the group"
+    }
+  }
+}

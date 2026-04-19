@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-source-create-request-structure.json",
+  "name": "SourceCreateRequest",
+  "description": "SourceCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the source e.g. dev-mysql-instance.",
+      "type": "string"
+    },
+    "definitionId": {
+      "description": "The UUID of the connector definition. One of configuration.sourceType or definitionId must be provided.",
+      "type": "uuid"
+    },
+    "workspaceId": {
+      "type": "uuid"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "secretId": {
+      "description": "Optional secretID obtained through the  OAuth redirect flow.",
+      "type": "string"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "name",
+    "workspaceId",
+    "configuration"
+  ]
+}

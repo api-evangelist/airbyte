@@ -1,0 +1,236 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Airbyte"
+  description: "Unified taxonomy of the Airbyte data integration platform, covering the operational API surface (sources, destinations, connections, jobs) and capability workflows for data engineering personas."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: Airbyte Public API
+      namespace: airbyte
+      version: "1.0.0"
+      baseUrl: https://api.airbyte.com/v1
+      status: active
+      description: "Programmatic control over Airbyte Cloud, OSS & Enterprise."
+
+  resources:
+    - name: sources
+      api: airbyte
+      description: "Data source connectors (databases, SaaS APIs, files)."
+      actions: [list, create, get, update, delete]
+    - name: destinations
+      api: airbyte
+      description: "Data destination connectors (warehouses, lakes, databases)."
+      actions: [list, create, get, update, delete]
+    - name: connections
+      api: airbyte
+      description: "Links between sources and destinations with sync configuration."
+      actions: [list, create, get, update, delete]
+    - name: jobs
+      api: airbyte
+      description: "Sync job executions for connections."
+      actions: [list, create, get, cancel]
+    - name: workspaces
+      api: airbyte
+      description: "Organizational units for grouping resources."
+      actions: [list, create, get, update, delete]
+    - name: organizations
+      api: airbyte
+      description: "Top-level organizational accounts."
+      actions: [list, get, update]
+    - name: users
+      api: airbyte
+      description: "User accounts within an organization."
+      actions: [list, get, create, delete]
+    - name: permissions
+      api: airbyte
+      description: "Access control permissions for resources."
+      actions: [list, create, get, delete]
+    - name: connector-definitions
+      api: airbyte
+      description: "Available connector types for sources and destinations."
+      actions: [list, get]
+    - name: applications
+      api: airbyte
+      description: "API applications for programmatic access."
+      actions: [list, create, get, delete]
+    - name: streams
+      api: airbyte
+      description: "Individual data streams within a source connection."
+      actions: [list, get]
+
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+      description: "Retrieve a paginated collection of resources."
+    - name: get
+      methods: [GET]
+      pattern: read
+      description: "Retrieve a single resource by ID."
+    - name: create
+      methods: [POST]
+      pattern: write
+      description: "Create a new resource."
+    - name: update
+      methods: [PUT, PATCH]
+      pattern: write
+      description: "Update an existing resource."
+    - name: delete
+      methods: [DELETE]
+      pattern: destructive
+      description: "Delete a resource by ID."
+    - name: trigger
+      methods: [POST]
+      pattern: write
+      description: "Trigger an async operation (sync job)."
+    - name: cancel
+      methods: [DELETE, POST]
+      pattern: write
+      description: "Cancel an in-progress operation."
+
+  schemas:
+    core:
+      - name: SourceResponse
+        description: "Source connector configuration and status."
+      - name: DestinationResponse
+        description: "Destination connector configuration and status."
+      - name: ConnectionResponse
+        description: "Connection configuration between source and destination."
+      - name: JobResponse
+        description: "Sync job execution details and status."
+      - name: WorkspaceResponse
+        description: "Workspace configuration."
+    admin:
+      - name: UserResponse
+        description: "User account details."
+      - name: PermissionResponse
+        description: "Access control permission details."
+      - name: OrganizationResponse
+        description: "Organization account details."
+
+  parameters:
+    pagination:
+      - name: limit
+        type: integer
+        description: "Number of results per page."
+      - name: offset
+        type: integer
+        description: "Offset for pagination."
+    identifiers:
+      - name: sourceId
+        type: string
+        description: "Unique identifier for a source."
+      - name: destinationId
+        type: string
+        description: "Unique identifier for a destination."
+      - name: connectionId
+        type: string
+        description: "Unique identifier for a connection."
+      - name: jobId
+        type: integer
+        description: "Unique identifier for a job."
+      - name: workspaceId
+        type: string
+        description: "Unique identifier for a workspace."
+    filters:
+      - name: status
+        type: string
+        description: "Filter by status (running, succeeded, failed, cancelled)."
+      - name: workspaceId
+        type: string
+        description: "Filter resources by workspace."
+
+  enums:
+    job_status:
+      - pending
+      - running
+      - incomplete
+      - failed
+      - succeeded
+      - cancelled
+    connection_status:
+      - active
+      - inactive
+      - deprecated
+    schedule_type:
+      - manual
+      - basic
+      - cron
+
+  authentication:
+    schemes:
+      - type: bearer
+        description: "Short-lived access token obtained via Airbyte UI Settings > Applications."
+        apis: [airbyte]
+
+capability:
+  workflows:
+    - name: Data Pipeline Management
+      file: capabilities/data-pipeline-management.yaml
+      description: "Manage Airbyte sources, destinations, connections, and sync jobs."
+      apis: [airbyte]
+      tools: 11
+      personas: [Data Engineer, Platform Admin]
+      domains: [Data Integration, Pipeline Operations]
+
+  personas:
+    - id: data-engineer
+      name: Data Engineer
+      description: "Builds and maintains data pipelines using Airbyte connectors and connections."
+      workflows: [Data Pipeline Management]
+    - id: platform-admin
+      name: Platform Admin
+      description: "Manages Airbyte workspaces, users, permissions, and organizational settings."
+      workflows: [Data Pipeline Management]
+
+  domains:
+    - name: Data Integration
+      description: "Moving data between sources and destinations."
+      resources: [sources, destinations, connections]
+    - name: Pipeline Operations
+      description: "Monitoring and operating sync pipelines."
+      resources: [jobs, streams]
+    - name: Administration
+      description: "User, workspace, and organizational management."
+      resources: [workspaces, organizations, users, permissions]
+
+  namespaces:
+    - name: airbyte
+      type: consumed
+      baseUri: https://api.airbyte.com/v1
+    - name: airbyte-pipeline-api
+      type: rest
+      port: 8080
+    - name: airbyte-pipeline-mcp
+      type: mcp
+      port: 9090
+
+  binds:
+    - name: AIRBYTE_API_TOKEN
+      description: "Bearer token for authenticating with the Airbyte API."
+      workflows: [Data Pipeline Management]
+
+crossReference:
+  - resource: sources
+    operations: [listSources, createSource, getSource, updateSource, deleteSource]
+    workflows: [Data Pipeline Management]
+    personas: [Data Engineer]
+  - resource: destinations
+    operations: [listDestinations, createDestination, getDestination, updateDestination, deleteDestination]
+    workflows: [Data Pipeline Management]
+    personas: [Data Engineer]
+  - resource: connections
+    operations: [listConnections, createConnection, getConnection, updateConnection, deleteConnection]
+    workflows: [Data Pipeline Management]
+    personas: [Data Engineer]
+  - resource: jobs
+    operations: [listJobs, createJob, getJob, cancelJob]
+    workflows: [Data Pipeline Management]
+    personas: [Data Engineer, Platform Admin]
+  - resource: workspaces
+    operations: [listWorkspaces, createWorkspace, getWorkspace, updateWorkspace, deleteWorkspace]
+    workflows: [Data Pipeline Management]
+    personas: [Platform Admin]

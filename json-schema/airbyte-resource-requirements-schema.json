@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-resource-requirements-schema.json",
+  "title": "ResourceRequirements",
+  "description": "optional resource requirements to run workers (blank for unbounded allocations)",
+  "type": "object",
+  "properties": {
+    "cpu_request": {
+      "type": "string"
+    },
+    "cpu_limit": {
+      "type": "string"
+    },
+    "memory_request": {
+      "type": "string"
+    },
+    "memory_limit": {
+      "type": "string"
+    },
+    "ephemeral_storage_request": {
+      "type": "string"
+    },
+    "ephemeral_storage_limit": {
+      "type": "string"
+    }
+  }
+}

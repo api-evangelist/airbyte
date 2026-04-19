@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-organizations-response-schema.json",
+  "title": "OrganizationsResponse",
+  "description": "List/Array of multiple organizations.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/OrganizationResponse"
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

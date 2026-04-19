@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-row-filtering-operation-equal-schema.json",
+  "title": "RowFilteringOperationEqual",
+  "description": "RowFilteringOperationEqual schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "comparisonValue": {
+      "type": "string",
+      "title": "Comparison Value",
+      "description": "The value to compare the field against."
+    },
+    "fieldName": {
+      "type": "string",
+      "title": "Field Name",
+      "description": "The name of the field to apply the operation on."
+    },
+    "type": {
+      "$ref": "#/components/schemas/RowFilteringOperationType"
+    }
+  },
+  "required": [
+    "comparisonValue",
+    "fieldName",
+    "type"
+  ]
+}

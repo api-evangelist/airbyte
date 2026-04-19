@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-actor-definition-id-schema.json",
+  "title": "ActorDefinitionId",
+  "description": "A unique identifier for an actor definition.",
+  "type": "string",
+  "format": "uuid"
+}

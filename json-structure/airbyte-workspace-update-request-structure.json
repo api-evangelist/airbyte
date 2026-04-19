@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-workspace-update-request-structure.json",
+  "name": "WorkspaceUpdateRequest",
+  "description": "WorkspaceUpdateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the workspace",
+      "type": "string"
+    },
+    "notifications": {
+      "$ref": "#/components/schemas/NotificationsConfig"
+    },
+    "regionId": {
+      "type": "uuid"
+    }
+  }
+}

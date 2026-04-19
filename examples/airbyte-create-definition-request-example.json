@@ -1,0 +1,6 @@
+{
+  "name": "example-name",
+  "dockerRepository": "example-value",
+  "dockerImageTag": "example-value",
+  "documentationUrl": "https://example.com/resource"
+}

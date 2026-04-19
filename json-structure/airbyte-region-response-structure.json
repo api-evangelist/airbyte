@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-region-response-structure.json",
+  "name": "RegionResponse",
+  "description": "RegionResponse schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "regionId": {
+      "type": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "regionId",
+    "name",
+    "organizationId",
+    "enabled",
+    "createdAt",
+    "updatedAt"
+  ]
+}

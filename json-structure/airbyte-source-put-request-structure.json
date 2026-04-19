@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-source-put-request-structure.json",
+  "name": "SourcePutRequest",
+  "description": "SourcePutRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "name",
+    "configuration"
+  ]
+}

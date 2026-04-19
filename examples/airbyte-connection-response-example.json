@@ -1,0 +1,19 @@
+{
+  "connectionId": "abc123def456",
+  "name": "example-name",
+  "sourceId": "abc123def456",
+  "destinationId": "abc123def456",
+  "workspaceId": "abc123def456",
+  "status": "active",
+  "schedule": "example-value",
+  "nonBreakingSchemaUpdatesBehavior": "example-value",
+  "namespaceDefinition": "example-namespacedefinition",
+  "namespaceFormat": "example-namespaceformat",
+  "prefix": "example-value",
+  "configurations": "example-value",
+  "createdAt": 1,
+  "tags": [
+    "example-value"
+  ],
+  "statusReason": "active"
+}

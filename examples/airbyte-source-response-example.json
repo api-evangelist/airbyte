@@ -1,0 +1,10 @@
+{
+  "sourceId": "abc123def456",
+  "name": "example-name",
+  "sourceType": "standard",
+  "definitionId": "abc123def456",
+  "workspaceId": "abc123def456",
+  "configuration": "example-value",
+  "createdAt": 59,
+  "resourceAllocation": "example-value"
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-create-definition-request-structure.json",
+  "name": "CreateDefinitionRequest",
+  "description": "CreateDefinitionRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "dockerRepository": {
+      "type": "string"
+    },
+    "dockerImageTag": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "uri"
+    }
+  },
+  "required": [
+    "name",
+    "dockerRepository",
+    "dockerImageTag"
+  ]
+}

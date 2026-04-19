@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-namespace-definition-type-structure.json",
+  "name": "NamespaceDefinitionType",
+  "description": "Method used for computing final namespace in destination",
+  "type": "string",
+  "enum": [
+    "source",
+    "destination",
+    "customformat"
+  ]
+}

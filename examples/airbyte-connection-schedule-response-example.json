@@ -1,0 +1,5 @@
+{
+  "scheduleType": "standard",
+  "cronExpression": "example-value",
+  "basicTiming": "example-value"
+}

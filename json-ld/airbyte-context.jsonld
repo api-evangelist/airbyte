@@ -1,0 +1,539 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "airbyte": "https://airbyte.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "EncryptionMapperAESConfiguration": "airbyte:EncryptionMapperAESConfiguration",
+    "NotificationConfig": "airbyte:NotificationConfig",
+    "ResourceRequirements": "airbyte:ResourceRequirements",
+    "RowFilteringOperation": "airbyte:RowFilteringOperation",
+    "ApplicationCreate": "airbyte:ApplicationCreate",
+    "StreamConfigurations": "airbyte:StreamConfigurations",
+    "GroupMemberResponse": "airbyte:GroupMemberResponse",
+    "CreateDeclarativeSourceDefinitionRequest": "airbyte:CreateDeclarativeSourceDefinitionRequest",
+    "TagResponse": "airbyte:TagResponse",
+    "DataplaneCreateRequest": "airbyte:DataplaneCreateRequest",
+    "PermissionResponseRead": "airbyte:PermissionResponseRead",
+    "DeclarativeSourceDefinitionsResponse": "airbyte:DeclarativeSourceDefinitionsResponse",
+    "EmbeddedWidgetRequest": "airbyte:EmbeddedWidgetRequest",
+    "RowFilteringMapperConfiguration": "airbyte:RowFilteringMapperConfiguration",
+    "EmbeddedWidgetResponse": "airbyte:EmbeddedWidgetResponse",
+    "RegionsResponse": "airbyte:RegionsResponse",
+    "InitiateOauthRequest": "airbyte:InitiateOauthRequest",
+    "TagPatchRequest": "airbyte:TagPatchRequest",
+    "RowFilteringOperationNot": "airbyte:RowFilteringOperationNot",
+    "SourcePutRequest": "airbyte:SourcePutRequest",
+    "WebhookNotificationConfig": "airbyte:WebhookNotificationConfig",
+    "DefinitionsResponse": "airbyte:DefinitionsResponse",
+    "ConnectionResponse": "airbyte:ConnectionResponse",
+    "SourceConfiguration": "airbyte:SourceConfiguration",
+    "SourceResponse": "airbyte:SourceResponse",
+    "DataplaneResponse": "airbyte:DataplaneResponse",
+    "UserResponse": "airbyte:UserResponse",
+    "OAuthCredentialsConfiguration": "airbyte:OAuthCredentialsConfiguration",
+    "GroupPermissionsResponse": "airbyte:GroupPermissionsResponse",
+    "EmailNotificationConfig": "airbyte:EmailNotificationConfig",
+    "ConnectionsResponse": "airbyte:ConnectionsResponse",
+    "TagsResponse": "airbyte:TagsResponse",
+    "JobTypeResourceLimit": "airbyte:JobTypeResourceLimit",
+    "RegionPatchRequest": "airbyte:RegionPatchRequest",
+    "FieldRenamingMapperConfiguration": "airbyte:FieldRenamingMapperConfiguration",
+    "EmbeddedOrganizationListItem": "airbyte:EmbeddedOrganizationListItem",
+    "StreamConfiguration": "airbyte:StreamConfiguration",
+    "WorkspaceResponse": "airbyte:WorkspaceResponse",
+    "EmbeddedOrganizationsList": "airbyte:EmbeddedOrganizationsList",
+    "DefinitionResponse": "airbyte:DefinitionResponse",
+    "ConnectorDefinitionsResponse": "airbyte:ConnectorDefinitionsResponse",
+    "RegionCreateRequest": "airbyte:RegionCreateRequest",
+    "DestinationPatchRequest": "airbyte:DestinationPatchRequest",
+    "SourceDefinitionSpecification": "airbyte:SourceDefinitionSpecification",
+    "EmbeddedScopedTokenRequest": "airbyte:EmbeddedScopedTokenRequest",
+    "WorkspaceOAuthCredentialsRequest": "airbyte:WorkspaceOAuthCredentialsRequest",
+    "GroupPermissionResponse": "airbyte:GroupPermissionResponse",
+    "PermissionResponse": "airbyte:PermissionResponse",
+    "EncryptionMapperConfiguration": "airbyte:EncryptionMapperConfiguration",
+    "StreamProperties": "airbyte:StreamProperties",
+    "NotificationsConfig": "airbyte:NotificationsConfig",
+    "WorkspaceCreateRequest": "airbyte:WorkspaceCreateRequest",
+    "SelectedFieldInfo": "airbyte:SelectedFieldInfo",
+    "ApplicationTokenRequestWithGrant": "airbyte:ApplicationTokenRequestWithGrant",
+    "RedirectUrlResponse": "airbyte:RedirectUrlResponse",
+    "DeclarativeManifest": "airbyte:DeclarativeManifest",
+    "WorkspacesResponse": "airbyte:WorkspacesResponse",
+    "OrganizationOAuthCredentialsRequest": "airbyte:OrganizationOAuthCredentialsRequest",
+    "GroupCreateRequest": "airbyte:GroupCreateRequest",
+    "CreateDefinitionRequest": "airbyte:CreateDefinitionRequest",
+    "UpdateDeclarativeSourceDefinitionRequest": "airbyte:UpdateDeclarativeSourceDefinitionRequest",
+    "DestinationResponse": "airbyte:DestinationResponse",
+    "DataplanesResponse": "airbyte:DataplanesResponse",
+    "DeclarativeSourceDefinitionResponse": "airbyte:DeclarativeSourceDefinitionResponse",
+    "JobsResponse": "airbyte:JobsResponse",
+    "GroupMemberAddRequest": "airbyte:GroupMemberAddRequest",
+    "UsersResponse": "airbyte:UsersResponse",
+    "DestinationConfiguration": "airbyte:DestinationConfiguration",
+    "SourcesResponse": "airbyte:SourcesResponse",
+    "GroupsResponse": "airbyte:GroupsResponse",
+    "PermissionCreateRequest": "airbyte:PermissionCreateRequest",
+    "UpdateDefinitionRequest": "airbyte:UpdateDefinitionRequest",
+    "ScopedResourceRequirements": "airbyte:ScopedResourceRequirements",
+    "ConfiguredStreamMapper": "airbyte:ConfiguredStreamMapper",
+    "SourceCreateRequest": "airbyte:SourceCreateRequest",
+    "ConnectionCreateRequest": "airbyte:ConnectionCreateRequest",
+    "TagCreateRequest": "airbyte:TagCreateRequest",
+    "ApplicationReadList": "airbyte:ApplicationReadList",
+    "DestinationPutRequest": "airbyte:DestinationPutRequest",
+    "AirbyteApiConnectionSchedule": "airbyte:AirbyteApiConnectionSchedule",
+    "FieldFilteringMapperConfiguration": "airbyte:FieldFilteringMapperConfiguration",
+    "EncryptionMapperRSAConfiguration": "airbyte:EncryptionMapperRSAConfiguration",
+    "JobResponse": "airbyte:JobResponse",
+    "WorkspaceUpdateRequest": "airbyte:WorkspaceUpdateRequest",
+    "Tag": "airbyte:Tag",
+    "ConnectionScheduleResponse": "airbyte:ConnectionScheduleResponse",
+    "GroupUpdateRequest": "airbyte:GroupUpdateRequest",
+    "ConnectorDefinitionResponse": "airbyte:ConnectorDefinitionResponse",
+    "OrganizationResponse": "airbyte:OrganizationResponse",
+    "MapperConfiguration": "airbyte:MapperConfiguration",
+    "RowFilteringOperationEqual": "airbyte:RowFilteringOperationEqual",
+    "DataplanePatchRequest": "airbyte:DataplanePatchRequest",
+    "GroupPermissionCreateRequest": "airbyte:GroupPermissionCreateRequest",
+    "DestinationsResponse": "airbyte:DestinationsResponse",
+    "ApplicationRead": "airbyte:ApplicationRead",
+    "DestinationCreateRequest": "airbyte:DestinationCreateRequest",
+    "GroupMembersResponse": "airbyte:GroupMembersResponse",
+    "OrganizationsResponse": "airbyte:OrganizationsResponse",
+    "PublicAccessTokenResponse": "airbyte:PublicAccessTokenResponse",
+    "RegionResponse": "airbyte:RegionResponse",
+    "HashingMapperConfiguration": "airbyte:HashingMapperConfiguration",
+    "EmbeddedScopedTokenResponse": "airbyte:EmbeddedScopedTokenResponse",
+    "PermissionUpdateRequest": "airbyte:PermissionUpdateRequest",
+    "ConnectionPatchRequest": "airbyte:ConnectionPatchRequest",
+    "GroupResponse": "airbyte:GroupResponse",
+    "SourcePatchRequest": "airbyte:SourcePatchRequest",
+    "PermissionsResponse": "airbyte:PermissionsResponse",
+    "JobCreateRequest": "airbyte:JobCreateRequest",
+    "algorithm": {
+      "@id": "airbyte:algorithm"
+    },
+    "fieldNameSuffix": {
+      "@id": "airbyte:fieldNameSuffix"
+    },
+    "key": {
+      "@id": "airbyte:key"
+    },
+    "mode": {
+      "@id": "airbyte:mode"
+    },
+    "padding": {
+      "@id": "airbyte:padding"
+    },
+    "targetField": {
+      "@id": "airbyte:targetField"
+    },
+    "email": {
+      "@id": "schema:email"
+    },
+    "webhook": {
+      "@id": "airbyte:webhook"
+    },
+    "cpuRequest": {
+      "@id": "airbyte:cpu_request"
+    },
+    "cpuLimit": {
+      "@id": "airbyte:cpu_limit"
+    },
+    "memoryRequest": {
+      "@id": "airbyte:memory_request"
+    },
+    "memoryLimit": {
+      "@id": "airbyte:memory_limit"
+    },
+    "ephemeralStorageRequest": {
+      "@id": "airbyte:ephemeral_storage_request"
+    },
+    "ephemeralStorageLimit": {
+      "@id": "airbyte:ephemeral_storage_limit"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "streams": {
+      "@id": "airbyte:streams",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "memberId": {
+      "@id": "airbyte:memberId"
+    },
+    "groupId": {
+      "@id": "airbyte:groupId"
+    },
+    "userId": {
+      "@id": "airbyte:userId"
+    },
+    "userEmail": {
+      "@id": "airbyte:userEmail"
+    },
+    "userName": {
+      "@id": "airbyte:userName"
+    },
+    "manifest": {
+      "@id": "airbyte:manifest"
+    },
+    "tagId": {
+      "@id": "airbyte:tagId"
+    },
+    "color": {
+      "@id": "airbyte:color"
+    },
+    "workspaceId": {
+      "@id": "airbyte:workspaceId"
+    },
+    "regionId": {
+      "@id": "airbyte:regionId"
+    },
+    "enabled": {
+      "@id": "airbyte:enabled",
+      "@type": "xsd:boolean"
+    },
+    "permissionId": {
+      "@id": "airbyte:permissionId"
+    },
+    "permissionType": {
+      "@id": "airbyte:permissionType"
+    },
+    "scopeId": {
+      "@id": "airbyte:scopeId"
+    },
+    "scope": {
+      "@id": "airbyte:scope"
+    },
+    "previous": {
+      "@id": "airbyte:previous"
+    },
+    "next": {
+      "@id": "airbyte:next"
+    },
+    "data": {
+      "@id": "airbyte:data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "allowedOrigin": {
+      "@id": "airbyte:allowedOrigin"
+    },
+    "externalUserId": {
+      "@id": "airbyte:externalUserId"
+    },
+    "organizationId": {
+      "@id": "airbyte:organizationId"
+    },
+    "conditions": {
+      "@id": "airbyte:conditions"
+    },
+    "token": {
+      "@id": "airbyte:token"
+    },
+    "sourceType": {
+      "@id": "airbyte:sourceType"
+    },
+    "redirectUrl": {
+      "@id": "airbyte:redirectUrl"
+    },
+    "oAuthInputConfiguration": {
+      "@id": "airbyte:oAuthInputConfiguration"
+    },
+    "requestedScopes": {
+      "@id": "airbyte:requestedScopes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "requestedOptionalScopes": {
+      "@id": "airbyte:requestedOptionalScopes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "airbyte:type"
+    },
+    "configuration": {
+      "@id": "airbyte:configuration"
+    },
+    "resourceAllocation": {
+      "@id": "airbyte:resourceAllocation"
+    },
+    "url": {
+      "@id": "schema:url"
+    },
+    "connectionId": {
+      "@id": "airbyte:connectionId"
+    },
+    "sourceId": {
+      "@id": "airbyte:sourceId"
+    },
+    "destinationId": {
+      "@id": "airbyte:destinationId"
+    },
+    "status": {
+      "@id": "airbyte:status"
+    },
+    "schedule": {
+      "@id": "airbyte:schedule"
+    },
+    "nonBreakingSchemaUpdatesBehavior": {
+      "@id": "airbyte:nonBreakingSchemaUpdatesBehavior"
+    },
+    "namespaceDefinition": {
+      "@id": "airbyte:namespaceDefinition"
+    },
+    "namespaceFormat": {
+      "@id": "airbyte:namespaceFormat"
+    },
+    "prefix": {
+      "@id": "airbyte:prefix"
+    },
+    "configurations": {
+      "@id": "airbyte:configurations"
+    },
+    "createdAt": {
+      "@id": "airbyte:createdAt"
+    },
+    "tags": {
+      "@id": "airbyte:tags",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "statusReason": {
+      "@id": "airbyte:statusReason"
+    },
+    "definitionId": {
+      "@id": "airbyte:definitionId"
+    },
+    "dataplaneId": {
+      "@id": "airbyte:dataplaneId"
+    },
+    "updatedAt": {
+      "@id": "airbyte:updatedAt"
+    },
+    "id": {
+      "@id": "airbyte:id"
+    },
+    "jobType": {
+      "@id": "airbyte:jobType"
+    },
+    "resourceRequirements": {
+      "@id": "airbyte:resourceRequirements"
+    },
+    "newFieldName": {
+      "@id": "airbyte:newFieldName"
+    },
+    "originalFieldName": {
+      "@id": "airbyte:originalFieldName"
+    },
+    "organizationName": {
+      "@id": "airbyte:organizationName"
+    },
+    "permission": {
+      "@id": "airbyte:permission"
+    },
+    "namespace": {
+      "@id": "airbyte:namespace"
+    },
+    "syncMode": {
+      "@id": "airbyte:syncMode"
+    },
+    "cursorField": {
+      "@id": "airbyte:cursorField",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "primaryKey": {
+      "@id": "airbyte:primaryKey",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "includeFiles": {
+      "@id": "airbyte:includeFiles",
+      "@type": "xsd:boolean"
+    },
+    "destinationObjectName": {
+      "@id": "airbyte:destinationObjectName"
+    },
+    "selectedFields": {
+      "@id": "airbyte:selectedFields"
+    },
+    "mappers": {
+      "@id": "airbyte:mappers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dataResidency": {
+      "@id": "airbyte:dataResidency"
+    },
+    "notifications": {
+      "@id": "airbyte:notifications"
+    },
+    "organizations": {
+      "@id": "airbyte:organizations",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dockerRepository": {
+      "@id": "airbyte:dockerRepository"
+    },
+    "dockerImageTag": {
+      "@id": "airbyte:dockerImageTag"
+    },
+    "documentationUrl": {
+      "@id": "airbyte:documentationUrl"
+    },
+    "actorType": {
+      "@id": "airbyte:actorType"
+    },
+    "streamName": {
+      "@id": "airbyte:streamName"
+    },
+    "syncModes": {
+      "@id": "airbyte:syncModes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "streamnamespace": {
+      "@id": "airbyte:streamnamespace"
+    },
+    "defaultCursorField": {
+      "@id": "airbyte:defaultCursorField",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sourceDefinedCursorField": {
+      "@id": "airbyte:sourceDefinedCursorField",
+      "@type": "xsd:boolean"
+    },
+    "sourceDefinedPrimaryKey": {
+      "@id": "airbyte:sourceDefinedPrimaryKey",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "propertyFields": {
+      "@id": "airbyte:propertyFields",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "failure": {
+      "@id": "airbyte:failure"
+    },
+    "success": {
+      "@id": "airbyte:success"
+    },
+    "connectionUpdate": {
+      "@id": "airbyte:connectionUpdate"
+    },
+    "connectionUpdateActionRequired": {
+      "@id": "airbyte:connectionUpdateActionRequired"
+    },
+    "syncDisabled": {
+      "@id": "airbyte:syncDisabled"
+    },
+    "syncDisabledWarning": {
+      "@id": "airbyte:syncDisabledWarning"
+    },
+    "fieldPath": {
+      "@id": "airbyte:fieldPath",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "clientId": {
+      "@id": "airbyte:client_id"
+    },
+    "clientSecret": {
+      "@id": "airbyte:client_secret"
+    },
+    "grant-type": {
+      "@id": "airbyte:grant-type"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "destinationType": {
+      "@id": "airbyte:destinationType"
+    },
+    "version": {
+      "@id": "schema:version"
+    },
+    "default": {
+      "@id": "airbyte:default"
+    },
+    "jobSpecific": {
+      "@id": "airbyte:jobSpecific",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "mapperConfiguration": {
+      "@id": "airbyte:mapperConfiguration"
+    },
+    "secretId": {
+      "@id": "airbyte:secretId"
+    },
+    "applications": {
+      "@id": "airbyte:applications",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "scheduleType": {
+      "@id": "airbyte:scheduleType"
+    },
+    "cronExpression": {
+      "@id": "airbyte:cronExpression"
+    },
+    "publicKey": {
+      "@id": "airbyte:publicKey"
+    },
+    "jobId": {
+      "@id": "airbyte:jobId"
+    },
+    "startTime": {
+      "@id": "airbyte:startTime"
+    },
+    "lastUpdatedAt": {
+      "@id": "airbyte:lastUpdatedAt"
+    },
+    "duration": {
+      "@id": "airbyte:duration"
+    },
+    "bytesSynced": {
+      "@id": "airbyte:bytesSynced"
+    },
+    "rowsSynced": {
+      "@id": "airbyte:rowsSynced"
+    },
+    "basicTiming": {
+      "@id": "airbyte:basicTiming"
+    },
+    "connectorDefinitionType": {
+      "@id": "airbyte:connectorDefinitionType"
+    },
+    "comparisonValue": {
+      "@id": "airbyte:comparisonValue"
+    },
+    "fieldName": {
+      "@id": "airbyte:fieldName"
+    },
+    "accessToken": {
+      "@id": "airbyte:access_token"
+    },
+    "tokenType": {
+      "@id": "airbyte:token_type"
+    },
+    "expiresIn": {
+      "@id": "airbyte:expires_in"
+    },
+    "method": {
+      "@id": "airbyte:method"
+    },
+    "memberCount": {
+      "@id": "airbyte:memberCount"
+    }
+  }
+}

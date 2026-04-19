@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-auth-provider-schema.json",
+  "title": "AuthProvider",
+  "description": "Auth Provider",
+  "type": "string",
+  "enum": [
+    "airbyte",
+    "google_identity_platform",
+    "keycloak"
+  ],
+  "default": "airbyte"
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-row-filtering-mapper-configuration-structure.json",
+  "name": "RowFilteringMapperConfiguration",
+  "description": "RowFilteringMapperConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "conditions": {
+      "$ref": "#/components/schemas/RowFilteringOperation"
+    }
+  },
+  "required": [
+    "conditions"
+  ]
+}

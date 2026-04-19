@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-group-permission-create-request-schema.json",
+  "title": "GroupPermissionCreateRequest",
+  "description": "Request body for creating a group permission",
+  "type": "object",
+  "properties": {
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "workspaceId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "Required for workspace-scoped permissions"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "Required for organization-scoped permissions"
+    }
+  },
+  "required": [
+    "permissionType"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "workspaceId"
+      ]
+    },
+    {
+      "required": [
+        "organizationId"
+      ]
+    }
+  ]
+}

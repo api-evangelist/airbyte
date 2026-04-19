@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-permissions-response-structure.json",
+  "name": "PermissionsResponse",
+  "description": "List/Array of multiple permissions",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PermissionResponseRead"
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

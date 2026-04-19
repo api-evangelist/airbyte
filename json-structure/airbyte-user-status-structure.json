@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-user-status-structure.json",
+  "name": "UserStatus",
+  "description": "user status",
+  "type": "string",
+  "enum": [
+    "invited",
+    "registered",
+    "disabled"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-group-permission-response-structure.json",
+  "name": "GroupPermissionResponse",
+  "description": "Provides details of a single group permission",
+  "type": "object",
+  "properties": {
+    "permissionId": {
+      "type": "uuid",
+      "description": "The ID of the permission"
+    },
+    "groupId": {
+      "type": "uuid",
+      "description": "The ID of the group"
+    },
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "workspaceId": {
+      "type": "uuid",
+      "nullable": true,
+      "description": "The workspace ID for workspace-scoped permissions"
+    },
+    "organizationId": {
+      "type": "uuid",
+      "nullable": true,
+      "description": "The organization ID for organization-scoped permissions"
+    }
+  },
+  "required": [
+    "permissionId",
+    "groupId",
+    "permissionType"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-embedded-scoped-token-response-structure.json",
+  "name": "EmbeddedScopedTokenResponse",
+  "description": "EmbeddedScopedTokenResponse schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "token": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "token"
+  ]
+}

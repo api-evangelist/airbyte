@@ -1,0 +1,7 @@
+{
+  "groupId": "abc123def456",
+  "name": "example-name",
+  "description": "Example description for this resource.",
+  "organizationId": "abc123def456",
+  "memberCount": 33
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-declarative-manifest-structure.json",
+  "name": "DeclarativeManifest",
+  "description": "Low code CDK manifest JSON object",
+  "type": "object"
+}

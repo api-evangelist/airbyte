@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-application-read-list-structure.json",
+  "name": "ApplicationReadList",
+  "description": "ApplicationReadList schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "applications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApplicationRead"
+      }
+    }
+  },
+  "required": [
+    "applications"
+  ]
+}

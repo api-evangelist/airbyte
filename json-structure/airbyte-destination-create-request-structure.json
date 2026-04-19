@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-destination-create-request-structure.json",
+  "name": "DestinationCreateRequest",
+  "description": "DestinationCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the destination e.g. dev-mysql-instance.",
+      "type": "string"
+    },
+    "definitionId": {
+      "description": "The UUID of the connector definition. One of configuration.destinationType or definitionId must be provided.",
+      "type": "uuid"
+    },
+    "workspaceId": {
+      "type": "uuid"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/DestinationConfiguration"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "name",
+    "workspaceId",
+    "configuration"
+  ]
+}

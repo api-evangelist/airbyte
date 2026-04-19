@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-stream-mapper-type-schema.json",
+  "title": "StreamMapperType",
+  "description": "StreamMapperType schema from Airbyte API",
+  "type": "string",
+  "enum": [
+    "hashing",
+    "field-renaming",
+    "row-filtering",
+    "encryption",
+    "field-filtering"
+  ]
+}

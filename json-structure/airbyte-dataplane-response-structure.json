@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-dataplane-response-structure.json",
+  "name": "DataplaneResponse",
+  "description": "DataplaneResponse schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "dataplaneId": {
+      "type": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "regionId": {
+      "type": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dataplaneId",
+    "name",
+    "regionId",
+    "enabled",
+    "createdAt",
+    "updatedAt"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "default": "example-value",
+  "jobSpecific": [
+    "example-value"
+  ]
+}

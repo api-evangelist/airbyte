@@ -1,0 +1,5 @@
+{
+  "client_id": "abc123def456",
+  "client_secret": "example-value",
+  "grant-type": "client_credentials"
+}

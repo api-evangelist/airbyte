@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-job-response-schema.json",
+  "title": "JobResponse",
+  "description": "Provides details of a single job.",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/components/schemas/JobStatusEnum"
+    },
+    "jobType": {
+      "$ref": "#/components/schemas/JobTypeEnum"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "connectionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "lastUpdatedAt": {
+      "type": "string"
+    },
+    "duration": {
+      "description": "Duration of a sync in ISO_8601 format",
+      "type": "string"
+    },
+    "bytesSynced": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "rowsSynced": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "jobId",
+    "status",
+    "jobType",
+    "startTime",
+    "connectionId"
+  ]
+}

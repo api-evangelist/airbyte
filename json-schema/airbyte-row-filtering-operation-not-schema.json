@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-row-filtering-operation-not-schema.json",
+  "title": "RowFilteringOperationNot",
+  "description": "RowFilteringOperationNot schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "conditions": {
+      "title": "Sub-Conditions (NOT)",
+      "description": "Conditions to evaluate with the NOT operator.",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RowFilteringOperation"
+      }
+    },
+    "type": {
+      "$ref": "#/components/schemas/RowFilteringOperationType"
+    }
+  },
+  "required": [
+    "conditions",
+    "type"
+  ]
+}

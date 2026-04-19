@@ -1,0 +1,217 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Airbyte Data Pipeline Management"
+  description: "Unified workflow capability for managing Airbyte data integration pipelines — sources, destinations, connections, and sync jobs. Used by data engineers and platform teams."
+  tags:
+    - Airbyte
+    - Data Integration
+    - ETL
+    - ELT
+    - Data Pipeline
+    - Data Engineering
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AIRBYTE_API_TOKEN: AIRBYTE_API_TOKEN
+
+capability:
+  consumes:
+    - import: airbyte
+      location: ./shared/airbyte-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: airbyte-pipeline-api
+      description: "Unified REST API for Airbyte data pipeline management."
+      resources:
+        - path: /v1/sources
+          name: sources
+          description: "Manage data source connectors."
+          operations:
+            - method: GET
+              name: list-sources
+              description: "List all data sources."
+              call: "airbyte.list-sources"
+              with:
+                workspaceId: "rest.workspaceId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-source
+              description: "Create a new data source."
+              call: "airbyte.create-source"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/destinations
+          name: destinations
+          description: "Manage data destination connectors."
+          operations:
+            - method: GET
+              name: list-destinations
+              description: "List all destinations."
+              call: "airbyte.list-destinations"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-destination
+              description: "Create a new destination."
+              call: "airbyte.create-destination"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/connections
+          name: connections
+          description: "Manage source-to-destination connections."
+          operations:
+            - method: GET
+              name: list-connections
+              description: "List all connections."
+              call: "airbyte.list-connections"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-connection
+              description: "Create a new connection."
+              call: "airbyte.create-connection"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/jobs
+          name: jobs
+          description: "Monitor and trigger sync jobs."
+          operations:
+            - method: GET
+              name: list-jobs
+              description: "List sync jobs."
+              call: "airbyte.list-jobs"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: trigger-job
+              description: "Trigger a sync job."
+              call: "airbyte.create-job"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/workspaces
+          name: workspaces
+          description: "Manage workspaces."
+          operations:
+            - method: GET
+              name: list-workspaces
+              description: "List workspaces."
+              call: "airbyte.list-workspaces"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: airbyte-pipeline-mcp
+      transport: http
+      description: "MCP server for AI-assisted Airbyte data pipeline management."
+      tools:
+        - name: list-sources
+          description: "List all Airbyte data source connectors."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airbyte.list-sources"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-source
+          description: "Create a new Airbyte data source connector."
+          hints:
+            readOnly: false
+          call: "airbyte.create-source"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-destinations
+          description: "List all Airbyte data destination connectors."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airbyte.list-destinations"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-destination
+          description: "Create a new Airbyte data destination connector."
+          hints:
+            readOnly: false
+          call: "airbyte.create-destination"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-connections
+          description: "List Airbyte connections between sources and destinations."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airbyte.list-connections"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-connection
+          description: "Create an Airbyte connection between a source and destination."
+          hints:
+            readOnly: false
+          call: "airbyte.create-connection"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sync-jobs
+          description: "List Airbyte sync jobs with optional status filtering."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "airbyte.list-jobs"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: trigger-sync
+          description: "Trigger an Airbyte sync job for a connection."
+          hints:
+            readOnly: false
+          call: "airbyte.create-job"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-job-status
+          description: "Check the status of an Airbyte sync job."
+          hints:
+            readOnly: true
+          call: "airbyte.get-job"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-workspaces
+          description: "List Airbyte workspaces."
+          hints:
+            readOnly: true
+          call: "airbyte.list-workspaces"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-source
+          description: "Delete an Airbyte source connector."
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "airbyte.delete-source"
+          outputParameters:
+            - type: object
+              mapping: "$."

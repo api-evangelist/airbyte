@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-actor-type-enum-structure.json",
+  "name": "ActorTypeEnum",
+  "description": "Whether you're setting this override for a source or destination",
+  "enum": [
+    "source",
+    "destination"
+  ]
+}

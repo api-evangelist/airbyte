@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-job-status-enum-schema.json",
+  "title": "JobStatusEnum",
+  "description": "JobStatusEnum schema from Airbyte API",
+  "type": "string",
+  "enum": [
+    "pending",
+    "running",
+    "incomplete",
+    "failed",
+    "succeeded",
+    "cancelled"
+  ]
+}

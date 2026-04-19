@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-mapper-configuration-structure.json",
+  "name": "MapperConfiguration",
+  "description": "The values required to configure the mapper.",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/HashingMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/FieldFilteringMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/FieldRenamingMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/RowFilteringMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/EncryptionMapperConfiguration"
+    }
+  ]
+}

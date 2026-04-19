@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-non-breaking-changes-preference-schema.json",
+  "title": "NonBreakingChangesPreference",
+  "description": "NonBreakingChangesPreference schema from Airbyte API",
+  "type": "string",
+  "enum": [
+    "ignore",
+    "disable",
+    "propagate_columns",
+    "propagate_fully"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-field-filtering-mapper-configuration-schema.json",
+  "title": "FieldFilteringMapperConfiguration",
+  "description": "FieldFilteringMapperConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "targetField": {
+      "type": "string",
+      "title": "The Field to Filter",
+      "description": "The name of the field to filter."
+    }
+  },
+  "required": [
+    "targetField"
+  ]
+}

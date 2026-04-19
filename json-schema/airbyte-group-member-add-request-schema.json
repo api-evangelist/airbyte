@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-group-member-add-request-schema.json",
+  "title": "GroupMemberAddRequest",
+  "description": "Request body for adding a member to a group",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the user to add to the group"
+    }
+  },
+  "required": [
+    "userId"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-tags-response-structure.json",
+  "name": "TagsResponse",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TagResponse"
+      }
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

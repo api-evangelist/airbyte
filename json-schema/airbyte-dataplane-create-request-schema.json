@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-dataplane-create-request-schema.json",
+  "title": "DataplaneCreateRequest",
+  "description": "DataplaneCreateRequest schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "regionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "regionId",
+    "name"
+  ]
+}

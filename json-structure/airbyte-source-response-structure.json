@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-source-response-structure.json",
+  "name": "SourceResponse",
+  "description": "Provides details of a single source.",
+  "type": "object",
+  "properties": {
+    "sourceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string"
+    },
+    "definitionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "createdAt": {
+      "type": "int64"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "sourceId",
+    "name",
+    "sourceType",
+    "workspaceId",
+    "configuration",
+    "definitionId",
+    "createdAt"
+  ]
+}

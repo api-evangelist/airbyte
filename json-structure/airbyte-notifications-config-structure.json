@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-notifications-config-structure.json",
+  "name": "NotificationsConfig",
+  "description": "Configures workspace notifications.",
+  "type": "object",
+  "properties": {
+    "failure": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "success": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "connectionUpdate": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "connectionUpdateActionRequired": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "syncDisabled": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "syncDisabledWarning": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    }
+  }
+}

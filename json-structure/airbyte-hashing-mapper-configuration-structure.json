@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-hashing-mapper-configuration-structure.json",
+  "name": "HashingMapperConfiguration",
+  "description": "HashingMapperConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "fieldNameSuffix": {
+      "type": "string",
+      "title": "Field name suffix",
+      "description": "The suffix to append to the field name after hashing."
+    },
+    "method": {
+      "type": "string",
+      "enum": [
+        "MD2",
+        "MD5",
+        "SHA-1",
+        "SHA-224",
+        "SHA-256",
+        "SHA-384",
+        "SHA-512"
+      ],
+      "title": "Hashing method",
+      "description": "The hashing algorithm to use."
+    },
+    "targetField": {
+      "type": "string",
+      "title": "Original Field Name",
+      "description": "The name of the field to be hashed."
+    }
+  },
+  "required": [
+    "fieldNameSuffix",
+    "method",
+    "targetField"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-source-response-schema.json",
+  "title": "SourceResponse",
+  "description": "Provides details of a single source.",
+  "type": "object",
+  "properties": {
+    "sourceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string"
+    },
+    "definitionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "createdAt": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "required": [
+    "sourceId",
+    "name",
+    "sourceType",
+    "workspaceId",
+    "configuration",
+    "definitionId",
+    "createdAt"
+  ]
+}

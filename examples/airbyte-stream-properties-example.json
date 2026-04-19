@@ -1,0 +1,21 @@
+{
+  "streamName": "example-streamname",
+  "syncModes": [
+    "example-value"
+  ],
+  "streamnamespace": "example-streamnamespace",
+  "defaultCursorField": [
+    "example-value"
+  ],
+  "sourceDefinedCursorField": true,
+  "sourceDefinedPrimaryKey": [
+    [
+      "example-value"
+    ]
+  ],
+  "propertyFields": [
+    [
+      "example-value"
+    ]
+  ]
+}

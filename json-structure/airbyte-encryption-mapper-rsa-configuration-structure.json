@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-encryption-mapper-rsa-configuration-structure.json",
+  "name": "EncryptionMapperRSAConfiguration",
+  "description": "EncryptionMapperRSAConfiguration schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "algorithm": {
+      "$ref": "#/components/schemas/EncryptionMapperAlgorithm"
+    },
+    "fieldNameSuffix": {
+      "type": "string"
+    },
+    "publicKey": {
+      "type": "string"
+    },
+    "targetField": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "algorithm",
+    "publicKey",
+    "targetField",
+    "fieldNameSuffix"
+  ]
+}

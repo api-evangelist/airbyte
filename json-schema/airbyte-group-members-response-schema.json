@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-group-members-response-schema.json",
+  "title": "GroupMembersResponse",
+  "description": "List/Array of group members",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupMemberResponse"
+      }
+    },
+    "next": {
+      "type": "string",
+      "description": "Link to the next page of results",
+      "nullable": true
+    },
+    "previous": {
+      "type": "string",
+      "description": "Link to the previous page of results",
+      "nullable": true
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

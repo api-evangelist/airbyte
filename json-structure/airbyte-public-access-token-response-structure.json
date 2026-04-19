@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-public-access-token-response-structure.json",
+  "name": "PublicAccessTokenResponse",
+  "description": "PublicAccessTokenResponse schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "access_token": {
+      "type": "string"
+    },
+    "token_type": {
+      "enum": [
+        "Bearer"
+      ]
+    },
+    "expires_in": {
+      "type": "int64"
+    }
+  },
+  "required": [
+    "access_token",
+    "token_type",
+    "expires_in"
+  ]
+}

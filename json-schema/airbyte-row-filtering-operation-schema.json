@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-row-filtering-operation-schema.json",
+  "title": "RowFilteringOperation",
+  "description": "RowFilteringOperation schema from Airbyte API",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/RowFilteringOperationEqual"
+    },
+    {
+      "$ref": "#/components/schemas/RowFilteringOperationNot"
+    }
+  ]
+}

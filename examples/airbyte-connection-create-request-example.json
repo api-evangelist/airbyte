@@ -1,0 +1,16 @@
+{
+  "name": "example-name",
+  "sourceId": "abc123def456",
+  "destinationId": "abc123def456",
+  "configurations": "example-value",
+  "schedule": "example-value",
+  "dataResidency": "abc123def456",
+  "namespaceDefinition": "example-namespacedefinition",
+  "namespaceFormat": "example-namespaceformat",
+  "prefix": "example-value",
+  "nonBreakingSchemaUpdatesBehavior": "example-value",
+  "status": "active",
+  "tags": [
+    "example-value"
+  ]
+}

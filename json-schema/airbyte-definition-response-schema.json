@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-definition-response-schema.json",
+  "title": "DefinitionResponse",
+  "description": "Provides details of a single connector definition.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "dockerRepository": {
+      "type": "string"
+    },
+    "dockerImageTag": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "dockerRepository",
+    "dockerImageTag"
+  ]
+}

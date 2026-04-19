@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-job-type-resource-limit-structure.json",
+  "name": "JobTypeResourceLimit",
+  "description": "sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.",
+  "type": "object",
+  "properties": {
+    "jobType": {
+      "$ref": "#/components/schemas/JobType"
+    },
+    "resourceRequirements": {
+      "$ref": "#/components/schemas/ResourceRequirements"
+    }
+  },
+  "required": [
+    "jobType",
+    "resourceRequirements"
+  ],
+  "additionalProperties": false
+}

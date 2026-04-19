@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-source-definition-specification-structure.json",
+  "name": "SourceDefinitionSpecification",
+  "description": "The specification for what values are required to configure the sourceDefinition.",
+  "type": "object"
+}

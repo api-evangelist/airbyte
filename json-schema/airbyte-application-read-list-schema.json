@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-schema/airbyte-application-read-list-schema.json",
+  "title": "ApplicationReadList",
+  "description": "ApplicationReadList schema from Airbyte API",
+  "type": "object",
+  "properties": {
+    "applications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ApplicationRead"
+      }
+    }
+  },
+  "required": [
+    "applications"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/json-structure/airbyte-embedded-organizations-list-structure.json",
+  "name": "EmbeddedOrganizationsList",
+  "description": "EmbeddedOrganizationsList schema from Airbyte API",
+  "properties": {
+    "organizations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EmbeddedOrganizationListItem"
+      }
+    }
+  },
+  "required": [
+    "organizations"
+  ],
+  "type": "object"
+}

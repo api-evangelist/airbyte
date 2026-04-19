@@ -1,0 +1,8 @@
+{
+  "algorithm": "example-value",
+  "fieldNameSuffix": "example-fieldnamesuffix",
+  "key": "example-value",
+  "mode": "CTR",
+  "padding": "PKCS5Padding",
+  "targetField": "example-value"
+}
