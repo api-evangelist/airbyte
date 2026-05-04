@@ -1,0 +1,32 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Airbyte
+providerId: airbyte
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Data Integration
+description: Airbyte API rate limits per workspace.
+sources:
+  - https://airbyte.com/pricing
+  - https://reference.airbyte.com/reference/getting-started
+headers: {}
+responseCodes:
+  throttled: 429
+limits:
+  - name: Public API
+    scope: workspace
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+  - name: Sync concurrency
+    scope: workspace
+    metric: concurrent_syncs
+    limit: scales with tier
+  - name: Source data fetch
+    scope: connection
+    metric: varies_by_source
+    limit: destination/source dependent

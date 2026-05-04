@@ -1,0 +1,115 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Airbyte
+providerId: airbyte
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Data Integration
+  - ELT
+description: 'Airbyte tiers: Core (free OSS) / Standard (cloud) / Plus / Pro / Enterprise Flex.'
+sources:
+  - https://airbyte.com/pricing
+plans:
+  - id: airbyte-core
+    name: Core
+    type: freemium
+    description: Always free; open-source, self-managed.
+    entries:
+      - label: Per deployment
+        name: deploy
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Open source
+      - name: Self-managed
+      - name: 600+ connectors
+  - id: airbyte-standard
+    name: Standard
+    type: paid
+    description: From $10/month; volume-based.
+    entries:
+      - label: Monthly minimum
+        name: monthly_min
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '10.00'
+        userMultiplied: false
+    elements:
+      - name: Fully managed cloud hosting
+      - name: Volume-based pricing
+      - name: 600+ connectors
+      - name: Community support
+  - id: airbyte-plus
+    name: Plus
+    type: paid
+    description: Annual billing; bulk-credit discounts.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Fully managed cloud
+      - name: Volume-based pricing
+      - name: Accelerated support
+      - name: Bulk-credit discounts
+  - id: airbyte-pro
+    name: Pro
+    type: enterprise
+    description: Capacity-based custom quote.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Fully managed cloud
+      - name: Data Workers capacity pricing
+      - name: Multiple workspaces
+      - name: SSO, RBAC
+      - name: Premium support
+  - id: airbyte-enterprise-flex
+    name: Enterprise Flex
+    type: enterprise
+    description: Custom workspace limits.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: Custom workspace limits
+      - name: Custom refresh frequency
+      - name: Dedicated solutions architect
+      - name: Business-critical support
