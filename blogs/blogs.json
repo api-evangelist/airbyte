@@ -1,0 +1,13 @@
+{
+  "repo": "airbyte",
+  "feeds": [
+    {
+      "source": "https://airbyte.com/blog",
+      "feed_url": "https://airbyte.com/blog/rss.xml",
+      "saved": 10,
+      "title": "Airbyte Content Hub"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:20:42Z"
+}
