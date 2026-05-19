@@ -32,10 +32,7 @@ apis:
       - url: https://github.com/airbytehq/terraform-provider-airbyte
         type: SDK
         title: Terraform Provider
-    description: Airbyte is an open-source data integration platform that enables businesses to move and
-      consolidate data from various sources into centralized destinations. The Airbyte API provides programmatic
-      control over sources, destinations, connections, jobs, workspaces, and organizations for both Airbyte
-      Cloud and self-managed deployments.
+    description: Airbyte is an open-source data integration platform that enables businesses to move and consolidate data from various sources into centralized destinations. The Airbyte API provides programmatic control over sources, destinations, connections, jobs, workspaces, and organizations for both Airbyte Cloud and self-managed deployments.
     baseURL: https://api.airbyte.com/v1
 name: Airbyte
 tags:
@@ -163,14 +160,13 @@ common:
   - url: https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/vocabulary/airbyte-vocabulary.yaml
     type: Vocabulary
     title: Airbyte Vocabulary
+  - name: Agent Skills
+    url: https://github.com/airbytehq/airbyte-claude-skills
+    type: AgentSkill
 created: '2025-01-08'
-modified: '2026-05-04'
+modified: '2026-05-19'
 position: Consumer
-description: Airbyte is an open-source data integration platform that enables businesses to easily and
-  efficiently move and consolidate their data from various sources into one centralized location. With
-  Airbyte, organizations can seamlessly connect and synchronize data from sources such as databases, APIs,
-  and other third-party applications, allowing for real-time insights and analysis. Airbyte offers both
-  self-hosted and cloud-hosted options, with a catalog of hundreds of pre-built connectors.
+description: Airbyte is an open-source data integration platform that enables businesses to easily and efficiently move and consolidate their data from various sources into one centralized location. With Airbyte, organizations can seamlessly connect and synchronize data from sources such as databases, APIs, and other third-party applications, allowing for real-time insights and analysis. Airbyte offers both self-hosted and cloud-hosted options, with a catalog of hundreds of pre-built connectors.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
