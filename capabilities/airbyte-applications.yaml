@@ -1,0 +1,201 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — Applications
+  description: 'airbyte-api — Applications. 5 operations. Lead operation: Airbyte List Applications. Self-contained Naftiko
+    capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-applications
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: applications
+      path: /applications
+      operations:
+      - name: listapplications
+        method: GET
+        description: Airbyte List Applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createapplication
+        method: POST
+        description: Airbyte Create an Application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: applications-token
+      path: /applications/token
+      operations:
+      - name: createaccesstoken
+        method: POST
+        description: Airbyte Get an Access Token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: applications-applicationId
+      path: /applications/{applicationId}
+      operations:
+      - name: getapplication
+        method: GET
+        description: Airbyte Get an Application Detail
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deleteapplication
+        method: DELETE
+        description: Airbyte Deletes an Application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-applications-rest
+    port: 8080
+    description: REST adapter for airbyte-api — Applications. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/applications
+      name: applications
+      description: REST surface for applications.
+      operations:
+      - method: GET
+        name: listapplications
+        description: Airbyte List Applications
+        call: airbyte-applications.listapplications
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createapplication
+        description: Airbyte Create an Application
+        call: airbyte-applications.createapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/token
+      name: applications-token
+      description: REST surface for applications-token.
+      operations:
+      - method: POST
+        name: createaccesstoken
+        description: Airbyte Get an Access Token
+        call: airbyte-applications.createaccesstoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/applications/{applicationid}
+      name: applications-applicationid
+      description: REST surface for applications-applicationId.
+      operations:
+      - method: GET
+        name: getapplication
+        description: Airbyte Get an Application Detail
+        call: airbyte-applications.getapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteapplication
+        description: Airbyte Deletes an Application
+        call: airbyte-applications.deleteapplication
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — Applications. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airbyte-list-applications
+      description: Airbyte List Applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-applications.listapplications
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-application
+      description: Airbyte Create an Application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-applications.createapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-access-token
+      description: Airbyte Get an Access Token
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: airbyte-applications.createaccesstoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-application-detail
+      description: Airbyte Get an Application Detail
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-applications.getapplication
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-deletes-application
+      description: Airbyte Deletes an Application
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-applications.deleteapplication
+      outputParameters:
+      - type: object
+        mapping: $.

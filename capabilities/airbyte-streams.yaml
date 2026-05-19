@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — Streams
+  description: 'airbyte-api — Streams. 1 operations. Lead operation: Airbyte Get Stream Properties. Self-contained Naftiko
+    capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - Streams
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-streams
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — Streams business capability. Self-contained, no shared references.
+    resources:
+    - name: streams
+      path: /streams
+      operations:
+      - name: getstreamproperties
+        method: GET
+        description: Airbyte Get Stream Properties
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sourceId
+          in: query
+          type: string
+          description: ID of the source
+          required: true
+        - name: destinationId
+          in: query
+          type: string
+          description: ID of the destination
+        - name: ignoreCache
+          in: query
+          type: boolean
+          description: If true pull the latest schema from the source, else pull from cache (default false)
+  exposes:
+  - type: rest
+    namespace: airbyte-streams-rest
+    port: 8080
+    description: REST adapter for airbyte-api — Streams. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/streams
+      name: streams
+      description: REST surface for streams.
+      operations:
+      - method: GET
+        name: getstreamproperties
+        description: Airbyte Get Stream Properties
+        call: airbyte-streams.getstreamproperties
+        with:
+          sourceId: rest.sourceId
+          destinationId: rest.destinationId
+          ignoreCache: rest.ignoreCache
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-streams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — Streams. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airbyte-get-stream-properties
+      description: Airbyte Get Stream Properties
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-streams.getstreamproperties
+      with:
+        sourceId: tools.sourceId
+        destinationId: tools.destinationId
+        ignoreCache: tools.ignoreCache
+      outputParameters:
+      - type: object
+        mapping: $.

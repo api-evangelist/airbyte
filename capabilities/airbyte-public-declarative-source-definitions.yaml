@@ -1,0 +1,194 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_declarative_source_definitions
+  description: 'airbyte-api — public_declarative_source_definitions. 5 operations. Lead operation: Airbyte List Declarative
+    Source Definitions.. Self-contained Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_declarative_source_definitions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-declarative-source-definitions
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_declarative_source_definitions business capability. Self-contained, no shared references.
+    resources:
+    - name: workspaces-workspaceId-definitions-declarative_sources
+      path: /workspaces/{workspaceId}/definitions/declarative_sources
+      operations:
+      - name: listdeclarativesourcedefinitions
+        method: GET
+        description: Airbyte List Declarative Source Definitions.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createdeclarativesourcedefinition
+        method: POST
+        description: Airbyte Create a Declarative Source Definition.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: workspaces-workspaceId-definitions-declarative_sources-definitionId
+      path: /workspaces/{workspaceId}/definitions/declarative_sources/{definitionId}
+      operations:
+      - name: getdeclarativesourcedefinition
+        method: GET
+        description: Airbyte Get Declarative Source Definition Details.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedeclarativesourcedefinition
+        method: PUT
+        description: Airbyte Update Declarative Source Definition Details.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedeclarativesourcedefinition
+        method: DELETE
+        description: Airbyte Delete a Declarative Source Definition.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-declarative-source-definitions-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_declarative_source_definitions. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/workspaces/{workspaceid}/definitions/declarative-sources
+      name: workspaces-workspaceid-definitions-declarative-sources
+      description: REST surface for workspaces-workspaceId-definitions-declarative_sources.
+      operations:
+      - method: GET
+        name: listdeclarativesourcedefinitions
+        description: Airbyte List Declarative Source Definitions.
+        call: airbyte-public-declarative-source-definitions.listdeclarativesourcedefinitions
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdeclarativesourcedefinition
+        description: Airbyte Create a Declarative Source Definition.
+        call: airbyte-public-declarative-source-definitions.createdeclarativesourcedefinition
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workspaces/{workspaceid}/definitions/declarative-sources/{definitionid}
+      name: workspaces-workspaceid-definitions-declarative-sources-definitionid
+      description: REST surface for workspaces-workspaceId-definitions-declarative_sources-definitionId.
+      operations:
+      - method: GET
+        name: getdeclarativesourcedefinition
+        description: Airbyte Get Declarative Source Definition Details.
+        call: airbyte-public-declarative-source-definitions.getdeclarativesourcedefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatedeclarativesourcedefinition
+        description: Airbyte Update Declarative Source Definition Details.
+        call: airbyte-public-declarative-source-definitions.updatedeclarativesourcedefinition
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedeclarativesourcedefinition
+        description: Airbyte Delete a Declarative Source Definition.
+        call: airbyte-public-declarative-source-definitions.deletedeclarativesourcedefinition
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-declarative-source-definitions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_declarative_source_definitions. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: airbyte-list-declarative-source-definitions
+      description: Airbyte List Declarative Source Definitions.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-declarative-source-definitions.listdeclarativesourcedefinitions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-declarative-source-definition
+      description: Airbyte Create a Declarative Source Definition.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-declarative-source-definitions.createdeclarativesourcedefinition
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-declarative-source-definition
+      description: Airbyte Get Declarative Source Definition Details.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-declarative-source-definitions.getdeclarativesourcedefinition
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-declarative-source-definition
+      description: Airbyte Update Declarative Source Definition Details.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-declarative-source-definitions.updatedeclarativesourcedefinition
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-declarative-source-definition
+      description: Airbyte Delete a Declarative Source Definition.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-declarative-source-definitions.deletedeclarativesourcedefinition
+      outputParameters:
+      - type: object
+        mapping: $.

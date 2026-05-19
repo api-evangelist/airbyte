@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_group_permissions
+  description: 'airbyte-api — public_group_permissions. 3 operations. Lead operation: Airbyte List Group Permissions. Self-contained
+    Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_group_permissions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-group-permissions
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_group_permissions business capability. Self-contained, no shared references.
+    resources:
+    - name: groups-groupId-permissions
+      path: /groups/{groupId}/permissions
+      operations:
+      - name: listgrouppermissions
+        method: GET
+        description: Airbyte List Group Permissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: creategrouppermission
+        method: POST
+        description: Airbyte Create Group Permission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: groups-groupId-permissions-permissionId
+      path: /groups/{groupId}/permissions/{permissionId}
+      operations:
+      - name: deletegrouppermission
+        method: DELETE
+        description: Airbyte Delete Group Permission
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-group-permissions-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_group_permissions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/groups/{groupid}/permissions
+      name: groups-groupid-permissions
+      description: REST surface for groups-groupId-permissions.
+      operations:
+      - method: GET
+        name: listgrouppermissions
+        description: Airbyte List Group Permissions
+        call: airbyte-public-group-permissions.listgrouppermissions
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: creategrouppermission
+        description: Airbyte Create Group Permission
+        call: airbyte-public-group-permissions.creategrouppermission
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{groupid}/permissions/{permissionid}
+      name: groups-groupid-permissions-permissionid
+      description: REST surface for groups-groupId-permissions-permissionId.
+      operations:
+      - method: DELETE
+        name: deletegrouppermission
+        description: Airbyte Delete Group Permission
+        call: airbyte-public-group-permissions.deletegrouppermission
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-group-permissions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_group_permissions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: airbyte-list-group-permissions
+      description: Airbyte List Group Permissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-group-permissions.listgrouppermissions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-group-permission
+      description: Airbyte Create Group Permission
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-group-permissions.creategrouppermission
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-group-permission
+      description: Airbyte Delete Group Permission
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-group-permissions.deletegrouppermission
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,266 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_destinations
+  description: 'airbyte-api — public_destinations. 6 operations. Lead operation: Airbyte List Destinations. Self-contained
+    Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_destinations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-destinations
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_destinations business capability. Self-contained, no shared references.
+    resources:
+    - name: destinations
+      path: /destinations
+      operations:
+      - name: listdestinations
+        method: GET
+        description: Airbyte List Destinations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceIds
+          in: query
+          type: array
+          description: The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed
+            workspaces.
+        - name: includeDeleted
+          in: query
+          type: boolean
+          description: Include deleted destinations in the returned results.
+        - name: limit
+          in: query
+          type: integer
+          description: Set the limit on the number of destinations returned. The default is 20.
+        - name: offset
+          in: query
+          type: integer
+          description: Set the offset to start at when returning destinations. The default is 0
+      - name: createdestination
+        method: POST
+        description: Airbyte Create a Destination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: destinations-destinationId
+      path: /destinations/{destinationId}
+      operations:
+      - name: getdestination
+        method: GET
+        description: Airbyte Get Destination Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: includeSecretCoordinates
+          in: query
+          type: boolean
+          description: Rather than return *** for secret properties include the secret coordinate information
+      - name: deletedestination
+        method: DELETE
+        description: Airbyte Delete a Destination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: patchdestination
+        method: PATCH
+        description: Airbyte Update a Destination
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: putdestination
+        method: PUT
+        description: Airbyte Update a Destination and Fully Overwrite it
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+  exposes:
+  - type: rest
+    namespace: airbyte-public-destinations-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_destinations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/destinations
+      name: destinations
+      description: REST surface for destinations.
+      operations:
+      - method: GET
+        name: listdestinations
+        description: Airbyte List Destinations
+        call: airbyte-public-destinations.listdestinations
+        with:
+          workspaceIds: rest.workspaceIds
+          includeDeleted: rest.includeDeleted
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdestination
+        description: Airbyte Create a Destination
+        call: airbyte-public-destinations.createdestination
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/destinations/{destinationid}
+      name: destinations-destinationid
+      description: REST surface for destinations-destinationId.
+      operations:
+      - method: GET
+        name: getdestination
+        description: Airbyte Get Destination Details
+        call: airbyte-public-destinations.getdestination
+        with:
+          includeSecretCoordinates: rest.includeSecretCoordinates
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedestination
+        description: Airbyte Delete a Destination
+        call: airbyte-public-destinations.deletedestination
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: patchdestination
+        description: Airbyte Update a Destination
+        call: airbyte-public-destinations.patchdestination
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: putdestination
+        description: Airbyte Update a Destination and Fully Overwrite it
+        call: airbyte-public-destinations.putdestination
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-destinations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_destinations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: airbyte-list-destinations
+      description: Airbyte List Destinations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-destinations.listdestinations
+      with:
+        workspaceIds: tools.workspaceIds
+        includeDeleted: tools.includeDeleted
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-destination
+      description: Airbyte Create a Destination
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-destinations.createdestination
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-destination-details
+      description: Airbyte Get Destination Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-destinations.getdestination
+      with:
+        includeSecretCoordinates: tools.includeSecretCoordinates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-destination
+      description: Airbyte Delete a Destination
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-destinations.deletedestination
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-destination
+      description: Airbyte Update a Destination
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-destinations.patchdestination
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-destination-and-fully
+      description: Airbyte Update a Destination and Fully Overwrite it
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-destinations.putdestination
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

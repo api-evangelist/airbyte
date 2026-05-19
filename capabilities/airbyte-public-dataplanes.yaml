@@ -1,0 +1,204 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_dataplanes
+  description: 'airbyte-api — public_dataplanes. 5 operations. Lead operation: Airbyte List Dataplanes. Self-contained Naftiko
+    capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_dataplanes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-dataplanes
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_dataplanes business capability. Self-contained, no shared references.
+    resources:
+    - name: dataplanes
+      path: /dataplanes
+      operations:
+      - name: listdataplanes
+        method: GET
+        description: Airbyte List Dataplanes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: regionIds
+          in: query
+          type: array
+          description: The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will
+            be returned. Empty list will retrieve all dataplanes accessi
+      - name: createdataplane
+        method: POST
+        description: Airbyte Create a Dataplane
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: dataplanes-dataplaneId
+      path: /dataplanes/{dataplaneId}
+      operations:
+      - name: getdataplane
+        method: GET
+        description: Airbyte Get a Dataplane
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatedataplane
+        method: PATCH
+        description: Airbyte Update a Dataplane
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedataplane
+        method: DELETE
+        description: Airbyte Delete a Dataplane
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-dataplanes-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_dataplanes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/dataplanes
+      name: dataplanes
+      description: REST surface for dataplanes.
+      operations:
+      - method: GET
+        name: listdataplanes
+        description: Airbyte List Dataplanes
+        call: airbyte-public-dataplanes.listdataplanes
+        with:
+          regionIds: rest.regionIds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdataplane
+        description: Airbyte Create a Dataplane
+        call: airbyte-public-dataplanes.createdataplane
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dataplanes/{dataplaneid}
+      name: dataplanes-dataplaneid
+      description: REST surface for dataplanes-dataplaneId.
+      operations:
+      - method: GET
+        name: getdataplane
+        description: Airbyte Get a Dataplane
+        call: airbyte-public-dataplanes.getdataplane
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatedataplane
+        description: Airbyte Update a Dataplane
+        call: airbyte-public-dataplanes.updatedataplane
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedataplane
+        description: Airbyte Delete a Dataplane
+        call: airbyte-public-dataplanes.deletedataplane
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-dataplanes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_dataplanes. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: airbyte-list-dataplanes
+      description: Airbyte List Dataplanes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-dataplanes.listdataplanes
+      with:
+        regionIds: tools.regionIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-dataplane
+      description: Airbyte Create a Dataplane
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-dataplanes.createdataplane
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-dataplane
+      description: Airbyte Get a Dataplane
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-dataplanes.getdataplane
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-dataplane
+      description: Airbyte Update a Dataplane
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-dataplanes.updatedataplane
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-dataplane
+      description: Airbyte Delete a Dataplane
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-dataplanes.deletedataplane
+      outputParameters:
+      - type: object
+        mapping: $.

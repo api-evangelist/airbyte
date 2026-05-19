@@ -1,0 +1,169 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — Organizations
+  description: 'airbyte-api — Organizations. 3 operations. Lead operation: Airbyte List All Organizations for a User. Self-contained
+    Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - Organizations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-organizations
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — Organizations business capability. Self-contained, no shared references.
+    resources:
+    - name: organizations
+      path: /organizations
+      operations:
+      - name: listorganizationsforuser
+        method: GET
+        description: Airbyte List All Organizations for a User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: organizations-organizationId-oauthCredentials
+      path: /organizations/{organizationId}/oauthCredentials
+      operations:
+      - name: createorupdateorganizationoauthcredentials
+        method: PUT
+        description: Airbyte Create OAuth Override Credentials for an Organization and Source Type.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: organizationId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: organizations-organizationId-oauthCredentials-actorType-name
+      path: /organizations/{organizationId}/oauthCredentials/{actorType}/{name}
+      operations:
+      - name: deleteorganizationoauthcredentials
+        method: DELETE
+        description: Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: organizationId
+          in: path
+          type: string
+          required: true
+        - name: actorType
+          in: path
+          type: string
+          required: true
+        - name: name
+          in: path
+          type: string
+          description: The name of the source or destination i.e. google-ads
+          required: true
+  exposes:
+  - type: rest
+    namespace: airbyte-organizations-rest
+    port: 8080
+    description: REST adapter for airbyte-api — Organizations. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/organizations
+      name: organizations
+      description: REST surface for organizations.
+      operations:
+      - method: GET
+        name: listorganizationsforuser
+        description: Airbyte List All Organizations for a User
+        call: airbyte-organizations.listorganizationsforuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organizations/{organizationid}/oauthcredentials
+      name: organizations-organizationid-oauthcredentials
+      description: REST surface for organizations-organizationId-oauthCredentials.
+      operations:
+      - method: PUT
+        name: createorupdateorganizationoauthcredentials
+        description: Airbyte Create OAuth Override Credentials for an Organization and Source Type.
+        call: airbyte-organizations.createorupdateorganizationoauthcredentials
+        with:
+          organizationId: rest.organizationId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/organizations/{organizationid}/oauthcredentials/{actortype}/{name}
+      name: organizations-organizationid-oauthcredentials-actortype-name
+      description: REST surface for organizations-organizationId-oauthCredentials-actorType-name.
+      operations:
+      - method: DELETE
+        name: deleteorganizationoauthcredentials
+        description: Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.
+        call: airbyte-organizations.deleteorganizationoauthcredentials
+        with:
+          organizationId: rest.organizationId
+          actorType: rest.actorType
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-organizations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — Organizations. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: airbyte-list-all-organizations-user
+      description: Airbyte List All Organizations for a User
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-organizations.listorganizationsforuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-oauth-override-credentials
+      description: Airbyte Create OAuth Override Credentials for an Organization and Source Type.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-organizations.createorupdateorganizationoauthcredentials
+      with:
+        organizationId: tools.organizationId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-oauth-override-credentials
+      description: Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-organizations.deleteorganizationoauthcredentials
+      with:
+        organizationId: tools.organizationId
+        actorType: tools.actorType
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.

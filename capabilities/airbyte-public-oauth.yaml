@@ -1,0 +1,76 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_oauth
+  description: 'airbyte-api — public_oauth. 1 operations. Lead operation: Airbyte Receive OAuth Callbacks. Self-contained
+    Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_oauth
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-oauth
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_oauth business capability. Self-contained, no shared references.
+    resources:
+    - name: oauth-callback
+      path: /oauth/callback
+      operations:
+      - name: oauthcallback
+        method: GET
+        description: Airbyte Receive OAuth Callbacks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: queryParams
+          in: query
+          type: object
+          description: Query parameters. Should contain state and code.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-oauth-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_oauth. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/oauth/callback
+      name: oauth-callback
+      description: REST surface for oauth-callback.
+      operations:
+      - method: GET
+        name: oauthcallback
+        description: Airbyte Receive OAuth Callbacks
+        call: airbyte-public-oauth.oauthcallback
+        with:
+          queryParams: rest.queryParams
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-oauth-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_oauth. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airbyte-receive-oauth-callbacks
+      description: Airbyte Receive OAuth Callbacks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-oauth.oauthcallback
+      with:
+        queryParams: tools.queryParams
+      outputParameters:
+      - type: object
+        mapping: $.

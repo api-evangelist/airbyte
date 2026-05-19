@@ -1,0 +1,216 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_groups
+  description: 'airbyte-api — public_groups. 5 operations. Lead operation: Airbyte List Groups. Self-contained Naftiko capability
+    covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-groups
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_groups business capability. Self-contained, no shared references.
+    resources:
+    - name: groups
+      path: /groups
+      operations:
+      - name: listgroups
+        method: GET
+        description: Airbyte List Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: organizationId
+          in: query
+          type: string
+          description: Filter groups by organization ID
+          required: true
+        - name: limit
+          in: query
+          type: integer
+          description: Set the limit on the number of Groups returned. The default is 20 Groups.
+        - name: offset
+          in: query
+          type: integer
+          description: Set the offset to start at when returning Groups. The default is 0.
+      - name: creategroup
+        method: POST
+        description: Airbyte Create Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: groups-groupId
+      path: /groups/{groupId}
+      operations:
+      - name: getgroup
+        method: GET
+        description: Airbyte Get Group Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updategroup
+        method: PATCH
+        description: Airbyte Update Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletegroup
+        method: DELETE
+        description: Airbyte Delete Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-groups-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_groups. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/groups
+      name: groups
+      description: REST surface for groups.
+      operations:
+      - method: GET
+        name: listgroups
+        description: Airbyte List Groups
+        call: airbyte-public-groups.listgroups
+        with:
+          organizationId: rest.organizationId
+          limit: rest.limit
+          offset: rest.offset
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: creategroup
+        description: Airbyte Create Group
+        call: airbyte-public-groups.creategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups/{groupid}
+      name: groups-groupid
+      description: REST surface for groups-groupId.
+      operations:
+      - method: GET
+        name: getgroup
+        description: Airbyte Get Group Details
+        call: airbyte-public-groups.getgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updategroup
+        description: Airbyte Update Group
+        call: airbyte-public-groups.updategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletegroup
+        description: Airbyte Delete Group
+        call: airbyte-public-groups.deletegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_groups. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: airbyte-list-groups
+      description: Airbyte List Groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-groups.listgroups
+      with:
+        organizationId: tools.organizationId
+        limit: tools.limit
+        offset: tools.offset
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-group
+      description: Airbyte Create Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-groups.creategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-group-details
+      description: Airbyte Get Group Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-groups.getgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-group
+      description: Airbyte Update Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-groups.updategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-group
+      description: Airbyte Delete Group
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-groups.deletegroup
+      outputParameters:
+      - type: object
+        mapping: $.

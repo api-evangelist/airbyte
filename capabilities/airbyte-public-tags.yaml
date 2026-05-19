@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_tags
+  description: 'airbyte-api — public_tags. 5 operations. Lead operation: Airbyte List All Tags. Self-contained Naftiko capability
+    covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-tags
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_tags business capability. Self-contained, no shared references.
+    resources:
+    - name: tags
+      path: /tags
+      operations:
+      - name: listtags
+        method: GET
+        description: Airbyte List All Tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workspaceIds
+          in: query
+          type: array
+      - name: createtag
+        method: POST
+        description: Airbyte Create a Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: tags-tagId
+      path: /tags/{tagId}
+      operations:
+      - name: gettag
+        method: GET
+        description: Airbyte Get a Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletetag
+        method: DELETE
+        description: Airbyte Delete a Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatetag
+        method: PATCH
+        description: Airbyte Update a Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+  exposes:
+  - type: rest
+    namespace: airbyte-public-tags-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_tags. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/tags
+      name: tags
+      description: REST surface for tags.
+      operations:
+      - method: GET
+        name: listtags
+        description: Airbyte List All Tags
+        call: airbyte-public-tags.listtags
+        with:
+          workspaceIds: rest.workspaceIds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createtag
+        description: Airbyte Create a Tag
+        call: airbyte-public-tags.createtag
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/{tagid}
+      name: tags-tagid
+      description: REST surface for tags-tagId.
+      operations:
+      - method: GET
+        name: gettag
+        description: Airbyte Get a Tag
+        call: airbyte-public-tags.gettag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetag
+        description: Airbyte Delete a Tag
+        call: airbyte-public-tags.deletetag
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatetag
+        description: Airbyte Update a Tag
+        call: airbyte-public-tags.updatetag
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_tags. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: airbyte-list-all-tags
+      description: Airbyte List All Tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-tags.listtags
+      with:
+        workspaceIds: tools.workspaceIds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-create-tag
+      description: Airbyte Create a Tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: airbyte-public-tags.createtag
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-get-tag
+      description: Airbyte Get a Tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-tags.gettag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-delete-tag
+      description: Airbyte Delete a Tag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: airbyte-public-tags.deletetag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: airbyte-update-tag
+      description: Airbyte Update a Tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: airbyte-public-tags.updatetag
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

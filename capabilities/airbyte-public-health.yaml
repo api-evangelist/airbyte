@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — public_health
+  description: 'airbyte-api — public_health. 1 operations. Lead operation: Airbyte Health Check. Self-contained Naftiko capability
+    covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - public_health
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-public-health
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — public_health business capability. Self-contained, no shared references.
+    resources:
+    - name: health
+      path: /health
+      operations:
+      - name: gethealthcheck
+        method: GET
+        description: Airbyte Health Check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: airbyte-public-health-rest
+    port: 8080
+    description: REST adapter for airbyte-api — public_health. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/health
+      name: health
+      description: REST surface for health.
+      operations:
+      - method: GET
+        name: gethealthcheck
+        description: Airbyte Health Check
+        call: airbyte-public-health.gethealthcheck
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-public-health-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — public_health. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: airbyte-health-check
+      description: Airbyte Health Check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-public-health.gethealthcheck
+      outputParameters:
+      - type: object
+        mapping: $.

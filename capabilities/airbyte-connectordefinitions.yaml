@@ -1,0 +1,84 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: airbyte-api — ConnectorDefinitions
+  description: 'airbyte-api — ConnectorDefinitions. 1 operations. Lead operation: Airbyte List Connector Definitions. Self-contained
+    Naftiko capability covering one Airbyte business surface.'
+  tags:
+  - Airbyte
+  - ConnectorDefinitions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AIRBYTE_API_KEY: AIRBYTE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: airbyte-connectordefinitions
+    baseUri: https://api.airbyte.com/v1
+    description: airbyte-api — ConnectorDefinitions business capability. Self-contained, no shared references.
+    resources:
+    - name: connector_definitions
+      path: /connector_definitions
+      operations:
+      - name: listconnectordefinitions
+        method: GET
+        description: Airbyte List Connector Definitions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: type
+          in: query
+          type: string
+          description: The type of connector definition to list
+          required: true
+        - name: workspaceId
+          in: query
+          type: string
+          description: The UUID of the workspace you wish to list connector definitions for. One of this or organizationId
+            must be populated.
+  exposes:
+  - type: rest
+    namespace: airbyte-connectordefinitions-rest
+    port: 8080
+    description: REST adapter for airbyte-api — ConnectorDefinitions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/connector-definitions
+      name: connector-definitions
+      description: REST surface for connector_definitions.
+      operations:
+      - method: GET
+        name: listconnectordefinitions
+        description: Airbyte List Connector Definitions
+        call: airbyte-connectordefinitions.listconnectordefinitions
+        with:
+          type: rest.type
+          workspaceId: rest.workspaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: airbyte-connectordefinitions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for airbyte-api — ConnectorDefinitions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: airbyte-list-connector-definitions
+      description: Airbyte List Connector Definitions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: airbyte-connectordefinitions.listconnectordefinitions
+      with:
+        type: tools.type
+        workspaceId: tools.workspaceId
+      outputParameters:
+      - type: object
+        mapping: $.
