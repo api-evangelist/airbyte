@@ -1,0 +1,26 @@
+{
+  "operationId": "createAccessToken",
+  "method": "POST",
+  "path": "/applications/token",
+  "summary": "Airbyte Get an Access Token",
+  "requestExamples": [
+    {
+      "contentType": "application/x-www-form-urlencoded",
+      "name": "Application Token Request Example",
+      "example": {
+        "clientId": "0da998a2-0d7b-49c7-bb6e-9f7eb9cc68a0",
+        "clientSecret": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gU2VkIGNvbmRpbWVudHVtIG5lYyBsaWJlcm8gc2VkIGxvYm9ydGlzLg=="
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Application Creation Response Example",
+      "example": {
+        "access_token": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4gU2VkIGNvbmRpbWVudHVtIG5lYyBsaWJlcm8gc2VkIGxvYm9ydGlzLg=="
+      }
+    }
+  ]
+}

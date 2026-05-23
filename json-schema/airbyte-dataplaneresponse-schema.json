@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataplaneResponse",
+  "title": "DataplaneResponse",
+  "type": "object",
+  "required": [
+    "dataplaneId",
+    "name",
+    "regionId",
+    "enabled",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "dataplaneId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "regionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  },
+  "x-speakeasy-entity": "Dataplane",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,22 @@
+{
+  "operationId": "createRegion",
+  "method": "POST",
+  "path": "/regions",
+  "summary": "Airbyte Create a Region",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "createRegion200Example",
+      "example": {
+        "regionId": "abc123",
+        "name": "example-name",
+        "organizationId": "abc123",
+        "enabled": true,
+        "createdAt": "example",
+        "updatedAt": "example"
+      }
+    }
+  ]
+}

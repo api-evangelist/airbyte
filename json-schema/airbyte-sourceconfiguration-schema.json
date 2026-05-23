@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourceConfiguration",
+  "title": "SourceConfiguration",
+  "type": "object",
+  "description": "The values required to configure the source. The schema for this must match the schema return by source_definition_specifications/get for the source.",
+  "example": {
+    "user": "charles"
+  },
+  "x-speakeasy-component": true
+}

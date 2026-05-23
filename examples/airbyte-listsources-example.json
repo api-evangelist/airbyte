@@ -1,0 +1,19 @@
+{
+  "operationId": "listSources",
+  "method": "GET",
+  "path": "/sources",
+  "summary": "Airbyte List Sources",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listSources200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

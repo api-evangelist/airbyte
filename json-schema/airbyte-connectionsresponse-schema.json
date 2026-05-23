@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConnectionsResponse",
+  "title": "Root Type for ConnectionsResponse",
+  "description": "",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "previous": {
+      "type": "string"
+    },
+    "next": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConnectionResponse"
+      },
+      "default": []
+    }
+  },
+  "example": {
+    "next": "https://api.airbyte.com/v1/connections?limit=5&offset=10",
+    "previous": "https://api.airbyte.com/v1/connections?limit=5&offset=0",
+    "data": [
+      {
+        "name": "test-connection"
+      },
+      {
+        "connection_id": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826"
+      },
+      {
+        "sourceId": "49237019-645d-47d4-b45b-5eddf97775ce"
+      },
+      {
+        "destinationId": "al312fs-0ab1-4f72-9ed7-0b8fc27c5826"
+      },
+      {
+        "schedule": {
+          "scheduleType": "manual"
+        }
+      },
+      {
+        "status": "active"
+      }
+    ]
+  },
+  "x-speakeasy-component": true
+}

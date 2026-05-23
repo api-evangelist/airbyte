@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConnectorDefinitionsResponse",
+  "title": "Root Type for DefinitionsResponse",
+  "description": "",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ConnectorDefinitionResponse"
+      }
+    }
+  },
+  "x-speakeasy-component": true
+}

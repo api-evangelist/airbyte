@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AirbyteApiConnectionSchedule",
+  "title": "AirbyteApiConnectionSchedule",
+  "description": "schedule for when the the connection should run, per the schedule type",
+  "type": "object",
+  "required": [
+    "scheduleType"
+  ],
+  "properties": {
+    "scheduleType": {
+      "$ref": "#/components/schemas/ScheduleTypeEnum"
+    },
+    "cronExpression": {
+      "type": "string"
+    }
+  },
+  "x-speakeasy-component": true
+}

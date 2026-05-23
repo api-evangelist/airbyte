@@ -1,0 +1,25 @@
+{
+  "operationId": "cancelJob",
+  "method": "DELETE",
+  "path": "/jobs/{jobId}",
+  "summary": "Airbyte Cancel a Running Job",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "cancelJob200Example",
+      "example": {
+        "jobId": "abc123",
+        "status": "pending",
+        "jobType": "sync",
+        "startTime": "example",
+        "connectionId": "abc123",
+        "lastUpdatedAt": "example",
+        "duration": "example",
+        "bytesSynced": 1,
+        "rowsSynced": 1
+      }
+    }
+  ]
+}

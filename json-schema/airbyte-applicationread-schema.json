@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationRead",
+  "title": "ApplicationRead",
+  "required": [
+    "id",
+    "name",
+    "clientId",
+    "clientSecret",
+    "createdAt"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "clientSecret": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "integer",
+      "format": "int64"
+    }
+  },
+  "x-speakeasy-component": true
+}

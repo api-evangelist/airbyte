@@ -1,0 +1,17 @@
+{
+  "operationId": "getEmbeddedWidget",
+  "method": "POST",
+  "path": "/embedded/widget_token",
+  "summary": "Airbyte Get a Widget Token for Airbyte Embedded",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "getEmbeddedWidget200Example",
+      "example": {
+        "token": "example"
+      }
+    }
+  ]
+}

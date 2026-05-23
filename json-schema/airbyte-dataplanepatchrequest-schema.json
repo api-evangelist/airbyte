@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataplanePatchRequest",
+  "title": "DataplanePatchRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "x-speakeasy-entity": "Dataplane",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RegionCreateRequest",
+  "title": "RegionCreateRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "organizationId"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  },
+  "x-speakeasy-entity": "Region",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

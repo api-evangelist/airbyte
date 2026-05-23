@@ -1,0 +1,17 @@
+{
+  "operationId": "listConnectorDefinitions",
+  "method": "GET",
+  "path": "/connector_definitions",
+  "summary": "Airbyte List Connector Definitions",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listConnectorDefinitions200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

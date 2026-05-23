@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionsResponse",
+  "title": "Root Type for PermissionsResponse",
+  "description": "List/Array of multiple permissions",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/PermissionResponseRead"
+      }
+    }
+  },
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScheduleTypeWithBasicEnum",
+  "title": "ScheduleTypeWithBasicEnum",
+  "type": "string",
+  "enum": [
+    "manual",
+    "cron",
+    "basic"
+  ],
+  "x-speakeasy-component": true
+}

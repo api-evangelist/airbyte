@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationTokenRequestWithGrant",
+  "title": "ApplicationTokenRequestWithGrant",
+  "required": [
+    "client_id",
+    "client_secret",
+    "grant_type"
+  ],
+  "type": "object",
+  "properties": {
+    "client_id": {
+      "type": "string"
+    },
+    "client_secret": {
+      "type": "string"
+    },
+    "grant-type": {
+      "enum": [
+        "client_credentials"
+      ]
+    }
+  },
+  "x-speakeasy-component": true
+}

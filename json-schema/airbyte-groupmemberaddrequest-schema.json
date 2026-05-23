@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupMemberAddRequest",
+  "title": "Root Type for GroupMemberAddRequest",
+  "description": "Request body for adding a member to a group",
+  "required": [
+    "userId"
+  ],
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the user to add to the group"
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "GroupMember",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

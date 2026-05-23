@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserStatus",
+  "title": "UserStatus",
+  "type": "string",
+  "description": "user status",
+  "enum": [
+    "invited",
+    "registered",
+    "disabled"
+  ],
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

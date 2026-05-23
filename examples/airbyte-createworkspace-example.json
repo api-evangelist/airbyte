@@ -1,0 +1,25 @@
+{
+  "operationId": "createWorkspace",
+  "method": "POST",
+  "path": "/workspaces",
+  "summary": "Airbyte Create a Workspace",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Workspace Creation Request Example",
+      "example": {
+        "name": "Company Workspace Name"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Workspace Creation Response Example",
+      "example": {
+        "workspaceId": "9924bcd0-99be-453d-ba47-c2c9766f7da5"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FieldFilteringMapperConfiguration",
+  "title": "Field Filtering",
+  "type": "object",
+  "properties": {
+    "targetField": {
+      "type": "string",
+      "title": "The Field to Filter",
+      "description": "The name of the field to filter."
+    }
+  },
+  "required": [
+    "targetField"
+  ],
+  "x-speakeasy-component": true
+}

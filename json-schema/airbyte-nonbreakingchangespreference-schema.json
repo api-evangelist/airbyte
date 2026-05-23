@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NonBreakingChangesPreference",
+  "title": "NonBreakingChangesPreference",
+  "enum": [
+    "ignore",
+    "disable",
+    "propagate_columns",
+    "propagate_fully"
+  ],
+  "type": "string",
+  "x-speakeasy-component": true
+}

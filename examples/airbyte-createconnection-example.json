@@ -1,0 +1,27 @@
+{
+  "operationId": "createConnection",
+  "method": "POST",
+  "path": "/connections",
+  "summary": "Airbyte Create a Connection",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Connection Creation Request Example",
+      "example": {
+        "sourceId": "95e66a59-8045-4307-9678-63bc3c9b8c93",
+        "destinationId": "e478de0d-a3a0-475c-b019-25f7dd29e281",
+        "name": "Postgres-to-Bigquery"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Connection Creation Response Example",
+      "example": {
+        "connectionId": "9924bcd0-99be-453d-ba47-c2c9766f7da5"
+      }
+    }
+  ]
+}

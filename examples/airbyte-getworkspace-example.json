@@ -1,0 +1,19 @@
+{
+  "operationId": "getWorkspace",
+  "method": "GET",
+  "path": "/workspaces/{workspaceId}",
+  "summary": "Airbyte Get Workspace Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Workspace Get Response Example",
+      "example": {
+        "workspaceId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+        "name": "Acme Company",
+        "dataResidency": "auto"
+      }
+    }
+  ]
+}

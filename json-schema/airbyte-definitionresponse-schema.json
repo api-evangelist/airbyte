@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DefinitionResponse",
+  "title": "Root Type for DefinitionResponse",
+  "description": "Provides details of a single connector definition.",
+  "type": "object",
+  "x-speakeasy-component": true,
+  "required": [
+    "id",
+    "name",
+    "dockerRepository",
+    "dockerImageTag"
+  ],
+  "properties": {
+    "id": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "dockerRepository": {
+      "type": "string"
+    },
+    "dockerImageTag": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EncryptionMapperConfiguration",
+  "title": "Encryption",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/EncryptionMapperRSAConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/EncryptionMapperAESConfiguration"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "algorithm",
+    "mapping": {
+      "RSA": "#/components/schemas/EncryptionMapperRSAConfiguration",
+      "AES": "#/components/schemas/EncryptionMapperAESConfiguration"
+    }
+  },
+  "x-speakeasy-component": true
+}

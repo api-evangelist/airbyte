@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConnectionStatusEnum",
+  "title": "ConnectionStatusEnum",
+  "type": "string",
+  "enum": [
+    "active",
+    "inactive",
+    "deprecated",
+    "locked"
+  ],
+  "x-speakeasy-component": true
+}

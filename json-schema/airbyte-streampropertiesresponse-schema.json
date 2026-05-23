@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamPropertiesResponse",
+  "title": "StreamPropertiesResponse",
+  "description": "A list of stream properties.",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/StreamProperties"
+  },
+  "x-speakeasy-component": true
+}

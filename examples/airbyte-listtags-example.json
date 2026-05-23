@@ -1,0 +1,17 @@
+{
+  "operationId": "listTags",
+  "method": "GET",
+  "path": "/tags",
+  "summary": "Airbyte List All Tags",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listTags200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "operationId": "createJob",
+  "method": "POST",
+  "path": "/jobs",
+  "summary": "Airbyte Trigger a Sync or Reset Job of a Connection",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Job Creation Request Example",
+      "example": {
+        "connectionId": "e735894a-e773-4938-969f-45f53957b75b",
+        "jobType": "sync"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Job Creation Response Example",
+      "example": {
+        "jobId": 1234,
+        "status": "running",
+        "jobType": "sync"
+      }
+    }
+  ]
+}

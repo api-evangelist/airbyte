@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagResponse",
+  "title": "Root Type for TagResponse",
+  "description": "Provides details of a single tag.",
+  "type": "object",
+  "required": [
+    "tagId",
+    "name",
+    "color",
+    "workspaceId"
+  ],
+  "properties": {
+    "tagId": {
+      "$ref": "#/components/schemas/TagId"
+    },
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "description": "A hexadecimal color value",
+      "type": "string"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    }
+  },
+  "example": {
+    "tagId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+    "name": "Analytics Team",
+    "color": "FF5733",
+    "workspaceId": "871d9b60-11d1-44cb-8c92-c246d53bf87e"
+  },
+  "x-speakeasy-component": true
+}

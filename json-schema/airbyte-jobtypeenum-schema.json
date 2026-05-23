@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobTypeEnum",
+  "title": "JobTypeEnum",
+  "description": "Enum that describes the different types of jobs that the platform runs.",
+  "enum": [
+    "sync",
+    "reset",
+    "refresh",
+    "clear"
+  ],
+  "type": "string",
+  "x-speakeasy-component": true
+}

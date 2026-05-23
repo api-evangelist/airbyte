@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EmbeddedScopedTokenRequest",
+  "title": "EmbeddedScopedTokenRequest",
+  "type": "object",
+  "required": [
+    "workspaceId"
+  ],
+  "properties": {
+    "workspaceId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "x-speakeasy-component": true
+}

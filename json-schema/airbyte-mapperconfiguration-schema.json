@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MapperConfiguration",
+  "title": "MapperConfiguration",
+  "type": "object",
+  "description": "The values required to configure the mapper.",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/HashingMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/FieldFilteringMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/FieldRenamingMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/RowFilteringMapperConfiguration"
+    },
+    {
+      "$ref": "#/components/schemas/EncryptionMapperConfiguration"
+    }
+  ],
+  "x-speakeasy-component": true
+}

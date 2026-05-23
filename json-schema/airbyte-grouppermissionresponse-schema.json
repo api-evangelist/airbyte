@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupPermissionResponse",
+  "title": "Root Type for GroupPermissionResponse",
+  "description": "Provides details of a single group permission",
+  "type": "object",
+  "required": [
+    "permissionId",
+    "groupId",
+    "permissionType"
+  ],
+  "properties": {
+    "permissionId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the permission"
+    },
+    "groupId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The ID of the group"
+    },
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "workspaceId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "The workspace ID for workspace-scoped permissions"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "The organization ID for organization-scoped permissions"
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "GroupPermission",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

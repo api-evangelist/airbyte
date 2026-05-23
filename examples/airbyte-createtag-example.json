@@ -1,0 +1,20 @@
+{
+  "operationId": "createTag",
+  "method": "POST",
+  "path": "/tags",
+  "summary": "Airbyte Create a Tag",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "createTag200Example",
+      "example": {
+        "tagId": "abc123",
+        "name": "example-name",
+        "color": "example",
+        "workspaceId": "abc123"
+      }
+    }
+  ]
+}

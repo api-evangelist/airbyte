@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionUpdateRequest",
+  "title": "PermissionUpdateRequest",
+  "required": [
+    "permissionType"
+  ],
+  "type": "object",
+  "properties": {
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    }
+  },
+  "x-speakeasy-entity": "Permission",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,19 @@
+{
+  "operationId": "listDeclarativeSourceDefinitions",
+  "method": "GET",
+  "path": "/workspaces/{workspaceId}/definitions/declarative_sources",
+  "summary": "Airbyte List Declarative Source Definitions.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listDeclarativeSourceDefinitions200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

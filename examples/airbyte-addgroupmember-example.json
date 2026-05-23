@@ -1,0 +1,21 @@
+{
+  "operationId": "addGroupMember",
+  "method": "POST",
+  "path": "/groups/{groupId}/members",
+  "summary": "Airbyte Add Member to Group",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "201",
+      "contentType": "application/json",
+      "name": "addGroupMember201Example",
+      "example": {
+        "memberId": "abc123",
+        "groupId": "abc123",
+        "userId": "abc123",
+        "userEmail": "user@example.com",
+        "userName": "example-name"
+      }
+    }
+  ]
+}

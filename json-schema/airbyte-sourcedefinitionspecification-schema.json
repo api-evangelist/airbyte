@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourceDefinitionSpecification",
+  "title": "SourceDefinitionSpecification",
+  "description": "The specification for what values are required to configure the sourceDefinition.",
+  "type": "object",
+  "example": {
+    "user": {
+      "type": "string"
+    }
+  },
+  "x-speakeasy-component": true
+}

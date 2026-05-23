@@ -1,0 +1,20 @@
+{
+  "operationId": "createDeclarativeSourceDefinition",
+  "method": "POST",
+  "path": "/workspaces/{workspaceId}/definitions/declarative_sources",
+  "summary": "Airbyte Create a Declarative Source Definition.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "createDeclarativeSourceDefinition200Example",
+      "example": {
+        "id": "abc123",
+        "name": "example-name",
+        "manifest": "example",
+        "version": 1
+      }
+    }
+  ]
+}

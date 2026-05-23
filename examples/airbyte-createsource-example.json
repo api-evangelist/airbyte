@@ -1,0 +1,33 @@
+{
+  "operationId": "createSource",
+  "method": "POST",
+  "path": "/sources",
+  "summary": "Airbyte Create a Source",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Source Creation Request Example",
+      "example": {
+        "configuration": {
+          "airbyte_source_name": "google-ads",
+          "conversion_window_days": 14,
+          "customer_id": "1234567890",
+          "start_date": 1672531200000,
+          "end_date": 1704067200000
+        },
+        "name": "My Source",
+        "workspaceId": "744cc0ed-7f05-4949-9e60-2a814f90c035"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Source Creation Response Example",
+      "example": {
+        "sourceId": "0c31738c-0b2d-4887-b506-e2cd1c39cc35"
+      }
+    }
+  ]
+}

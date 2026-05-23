@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamMapperType",
+  "title": "StreamMapperType",
+  "type": "string",
+  "enum": [
+    "hashing",
+    "field-renaming",
+    "row-filtering",
+    "encryption",
+    "field-filtering"
+  ],
+  "x-speakeasy-component": true
+}

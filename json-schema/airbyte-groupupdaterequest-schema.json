@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupUpdateRequest",
+  "title": "Root Type for GroupUpdateRequest",
+  "description": "Request body for updating a group",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The updated name of the group"
+    },
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "description": "The updated description of the group"
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "Group",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

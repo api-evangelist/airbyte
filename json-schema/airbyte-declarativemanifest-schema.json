@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeclarativeManifest",
+  "title": "DeclarativeManifest",
+  "x-speakeasy-component": true,
+  "x-speakeasy-type-override": "any",
+  "x-speakeasy-terraform-custom-type": {
+    "imports": [
+      "github.com/hashicorp/terraform-plugin-framework-jsontypes/jsontypes"
+    ],
+    "schemaType": "jsontypes.NormalizedType{}",
+    "valueType": "jsontypes.Normalized"
+  },
+  "description": "Low code CDK manifest JSON object",
+  "type": "object"
+}

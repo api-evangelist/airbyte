@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DestinationsResponse",
+  "title": "Root Type for DestinationsResponse",
+  "description": "",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "previous": {
+      "type": "string"
+    },
+    "next": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DestinationResponse"
+      }
+    }
+  },
+  "example": {
+    "next": "https://api.airbyte.com/v1/destinations?limit=5&offset=10",
+    "previous": "https://api.airbyte.com/v1/destinations?limit=5&offset=0",
+    "data": {
+      "destinationId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+      "name": "Analytics Team Postgres",
+      "destinationType": "postgres",
+      "workspaceId": "871d9b60-11d1-44cb-8c92-c246d53bf87e"
+    }
+  },
+  "x-speakeasy-component": true
+}

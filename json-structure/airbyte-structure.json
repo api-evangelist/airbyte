@@ -1,0 +1,2151 @@
+{
+  "provider": "Airbyte",
+  "providerId": "airbyte",
+  "kind": "json-structure",
+  "description": "Structural overview of the Airbyte API surface; extracted from openapi/.",
+  "schemaCount": 142,
+  "operationCount": 91,
+  "schemas": [
+    {
+      "name": "WorkspaceId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DeclarativeManifest",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ManifestVersion",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SourceDefinitionSpecification",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SourceConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DestinationConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NamespaceDefinitionType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TagId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Tag",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "tagId",
+        "workspaceId",
+        "name",
+        "color"
+      ]
+    },
+    {
+      "name": "OrganizationId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PermissionType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PublicPermissionType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "UserId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AuthProvider",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "UserStatus",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SelectedFieldInfo",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "StreamMapperType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ConfiguredStreamMapper",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "type",
+        "mapperConfiguration"
+      ]
+    },
+    {
+      "name": "MapperConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "HashingMapperConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "fieldNameSuffix",
+        "method",
+        "targetField"
+      ]
+    },
+    {
+      "name": "FieldFilteringMapperConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "targetField"
+      ]
+    },
+    {
+      "name": "FieldRenamingMapperConfiguration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "newFieldName",
+        "originalFieldName"
+      ]
+    },
+    {
+      "name": "RowFilteringOperationType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RowFilteringOperationEqual",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "comparisonValue",
+        "fieldName",
+        "type"
+      ]
+    },
+    {
+      "name": "RowFilteringOperationNot",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "conditions",
+        "type"
+      ]
+    },
+    {
+      "name": "RowFilteringOperation",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RowFilteringMapperConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "conditions"
+      ]
+    },
+    {
+      "name": "EncryptionMapperAlgorithm",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "EncryptionMapperConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "EncryptionMapperRSAConfiguration",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "algorithm",
+        "publicKey",
+        "targetField",
+        "fieldNameSuffix"
+      ]
+    },
+    {
+      "name": "EncryptionMapperAESConfiguration",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "algorithm",
+        "key",
+        "mode",
+        "padding",
+        "targetField",
+        "fieldNameSuffix"
+      ]
+    },
+    {
+      "name": "SelectedFields",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ScopedResourceRequirements",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ActorDefinitionId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "JobTypeResourceLimit",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "jobType",
+        "resourceRequirements"
+      ]
+    },
+    {
+      "name": "JobType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceRequirements",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "OAuthConfiguration",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "OAuthInputConfiguration",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NonBreakingChangesPreference",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationCreate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "ApplicationReadList",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "applications"
+      ]
+    },
+    {
+      "name": "ApplicationRead",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "id",
+        "name",
+        "clientId",
+        "clientSecret",
+        "createdAt"
+      ]
+    },
+    {
+      "name": "ApplicationTokenRequestWithGrant",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "client_id",
+        "client_secret",
+        "grant_type"
+      ]
+    },
+    {
+      "name": "PublicAccessTokenResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "access_token",
+        "token_type",
+        "expires_in"
+      ]
+    },
+    {
+      "name": "RedirectUrlResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "JobResponse",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "jobId",
+        "status",
+        "jobType",
+        "startTime",
+        "connectionId"
+      ]
+    },
+    {
+      "name": "JobsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "ConnectionCreateRequest",
+      "type": "object",
+      "propertyCount": 12,
+      "required": [
+        "sourceId",
+        "destinationId"
+      ]
+    },
+    {
+      "name": "ConnectionPatchRequest",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "JobCreateRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "jobType",
+        "connectionId"
+      ]
+    },
+    {
+      "name": "JobStatusEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "JobTypeEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SourceCreateRequest",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "name",
+        "workspaceId",
+        "configuration"
+      ]
+    },
+    {
+      "name": "SourcePutRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "configuration"
+      ]
+    },
+    {
+      "name": "SourcePatchRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "TagCreateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "color",
+        "workspaceId"
+      ]
+    },
+    {
+      "name": "TagPatchRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name",
+        "color"
+      ]
+    },
+    {
+      "name": "InitiateOauthRequest",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "redirectUrl",
+        "workspaceId"
+      ]
+    },
+    {
+      "name": "WorkspaceOAuthCredentialsRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "actorType",
+        "name",
+        "configuration"
+      ]
+    },
+    {
+      "name": "OrganizationOAuthCredentialsRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "actorType",
+        "name",
+        "configuration"
+      ]
+    },
+    {
+      "name": "OAuthCredentialsConfiguration",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ConnectionResponse",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "connectionId",
+        "name",
+        "sourceId",
+        "destinationId",
+        "workspaceId",
+        "status",
+        "schedule",
+        "configurations",
+        "createdAt",
+        "tags"
+      ]
+    },
+    {
+      "name": "AirbyteApiConnectionSchedule",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "scheduleType"
+      ]
+    },
+    {
+      "name": "ScheduleTypeEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ConnectionScheduleResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "scheduleType"
+      ]
+    },
+    {
+      "name": "ScheduleTypeWithBasicEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ConnectionStatusEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NamespaceDefinitionEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NonBreakingSchemaUpdatesBehaviorEnum",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NamespaceDefinitionEnumNoDefault",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NonBreakingSchemaUpdatesBehaviorEnumNoDefault",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DestinationResponse",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "destinationId",
+        "name",
+        "destinationType",
+        "definitionId",
+        "workspaceId",
+        "configuration",
+        "createdAt"
+      ]
+    },
+    {
+      "name": "SourceResponse",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "sourceId",
+        "name",
+        "sourceType",
+        "workspaceId",
+        "configuration",
+        "definitionId",
+        "createdAt"
+      ]
+    },
+    {
+      "name": "ConnectorDefinitionResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "id",
+        "connectorDefinitionType",
+        "name",
+        "version"
+      ]
+    },
+    {
+      "name": "ConnectorType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TagResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "tagId",
+        "name",
+        "color",
+        "workspaceId"
+      ]
+    },
+    {
+      "name": "DestinationCreateRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "name",
+        "workspaceId",
+        "configuration"
+      ]
+    },
+    {
+      "name": "DestinationPatchRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "DestinationPutRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "configuration"
+      ]
+    },
+    {
+      "name": "WorkspaceCreateRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "WorkspaceUpdateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "WorkspaceResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "workspaceId",
+        "name",
+        "dataResidency",
+        "notifications"
+      ]
+    },
+    {
+      "name": "NotificationsConfig",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "NotificationConfig",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "WebhookNotificationConfig",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "EmailNotificationConfig",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "UserResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "id",
+        "name",
+        "email"
+      ]
+    },
+    {
+      "name": "UsersResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "GroupResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "groupId",
+        "name",
+        "organizationId",
+        "memberCount"
+      ]
+    },
+    {
+      "name": "GroupsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "GroupCreateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "organizationId"
+      ]
+    },
+    {
+      "name": "GroupUpdateRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "GroupMemberResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "memberId",
+        "groupId",
+        "userId",
+        "userEmail",
+        "userName"
+      ]
+    },
+    {
+      "name": "GroupMembersResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "GroupMemberAddRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "userId"
+      ]
+    },
+    {
+      "name": "GroupPermissionResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "permissionId",
+        "groupId",
+        "permissionType"
+      ]
+    },
+    {
+      "name": "GroupPermissionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "GroupPermissionCreateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "permissionType"
+      ]
+    },
+    {
+      "name": "PermissionCreateRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "permissionType",
+        "userId"
+      ]
+    },
+    {
+      "name": "PermissionUpdateRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "permissionType"
+      ]
+    },
+    {
+      "name": "PermissionResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "permissionId",
+        "permissionType",
+        "userId"
+      ]
+    },
+    {
+      "name": "PermissionScope",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PermissionResponseRead",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "permissionId",
+        "permissionType",
+        "userId",
+        "scope",
+        "scopeId"
+      ]
+    },
+    {
+      "name": "PermissionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "OrganizationResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "organizationId",
+        "organizationName",
+        "email"
+      ]
+    },
+    {
+      "name": "OrganizationsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "ConnectionsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "SourcesResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "DestinationsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "ConnectorDefinitionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "CreateDeclarativeSourceDefinitionRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "workspaceId",
+        "name",
+        "manifest"
+      ]
+    },
+    {
+      "name": "UpdateDeclarativeSourceDefinitionRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "manifest"
+      ]
+    },
+    {
+      "name": "DeclarativeSourceDefinitionsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "DeclarativeSourceDefinitionResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "id",
+        "name",
+        "manifest",
+        "version"
+      ]
+    },
+    {
+      "name": "CreateDefinitionRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name",
+        "dockerRepository",
+        "dockerImageTag"
+      ]
+    },
+    {
+      "name": "UpdateDefinitionRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name",
+        "dockerImageTag"
+      ]
+    },
+    {
+      "name": "DefinitionsResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "DefinitionResponse",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "id",
+        "name",
+        "dockerRepository",
+        "dockerImageTag"
+      ]
+    },
+    {
+      "name": "WorkspacesResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "TagsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "StreamConfiguration",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "StreamConfigurations",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "StreamPropertiesResponse",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StreamProperties",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "ConnectionSyncModeEnum",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ActorTypeEnum",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RegionCreateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "name",
+        "organizationId"
+      ]
+    },
+    {
+      "name": "RegionPatchRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "RegionResponse",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "regionId",
+        "name",
+        "organizationId",
+        "enabled",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "RegionsResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "DataplaneCreateRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "regionId",
+        "name"
+      ]
+    },
+    {
+      "name": "DataplanePatchRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DataplaneResponse",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "dataplaneId",
+        "name",
+        "regionId",
+        "enabled",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    {
+      "name": "DataplanesResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "data"
+      ]
+    },
+    {
+      "name": "EmbeddedWidgetRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "allowedOrigin",
+        "externalUserId",
+        "organizationId"
+      ]
+    },
+    {
+      "name": "EmbeddedWidgetResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "token"
+      ]
+    },
+    {
+      "name": "EmbeddedScopedTokenRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "workspaceId"
+      ]
+    },
+    {
+      "name": "EmbeddedScopedTokenResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "token"
+      ]
+    },
+    {
+      "name": "EmbeddedOrganizationsList",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "organizations"
+      ]
+    },
+    {
+      "name": "EmbeddedOrganizationListItem",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "organizationId",
+        "organizationName",
+        "permission"
+      ]
+    },
+    {
+      "name": "SSOConfigStatus",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/",
+      "operationId": "getDocumentation",
+      "summary": "Airbyte Root Path, Currently Returns a Redirect to the Documentation",
+      "tags": [
+        "public_root",
+        "public"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "operationId": "getHealthCheck",
+      "summary": "Airbyte Health Check",
+      "tags": [
+        "public_health",
+        "public"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/applications",
+      "operationId": "listApplications",
+      "summary": "Airbyte List Applications",
+      "tags": [
+        "public_applications",
+        "public",
+        "Applications"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/applications",
+      "operationId": "createApplication",
+      "summary": "Airbyte Create an Application",
+      "tags": [
+        "public_applications",
+        "public",
+        "Applications"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/applications/{applicationId}",
+      "operationId": "getApplication",
+      "summary": "Airbyte Get an Application Detail",
+      "tags": [
+        "public_applications",
+        "public",
+        "Applications"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/applications/{applicationId}",
+      "operationId": "deleteApplication",
+      "summary": "Airbyte Deletes an Application",
+      "tags": [
+        "public_applications",
+        "public",
+        "Applications"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/applications/token",
+      "operationId": "createAccessToken",
+      "summary": "Airbyte Get an Access Token",
+      "tags": [
+        "public_applications",
+        "public",
+        "Applications"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/jobs",
+      "operationId": "listJobs",
+      "summary": "Airbyte List Jobs by Sync Type",
+      "tags": [
+        "public_jobs",
+        "public",
+        "Jobs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/jobs",
+      "operationId": "createJob",
+      "summary": "Airbyte Trigger a Sync or Reset Job of a Connection",
+      "tags": [
+        "public_jobs",
+        "public",
+        "Jobs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/jobs/{jobId}",
+      "operationId": "getJob",
+      "summary": "Airbyte Get Job Status and Details",
+      "tags": [
+        "public_jobs",
+        "public",
+        "Jobs"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/jobs/{jobId}",
+      "operationId": "cancelJob",
+      "summary": "Airbyte Cancel a Running Job",
+      "tags": [
+        "public_jobs",
+        "public",
+        "Jobs"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/regions",
+      "operationId": "listRegions",
+      "summary": "Airbyte List Regions",
+      "tags": [
+        "public_regions",
+        "public",
+        "Regions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/regions",
+      "operationId": "createRegion",
+      "summary": "Airbyte Create a Region",
+      "tags": [
+        "public_regions",
+        "public",
+        "Regions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/regions/{regionId}",
+      "operationId": "getRegion",
+      "summary": "Airbyte Get a Region",
+      "tags": [
+        "public_regions",
+        "public",
+        "Regions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/regions/{regionId}",
+      "operationId": "deleteRegion",
+      "summary": "Airbyte Delete a Region",
+      "tags": [
+        "public_regions",
+        "public",
+        "Regions"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/regions/{regionId}",
+      "operationId": "updateRegion",
+      "summary": "Airbyte Update a Region",
+      "tags": [
+        "public_regions",
+        "public",
+        "Regions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dataplanes",
+      "operationId": "listDataplanes",
+      "summary": "Airbyte List Dataplanes",
+      "tags": [
+        "public_dataplanes",
+        "public",
+        "Dataplanes"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/dataplanes",
+      "operationId": "createDataplane",
+      "summary": "Airbyte Create a Dataplane",
+      "tags": [
+        "public_dataplanes",
+        "public",
+        "Dataplanes"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dataplanes/{dataplaneId}",
+      "operationId": "getDataplane",
+      "summary": "Airbyte Get a Dataplane",
+      "tags": [
+        "public_dataplanes",
+        "public",
+        "Dataplanes"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/dataplanes/{dataplaneId}",
+      "operationId": "deleteDataplane",
+      "summary": "Airbyte Delete a Dataplane",
+      "tags": [
+        "public_dataplanes",
+        "public",
+        "Dataplanes"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/dataplanes/{dataplaneId}",
+      "operationId": "updateDataplane",
+      "summary": "Airbyte Update a Dataplane",
+      "tags": [
+        "public_dataplanes",
+        "public",
+        "Dataplanes"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/connector_definitions",
+      "operationId": "listConnectorDefinitions",
+      "summary": "Airbyte List Connector Definitions",
+      "tags": [
+        "public_connector_definitions",
+        "public",
+        "ConnectorDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/declarative_sources",
+      "operationId": "listDeclarativeSourceDefinitions",
+      "summary": "Airbyte List Declarative Source Definitions.",
+      "tags": [
+        "public_declarative_source_definitions",
+        "public",
+        "DeclarativeSourceDefinitions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/{workspaceId}/definitions/declarative_sources",
+      "operationId": "createDeclarativeSourceDefinition",
+      "summary": "Airbyte Create a Declarative Source Definition.",
+      "tags": [
+        "public_declarative_source_definitions",
+        "public",
+        "DeclarativeSourceDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/declarative_sources/{definitionId}",
+      "operationId": "getDeclarativeSourceDefinition",
+      "summary": "Airbyte Get Declarative Source Definition Details.",
+      "tags": [
+        "public_declarative_source_definitions",
+        "public",
+        "DeclarativeSourceDefinitions"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workspaces/{workspaceId}/definitions/declarative_sources/{definitionId}",
+      "operationId": "updateDeclarativeSourceDefinition",
+      "summary": "Airbyte Update Declarative Source Definition Details.",
+      "tags": [
+        "public_declarative_source_definitions",
+        "public",
+        "DeclarativeSourceDefinitions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/{workspaceId}/definitions/declarative_sources/{definitionId}",
+      "operationId": "deleteDeclarativeSourceDefinition",
+      "summary": "Airbyte Delete a Declarative Source Definition.",
+      "tags": [
+        "public_declarative_source_definitions",
+        "public",
+        "DeclarativeSourceDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/sources",
+      "operationId": "listSourceDefinitions",
+      "summary": "Airbyte List Source Definitions.",
+      "tags": [
+        "public_source_definitions",
+        "public",
+        "SourceDefinitions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/{workspaceId}/definitions/sources",
+      "operationId": "createSourceDefinition",
+      "summary": "Airbyte Create a Source Definition.",
+      "tags": [
+        "public_source_definitions",
+        "public",
+        "SourceDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/sources/{definitionId}",
+      "operationId": "getSourceDefinition",
+      "summary": "Airbyte Get Source Definition Details.",
+      "tags": [
+        "public_source_definitions",
+        "public",
+        "SourceDefinitions"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workspaces/{workspaceId}/definitions/sources/{definitionId}",
+      "operationId": "updateSourceDefinition",
+      "summary": "Airbyte Update Source Definition Details.",
+      "tags": [
+        "public_source_definitions",
+        "public",
+        "SourceDefinitions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/{workspaceId}/definitions/sources/{definitionId}",
+      "operationId": "deleteSourceDefinition",
+      "summary": "Airbyte Delete a Source Definition.",
+      "tags": [
+        "public_source_definitions",
+        "public",
+        "SourceDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/destinations",
+      "operationId": "listDestinationDefinitions",
+      "summary": "Airbyte List Destination Definitions.",
+      "tags": [
+        "public_destination_definitions",
+        "public",
+        "DestinationDefinitions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces/{workspaceId}/definitions/destinations",
+      "operationId": "createDestinationDefinition",
+      "summary": "Airbyte Create a Destination Definition.",
+      "tags": [
+        "public_destination_definitions",
+        "public",
+        "DestinationDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}/definitions/destinations/{definitionId}",
+      "operationId": "getDestinationDefinition",
+      "summary": "Airbyte Get Destination Definition Details.",
+      "tags": [
+        "public_destination_definitions",
+        "public",
+        "DestinationDefinitions"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workspaces/{workspaceId}/definitions/destinations/{definitionId}",
+      "operationId": "updateDestinationDefinition",
+      "summary": "Airbyte Update Destination Definition Details.",
+      "tags": [
+        "public_destination_definitions",
+        "public",
+        "DestinationDefinitions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/{workspaceId}/definitions/destinations/{definitionId}",
+      "operationId": "deleteDestinationDefinition",
+      "summary": "Airbyte Delete a Destination Definition.",
+      "tags": [
+        "public_destination_definitions",
+        "public",
+        "DestinationDefinitions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sources",
+      "operationId": "listSources",
+      "summary": "Airbyte List Sources",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sources",
+      "operationId": "createSource",
+      "summary": "Airbyte Create a Source",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sources/{sourceId}",
+      "operationId": "getSource",
+      "summary": "Airbyte Get Source Details",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/sources/{sourceId}",
+      "operationId": "putSource",
+      "summary": "Airbyte Update a Source and Fully Overwrite it",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/sources/{sourceId}",
+      "operationId": "deleteSource",
+      "summary": "Airbyte Delete a Source",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/sources/{sourceId}",
+      "operationId": "patchSource",
+      "summary": "Airbyte Update a Source",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/destinations",
+      "operationId": "listDestinations",
+      "summary": "Airbyte List Destinations",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/destinations",
+      "operationId": "createDestination",
+      "summary": "Airbyte Create a Destination",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/destinations/{destinationId}",
+      "operationId": "getDestination",
+      "summary": "Airbyte Get Destination Details",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/destinations/{destinationId}",
+      "operationId": "putDestination",
+      "summary": "Airbyte Update a Destination and Fully Overwrite it",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/destinations/{destinationId}",
+      "operationId": "deleteDestination",
+      "summary": "Airbyte Delete a Destination",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/destinations/{destinationId}",
+      "operationId": "patchDestination",
+      "summary": "Airbyte Update a Destination",
+      "tags": [
+        "public_destinations",
+        "public",
+        "Destinations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/oauth/callback",
+      "operationId": "oauthCallback",
+      "summary": "Airbyte Receive OAuth Callbacks",
+      "tags": [
+        "public_oauth",
+        "public",
+        "OAuth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/sources/initiateOAuth",
+      "operationId": "initiateOAuth",
+      "summary": "Airbyte Initiate OAuth for a Source",
+      "tags": [
+        "public_sources",
+        "public",
+        "Sources"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/connections",
+      "operationId": "listConnections",
+      "summary": "Airbyte List Connections",
+      "tags": [
+        "public_connections",
+        "public",
+        "Connections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/connections",
+      "operationId": "createConnection",
+      "summary": "Airbyte Create a Connection",
+      "tags": [
+        "public_connections",
+        "public",
+        "Connections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/connections/{connectionId}",
+      "operationId": "getConnection",
+      "summary": "Airbyte Get Connection Details",
+      "tags": [
+        "public_connections",
+        "public",
+        "Connections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/connections/{connectionId}",
+      "operationId": "deleteConnection",
+      "summary": "Airbyte Delete a Connection",
+      "tags": [
+        "public_connections",
+        "public",
+        "Connections"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/connections/{connectionId}",
+      "operationId": "patchConnection",
+      "summary": "Airbyte Update Connection Details",
+      "tags": [
+        "public_connections",
+        "public",
+        "Connections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/streams",
+      "operationId": "getStreamProperties",
+      "summary": "Airbyte Get Stream Properties",
+      "tags": [
+        "public_streams",
+        "public",
+        "Streams"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces",
+      "operationId": "listWorkspaces",
+      "summary": "Airbyte List Workspaces",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/workspaces",
+      "operationId": "createWorkspace",
+      "summary": "Airbyte Create a Workspace",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/workspaces/{workspaceId}",
+      "operationId": "getWorkspace",
+      "summary": "Airbyte Get Workspace Details",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/workspaces/{workspaceId}",
+      "operationId": "deleteWorkspace",
+      "summary": "Airbyte Delete a Workspace",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/workspaces/{workspaceId}",
+      "operationId": "updateWorkspace",
+      "summary": "Airbyte Update a Workspace",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/workspaces/{workspaceId}/oauthCredentials",
+      "operationId": "createOrUpdateWorkspaceOAuthCredentials",
+      "summary": "Airbyte Create OAuth Override Credentials for a Workspace and Source Type.",
+      "tags": [
+        "public_workspaces",
+        "public",
+        "Workspaces"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/permissions/{permissionId}",
+      "operationId": "getPermission",
+      "summary": "Airbyte Get Permission Details",
+      "tags": [
+        "public_permissions",
+        "public",
+        "Permissions"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/permissions/{permissionId}",
+      "operationId": "deletePermission",
+      "summary": "Airbyte Delete a Permission",
+      "tags": [
+        "public_permissions",
+        "public",
+        "Permissions"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/permissions/{permissionId}",
+      "operationId": "updatePermission",
+      "summary": "Airbyte Update a Permission",
+      "tags": [
+        "public_permissions",
+        "public",
+        "Permissions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/permissions",
+      "operationId": "listPermissions",
+      "summary": "Airbyte List Permissions by User Id",
+      "tags": [
+        "public_permissions",
+        "public",
+        "Permissions"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/permissions",
+      "operationId": "createPermission",
+      "summary": "Airbyte Create a Permission",
+      "tags": [
+        "public_permissions",
+        "public",
+        "Permissions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/organizations",
+      "operationId": "listOrganizationsForUser",
+      "summary": "Airbyte List All Organizations for a User",
+      "tags": [
+        "public_organizations",
+        "public",
+        "Organizations"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/organizations/{organizationId}/oauthCredentials",
+      "operationId": "createOrUpdateOrganizationOAuthCredentials",
+      "summary": "Airbyte Create OAuth Override Credentials for an Organization and Source Type.",
+      "tags": [
+        "public_organizations",
+        "public",
+        "Organizations"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/organizations/{organizationId}/oauthCredentials/{actorType}/{name}",
+      "operationId": "deleteOrganizationOAuthCredentials",
+      "summary": "Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.",
+      "tags": [
+        "public_organizations",
+        "public",
+        "Organizations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/users",
+      "operationId": "listUsersWithinAnOrganization",
+      "summary": "Airbyte List All Users Within an Organization",
+      "tags": [
+        "public_users",
+        "public",
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/groups",
+      "operationId": "listGroups",
+      "summary": "Airbyte List Groups",
+      "tags": [
+        "public_groups",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/groups",
+      "operationId": "createGroup",
+      "summary": "Airbyte Create Group",
+      "tags": [
+        "public_groups",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/groups/{groupId}",
+      "operationId": "getGroup",
+      "summary": "Airbyte Get Group Details",
+      "tags": [
+        "public_groups",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/groups/{groupId}",
+      "operationId": "deleteGroup",
+      "summary": "Airbyte Delete Group",
+      "tags": [
+        "public_groups",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/groups/{groupId}",
+      "operationId": "updateGroup",
+      "summary": "Airbyte Update Group",
+      "tags": [
+        "public_groups",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/groups/{groupId}/members",
+      "operationId": "listGroupMembers",
+      "summary": "Airbyte List Group Members",
+      "tags": [
+        "public_group_members",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/groups/{groupId}/members",
+      "operationId": "addGroupMember",
+      "summary": "Airbyte Add Member to Group",
+      "tags": [
+        "public_group_members",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/groups/{groupId}/members/{userId}",
+      "operationId": "removeGroupMember",
+      "summary": "Airbyte Remove Member from Group",
+      "tags": [
+        "public_group_members",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/groups/{groupId}/permissions",
+      "operationId": "listGroupPermissions",
+      "summary": "Airbyte List Group Permissions",
+      "tags": [
+        "public_group_permissions",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/groups/{groupId}/permissions",
+      "operationId": "createGroupPermission",
+      "summary": "Airbyte Create Group Permission",
+      "tags": [
+        "public_group_permissions",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/groups/{groupId}/permissions/{permissionId}",
+      "operationId": "deleteGroupPermission",
+      "summary": "Airbyte Delete Group Permission",
+      "tags": [
+        "public_group_permissions",
+        "public",
+        "Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tags",
+      "operationId": "listTags",
+      "summary": "Airbyte List All Tags",
+      "tags": [
+        "public_tags",
+        "public",
+        "Tags"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/tags",
+      "operationId": "createTag",
+      "summary": "Airbyte Create a Tag",
+      "tags": [
+        "public_tags",
+        "public",
+        "Tags"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/tags/{tagId}",
+      "operationId": "getTag",
+      "summary": "Airbyte Get a Tag",
+      "tags": [
+        "public_tags",
+        "public",
+        "Tags"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/tags/{tagId}",
+      "operationId": "deleteTag",
+      "summary": "Airbyte Delete a Tag",
+      "tags": [
+        "public_tags",
+        "public",
+        "Tags"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/tags/{tagId}",
+      "operationId": "updateTag",
+      "summary": "Airbyte Update a Tag",
+      "tags": [
+        "public_tags",
+        "public",
+        "Tags"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/embedded/widget_token",
+      "operationId": "getEmbeddedWidget",
+      "summary": "Airbyte Get a Widget Token for Airbyte Embedded",
+      "tags": [
+        "public",
+        "embedded_widget"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/embedded/scoped_token",
+      "operationId": "generateEmbeddedScopedToken",
+      "summary": "Airbyte Generate a Scoped Token for Airbyte Embedded",
+      "tags": [
+        "public",
+        "embedded_widget"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/embedded/organizations",
+      "operationId": "listEmbeddedOrganizationsByUser",
+      "summary": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.",
+      "tags": [
+        "public",
+        "embedded_widget"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "operationId": "deleteDestinationDefinition",
+  "method": "DELETE",
+  "path": "/workspaces/{workspaceId}/definitions/destinations/{definitionId}",
+  "summary": "Airbyte Delete a Destination Definition.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "deleteDestinationDefinition200Example",
+      "example": {
+        "id": "abc123",
+        "name": "example-name",
+        "dockerRepository": "example",
+        "dockerImageTag": "example",
+        "documentationUrl": "https://example.com"
+      }
+    }
+  ]
+}

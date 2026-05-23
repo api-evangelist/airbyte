@@ -1,0 +1,20 @@
+{
+  "operationId": "getConnection",
+  "method": "GET",
+  "path": "/connections/{connectionId}",
+  "summary": "Airbyte Get Connection Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Connection Get Response Example",
+      "example": {
+        "workspaceId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+        "name": "Postgres To Snowflake",
+        "sourceId": "9924bcd0-99be-453d-ba47-c2c9766f7da5",
+        "destinationId": "744cc0ed-7f05-4949-9e60-2a814f90c035"
+      }
+    }
+  ]
+}

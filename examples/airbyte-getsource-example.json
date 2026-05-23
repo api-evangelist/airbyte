@@ -1,0 +1,20 @@
+{
+  "operationId": "getSource",
+  "method": "GET",
+  "path": "/sources/{sourceId}",
+  "summary": "Airbyte Get Source Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Source Get Response Example",
+      "example": {
+        "sourceId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+        "name": "running",
+        "sourceType": "postgres",
+        "workspaceId": "744cc0ed-7f05-4949-9e60-2a814f90c035"
+      }
+    }
+  ]
+}

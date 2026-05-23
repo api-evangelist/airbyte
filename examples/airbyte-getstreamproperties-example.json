@@ -1,0 +1,25 @@
+{
+  "operationId": "getStreamProperties",
+  "method": "GET",
+  "path": "/streams",
+  "summary": "Airbyte Get Stream Properties",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "getStreamProperties200Example",
+      "example": [
+        {
+          "streamName": "example-name",
+          "syncModes": "example",
+          "streamnamespace": "example-name",
+          "defaultCursorField": "example",
+          "sourceDefinedCursorField": true,
+          "sourceDefinedPrimaryKey": "example",
+          "propertyFields": "example"
+        }
+      ]
+    }
+  ]
+}

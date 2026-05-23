@@ -1,0 +1,17 @@
+{
+  "operationId": "listUsersWithinAnOrganization",
+  "method": "GET",
+  "path": "/users",
+  "summary": "Airbyte List All Users Within an Organization",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listUsersWithinAnOrganization200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

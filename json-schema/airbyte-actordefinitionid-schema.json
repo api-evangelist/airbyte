@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ActorDefinitionId",
+  "title": "ActorDefinitionId",
+  "description": "A unique identifier for an actor definition.",
+  "type": "string",
+  "format": "uuid",
+  "x-speakeasy-component": true
+}

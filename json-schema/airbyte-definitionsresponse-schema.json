@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DefinitionsResponse",
+  "title": "Root Type for DefinitionsResponse",
+  "description": "",
+  "x-speakeasy-component": true,
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "previous": {
+      "type": "string"
+    },
+    "next": {
+      "type": "string"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/DefinitionResponse"
+      }
+    }
+  }
+}

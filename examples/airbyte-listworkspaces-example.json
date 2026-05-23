@@ -1,0 +1,19 @@
+{
+  "operationId": "listWorkspaces",
+  "method": "GET",
+  "path": "/workspaces",
+  "summary": "Airbyte List Workspaces",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listWorkspaces200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

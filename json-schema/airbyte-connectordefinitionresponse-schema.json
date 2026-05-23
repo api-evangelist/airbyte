@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConnectorDefinitionResponse",
+  "title": "Root Type for ConnectorDefinitionResponse",
+  "description": "Provides details of a single connector definition.",
+  "type": "object",
+  "required": [
+    "id",
+    "connectorDefinitionType",
+    "name",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "connectorDefinitionType": {
+      "$ref": "#/components/schemas/ConnectorType"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "id": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+    "name": "Postgres",
+    "connectorDefinnitionType": "source",
+    "version": "0.2.0"
+  },
+  "x-speakeasy-component": true
+}

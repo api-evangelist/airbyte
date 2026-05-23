@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobTypeResourceLimit",
+  "title": "JobTypeResourceLimit",
+  "x-speakeasy-component": true,
+  "description": "sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "jobType",
+    "resourceRequirements"
+  ],
+  "properties": {
+    "jobType": {
+      "$ref": "#/components/schemas/JobType"
+    },
+    "resourceRequirements": {
+      "$ref": "#/components/schemas/ResourceRequirements"
+    }
+  }
+}

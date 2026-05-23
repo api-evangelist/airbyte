@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobResponse",
+  "title": "Root Type for JobResponse",
+  "description": "Provides details of a single job.",
+  "required": [
+    "jobId",
+    "status",
+    "jobType",
+    "startTime",
+    "connectionId"
+  ],
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/components/schemas/JobStatusEnum"
+    },
+    "jobType": {
+      "$ref": "#/components/schemas/JobTypeEnum"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "connectionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "lastUpdatedAt": {
+      "type": "string"
+    },
+    "duration": {
+      "description": "Duration of a sync in ISO_8601 format",
+      "type": "string"
+    },
+    "bytesSynced": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "rowsSynced": {
+      "format": "int64",
+      "type": "integer"
+    }
+  },
+  "example": {
+    "id": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+    "status": "running",
+    "jobType": "sync",
+    "startTime": "2023-03-25 01:30:50+00:00",
+    "duration": "PT8H6M12S"
+  },
+  "x-speakeasy-component": true
+}

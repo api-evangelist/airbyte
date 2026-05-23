@@ -1,0 +1,21 @@
+{
+  "operationId": "deleteSourceDefinition",
+  "method": "DELETE",
+  "path": "/workspaces/{workspaceId}/definitions/sources/{definitionId}",
+  "summary": "Airbyte Delete a Source Definition.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "deleteSourceDefinition200Example",
+      "example": {
+        "id": "abc123",
+        "name": "example-name",
+        "dockerRepository": "example",
+        "dockerImageTag": "example",
+        "documentationUrl": "https://example.com"
+      }
+    }
+  ]
+}

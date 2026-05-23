@@ -1,0 +1,19 @@
+{
+  "operationId": "listSourceDefinitions",
+  "method": "GET",
+  "path": "/workspaces/{workspaceId}/definitions/sources",
+  "summary": "Airbyte List Source Definitions.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listSourceDefinitions200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionScope",
+  "title": "PermissionScope",
+  "description": "Scope of a single permission, e.g. workspace, organization",
+  "type": "string",
+  "enum": [
+    "workspace",
+    "organization",
+    "none"
+  ],
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagPatchRequest",
+  "title": "TagPatchRequest",
+  "required": [
+    "name",
+    "color"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+  },
+  "x-speakeasy-entity": "Tag",
+  "x-speakeasy-component": true
+}

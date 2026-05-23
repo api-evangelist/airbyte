@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RowFilteringOperationNot",
+  "title": "NOT",
+  "type": "object",
+  "required": [
+    "conditions",
+    "type"
+  ],
+  "properties": {
+    "conditions": {
+      "title": "Sub-Conditions (NOT)",
+      "description": "Conditions to evaluate with the NOT operator.",
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RowFilteringOperation"
+      }
+    },
+    "type": {
+      "$ref": "#/components/schemas/RowFilteringOperationType"
+    }
+  },
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkspaceResponse",
+  "title": "Root Type for WorkspaceResponse",
+  "description": "Provides details of a single workspace.",
+  "type": "object",
+  "required": [
+    "workspaceId",
+    "name",
+    "dataResidency",
+    "notifications"
+  ],
+  "properties": {
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "dataResidency": {
+      "type": "string"
+    },
+    "notifications": {
+      "$ref": "#/components/schemas/NotificationsConfig"
+    }
+  },
+  "x-speakeasy-entity": "Workspace",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

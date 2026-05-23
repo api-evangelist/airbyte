@@ -1,0 +1,22 @@
+{
+  "operationId": "updateRegion",
+  "method": "PATCH",
+  "path": "/regions/{regionId}",
+  "summary": "Airbyte Update a Region",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "updateRegion200Example",
+      "example": {
+        "regionId": "abc123",
+        "name": "example-name",
+        "organizationId": "abc123",
+        "enabled": true,
+        "createdAt": "example",
+        "updatedAt": "example"
+      }
+    }
+  ]
+}

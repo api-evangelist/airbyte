@@ -1,0 +1,19 @@
+{
+  "operationId": "listDestinations",
+  "method": "GET",
+  "path": "/destinations",
+  "summary": "Airbyte List Destinations",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listDestinations200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DestinationConfiguration",
+  "title": "DestinationConfiguration",
+  "type": "object",
+  "description": "The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.",
+  "example": {
+    "user": "charles"
+  },
+  "x-speakeasy-component": true
+}

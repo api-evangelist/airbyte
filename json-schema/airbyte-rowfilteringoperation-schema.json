@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RowFilteringOperation",
+  "title": "RowFilteringOperation",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/RowFilteringOperationEqual"
+    },
+    {
+      "$ref": "#/components/schemas/RowFilteringOperationNot"
+    }
+  ],
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "EQUAL": "#/components/schemas/RowFilteringOperationEqual",
+      "NOT": "#/components/schemas/RowFilteringOperationNot"
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-airbyte-circular-ref": true
+}

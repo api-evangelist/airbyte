@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RedirectUrlResponse",
+  "title": "Root Type for RedirectUrlResponse",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "redirectUrl": {
+      "format": "url",
+      "type": "string"
+    }
+  },
+  "example": {
+    "redirectUrl": "https://example.com"
+  },
+  "x-speakeasy-component": true
+}

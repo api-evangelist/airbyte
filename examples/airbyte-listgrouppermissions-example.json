@@ -1,0 +1,17 @@
+{
+  "operationId": "listGroupPermissions",
+  "method": "GET",
+  "path": "/groups/{groupId}/permissions",
+  "summary": "Airbyte List Group Permissions",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listGroupPermissions200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

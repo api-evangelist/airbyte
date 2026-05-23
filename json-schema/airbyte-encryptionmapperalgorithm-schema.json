@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EncryptionMapperAlgorithm",
+  "title": "EncryptionMapperAlgorithm",
+  "type": "string",
+  "enum": [
+    "RSA",
+    "AES"
+  ],
+  "x-speakeasy-component": true
+}

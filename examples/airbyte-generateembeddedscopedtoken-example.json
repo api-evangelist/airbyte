@@ -1,0 +1,17 @@
+{
+  "operationId": "generateEmbeddedScopedToken",
+  "method": "POST",
+  "path": "/embedded/scoped_token",
+  "summary": "Airbyte Generate a Scoped Token for Airbyte Embedded",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "generateEmbeddedScopedToken200Example",
+      "example": {
+        "token": "example"
+      }
+    }
+  ]
+}

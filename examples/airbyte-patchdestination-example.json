@@ -1,0 +1,40 @@
+{
+  "operationId": "patchDestination",
+  "method": "PATCH",
+  "path": "/destinations/{destinationId}",
+  "summary": "Airbyte Update a Destination",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Destination Update Request Example",
+      "example": {
+        "configuration": {
+          "conversion_window_days": 14,
+          "customer_id": "1234567890",
+          "start_date": 1672531200000,
+          "end_date": 1704067200000
+        },
+        "name": "My Destination"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Destination Update Response Example",
+      "example": {
+        "destinationId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+        "name": "running",
+        "sourceType": "postgres",
+        "workspaceId": "744cc0ed-7f05-4949-9e60-2a814f90c035",
+        "configuration": {
+          "conversion_window_days": 14,
+          "customer_id": "1234567890",
+          "start_date": 1672531200000,
+          "end_date": 1704067200000
+        }
+      }
+    }
+  ]
+}

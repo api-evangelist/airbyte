@@ -1,0 +1,21 @@
+{
+  "operationId": "getPermission",
+  "method": "GET",
+  "path": "/permissions/{permissionId}",
+  "summary": "Airbyte Get Permission Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "getPermission200Example",
+      "example": {
+        "permissionId": "abc123",
+        "permissionType": "instance_admin",
+        "userId": "abc123",
+        "workspaceId": "abc123",
+        "organizationId": "abc123"
+      }
+    }
+  ]
+}

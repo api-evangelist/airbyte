@@ -1,0 +1,21 @@
+{
+  "operationId": "createGroup",
+  "method": "POST",
+  "path": "/groups",
+  "summary": "Airbyte Create Group",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "createGroup200Example",
+      "example": {
+        "groupId": "abc123",
+        "name": "example-name",
+        "description": "Example description",
+        "organizationId": "abc123",
+        "memberCount": 1
+      }
+    }
+  ]
+}

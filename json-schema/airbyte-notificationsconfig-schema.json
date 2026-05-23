@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NotificationsConfig",
+  "title": "NotificationsConfig",
+  "description": "Configures workspace notifications.",
+  "type": "object",
+  "properties": {
+    "failure": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "success": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "connectionUpdate": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "connectionUpdateActionRequired": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "syncDisabled": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    },
+    "syncDisabledWarning": {
+      "$ref": "#/components/schemas/NotificationConfig"
+    }
+  },
+  "x-speakeasy-entity": "Workspace",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

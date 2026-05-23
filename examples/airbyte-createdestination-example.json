@@ -1,0 +1,41 @@
+{
+  "operationId": "createDestination",
+  "method": "POST",
+  "path": "/destinations",
+  "summary": "Airbyte Create a Destination",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Destination Creation Request Example",
+      "example": {
+        "name": "Postgres",
+        "workspaceId": "2155ae5a-de39-4808-af6a-16fe7b8b4ed2",
+        "configuration": {
+          "airbyte_destination_name": "postgres",
+          "port": 5432,
+          "schema": "public",
+          "ssl_mode": {
+            "mode": "prefer"
+          },
+          "tunnel_method": {
+            "tunnel_method": "NO_TUNNEL"
+          },
+          "host": "localhost",
+          "database": "postgres",
+          "username": "postgres",
+          "password": "test"
+        }
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Destination Creation Response Example",
+      "example": {
+        "destinationId": "af0c3c67-aa61-419f-8922-95b0bf840e86"
+      }
+    }
+  ]
+}

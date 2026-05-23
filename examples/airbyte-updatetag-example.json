@@ -1,0 +1,20 @@
+{
+  "operationId": "updateTag",
+  "method": "PATCH",
+  "path": "/tags/{tagId}",
+  "summary": "Airbyte Update a Tag",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "updateTag200Example",
+      "example": {
+        "tagId": "abc123",
+        "name": "example-name",
+        "color": "example",
+        "workspaceId": "abc123"
+      }
+    }
+  ]
+}

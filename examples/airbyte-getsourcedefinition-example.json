@@ -1,0 +1,21 @@
+{
+  "operationId": "getSourceDefinition",
+  "method": "GET",
+  "path": "/workspaces/{workspaceId}/definitions/sources/{definitionId}",
+  "summary": "Airbyte Get Source Definition Details.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "getSourceDefinition200Example",
+      "example": {
+        "id": "abc123",
+        "name": "example-name",
+        "dockerRepository": "example",
+        "dockerImageTag": "example",
+        "documentationUrl": "https://example.com"
+      }
+    }
+  ]
+}

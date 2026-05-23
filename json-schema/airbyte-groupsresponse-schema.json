@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupsResponse",
+  "title": "Root Type for GroupsResponse",
+  "description": "List/Array of multiple groups",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupResponse"
+      }
+    },
+    "next": {
+      "type": "string",
+      "description": "Link to the next page of results",
+      "nullable": true
+    },
+    "previous": {
+      "type": "string",
+      "description": "Link to the previous page of results",
+      "nullable": true
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "Group",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobCreateRequest",
+  "title": "Root Type for JobCreate",
+  "description": "Creates a new Job from the configuration provided in the request body.",
+  "required": [
+    "jobType",
+    "connectionId"
+  ],
+  "type": "object",
+  "properties": {
+    "connectionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "jobType": {
+      "$ref": "#/components/schemas/JobTypeEnum"
+    }
+  },
+  "example": {
+    "connectionId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+    "jobType": "sync"
+  },
+  "x-speakeasy-component": true
+}

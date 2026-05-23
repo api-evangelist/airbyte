@@ -1,0 +1,22 @@
+{
+  "operationId": "updateDataplane",
+  "method": "PATCH",
+  "path": "/dataplanes/{dataplaneId}",
+  "summary": "Airbyte Update a Dataplane",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "updateDataplane200Example",
+      "example": {
+        "dataplaneId": "abc123",
+        "name": "example-name",
+        "regionId": "abc123",
+        "enabled": true,
+        "createdAt": "example",
+        "updatedAt": "example"
+      }
+    }
+  ]
+}

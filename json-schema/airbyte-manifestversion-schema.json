@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ManifestVersion",
+  "title": "ManifestVersion",
+  "x-speakeasy-component": true,
+  "type": "integer",
+  "format": "int64"
+}

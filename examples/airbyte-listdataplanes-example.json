@@ -1,0 +1,17 @@
+{
+  "operationId": "listDataplanes",
+  "method": "GET",
+  "path": "/dataplanes",
+  "summary": "Airbyte List Dataplanes",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listDataplanes200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

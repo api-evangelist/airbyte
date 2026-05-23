@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConnectorType",
+  "title": "ConnectorType",
+  "type": "string",
+  "enum": [
+    "source",
+    "destination"
+  ],
+  "x-speakeasy-component": true
+}

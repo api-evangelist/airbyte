@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConfiguredStreamMapper",
+  "title": "ConfiguredStreamMapper",
+  "type": "object",
+  "required": [
+    "type",
+    "mapperConfiguration"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "$ref": "#/components/schemas/StreamMapperType"
+    },
+    "mapperConfiguration": {
+      "$ref": "#/components/schemas/MapperConfiguration"
+    }
+  },
+  "x-speakeasy-component": true
+}

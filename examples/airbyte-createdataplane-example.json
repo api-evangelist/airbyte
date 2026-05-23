@@ -1,0 +1,15 @@
+{
+  "operationId": "createDataplane",
+  "method": "POST",
+  "path": "/dataplanes",
+  "summary": "Airbyte Create a Dataplane",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "createDataplane200Example",
+      "example": {}
+    }
+  ]
+}

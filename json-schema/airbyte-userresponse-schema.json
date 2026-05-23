@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserResponse",
+  "title": "Root Type for UserResponse",
+  "description": "Provides details of a single user in an organization.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "email"
+  ],
+  "properties": {
+    "name": {
+      "description": "Name of the user",
+      "type": "string"
+    },
+    "id": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "x-speakeasy-entity": "User",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

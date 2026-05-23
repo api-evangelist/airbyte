@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnum",
+  "title": "NonBreakingSchemaUpdatesBehaviorEnum",
+  "type": "string",
+  "description": "Set how Airbyte handles syncs when it detects a non-breaking schema change in the source",
+  "enum": [
+    "ignore",
+    "disable_connection",
+    "propagate_columns",
+    "propagate_fully"
+  ],
+  "default": "ignore",
+  "x-speakeasy-component": true
+}

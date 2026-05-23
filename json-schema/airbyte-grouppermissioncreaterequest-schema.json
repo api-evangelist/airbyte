@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupPermissionCreateRequest",
+  "title": "Root Type for GroupPermissionCreateRequest",
+  "description": "Request body for creating a group permission",
+  "required": [
+    "permissionType"
+  ],
+  "type": "object",
+  "properties": {
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "workspaceId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "Required for workspace-scoped permissions"
+    },
+    "organizationId": {
+      "type": "string",
+      "format": "uuid",
+      "nullable": true,
+      "description": "Required for organization-scoped permissions"
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "workspaceId"
+      ]
+    },
+    {
+      "required": [
+        "organizationId"
+      ]
+    }
+  ],
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "GroupPermission",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

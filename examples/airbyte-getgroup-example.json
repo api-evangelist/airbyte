@@ -1,0 +1,21 @@
+{
+  "operationId": "getGroup",
+  "method": "GET",
+  "path": "/groups/{groupId}",
+  "summary": "Airbyte Get Group Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "getGroup200Example",
+      "example": {
+        "groupId": "abc123",
+        "name": "example-name",
+        "description": "Example description",
+        "organizationId": "abc123",
+        "memberCount": 1
+      }
+    }
+  ]
+}

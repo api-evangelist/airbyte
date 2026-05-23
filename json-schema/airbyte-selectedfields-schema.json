@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SelectedFields",
+  "title": "SelectedFields",
+  "description": "Paths to the fields that will be included in the configured catalog.",
+  "type": "array",
+  "format": "set",
+  "items": {
+    "$ref": "#/components/schemas/SelectedFieldInfo"
+  },
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagCreateRequest",
+  "title": "TagCreateRequest",
+  "required": [
+    "name",
+    "color",
+    "workspaceId"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    }
+  },
+  "x-speakeasy-entity": "Tag",
+  "x-speakeasy-component": true
+}

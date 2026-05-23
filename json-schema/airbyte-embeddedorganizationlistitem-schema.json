@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EmbeddedOrganizationListItem",
+  "title": "EmbeddedOrganizationListItem",
+  "type": "object",
+  "required": [
+    "organizationId",
+    "organizationName",
+    "permission"
+  ],
+  "properties": {
+    "organizationId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "organizationName": {
+      "type": "string"
+    },
+    "permission": {
+      "$ref": "#/components/schemas/PermissionType"
+    }
+  },
+  "x-speakeasy-component": true
+}

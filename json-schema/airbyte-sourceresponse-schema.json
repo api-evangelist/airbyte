@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourceResponse",
+  "title": "Root Type for SourceResponse",
+  "description": "Provides details of a single source.",
+  "type": "object",
+  "required": [
+    "sourceId",
+    "name",
+    "sourceType",
+    "workspaceId",
+    "configuration",
+    "definitionId",
+    "createdAt"
+  ],
+  "properties": {
+    "sourceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "sourceType": {
+      "type": "string"
+    },
+    "definitionId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "workspaceId": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "createdAt": {
+      "format": "int64",
+      "type": "integer"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "example": {
+    "sourceId": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+    "name": "Analytics Team Postgres",
+    "sourceType": "postgres",
+    "workspaceId": "871d9b60-11d1-44cb-8c92-c246d53bf87e",
+    "definitionId": "321d9b60-11d1-44cb-8c92-c246d53bf98e"
+  },
+  "x-speakeasy-component": true
+}

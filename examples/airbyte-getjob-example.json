@@ -1,0 +1,19 @@
+{
+  "operationId": "getJob",
+  "method": "GET",
+  "path": "/jobs/{jobId}",
+  "summary": "Airbyte Get Job Status and Details",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Job Get Response Example",
+      "example": {
+        "id": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+        "status": "running",
+        "jobType": "sync"
+      }
+    }
+  ]
+}

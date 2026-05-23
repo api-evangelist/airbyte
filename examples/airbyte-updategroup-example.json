@@ -1,0 +1,21 @@
+{
+  "operationId": "updateGroup",
+  "method": "PATCH",
+  "path": "/groups/{groupId}",
+  "summary": "Airbyte Update Group",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "updateGroup200Example",
+      "example": {
+        "groupId": "abc123",
+        "name": "example-name",
+        "description": "Example description",
+        "organizationId": "abc123",
+        "memberCount": 1
+      }
+    }
+  ]
+}

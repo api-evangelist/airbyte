@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PublicPermissionType",
+  "title": "PublicPermissionType",
+  "type": "string",
+  "description": "Subset of `PermissionType` (removing `instance_admin`), could be used in public-api.",
+  "enum": [
+    "organization_admin",
+    "organization_editor",
+    "organization_runner",
+    "organization_reader",
+    "organization_member",
+    "workspace_admin",
+    "workspace_editor",
+    "workspace_runner",
+    "workspace_reader"
+  ],
+  "x-speakeasy-component": true
+}

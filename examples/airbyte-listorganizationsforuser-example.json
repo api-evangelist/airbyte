@@ -1,0 +1,17 @@
+{
+  "operationId": "listOrganizationsForUser",
+  "method": "GET",
+  "path": "/organizations",
+  "summary": "Airbyte List All Organizations for a User",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listOrganizationsForUser200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

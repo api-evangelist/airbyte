@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeclarativeSourceDefinitionResponse",
+  "title": "DeclarativeSourceDefinitionResponse",
+  "type": "object",
+  "x-speakeasy-component": true,
+  "required": [
+    "id",
+    "name",
+    "manifest",
+    "version"
+  ],
+  "properties": {
+    "id": {
+      "format": "UUID",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "manifest": {
+      "$ref": "#/components/schemas/DeclarativeManifest"
+    },
+    "version": {
+      "x-speakeasy-terraform-ignore": true,
+      "$ref": "#/components/schemas/ManifestVersion"
+    }
+  }
+}

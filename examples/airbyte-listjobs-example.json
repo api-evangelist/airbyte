@@ -1,0 +1,25 @@
+{
+  "operationId": "listJobs",
+  "method": "GET",
+  "path": "/jobs",
+  "summary": "Airbyte List Jobs by Sync Type",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Job List Response Example",
+      "example": {
+        "next": "https://api.airbyte.com/v1/jobs?limit=5&offset=10",
+        "previous": "https://api.airbyte.com/v1/jobs?limit=5&offset=0",
+        "data": [
+          {
+            "id": "18dccc91-0ab1-4f72-9ed7-0b8fc27c5826",
+            "status": "running",
+            "jobType": "sync"
+          }
+        ]
+      }
+    }
+  ]
+}

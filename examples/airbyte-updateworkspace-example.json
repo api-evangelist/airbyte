@@ -1,0 +1,25 @@
+{
+  "operationId": "updateWorkspace",
+  "method": "PATCH",
+  "path": "/workspaces/{workspaceId}",
+  "summary": "Airbyte Update a Workspace",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Workspace Update Request Example",
+      "example": {
+        "name": "Company Workspace Name"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Workspace Update Response Example",
+      "example": {
+        "workspaceId": "9924bcd0-99be-453d-ba47-c2c9766f7da5"
+      }
+    }
+  ]
+}

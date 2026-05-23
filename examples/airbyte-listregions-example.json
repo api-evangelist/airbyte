@@ -1,0 +1,17 @@
+{
+  "operationId": "listRegions",
+  "method": "GET",
+  "path": "/regions",
+  "summary": "Airbyte List Regions",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listRegions200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

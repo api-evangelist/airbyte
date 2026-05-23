@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SSOConfigStatus",
+  "title": "SSOConfigStatus",
+  "type": "string",
+  "enum": [
+    "draft",
+    "active"
+  ],
+  "x-speakeasy-component": true
+}

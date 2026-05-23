@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateDeclarativeSourceDefinitionRequest",
+  "title": "CreateDeclarativeSourceDefinitionRequest",
+  "type": "object",
+  "x-speakeasy-component": true,
+  "required": [
+    "workspaceId",
+    "name",
+    "manifest"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "manifest": {
+      "$ref": "#/components/schemas/DeclarativeManifest"
+    }
+  }
+}

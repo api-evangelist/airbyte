@@ -1,0 +1,17 @@
+{
+  "operationId": "listEmbeddedOrganizationsByUser",
+  "method": "GET",
+  "path": "/embedded/organizations",
+  "summary": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listEmbeddedOrganizationsByUser200Example",
+      "example": {
+        "organizations": "example"
+      }
+    }
+  ]
+}

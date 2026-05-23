@@ -1,0 +1,21 @@
+{
+  "operationId": "createGroupPermission",
+  "method": "POST",
+  "path": "/groups/{groupId}/permissions",
+  "summary": "Airbyte Create Group Permission",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "201",
+      "contentType": "application/json",
+      "name": "createGroupPermission201Example",
+      "example": {
+        "permissionId": "abc123",
+        "groupId": "abc123",
+        "permissionType": "instance_admin",
+        "workspaceId": "abc123",
+        "organizationId": "abc123"
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourcePatchRequest",
+  "title": "SourcePatchRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "My source"
+    },
+    "workspaceId": {
+      "format": "uuid",
+      "type": "string"
+    },
+    "configuration": {
+      "$ref": "#/components/schemas/SourceConfiguration"
+    },
+    "secretId": {
+      "description": "Optional secretID obtained through the  OAuth redirect flow.",
+      "type": "string"
+    },
+    "resourceAllocation": {
+      "$ref": "#/components/schemas/ScopedResourceRequirements"
+    }
+  },
+  "x-implements": "io.airbyte.api.common.ConfigurableActor",
+  "x-speakeasy-entity": "Source",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

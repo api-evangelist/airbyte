@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FieldRenamingMapperConfiguration",
+  "title": "Field Renaming",
+  "type": "object",
+  "properties": {
+    "newFieldName": {
+      "type": "string",
+      "title": "New Field Name",
+      "description": "The new name for the field after renaming."
+    },
+    "originalFieldName": {
+      "type": "string",
+      "title": "Original Field Name",
+      "description": "The current name of the field to rename."
+    }
+  },
+  "required": [
+    "newFieldName",
+    "originalFieldName"
+  ],
+  "x-speakeasy-component": true
+}

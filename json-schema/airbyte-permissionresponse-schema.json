@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionResponse",
+  "title": "Root Type for PermissionResponse",
+  "description": "Provides details of a single permission.",
+  "type": "object",
+  "required": [
+    "permissionId",
+    "permissionType",
+    "userId"
+  ],
+  "properties": {
+    "permissionId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "permissionType": {
+      "$ref": "#/components/schemas/PermissionType"
+    },
+    "userId": {
+      "$ref": "#/components/schemas/UserId"
+    },
+    "workspaceId": {
+      "$ref": "#/components/schemas/WorkspaceId"
+    },
+    "organizationId": {
+      "$ref": "#/components/schemas/OrganizationId"
+    }
+  },
+  "x-speakeasy-entity": "Permission",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

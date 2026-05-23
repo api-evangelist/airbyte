@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamConfigurations",
+  "title": "StreamConfigurations",
+  "description": "A list of configured stream options for a connection.",
+  "type": "object",
+  "properties": {
+    "streams": {
+      "type": "array",
+      "format": "set",
+      "items": {
+        "$ref": "#/components/schemas/StreamConfiguration"
+      }
+    }
+  },
+  "x-speakeasy-component": true
+}

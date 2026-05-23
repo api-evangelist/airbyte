@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobType",
+  "title": "JobType",
+  "x-speakeasy-component": true,
+  "description": "enum that describes the different types of jobs that the platform runs.",
+  "type": "string",
+  "enum": [
+    "get_spec",
+    "check_connection",
+    "discover_schema",
+    "sync",
+    "reset_connection",
+    "connection_updater",
+    "replicate"
+  ]
+}

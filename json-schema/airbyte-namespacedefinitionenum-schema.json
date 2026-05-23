@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NamespaceDefinitionEnum",
+  "title": "NamespaceDefinitionEnum",
+  "type": "string",
+  "description": "Define the location where the data will be stored in the destination",
+  "enum": [
+    "source",
+    "destination",
+    "custom_format"
+  ],
+  "default": "destination",
+  "x-speakeasy-component": true
+}

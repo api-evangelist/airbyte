@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RowFilteringOperationType",
+  "title": "RowFilteringOperationType",
+  "type": "string",
+  "enum": [
+    "EQUAL",
+    "NOT"
+  ],
+  "x-speakeasy-component": true
+}

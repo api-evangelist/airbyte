@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PermissionType",
+  "title": "PermissionType",
+  "type": "string",
+  "description": "Describes what actions/endpoints the permission entitles to",
+  "enum": [
+    "instance_admin",
+    "organization_admin",
+    "organization_editor",
+    "organization_runner",
+    "organization_reader",
+    "organization_member",
+    "workspace_owner",
+    "workspace_admin",
+    "workspace_runner",
+    "workspace_editor",
+    "workspace_reader"
+  ],
+  "x-speakeasy-component": true
+}

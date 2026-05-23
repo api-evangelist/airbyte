@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkspaceCreateRequest",
+  "title": "WorkspaceCreateRequest",
+  "required": [
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the workspace",
+      "type": "string"
+    },
+    "organizationId": {
+      "description": "ID of organization to add workspace to.",
+      "format": "uuid",
+      "type": "string"
+    },
+    "notifications": {
+      "$ref": "#/components/schemas/NotificationsConfig"
+    },
+    "regionId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "x-speakeasy-entity": "Workspace",
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

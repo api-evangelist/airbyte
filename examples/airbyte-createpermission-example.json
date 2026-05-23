@@ -1,0 +1,29 @@
+{
+  "operationId": "createPermission",
+  "method": "POST",
+  "path": "/permissions",
+  "summary": "Airbyte Create a Permission",
+  "requestExamples": [
+    {
+      "contentType": "application/json",
+      "name": "Permission Creation Request Example",
+      "example": {
+        "permissionType": "workspace_admin",
+        "userId": "7d08fd6c-531e-4a00-937e-3d355f253e63",
+        "workspaceId": "9924bcd0-99be-453d-ba47-c2c9766f7da5"
+      }
+    }
+  ],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "Permission Creation Response Example",
+      "example": {
+        "permissionId": "9924bcd0-99be-453d-ba47-c2c9766f7da5",
+        "permissionType": "workspace_admin",
+        "userId": "7d08fd6c-531e-4a00-937e-3d355f253e63"
+      }
+    }
+  ]
+}

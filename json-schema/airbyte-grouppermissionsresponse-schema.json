@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GroupPermissionsResponse",
+  "title": "Root Type for GroupPermissionsResponse",
+  "description": "List/Array of group permissions",
+  "required": [
+    "data"
+  ],
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GroupPermissionResponse"
+      }
+    }
+  },
+  "x-speakeasy-component": true,
+  "x-speakeasy-entity": "GroupPermission",
+  "x-speakeasy-param-suppress-computed-diff": true
+}

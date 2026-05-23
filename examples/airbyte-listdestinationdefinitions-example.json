@@ -1,0 +1,19 @@
+{
+  "operationId": "listDestinationDefinitions",
+  "method": "GET",
+  "path": "/workspaces/{workspaceId}/definitions/destinations",
+  "summary": "Airbyte List Destination Definitions.",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listDestinationDefinitions200Example",
+      "example": {
+        "previous": "example",
+        "next": "example",
+        "data": "example"
+      }
+    }
+  ]
+}

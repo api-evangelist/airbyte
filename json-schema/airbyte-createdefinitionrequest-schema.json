@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateDefinitionRequest",
+  "title": "CreateDefinitionRequest",
+  "type": "object",
+  "x-speakeasy-component": true,
+  "required": [
+    "name",
+    "dockerRepository",
+    "dockerImageTag"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "dockerRepository": {
+      "type": "string"
+    },
+    "dockerImageTag": {
+      "type": "string"
+    },
+    "documentationUrl": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

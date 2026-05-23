@@ -1,0 +1,17 @@
+{
+  "operationId": "listPermissions",
+  "method": "GET",
+  "path": "/permissions",
+  "summary": "Airbyte List Permissions by User Id",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listPermissions200Example",
+      "example": {
+        "data": "example"
+      }
+    }
+  ]
+}

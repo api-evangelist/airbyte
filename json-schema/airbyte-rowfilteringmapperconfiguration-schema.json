@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RowFilteringMapperConfiguration",
+  "title": "Row Filtering",
+  "type": "object",
+  "properties": {
+    "conditions": {
+      "$ref": "#/components/schemas/RowFilteringOperation"
+    }
+  },
+  "required": [
+    "conditions"
+  ],
+  "x-speakeasy-component": true
+}

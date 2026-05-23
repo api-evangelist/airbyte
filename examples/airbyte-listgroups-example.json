@@ -1,0 +1,19 @@
+{
+  "operationId": "listGroups",
+  "method": "GET",
+  "path": "/groups",
+  "summary": "Airbyte List Groups",
+  "requestExamples": [],
+  "responseExamples": [
+    {
+      "status": "200",
+      "contentType": "application/json",
+      "name": "listGroups200Example",
+      "example": {
+        "data": "example",
+        "next": "example",
+        "previous": "example"
+      }
+    }
+  ]
+}

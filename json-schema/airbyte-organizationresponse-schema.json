@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrganizationResponse",
+  "title": "Root Type for OrganizationResponse",
+  "description": "Provides details of a single organization for a user.",
+  "type": "object",
+  "required": [
+    "organizationId",
+    "organizationName",
+    "email"
+  ],
+  "properties": {
+    "organizationId": {
+      "$ref": "#/components/schemas/OrganizationId"
+    },
+    "organizationName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "x-speakeasy-param-suppress-computed-diff": true,
+  "x-speakeasy-component": true
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AuthProvider",
+  "title": "AuthProvider",
+  "type": "string",
+  "description": "Auth Provider",
+  "default": "airbyte",
+  "enum": [
+    "airbyte",
+    "google_identity_platform",
+    "keycloak"
+  ],
+  "x-speakeasy-component": true
+}
