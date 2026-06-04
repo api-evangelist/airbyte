@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Bootstrap a Workspace
+  summary: Create a workspace, read it back, create an organizing tag inside it, and confirm the workspace starts empty of connections.
+  description: >-
+    A workspace onboarding flow. It creates a workspace, reads it back by id to
+    confirm it persisted and resolve its data residency, creates an organizing
+    tag scoped to the new workspace, and lists the workspace's connections to
+    confirm it starts empty. Every step inlines its request so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: bootstrap-workspace
+  summary: Create a workspace, confirm it, add an organizing tag, and list its connections.
+  description: >-
+    Creates a workspace, reads it back, creates a tag in it, and lists its
+    connections.
+  inputs:
+    type: object
+    required:
+    - workspaceName
+    - tagName
+    - tagColor
+    properties:
+      workspaceName:
+        type: string
+        description: Name for the new workspace.
+      organizationId:
+        type: string
+        description: Optional UUID of the organization to add the workspace to.
+      tagName:
+        type: string
+        description: Name of the organizing tag to create in the workspace.
+      tagColor:
+        type: string
+        description: Hexadecimal color value for the tag (e.g. FF5733).
+  steps:
+  - stepId: createWorkspace
+    description: Create the workspace with the supplied name.
+    operationId: createWorkspace
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.workspaceName
+        organizationId: $inputs.organizationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      workspaceId: $response.body#/workspaceId
+  - stepId: getWorkspace
+    description: >-
+      Read the workspace back by id to confirm it persisted and resolve its
+      data residency.
+    operationId: getWorkspace
+    parameters:
+    - name: workspaceId
+      in: path
+      value: $steps.createWorkspace.outputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      workspaceId: $response.body#/workspaceId
+      name: $response.body#/name
+      dataResidency: $response.body#/dataResidency
+  - stepId: createTag
+    description: Create an organizing tag scoped to the new workspace.
+    operationId: createTag
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.tagName
+        color: $inputs.tagColor
+        workspaceId: $steps.createWorkspace.outputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagId: $response.body#/tagId
+  - stepId: listConnections
+    description: >-
+      List the new workspace's connections to confirm it starts with an empty
+      collection.
+    operationId: listConnections
+    parameters:
+    - name: workspaceIds
+      in: query
+      value: $steps.createWorkspace.outputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      connections: $response.body#/data
+  outputs:
+    workspaceId: $steps.getWorkspace.outputs.workspaceId
+    tagId: $steps.createTag.outputs.tagId
+    connections: $steps.listConnections.outputs.connections

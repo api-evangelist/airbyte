@@ -1,0 +1,79 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Bootstrap an Application and Access Token
+  summary: Create an API application to mint client credentials, read it back, then exchange those credentials for a bearer access token.
+  description: >-
+    The credential bootstrap flow for the Airbyte API. It creates an
+    Application, which returns a clientId and clientSecret, reads the
+    application back by id to confirm it persisted, and then exchanges the
+    client credentials for a bearer access token that can be used to authorize
+    subsequent API calls. Every step inlines its request so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: bootstrap-application-token
+  summary: Create an application, confirm it, and mint a bearer access token from its credentials.
+  description: >-
+    Creates an application to obtain client credentials, reads it back, and
+    exchanges the credentials for an access token.
+  inputs:
+    type: object
+    required:
+    - applicationName
+    properties:
+      applicationName:
+        type: string
+        description: Name for the new API application.
+  steps:
+  - stepId: createApplication
+    description: >-
+      Create the application. The response carries the clientId and
+      clientSecret used to mint access tokens.
+    operationId: createApplication
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.applicationName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      applicationId: $response.body#/id
+      clientId: $response.body#/clientId
+      clientSecret: $response.body#/clientSecret
+  - stepId: getApplication
+    description: Read the application back by id to confirm it persisted.
+    operationId: getApplication
+    parameters:
+    - name: applicationId
+      in: path
+      value: $steps.createApplication.outputs.applicationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      applicationId: $response.body#/id
+      name: $response.body#/name
+  - stepId: createAccessToken
+    description: >-
+      Exchange the application's client credentials for a bearer access token
+      using the client_credentials grant.
+    operationId: createAccessToken
+    requestBody:
+      contentType: application/json
+      payload:
+        client_id: $steps.createApplication.outputs.clientId
+        client_secret: $steps.createApplication.outputs.clientSecret
+        grant-type: client_credentials
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      accessToken: $response.body#/access_token
+      tokenType: $response.body#/token_type
+      expiresIn: $response.body#/expires_in
+  outputs:
+    applicationId: $steps.createApplication.outputs.applicationId
+    clientId: $steps.createApplication.outputs.clientId
+    accessToken: $steps.createAccessToken.outputs.accessToken

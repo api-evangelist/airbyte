@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Create a Tag and Apply It to a Connection
+  summary: Create an organizing tag in a workspace, find the first connection, and patch that connection to carry the new tag.
+  description: >-
+    An organization flow for grouping connections. It creates a tag scoped to a
+    workspace, lists the workspace's connections and branches on whether any
+    exist, then patches the first connection to carry the new tag so it can be
+    filtered by tag later. Every step inlines its request so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: tag-connection
+  summary: Create a tag and apply it to the first connection in a workspace.
+  description: >-
+    Creates a tag, finds the first connection in the workspace, and patches it
+    to carry the tag.
+  inputs:
+    type: object
+    required:
+    - workspaceId
+    - tagName
+    - tagColor
+    properties:
+      workspaceId:
+        type: string
+        description: The UUID of the workspace whose connection should be tagged.
+      tagName:
+        type: string
+        description: Name of the tag to create.
+      tagColor:
+        type: string
+        description: Hexadecimal color value for the tag (e.g. FF5733).
+  steps:
+  - stepId: createTag
+    description: Create the organizing tag scoped to the workspace.
+    operationId: createTag
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.tagName
+        color: $inputs.tagColor
+        workspaceId: $inputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      tagId: $response.body#/tagId
+      tagName: $response.body#/name
+      tagColor: $response.body#/color
+  - stepId: listConnections
+    description: >-
+      List the workspace's connections. Branch on whether any connections exist
+      to be tagged.
+    operationId: listConnections
+    parameters:
+    - name: workspaceIds
+      in: query
+      value: $inputs.workspaceId
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      connectionId: $response.body#/data/0/connectionId
+    onSuccess:
+    - name: hasConnections
+      type: goto
+      stepId: applyTag
+      criteria:
+      - context: $response.body
+        condition: $.data.length > 0
+        type: jsonpath
+    - name: noConnections
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.length == 0
+        type: jsonpath
+  - stepId: applyTag
+    description: >-
+      Patch the first connection so it carries the newly created tag, leaving
+      its source, destination, and schedule untouched.
+    operationId: patchConnection
+    parameters:
+    - name: connectionId
+      in: path
+      value: $steps.listConnections.outputs.connectionId
+    requestBody:
+      contentType: application/json
+      payload:
+        tags:
+        - tagId: $steps.createTag.outputs.tagId
+          name: $steps.createTag.outputs.tagName
+          color: $steps.createTag.outputs.tagColor
+          workspaceId: $inputs.workspaceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      connectionId: $response.body#/connectionId
+      tags: $response.body#/tags
+  outputs:
+    tagId: $steps.createTag.outputs.tagId
+    connectionId: $steps.applyTag.outputs.connectionId
+    tags: $steps.applyTag.outputs.tags

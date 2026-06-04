@@ -1,0 +1,142 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Provision a Full Data Pipeline
+  summary: Stand up a source, a destination, inspect the available streams, wire them into a connection, and kick off the first sync.
+  description: >-
+    The end-to-end Airbyte provisioning flow. It creates a source and a
+    destination inside a workspace, inspects the stream properties exposed by
+    that source/destination pair, creates a connection that binds the two
+    actors together, and then triggers the connection's first sync job. Every
+    step inlines its request so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-pipeline
+  summary: Create source and destination, wire a connection, and trigger the first sync.
+  description: >-
+    Creates a source and destination in the supplied workspace, resolves the
+    stream properties for the pair, creates a connection, and triggers a sync
+    job for that connection.
+  inputs:
+    type: object
+    required:
+    - workspaceId
+    - sourceName
+    - sourceConfiguration
+    - destinationName
+    - destinationConfiguration
+    properties:
+      workspaceId:
+        type: string
+        description: The UUID of the workspace to provision the pipeline in.
+      sourceName:
+        type: string
+        description: Human readable name for the new source (e.g. dev-postgres).
+      sourceConfiguration:
+        type: object
+        description: Connector configuration JSON blob for the source (must include sourceType or a definitionId).
+      destinationName:
+        type: string
+        description: Human readable name for the new destination.
+      destinationConfiguration:
+        type: object
+        description: Connector configuration JSON blob for the destination (must include destinationType or a definitionId).
+      connectionName:
+        type: string
+        description: Optional name for the connection that binds source to destination.
+  steps:
+  - stepId: createSource
+    description: >-
+      Create the source connector in the workspace using the supplied name and
+      configuration blob.
+    operationId: createSource
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.sourceName
+        workspaceId: $inputs.workspaceId
+        configuration: $inputs.sourceConfiguration
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceId: $response.body#/sourceId
+      sourceType: $response.body#/sourceType
+  - stepId: createDestination
+    description: >-
+      Create the destination connector in the same workspace that will receive
+      the synced data.
+    operationId: createDestination
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.destinationName
+        workspaceId: $inputs.workspaceId
+        configuration: $inputs.destinationConfiguration
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      destinationId: $response.body#/destinationId
+      destinationType: $response.body#/destinationType
+  - stepId: getStreamProperties
+    description: >-
+      Resolve the available stream properties for the new source/destination
+      pair so the catalog can be confirmed before the connection is created.
+    operationId: getStreamProperties
+    parameters:
+    - name: sourceId
+      in: query
+      value: $steps.createSource.outputs.sourceId
+    - name: destinationId
+      in: query
+      value: $steps.createDestination.outputs.destinationId
+    - name: ignoreCache
+      in: query
+      value: true
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      streams: $response.body
+  - stepId: createConnection
+    description: >-
+      Create the connection that binds the source to the destination. The
+      connection is created with a manual schedule so the first sync is
+      triggered explicitly by the next step.
+    operationId: createConnection
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.connectionName
+        sourceId: $steps.createSource.outputs.sourceId
+        destinationId: $steps.createDestination.outputs.destinationId
+        schedule:
+          scheduleType: manual
+        status: active
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      connectionId: $response.body#/connectionId
+      status: $response.body#/status
+  - stepId: triggerFirstSync
+    description: >-
+      Trigger the inaugural sync job for the freshly created connection so data
+      begins moving from source to destination.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        connectionId: $steps.createConnection.outputs.connectionId
+        jobType: sync
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      jobStatus: $response.body#/status
+  outputs:
+    sourceId: $steps.createSource.outputs.sourceId
+    destinationId: $steps.createDestination.outputs.destinationId
+    connectionId: $steps.createConnection.outputs.connectionId
+    jobId: $steps.triggerFirstSync.outputs.jobId

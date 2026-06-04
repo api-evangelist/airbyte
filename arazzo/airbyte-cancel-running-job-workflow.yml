@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Find and Cancel a Running Job
+  summary: List the running jobs for a connection, branch on whether any are running, then cancel the first one and confirm the cancellation.
+  description: >-
+    An operational flow for stopping in-flight syncs. It lists the jobs for a
+    connection filtered to the running status and branches: when a running job
+    exists it cancels the first one and reads the job back to confirm it has
+    moved to a cancelled status; when nothing is running it ends without taking
+    action. Every step inlines its request so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: cancel-running-job
+  summary: Find a running job for a connection and cancel it.
+  description: >-
+    Lists running jobs for a connection, and if any are running cancels the
+    first and confirms the cancellation.
+  inputs:
+    type: object
+    required:
+    - connectionId
+    properties:
+      connectionId:
+        type: string
+        description: The UUID of the connection whose running jobs should be cancelled.
+  steps:
+  - stepId: listRunningJobs
+    description: >-
+      List the jobs for the connection filtered to the running status. Branch
+      on whether any running jobs were returned.
+    operationId: listJobs
+    parameters:
+    - name: connectionId
+      in: query
+      value: $inputs.connectionId
+    - name: status
+      in: query
+      value: running
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/data/0/jobId
+      jobs: $response.body#/data
+    onSuccess:
+    - name: hasRunning
+      type: goto
+      stepId: cancelJob
+      criteria:
+      - context: $response.body
+        condition: $.data.length > 0
+        type: jsonpath
+    - name: noneRunning
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.length == 0
+        type: jsonpath
+  - stepId: cancelJob
+    description: Cancel the first running job returned by the list step.
+    operationId: cancelJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.listRunningJobs.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      status: $response.body#/status
+  - stepId: confirmCancelled
+    description: >-
+      Read the job back by id to confirm it has been cancelled rather than
+      having completed in the interim.
+    operationId: getJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.cancelJob.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+  outputs:
+    jobId: $steps.cancelJob.outputs.jobId
+    finalStatus: $steps.confirmCancelled.outputs.status

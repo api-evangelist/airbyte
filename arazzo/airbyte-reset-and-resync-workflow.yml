@@ -1,0 +1,97 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Reset a Connection and Re-Sync
+  summary: Trigger a reset job to clear destination data, poll it to completion, then branch into a fresh sync when the reset succeeds.
+  description: >-
+    The clean-slate recovery flow. It triggers a reset job for a connection
+    (clearing previously synced data in the destination) and polls that job
+    until it reaches a terminal state. When the reset succeeds it triggers a
+    fresh sync so the destination is repopulated; when the reset fails it ends
+    without re-syncing. Every step inlines its request so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: reset-and-resync
+  summary: Reset a connection's data, wait for completion, then re-sync on success.
+  description: >-
+    Triggers a reset job, polls it to a terminal state, and on success triggers
+    a fresh sync.
+  inputs:
+    type: object
+    required:
+    - connectionId
+    properties:
+      connectionId:
+        type: string
+        description: The UUID of the connection to reset and re-sync.
+  steps:
+  - stepId: triggerReset
+    description: Trigger a reset job to clear the connection's previously synced data.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        connectionId: $inputs.connectionId
+        jobType: reset
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      status: $response.body#/status
+  - stepId: pollReset
+    description: >-
+      Poll the reset job. While it is still pending or running, loop back and
+      read it again. On success branch into a fresh sync; on failure end.
+    operationId: getJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.triggerReset.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+    onSuccess:
+    - name: stillRunning
+      type: goto
+      stepId: pollReset
+      criteria:
+      - context: $response.body
+        condition: $.status == 'running' || $.status == 'pending' || $.status == 'incomplete'
+        type: jsonpath
+    - name: resetSucceeded
+      type: goto
+      stepId: triggerResync
+      criteria:
+      - context: $response.body
+        condition: $.status == 'succeeded'
+        type: jsonpath
+    - name: resetFailed
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == 'failed' || $.status == 'cancelled'
+        type: jsonpath
+  - stepId: triggerResync
+    description: >-
+      Trigger a fresh sync to repopulate the destination now that the reset has
+      succeeded.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        connectionId: $inputs.connectionId
+        jobType: sync
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      status: $response.body#/status
+  outputs:
+    resetJobId: $steps.triggerReset.outputs.jobId
+    resetStatus: $steps.pollReset.outputs.status
+    resyncJobId: $steps.triggerResync.outputs.jobId

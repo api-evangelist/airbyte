@@ -1,0 +1,87 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Create and Verify a Destination
+  summary: Create a destination connector, read it back to confirm it persisted, and list the workspace's destinations to confirm it appears.
+  description: >-
+    A focused destination-onboarding flow. It creates a destination in a
+    workspace, reads the destination back by id to confirm the configuration
+    persisted and resolve the connector destinationType, then lists the
+    destinations in the workspace to confirm the new destination is present.
+    Every step inlines its request so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-verify-destination
+  summary: Create a destination, read it back, and confirm it appears in the workspace list.
+  description: >-
+    Creates a destination, fetches it by id to confirm persistence, and lists
+    the workspace's destinations.
+  inputs:
+    type: object
+    required:
+    - workspaceId
+    - name
+    - configuration
+    properties:
+      workspaceId:
+        type: string
+        description: The UUID of the workspace to create the destination in.
+      name:
+        type: string
+        description: Human readable name for the destination.
+      configuration:
+        type: object
+        description: Connector configuration JSON blob (must include destinationType or a definitionId).
+  steps:
+  - stepId: createDestination
+    description: Create the destination connector in the supplied workspace.
+    operationId: createDestination
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+        workspaceId: $inputs.workspaceId
+        configuration: $inputs.configuration
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      destinationId: $response.body#/destinationId
+  - stepId: getDestination
+    description: >-
+      Read the newly created destination back by id to confirm it persisted and
+      to resolve the connector destinationType.
+    operationId: getDestination
+    parameters:
+    - name: destinationId
+      in: path
+      value: $steps.createDestination.outputs.destinationId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      destinationId: $response.body#/destinationId
+      destinationType: $response.body#/destinationType
+      name: $response.body#/name
+  - stepId: listDestinations
+    description: >-
+      List the destinations in the workspace to confirm the new destination is
+      present in the returned collection.
+    operationId: listDestinations
+    parameters:
+    - name: workspaceIds
+      in: query
+      value: $inputs.workspaceId
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      destinations: $response.body#/data
+  outputs:
+    destinationId: $steps.getDestination.outputs.destinationId
+    destinationType: $steps.getDestination.outputs.destinationType
+    destinations: $steps.listDestinations.outputs.destinations

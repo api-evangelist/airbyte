@@ -1,0 +1,88 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Trigger a Sync and Poll to Completion
+  summary: Kick off a sync job for a connection and poll its status until it succeeds, fails, or is cancelled.
+  description: >-
+    Triggers a sync job for an existing connection and then polls the job
+    status on a loop until it reaches a terminal state. The poll step branches
+    on the job status: while the job is still pending or running it loops back
+    and re-reads the job, and when the job reaches succeeded, failed, or
+    cancelled it ends. Every step inlines its request so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: trigger-sync-and-poll
+  summary: Trigger a sync job and poll the job until it reaches a terminal status.
+  description: >-
+    Starts a sync job for the supplied connection, then repeatedly reads the
+    job until its status is no longer pending or running.
+  inputs:
+    type: object
+    required:
+    - connectionId
+    properties:
+      connectionId:
+        type: string
+        description: The UUID of the connection to sync.
+      jobType:
+        type: string
+        description: The job type to trigger (sync, reset, refresh, or clear). Defaults to sync.
+        enum:
+        - sync
+        - reset
+        - refresh
+        - clear
+        default: sync
+  steps:
+  - stepId: triggerJob
+    description: >-
+      Kick off a new job of the requested type for the connection. The
+      returned jobId is polled by the following step.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        connectionId: $inputs.connectionId
+        jobType: $inputs.jobType
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      status: $response.body#/status
+  - stepId: pollJob
+    description: >-
+      Read the job status. While the job is still pending or running, loop back
+      and read it again; once it reaches a terminal state, finish the workflow.
+    operationId: getJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.triggerJob.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      bytesSynced: $response.body#/bytesSynced
+      rowsSynced: $response.body#/rowsSynced
+    onSuccess:
+    - name: stillRunning
+      type: goto
+      stepId: pollJob
+      criteria:
+      - context: $response.body
+        condition: $.status == 'running' || $.status == 'pending' || $.status == 'incomplete'
+        type: jsonpath
+    - name: terminal
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == 'succeeded' || $.status == 'failed' || $.status == 'cancelled'
+        type: jsonpath
+  outputs:
+    jobId: $steps.triggerJob.outputs.jobId
+    finalStatus: $steps.pollJob.outputs.status
+    rowsSynced: $steps.pollJob.outputs.rowsSynced

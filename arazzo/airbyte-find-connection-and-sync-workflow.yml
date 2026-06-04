@@ -1,0 +1,93 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Find a Connection and Trigger Its Sync
+  summary: List the connections in a workspace, branch on whether any exist, then trigger and confirm a sync for the first connection.
+  description: >-
+    Discovers connections in a workspace and then acts on the result. The list
+    step branches: when at least one connection exists it triggers a sync for
+    the first connection and reads the resulting job back to confirm it
+    started; when no connections exist it ends without triggering anything.
+    Every step inlines its request so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: find-connection-and-sync
+  summary: Find the first connection in a workspace and trigger a sync for it.
+  description: >-
+    Lists connections in a workspace, and if any exist triggers a sync for the
+    first one and confirms the job started.
+  inputs:
+    type: object
+    required:
+    - workspaceId
+    properties:
+      workspaceId:
+        type: string
+        description: The UUID of the workspace to list connections for.
+  steps:
+  - stepId: listConnections
+    description: >-
+      List the connections in the workspace. Branch on whether any connections
+      were returned.
+    operationId: listConnections
+    parameters:
+    - name: workspaceIds
+      in: query
+      value: $inputs.workspaceId
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      connectionId: $response.body#/data/0/connectionId
+      connections: $response.body#/data
+    onSuccess:
+    - name: hasConnections
+      type: goto
+      stepId: triggerSync
+      criteria:
+      - context: $response.body
+        condition: $.data.length > 0
+        type: jsonpath
+    - name: noConnections
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.data.length == 0
+        type: jsonpath
+  - stepId: triggerSync
+    description: Trigger a sync job for the first connection returned by the list step.
+    operationId: createJob
+    requestBody:
+      contentType: application/json
+      payload:
+        connectionId: $steps.listConnections.outputs.connectionId
+        jobType: sync
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      jobId: $response.body#/jobId
+      status: $response.body#/status
+  - stepId: confirmJob
+    description: >-
+      Read the triggered job back by id to confirm it has been accepted and is
+      pending or running.
+    operationId: getJob
+    parameters:
+    - name: jobId
+      in: path
+      value: $steps.triggerSync.outputs.jobId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      jobType: $response.body#/jobType
+  outputs:
+    connectionId: $steps.listConnections.outputs.connectionId
+    jobId: $steps.triggerSync.outputs.jobId
+    jobStatus: $steps.confirmJob.outputs.status

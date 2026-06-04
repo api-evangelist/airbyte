@@ -1,0 +1,86 @@
+arazzo: 1.0.1
+info:
+  title: Airbyte Create and Verify a Source
+  summary: Create a source connector, read it back to confirm it persisted, and list the workspace's sources to confirm it appears.
+  description: >-
+    A focused source-onboarding flow. It creates a source in a workspace, reads
+    the source back by id to confirm the configuration persisted and resolve the
+    connector sourceType, then lists the sources in the workspace to confirm the
+    new source is present. Every step inlines its request so the flow can be
+    read and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: airbyteApi
+  url: ../openapi/airbyte-openapi.yml
+  type: openapi
+workflows:
+- workflowId: create-verify-source
+  summary: Create a source, read it back, and confirm it appears in the workspace list.
+  description: >-
+    Creates a source, fetches it by id to confirm persistence, and lists the
+    workspace's sources.
+  inputs:
+    type: object
+    required:
+    - workspaceId
+    - name
+    - configuration
+    properties:
+      workspaceId:
+        type: string
+        description: The UUID of the workspace to create the source in.
+      name:
+        type: string
+        description: Human readable name for the source.
+      configuration:
+        type: object
+        description: Connector configuration JSON blob (must include sourceType or a definitionId).
+  steps:
+  - stepId: createSource
+    description: Create the source connector in the supplied workspace.
+    operationId: createSource
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.name
+        workspaceId: $inputs.workspaceId
+        configuration: $inputs.configuration
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceId: $response.body#/sourceId
+  - stepId: getSource
+    description: >-
+      Read the newly created source back by id to confirm it persisted and to
+      resolve the connector sourceType.
+    operationId: getSource
+    parameters:
+    - name: sourceId
+      in: path
+      value: $steps.createSource.outputs.sourceId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceId: $response.body#/sourceId
+      sourceType: $response.body#/sourceType
+      name: $response.body#/name
+  - stepId: listSources
+    description: >-
+      List the sources in the workspace to confirm the new source is present in
+      the returned collection.
+    operationId: listSources
+    parameters:
+    - name: workspaceIds
+      in: query
+      value: $inputs.workspaceId
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sources: $response.body#/data
+  outputs:
+    sourceId: $steps.getSource.outputs.sourceId
+    sourceType: $steps.getSource.outputs.sourceType
+    sources: $steps.listSources.outputs.sources
