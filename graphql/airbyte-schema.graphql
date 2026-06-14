@@ -1,0 +1,782 @@
+# Airbyte GraphQL Schema
+# Derived from the Airbyte public API OpenAPI specification (airbyte-platform/airbyte-api)
+# Source: https://github.com/airbytehq/airbyte-platform/tree/main/airbyte-api/server-api/src/main/openapi
+# The /graphql endpoint exists at https://api.airbyte.com/graphql (requires authentication)
+
+# ------------------------------------------------------------------
+# Scalars
+# ------------------------------------------------------------------
+
+scalar DateTime
+scalar JSON
+scalar UUID
+
+# ------------------------------------------------------------------
+# Enums
+# ------------------------------------------------------------------
+
+enum ConnectorType {
+  source
+  destination
+}
+
+enum ConnectionStatus {
+  active
+  inactive
+  deprecated
+  locked
+}
+
+enum ConnectionSyncMode {
+  full_refresh_overwrite
+  full_refresh_overwrite_deduped
+  full_refresh_append
+  full_refresh_update
+  full_refresh_soft_delete
+  incremental_append
+  incremental_deduped_history
+  incremental_update
+  incremental_soft_delete
+}
+
+enum ScheduleType {
+  manual
+  cron
+  basic
+}
+
+enum JobStatus {
+  pending
+  running
+  incomplete
+  failed
+  succeeded
+  cancelled
+  running_activity
+}
+
+enum JobType {
+  sync
+  reset_connection
+  refresh
+  clear
+}
+
+enum UserStatus {
+  invited
+  registered
+  disabled
+}
+
+enum PermissionType {
+  instance_admin
+  organization_admin
+  organization_editor
+  organization_reader
+  organization_member
+  workspace_admin
+  workspace_editor
+  workspace_reader
+}
+
+enum PermissionScope {
+  workspace
+  organization
+  instance
+}
+
+enum NamespaceDefinition {
+  source
+  destination
+  custom_format
+}
+
+enum NonBreakingSchemaUpdatesBehavior {
+  ignore
+  disable_connection
+  propagate_columns
+  propagate_fully
+}
+
+enum AuthProvider {
+  airbyte
+  google_identity_platform
+  keycloak
+}
+
+enum StreamMapperType {
+  hashing
+  field_renaming
+  row_filtering
+  encryption
+  field_filtering
+}
+
+enum EncryptionMapperAlgorithm {
+  AES_CBC
+  RSA
+}
+
+enum RowFilteringOperationType {
+  EQUAL
+  NOT
+}
+
+enum SSOConfigStatus {
+  enabled
+  disabled
+  pending
+}
+
+# ------------------------------------------------------------------
+# Core Domain Types
+# ------------------------------------------------------------------
+
+type Workspace {
+  workspaceId: UUID!
+  name: String!
+  dataResidency: String
+  notifications: NotificationsConfig
+  organizationId: UUID
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Organization {
+  organizationId: UUID!
+  name: String!
+  email: String
+  ssoConfigStatus: SSOConfigStatus
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type User {
+  id: UUID!
+  name: String!
+  email: String!
+  status: UserStatus!
+  authProvider: AuthProvider
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Permission {
+  permissionId: UUID!
+  permissionType: PermissionType!
+  scope: PermissionScope!
+  userId: UUID!
+  workspaceId: UUID
+  organizationId: UUID
+  createdAt: DateTime
+}
+
+# ------------------------------------------------------------------
+# Source & Destination Types
+# ------------------------------------------------------------------
+
+type Source {
+  sourceId: UUID!
+  name: String!
+  sourceType: String!
+  definitionId: UUID!
+  workspaceId: UUID!
+  configuration: JSON
+  createdAt: DateTime
+  updatedAt: DateTime
+  resourceAllocation: ScopedResourceRequirements
+  workspace: Workspace
+  connections: [Connection!]
+}
+
+type Destination {
+  destinationId: UUID!
+  name: String!
+  destinationType: String!
+  definitionId: UUID
+  workspaceId: UUID!
+  configuration: JSON
+  createdAt: DateTime
+  updatedAt: DateTime
+  resourceAllocation: ScopedResourceRequirements
+  workspace: Workspace
+  connections: [Connection!]
+}
+
+type SourceDefinition {
+  sourceDefinitionId: UUID!
+  name: String!
+  dockerRepository: String!
+  dockerImageTag: String!
+  documentationUrl: String
+  icon: String
+  connectorType: ConnectorType
+  releaseStage: String
+  supportLevel: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type DestinationDefinition {
+  destinationDefinitionId: UUID!
+  name: String!
+  dockerRepository: String!
+  dockerImageTag: String!
+  documentationUrl: String
+  icon: String
+  connectorType: ConnectorType
+  releaseStage: String
+  supportLevel: String
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type ConnectorDefinition {
+  id: UUID!
+  name: String!
+  connectorDefinitionType: ConnectorType!
+  version: String!
+  documentationUrl: String
+  icon: String
+}
+
+# ------------------------------------------------------------------
+# Connection Types
+# ------------------------------------------------------------------
+
+type Connection {
+  connectionId: UUID!
+  name: String!
+  sourceId: UUID!
+  destinationId: UUID!
+  workspaceId: UUID!
+  status: ConnectionStatus!
+  schedule: ConnectionSchedule
+  nonBreakingSchemaUpdatesBehavior: NonBreakingSchemaUpdatesBehavior
+  namespaceDefinition: NamespaceDefinition
+  namespaceFormat: String
+  prefix: String
+  configurations: StreamConfigurations
+  tags: [Tag!]
+  statusReason: String
+  createdAt: DateTime
+  updatedAt: DateTime
+  source: Source
+  destination: Destination
+  workspace: Workspace
+  jobs(limit: Int, offset: Int): [Job!]
+  latestSyncJob: Job
+}
+
+type ConnectionSchedule {
+  scheduleType: ScheduleType!
+  cronExpression: String
+  basicTiming: String
+}
+
+type StreamConfigurations {
+  streams: [StreamConfiguration!]!
+}
+
+type StreamConfiguration {
+  name: String!
+  namespace: String
+  syncMode: ConnectionSyncMode!
+  cursorField: [String!]
+  primaryKey: [[String!]!]
+  includeFiles: Boolean
+  destinationObjectName: String
+  selectedFields: [SelectedFieldInfo!]
+  mappers: [ConfiguredStreamMapper!]
+}
+
+type StreamProperties {
+  streamName: String!
+  streamNamespace: String
+  syncModes: [ConnectionSyncMode!]!
+  defaultCursorField: [String!]
+  sourceDefinedCursorField: Boolean
+  sourceDefinedPrimaryKey: [[String!]!]
+  propertyFields: [[String!]!]
+}
+
+type SelectedFieldInfo {
+  fieldPath: [String!]
+  selected: Boolean
+}
+
+type ConfiguredStreamMapper {
+  id: UUID
+  type: StreamMapperType!
+  mapperConfiguration: JSON
+}
+
+# ------------------------------------------------------------------
+# Catalog Types
+# ------------------------------------------------------------------
+
+type AirbyteCatalog {
+  streams: [AirbyteStreamAndConfig!]!
+}
+
+type AirbyteStream {
+  name: String!
+  namespace: String
+  jsonSchema: JSON
+  supportedSyncModes: [ConnectionSyncMode!]
+  sourceDefinedCursor: Boolean
+  defaultCursorField: [String!]
+  sourceDefinedPrimaryKey: [[String!]!]
+}
+
+type AirbyteStreamAndConfig {
+  stream: AirbyteStream!
+  config: AirbyteStreamConfig!
+}
+
+type AirbyteStreamConfig {
+  syncMode: ConnectionSyncMode!
+  destinationSyncMode: ConnectionSyncMode
+  cursorField: [String!]
+  primaryKey: [[String!]!]
+  aliasName: String
+  selected: Boolean
+  fieldSelectionEnabled: Boolean
+  selectedFields: [SelectedFieldInfo!]
+}
+
+type ConfiguredCatalog {
+  streams: [AirbyteStreamAndConfig!]!
+}
+
+# ------------------------------------------------------------------
+# Job Types
+# ------------------------------------------------------------------
+
+type Job {
+  id: UUID!
+  status: JobStatus!
+  jobType: JobType!
+  connectionId: UUID!
+  startedAt: DateTime
+  updatedAt: DateTime
+  createdAt: DateTime
+  bytesSynced: Float
+  rowsSynced: Float
+  duration: String
+  connection: Connection
+}
+
+type SyncJob {
+  id: UUID!
+  status: JobStatus!
+  connectionId: UUID!
+  startedAt: DateTime
+  endedAt: DateTime
+  bytesSynced: Float
+  rowsSynced: Float
+}
+
+type ResetJob {
+  id: UUID!
+  status: JobStatus!
+  connectionId: UUID!
+  startedAt: DateTime
+  endedAt: DateTime
+}
+
+type RefreshJob {
+  id: UUID!
+  status: JobStatus!
+  connectionId: UUID!
+  streams: [String!]
+  startedAt: DateTime
+  endedAt: DateTime
+}
+
+type JobTypeResourceLimit {
+  jobType: JobType!
+  resourceRequirements: ResourceRequirements!
+}
+
+# ------------------------------------------------------------------
+# Notification & Config Types
+# ------------------------------------------------------------------
+
+type NotificationsConfig {
+  sendOnSuccess: Boolean
+  sendOnFailure: Boolean
+  emailNotificationConfig: EmailNotificationConfig
+  webhookNotificationConfig: WebhookNotificationConfig
+}
+
+type EmailNotificationConfig {
+  enabled: Boolean!
+  recipientEmails: [String!]
+}
+
+type WebhookNotificationConfig {
+  enabled: Boolean!
+  url: String
+}
+
+type ResourceRequirements {
+  cpuRequest: String
+  cpuLimit: String
+  memoryRequest: String
+  memoryLimit: String
+}
+
+type ScopedResourceRequirements {
+  jobSpecific: [JobTypeResourceLimit!]
+  default: ResourceRequirements
+}
+
+# ------------------------------------------------------------------
+# Application / Auth Types
+# ------------------------------------------------------------------
+
+type Application {
+  id: UUID!
+  name: String!
+  clientId: String!
+  clientSecret: String!
+  createdAt: DateTime!
+}
+
+type PublicAccessToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+}
+
+# ------------------------------------------------------------------
+# Tag Type
+# ------------------------------------------------------------------
+
+type Tag {
+  tagId: UUID!
+  workspaceId: UUID!
+  name: String!
+  color: String
+}
+
+# ------------------------------------------------------------------
+# Dataplane / Region Types
+# ------------------------------------------------------------------
+
+type Dataplane {
+  dataplaneId: UUID!
+  name: String!
+  regionId: UUID!
+  enabled: Boolean!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+type Region {
+  regionId: UUID!
+  name: String!
+  enabled: Boolean!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+# ------------------------------------------------------------------
+# Declarative Source Types
+# ------------------------------------------------------------------
+
+type DeclarativeSourceDefinition {
+  sourceDefinitionId: UUID!
+  name: String!
+  manifest: JSON!
+  version: Int
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+# ------------------------------------------------------------------
+# Mapper Configuration Types
+# ------------------------------------------------------------------
+
+type HashingMapperConfiguration {
+  fieldPath: [String!]!
+  method: String!
+  targetField: String
+}
+
+type FieldRenamingMapperConfiguration {
+  originalFieldName: String!
+  newFieldName: String!
+}
+
+type FieldFilteringMapperConfiguration {
+  fieldsToInclude: [String!]
+  fieldsToExclude: [String!]
+}
+
+type EncryptionMapperAESConfiguration {
+  algorithm: EncryptionMapperAlgorithm!
+  fieldPath: [String!]!
+  targetField: String
+  keyId: String!
+}
+
+type EncryptionMapperRSAConfiguration {
+  algorithm: EncryptionMapperAlgorithm!
+  fieldPath: [String!]!
+  targetField: String
+  publicKey: String!
+}
+
+type RowFilteringOperation {
+  type: RowFilteringOperationType!
+  field: String
+  value: String
+  conditions: [RowFilteringOperation!]
+}
+
+type RowFilteringMapperConfiguration {
+  conditions: [RowFilteringOperation!]!
+}
+
+# ------------------------------------------------------------------
+# Pagination / List Wrappers
+# ------------------------------------------------------------------
+
+type ConnectionsPage {
+  data: [Connection!]!
+  previous: String
+  next: String
+}
+
+type SourcesPage {
+  data: [Source!]!
+  previous: String
+  next: String
+}
+
+type DestinationsPage {
+  data: [Destination!]!
+  previous: String
+  next: String
+}
+
+type JobsPage {
+  data: [Job!]!
+  previous: String
+  next: String
+}
+
+type WorkspacesPage {
+  data: [Workspace!]!
+  previous: String
+  next: String
+}
+
+type UsersPage {
+  data: [User!]!
+}
+
+type PermissionsPage {
+  data: [Permission!]!
+}
+
+type TagsPage {
+  data: [Tag!]!
+}
+
+type ConnectorDefinitionsPage {
+  data: [ConnectorDefinition!]!
+}
+
+# ------------------------------------------------------------------
+# Input Types
+# ------------------------------------------------------------------
+
+input CreateWorkspaceInput {
+  name: String!
+  organizationId: UUID!
+  regionId: UUID
+}
+
+input UpdateWorkspaceInput {
+  name: String
+  regionId: UUID
+}
+
+input CreateSourceInput {
+  name: String!
+  workspaceId: UUID!
+  definitionId: UUID!
+  configuration: JSON!
+}
+
+input UpdateSourceInput {
+  name: String
+  configuration: JSON
+}
+
+input CreateDestinationInput {
+  name: String!
+  workspaceId: UUID!
+  definitionId: UUID!
+  configuration: JSON!
+}
+
+input UpdateDestinationInput {
+  name: String
+  configuration: JSON
+}
+
+input CreateConnectionInput {
+  name: String!
+  sourceId: UUID!
+  destinationId: UUID!
+  configurations: StreamConfigurationsInput
+  schedule: ConnectionScheduleInput
+  namespaceDefinition: NamespaceDefinition
+  namespaceFormat: String
+  prefix: String
+  nonBreakingSchemaUpdatesBehavior: NonBreakingSchemaUpdatesBehavior
+  status: ConnectionStatus
+  tags: [UUID!]
+}
+
+input UpdateConnectionInput {
+  name: String
+  configurations: StreamConfigurationsInput
+  schedule: ConnectionScheduleInput
+  namespaceDefinition: NamespaceDefinition
+  namespaceFormat: String
+  prefix: String
+  nonBreakingSchemaUpdatesBehavior: NonBreakingSchemaUpdatesBehavior
+  status: ConnectionStatus
+  tags: [UUID!]
+}
+
+input ConnectionScheduleInput {
+  scheduleType: ScheduleType!
+  cronExpression: String
+}
+
+input StreamConfigurationsInput {
+  streams: [StreamConfigurationInput!]!
+}
+
+input StreamConfigurationInput {
+  name: String!
+  namespace: String
+  syncMode: ConnectionSyncMode!
+  cursorField: [String!]
+  primaryKey: [[String!]!]
+  selectedFields: [String!]
+}
+
+input CreateJobInput {
+  connectionId: UUID!
+  jobType: JobType!
+}
+
+input CreateTagInput {
+  name: String!
+  color: String
+  workspaceId: UUID!
+}
+
+input CreateApplicationInput {
+  name: String!
+}
+
+# ------------------------------------------------------------------
+# Root Query
+# ------------------------------------------------------------------
+
+type Query {
+  # Workspaces
+  workspace(workspaceId: UUID!): Workspace
+  workspaces(organizationId: UUID, limit: Int, offset: Int): WorkspacesPage!
+
+  # Organizations
+  organization(organizationId: UUID!): Organization
+
+  # Users
+  user(userId: UUID!): User
+  users(workspaceId: UUID, organizationId: UUID): UsersPage!
+
+  # Permissions
+  permissions(userId: UUID, workspaceId: UUID, organizationId: UUID): PermissionsPage!
+
+  # Sources
+  source(sourceId: UUID!): Source
+  sources(workspaceId: UUID!, limit: Int, offset: Int, includeDeleted: Boolean): SourcesPage!
+  sourceDefinitions(workspaceId: UUID): ConnectorDefinitionsPage!
+  streamProperties(sourceId: UUID!, destinationId: UUID, workspaceId: UUID): [StreamProperties!]!
+
+  # Destinations
+  destination(destinationId: UUID!): Destination
+  destinations(workspaceId: UUID!, limit: Int, offset: Int, includeDeleted: Boolean): DestinationsPage!
+  destinationDefinitions(workspaceId: UUID): ConnectorDefinitionsPage!
+
+  # Connections
+  connection(connectionId: UUID!): Connection
+  connections(workspaceId: UUID!, sourceId: UUID, destinationId: UUID, limit: Int, offset: Int, includeDeleted: Boolean): ConnectionsPage!
+
+  # Jobs
+  job(jobId: UUID!): Job
+  jobs(connectionId: UUID!, jobType: JobType, limit: Int, offset: Int): JobsPage!
+
+  # Tags
+  tags(workspaceId: UUID!): TagsPage!
+
+  # Applications
+  applications: [Application!]!
+
+  # Dataplanes
+  dataplanes(regionId: UUID): [Dataplane!]!
+  regions: [Region!]!
+}
+
+# ------------------------------------------------------------------
+# Root Mutation
+# ------------------------------------------------------------------
+
+type Mutation {
+  # Workspaces
+  createWorkspace(input: CreateWorkspaceInput!): Workspace!
+  updateWorkspace(workspaceId: UUID!, input: UpdateWorkspaceInput!): Workspace!
+  deleteWorkspace(workspaceId: UUID!): Boolean!
+
+  # Sources
+  createSource(input: CreateSourceInput!): Source!
+  updateSource(sourceId: UUID!, input: UpdateSourceInput!): Source!
+  deleteSource(sourceId: UUID!): Boolean!
+
+  # Destinations
+  createDestination(input: CreateDestinationInput!): Destination!
+  updateDestination(destinationId: UUID!, input: UpdateDestinationInput!): Destination!
+  deleteDestination(destinationId: UUID!): Boolean!
+
+  # Connections
+  createConnection(input: CreateConnectionInput!): Connection!
+  updateConnection(connectionId: UUID!, input: UpdateConnectionInput!): Connection!
+  deleteConnection(connectionId: UUID!): Boolean!
+
+  # Jobs
+  createJob(input: CreateJobInput!): Job!
+  cancelJob(jobId: UUID!): Job!
+
+  # Tags
+  createTag(input: CreateTagInput!): Tag!
+  updateTag(tagId: UUID!, name: String, color: String): Tag!
+  deleteTag(tagId: UUID!): Boolean!
+
+  # Applications
+  createApplication(input: CreateApplicationInput!): Application!
+  deleteApplication(applicationId: UUID!): Boolean!
+
+  # Permissions
+  createPermission(userId: UUID!, permissionType: PermissionType!, workspaceId: UUID, organizationId: UUID): Permission!
+  updatePermission(permissionId: UUID!, permissionType: PermissionType!): Permission!
+  deletePermission(permissionId: UUID!): Boolean!
+}
