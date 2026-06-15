@@ -1,0 +1,2143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public_root",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Root Path, Currently Returns a Redirect to the Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/"
+          },
+          "docs": "Airbyte Root Path, Currently Returns a Redirect to the Documentation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Health Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/health"
+          },
+          "docs": "Airbyte Health Check"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/applications"
+          },
+          "docs": "Airbyte List Applications"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create an Application"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get an Application Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get an Application Detail"
+        },
+        {
+          "info": {
+            "name": "Airbyte Deletes an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Deletes an Application"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/applications/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Get an Access Token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Jobs by Sync Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/jobs",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Jobs by connectionId."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of Jobs returned. The default is 20 Jobs."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning Jobs. The default is 0."
+              },
+              {
+                "name": "jobType",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Jobs by jobType."
+              },
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list jobs for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The Job status you want to filter by"
+              },
+              {
+                "name": "createdAtStart",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The start date to filter by"
+              },
+              {
+                "name": "createdAtEnd",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The end date to filter by"
+              },
+              {
+                "name": "updatedAtStart",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The start date to filter by"
+              },
+              {
+                "name": "updatedAtEnd",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The end date to filter by"
+              },
+              {
+                "name": "orderBy",
+                "value": "updatedAt|DESC",
+                "type": "query",
+                "description": "The field and method to use for ordering"
+              }
+            ]
+          },
+          "docs": "Airbyte List Jobs by Sync Type"
+        },
+        {
+          "info": {
+            "name": "Airbyte Trigger a Sync or Reset Job of a Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Trigger a Sync or Reset Job of a Connection"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Job Status and Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Job Status and Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Cancel a Running Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Cancel a Running Job"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_regions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/regions",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query",
+                "description": "The UUID of the organization to list regions for"
+              }
+            ]
+          },
+          "docs": "Airbyte List Regions"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/regions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Region"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_dataplanes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Dataplanes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/dataplanes",
+            "params": [
+              {
+                "name": "regionIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user."
+              }
+            ]
+          },
+          "docs": "Airbyte List Dataplanes"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/dataplanes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Dataplane"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_connector_definitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Connector Definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/connector_definitions",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of connector definition to list"
+              },
+              {
+                "name": "workspaceId",
+                "value": "df08f6b0-b364-4cc1-9b3f-96f5d2fccfb2",
+                "type": "query",
+                "description": "The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated."
+              }
+            ]
+          },
+          "docs": "Airbyte List Connector Definitions"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_declarative_source_definitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Declarative Source Definitions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/declarative_sources",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte List Declarative Source Definitions."
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Declarative Source Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/declarative_sources",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Declarative Source Definition."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Declarative Source Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Declarative Source Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Update Declarative Source Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update Declarative Source Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Declarative Source Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Declarative Source Definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_source_definitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Source Definitions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/sources",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte List Source Definitions."
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Source Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/sources",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Source Definition."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Source Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Source Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Update Source Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update Source Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Source Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/sources/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Source Definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_destination_definitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Destination Definitions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/destinations",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte List Destination Definitions."
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Destination Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/destinations",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Destination Definition."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Destination Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/destinations/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Destination Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Update Destination Definition Details.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/destinations/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update Destination Definition Details."
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Destination Definition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/definitions/destinations/:definitionId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "definitionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Destination Definition."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/sources",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "df08f6b0-b364-4cc1-9b3f-96f5d2fccfb2,b0796797-de23-4fc7-a5e2-7e131314718c",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted sources in the returned results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of sources returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning sources. The default is 0"
+              }
+            ]
+          },
+          "docs": "Airbyte List Sources"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/sources",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a source given a name, workspace id, and a json blob containing the configuration for the source."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Source Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeSecretCoordinates",
+                "value": "",
+                "type": "query",
+                "description": "Rather than return *** for secret properties include the secret coordinate information"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Source Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Source and Fully Overwrite it",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Source and Fully Overwrite it"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Source"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/sources/:sourceId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Source"
+        },
+        {
+          "info": {
+            "name": "Airbyte Initiate OAuth for a Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/sources/initiateOAuth",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Given a source ID, workspace ID, and redirect URL, initiates OAuth for the source.\n\nThis returns a fully formed URL for performing user authentication against the relevant source identity provider (IdP). Once authentication has been completed, the IdP will redirect to an Airbyte endpoint which will save the access and refresh tokens off as a secret and return the secret ID to the redirect URL specified in the `secret_id` query string parameter.\n\nThat secret ID can be used to create a source with"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_destinations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Destinations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/destinations",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted destinations in the returned results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of destinations returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning destinations. The default is 0"
+              }
+            ]
+          },
+          "docs": "Airbyte List Destinations"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/destinations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a destination given a name, workspace id, and a json blob containing the configuration for the source."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Destination Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeSecretCoordinates",
+                "value": "",
+                "type": "query",
+                "description": "Rather than return *** for secret properties include the secret coordinate information"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Destination Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Destination and Fully Overwrite it",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Destination and Fully Overwrite it"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Destination"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Destination"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_oauth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Receive OAuth Callbacks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/oauth/callback",
+            "params": [
+              {
+                "name": "queryParams",
+                "value": "",
+                "type": "query",
+                "description": "Query parameters. Should contain state and code."
+              }
+            ]
+          },
+          "docs": "Redirected to by identity providers after authentication."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/connections",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "tagIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections."
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted connections in the returned results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of Connections returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning Connections. The default is 0"
+              }
+            ]
+          },
+          "docs": "Airbyte List Connections"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/connections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Connection"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Connection Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Connection Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update Connection Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update Connection Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/connections/:connectionId",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Connection"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Get Stream Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/streams",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the source"
+              },
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the destination"
+              },
+              {
+                "name": "ignoreCache",
+                "value": "",
+                "type": "query",
+                "description": "If true pull the latest schema from the source, else pull from cache (default false)"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Stream Properties"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_workspaces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Workspaces",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted workspaces in the returned results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of workspaces returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning workspaces. The default is 0"
+              }
+            ]
+          },
+          "docs": "Airbyte List Workspaces"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/workspaces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Workspace"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Workspace Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Workspace Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Workspace"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Workspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Workspace"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create OAuth Override Credentials for a Workspace and Source Type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/workspaces/:workspaceId/oauthCredentials",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.\nIn order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Get Permission Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/permissions/:permissionId",
+            "params": [
+              {
+                "name": "permissionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Permission Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/permissions/:permissionId",
+            "params": [
+              {
+                "name": "permissionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Permission"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/permissions/:permissionId",
+            "params": [
+              {
+                "name": "permissionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Permission"
+        },
+        {
+          "info": {
+            "name": "Airbyte List Permissions by User Id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/permissions",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "User Id in permission."
+              },
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query",
+                "description": "This is required if you want to read someone else's permissions, and you should have organization admin or a higher role."
+              }
+            ]
+          },
+          "docs": "Airbyte List Permissions by User Id"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/permissions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Permission"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List All Organizations for a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/organizations"
+          },
+          "docs": "Lists users organizations."
+        },
+        {
+          "info": {
+            "name": "Airbyte Create OAuth Override Credentials for an Organization and Source Type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/organizations/:organizationId/oauthCredentials",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.\nIn order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination."
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/organizations/:organizationId/oauthCredentials/:actorType/:name",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "actorType",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the source or destination i.e. google-ads"
+              }
+            ]
+          },
+          "docs": "Delete a set of OAuth credentials that overrides the Airbyte-provided OAuth credentials used for source/destination OAuth."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List All Users Within an Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/users",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "List of user IDs to filter by"
+              },
+              {
+                "name": "emails",
+                "value": "",
+                "type": "query",
+                "description": "List of user emails to filter by"
+              }
+            ]
+          },
+          "docs": "Organization Admin user can list all users within the same organization. Also provide filtering on a list of user IDs or/and a list of user emails."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/groups",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query",
+                "description": "Filter groups by organization ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of Groups returned. The default is 20 Groups."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning Groups. The default is 0."
+              }
+            ]
+          },
+          "docs": "List all groups within the specified organization"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new group within an organization"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Group Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ]
+          },
+          "docs": "Get a specific group by ID"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing group"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ]
+          },
+          "docs": "Delete a group and remove all associated memberships"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_group_members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Group Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/members",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of members returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning members. The default is 0."
+              }
+            ]
+          },
+          "docs": "Get all members of a specific group"
+        },
+        {
+          "info": {
+            "name": "Airbyte Add Member to Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/members",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a user to a group"
+        },
+        {
+          "info": {
+            "name": "Airbyte Remove Member from Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/members/:userId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "User identifier"
+              }
+            ]
+          },
+          "docs": "Remove a user from a group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_group_permissions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Group Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/permissions",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ]
+          },
+          "docs": "Get all permissions assigned to a group"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create Group Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/permissions",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign a permission to a group"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete Group Permission",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/groups/:groupId/permissions/:permissionId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path",
+                "description": "Group identifier"
+              },
+              {
+                "name": "permissionId",
+                "value": "",
+                "type": "path",
+                "description": "Permission identifier"
+              }
+            ]
+          },
+          "docs": "Remove a permission from a group"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public_tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List All Tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/tags",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all tags"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a tag"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/tags/:tagId",
+            "params": [
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a tag"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/tags/:tagId",
+            "params": [
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a tag"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/tags/:tagId",
+            "params": [
+              {
+                "name": "tagId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a tag"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Get a Widget Token for Airbyte Embedded",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/embedded/widget_token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a token for the embedded widget. This endpoint is only available when Airbyte Embedded is enabled."
+        },
+        {
+          "info": {
+            "name": "Airbyte Generate a Scoped Token for Airbyte Embedded",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/embedded/scoped_token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a token scoped to an end-user workspace."
+        },
+        {
+          "info": {
+            "name": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/embedded/organizations"
+          },
+          "docs": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,10 +2,6 @@
   "repo": "airbyte",
   "feeds": [
     {
-      "source": "https://airbyte.com/blog/rss.xml",
-      "error": "HTTPError"
-    },
-    {
       "source": "https://airbyte.com/blog",
       "feed_url": "https://airbyte.com/blog",
       "title": "",
@@ -13,6 +9,6 @@
       "method": "none"
     }
   ],
-  "post_count": 52,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 56,
+  "fetched": "2026-06-14T20:42:17Z"
 }
