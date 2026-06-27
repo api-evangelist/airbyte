@@ -3,12 +3,12 @@
   "feeds": [
     {
       "source": "https://airbyte.com/blog",
-      "feed_url": "https://airbyte.com/blog",
-      "title": "Airbyte Blog",
-      "saved": 2,
-      "method": "html-scrape"
+      "feed_url": "",
+      "saved": 0,
+      "method": "agent-scrape"
     }
   ],
   "post_count": 58,
-  "fetched": "2026-06-21T17:00:00Z"
+  "fetched": "2026-06-27T12:22:17Z",
+  "agent_pulled": "2026-06-27"
 }

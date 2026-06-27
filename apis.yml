@@ -21,16 +21,16 @@ apis:
   - url: https://docs.airbyte.com/api-documentation
     type: Authentication
   - url: https://github.com/airbytehq/airbyte-api-python-sdk
-    type: SDK
+    type: SDKs
     title: Python SDK
   - url: https://github.com/airbytehq/airbyte-api-java-sdk
-    type: SDK
+    type: SDKs
     title: Java SDK
   - url: https://pypi.org/project/airbyte-api/
-    type: SDK
+    type: SDKs
     title: Python SDK PyPI
   - url: https://github.com/airbytehq/terraform-provider-airbyte
-    type: SDK
+    type: SDKs
     title: Terraform Provider
   - url: graphql/airbyte-graphql.md
     type: GraphQL
@@ -52,49 +52,36 @@ type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/airbyte-application-token-bootstrap-workflow.yml
-    name: Airbyte Bootstrap an Application and Access Token
-    summary: Create an API application to mint client credentials, read it back, then
-      exchange those credentials for a bearer access token.
-  - url: arazzo/airbyte-cancel-running-job-workflow.yml
-    name: Airbyte Find and Cancel a Running Job
-    summary: List the running jobs for a connection, branch on whether any are running,
-      then cancel the first one and confirm the cancellation.
-  - url: arazzo/airbyte-destination-create-verify-workflow.yml
-    name: Airbyte Create and Verify a Destination
-    summary: Create a destination connector, read it back to confirm it persisted,
-      and list the workspace's destinations to confirm it appears.
-  - url: arazzo/airbyte-find-connection-and-sync-workflow.yml
-    name: Airbyte Find a Connection and Trigger Its Sync
-    summary: List the connections in a workspace, branch on whether any exist, then
-      trigger and confirm a sync for the first connection.
-  - url: arazzo/airbyte-provision-pipeline-workflow.yml
-    name: Airbyte Provision a Full Data Pipeline
-    summary: Stand up a source, a destination, inspect the available streams, wire
-      them into a connection, and kick off the first sync.
-  - url: arazzo/airbyte-reset-and-resync-workflow.yml
-    name: Airbyte Reset a Connection and Re-Sync
-    summary: Trigger a reset job to clear destination data, poll it to completion,
-      then branch into a fresh sync when the reset succeeds.
-  - url: arazzo/airbyte-source-create-verify-workflow.yml
-    name: Airbyte Create and Verify a Source
-    summary: Create a source connector, read it back to confirm it persisted, and
-      list the workspace's sources to confirm it appears.
-  - url: arazzo/airbyte-tag-connection-workflow.yml
-    name: Airbyte Create a Tag and Apply It to a Connection
-    summary: Create an organizing tag in a workspace, find the first connection, and
-      patch that connection to carry the new tag.
-  - url: arazzo/airbyte-trigger-sync-and-poll-workflow.yml
-    name: Airbyte Trigger a Sync and Poll to Completion
-    summary: Kick off a sync job for a connection and poll its status until it succeeds,
-      fails, or is cancelled.
-  - url: arazzo/airbyte-workspace-bootstrap-workflow.yml
-    name: Airbyte Bootstrap a Workspace
-    summary: Create a workspace, read it back, create an organizing tag inside it,
-      and confirm the workspace starts empty of connections.
+- type: Arazzo
+  url: arazzo/airbyte-application-token-bootstrap-workflow.yml
+  name: Airbyte Bootstrap an Application and Access Token
+- type: Arazzo
+  url: arazzo/airbyte-cancel-running-job-workflow.yml
+  name: Airbyte Find and Cancel a Running Job
+- type: Arazzo
+  url: arazzo/airbyte-destination-create-verify-workflow.yml
+  name: Airbyte Create and Verify a Destination
+- type: Arazzo
+  url: arazzo/airbyte-find-connection-and-sync-workflow.yml
+  name: Airbyte Find a Connection and Trigger Its Sync
+- type: Arazzo
+  url: arazzo/airbyte-provision-pipeline-workflow.yml
+  name: Airbyte Provision a Full Data Pipeline
+- type: Arazzo
+  url: arazzo/airbyte-reset-and-resync-workflow.yml
+  name: Airbyte Reset a Connection and Re-Sync
+- type: Arazzo
+  url: arazzo/airbyte-source-create-verify-workflow.yml
+  name: Airbyte Create and Verify a Source
+- type: Arazzo
+  url: arazzo/airbyte-tag-connection-workflow.yml
+  name: Airbyte Create a Tag and Apply It to a Connection
+- type: Arazzo
+  url: arazzo/airbyte-trigger-sync-and-poll-workflow.yml
+  name: Airbyte Trigger a Sync and Poll to Completion
+- type: Arazzo
+  url: arazzo/airbyte-workspace-bootstrap-workflow.yml
+  name: Airbyte Bootstrap a Workspace
 - type: LinkedIn
   url: https://www.linkedin.com/company/airbytehq
 - url: https://airbyte.com
@@ -102,7 +89,7 @@ common:
 - url: https://cloud.airbyte.io
   type: Console
 - url: https://cloud.airbyte.io
-  type: SignUp
+  type: Signup
 - url: https://airbyte.com/pricing
   type: Pricing
 - url: https://github.com/airbytehq
@@ -132,19 +119,19 @@ common:
 - url: https://airbyte.com/connectors
   type: Integrations
 - url: https://github.com/airbytehq/PyAirbyte
-  type: SDK
+  type: SDKs
   title: PyAirbyte
 - url: https://github.com/airbytehq/abctl
   type: CLI
   title: Airbyte CLI (abctl)
 - url: https://github.com/airbytehq/airbyte-python-cdk
-  type: SDK
+  type: SDKs
   title: Python Connector CDK
 - url: https://github.com/airbytehq/airbyte-agent-sdk
-  type: SDK
+  type: SDKs
   title: Agent SDK
 - url: https://artifacthub.io/packages/helm/airbyte/airbyte
-  type: SDK
+  type: SDKs
   title: Helm Chart
 - type: Features
   data:
@@ -211,8 +198,8 @@ common:
   title: Airbyte Vocabulary
 - name: Agent Skills
   url: https://github.com/airbytehq/airbyte-claude-skills
-  type: AgentSkill
-- type: LLMsTxt
+  type: AgentSkills
+- type: LlmsText
   url: https://docs.airbyte.com/llms.txt
 created: '2025-01-08'
 modified: '2026-05-19'
