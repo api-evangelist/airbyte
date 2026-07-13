@@ -1,245 +1,275 @@
+# airbyte — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on airbyte.com
+#   - path-params-casing: camel @ 99% (n=70)
+#   - query-params-casing: camel @ 63% (n=49)
+#   - operationid-casing: camel @ 100% (n=91)
+#   - schema-names-casing: pascal @ 100% (n=142)
+#   - schema-properties-casing: camel @ 50% (n=343)
+#   - operation-documents-403: 91% adherence
+#   - pagination params observed: ['limit', 'offset']
+#   - merge: kept 28 existing, added 6 measured, upgraded 0
+#   - added: servers-expected-domain, path-params-casing, query-params-casing, schema-names-casing, schema-properties-casing, operation-documents-403
+extends:
+  - spectral:oas
 rules:
-  # INFO / METADATA
   info-title-required:
     description: Info title must be defined.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: title
       function: truthy
-
   info-description-required:
     description: Info description must be defined and non-empty.
     severity: warn
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
-
   info-version-required:
     description: Info version must be defined.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: version
       function: truthy
-
-  # OPENAPI VERSION
   openapi-version-3:
     description: OpenAPI version must be 3.x.
     severity: error
-    given: "$"
+    given: $
     then:
       field: openapi
       function: pattern
       functionOptions:
-        match: "^3\\."
-
-  # SERVERS
+        match: ^3\.
   servers-defined:
     description: Servers array must be defined.
     severity: error
-    given: "$"
+    given: $
     then:
       field: servers
       function: truthy
-
   servers-https:
     description: Server URLs should use HTTPS.
     severity: warn
-    given: "$.servers[*]"
+    given: $.servers[*]
     then:
       field: url
       function: pattern
       functionOptions:
-        match: "^https://"
-
-  # PATHS — NAMING CONVENTIONS
+        match: ^https://
   paths-kebab-case:
     description: Path segments should use kebab-case.
     severity: warn
-    given: "$.paths[*]~"
+    given: $.paths[*]~
     then:
       function: pattern
       functionOptions:
-        match: "^(/[a-z0-9{}-]+)+$"
-
+        match: ^(/[a-z0-9{}-]+)+$
   paths-no-trailing-slash:
     description: Paths must not have trailing slashes.
     severity: warn
-    given: "$.paths[*]~"
+    given: $.paths[*]~
     then:
       function: pattern
       functionOptions:
-        notMatch: "/$"
-
-  # OPERATIONS
+        notMatch: /$
   operation-summary-required:
     description: Every operation must have a summary.
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: summary
       function: truthy
-
   operation-description-required:
     description: Every operation should have a description.
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: description
       function: truthy
-
   operation-operationId-required:
     description: Every operation must have an operationId.
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: operationId
       function: truthy
-
   operation-operationId-camelCase:
     description: operationId should use camelCase.
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].operationId"
+    given: $.paths[*][get,post,put,patch,delete].operationId
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-zA-Z0-9]*$"
-
+        match: ^[a-z][a-zA-Z0-9]*$
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: tags
       function: truthy
-
   operation-summary-starts-with-airbyte:
     description: Operation summaries should start with "Airbyte".
     severity: info
-    given: "$.paths[*][get,post,put,patch,delete].summary"
+    given: $.paths[*][get,post,put,patch,delete].summary
     then:
       function: pattern
       functionOptions:
-        match: "^Airbyte "
-
-  # PARAMETERS
+        match: '^Airbyte '
   parameter-description-required:
     description: All parameters must have a description.
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
     then:
       field: description
       function: truthy
-
   parameter-schema-required:
     description: All parameters must have a schema.
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete].parameters[*]"
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
     then:
       field: schema
       function: truthy
-
-  # REQUEST BODIES
   request-body-json-content:
     description: Request bodies should use application/json content type.
     severity: info
-    given: "$.paths[*][post,put,patch].requestBody.content"
+    given: $.paths[*][post,put,patch].requestBody.content
     then:
       function: truthy
-
-  # RESPONSES
   response-success-required:
     description: Every operation must have at least one 2xx response.
     severity: error
-    given: "$.paths[*][get,post,put,patch,delete].responses"
+    given: $.paths[*][get,post,put,patch,delete].responses
     then:
       function: schema
       functionOptions:
         schema:
           type: object
           minProperties: 1
-
   response-description-required:
     description: All responses must have a description.
     severity: warn
-    given: "$.paths[*][get,post,put,patch,delete].responses[*]"
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
     then:
       field: description
       function: truthy
-
   response-401-on-secured-ops:
     description: Secured operations should document 401 response.
     severity: info
-    given: "$.paths[*][get,post,put,patch,delete].responses"
+    given: $.paths[*][get,post,put,patch,delete].responses
     then:
       function: truthy
-
-  # SCHEMAS — PROPERTY NAMING
   schema-properties-snake-case:
     description: Schema property names should use snake_case.
     severity: info
-    given: "$.components.schemas[*].properties[*]~"
+    given: $.components.schemas[*].properties[*]~
     then:
       function: pattern
       functionOptions:
-        match: "^[a-z][a-z0-9_]*$"
-
+        match: ^[a-z][a-z0-9_]*$
   schema-description-required:
     description: Top-level schemas should have a description.
     severity: info
-    given: "$.components.schemas[*]"
+    given: $.components.schemas[*]
     then:
       field: description
       function: truthy
-
-  # SECURITY
   security-schemes-defined:
     description: Security schemes should be defined in components.
     severity: warn
-    given: "$.components"
+    given: $.components
     then:
       field: securitySchemes
       function: truthy
-
   security-bearer-format:
     description: Bearer security should use bearerFormat JWT or similar.
     severity: info
-    given: "$.components.securitySchemes[*][?(@.scheme == 'bearer')]"
+    given: $.components.securitySchemes[*][?(@.scheme == 'bearer')]
     then:
       field: bearerFormat
       function: truthy
-
-  # HTTP METHOD CONVENTIONS
   get-no-request-body:
     description: GET operations should not have a request body.
     severity: error
-    given: "$.paths[*].get"
+    given: $.paths[*].get
     then:
       field: requestBody
       function: falsy
-
   delete-no-request-body:
     description: DELETE operations should not have a request body.
     severity: warn
-    given: "$.paths[*].delete"
+    given: $.paths[*].delete
     then:
       field: requestBody
       function: falsy
-
-  # GENERAL QUALITY
   no-empty-descriptions:
     description: Descriptions must not be empty strings.
     severity: warn
-    given: "$..description"
+    given: $..description
     then:
       function: truthy
-
   microcks-operation-extension:
     description: Operations should include x-microcks-operation for mock compatibility.
     severity: info
-    given: "$.paths[*][get,post,put,patch,delete]"
+    given: $.paths[*][get,post,put,patch,delete]
     then:
       field: x-microcks-operation
+      function: truthy
+  servers-expected-domain:
+    description: Server URLs should be on the airbyte.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: airbyte\.com
+  path-params-casing:
+    description: Path parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*].parameters[?(@.in=='path')].name
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  query-params-casing:
+    description: Query parameters should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: pattern
+      functionOptions:
+        match: ^[A-Z][A-Za-z0-9]*$
+  schema-properties-casing:
+    description: Schema properties should be camelCase (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: camel
+  operation-documents-403:
+    description: Operations should document a 403 response (documented on 91% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '403'
       function: truthy
