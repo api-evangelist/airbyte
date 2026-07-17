@@ -1,0 +1,28 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.airbyte.com/release_notes
+scheme: semantic-style platform versions (major.minor), monthly cadence
+current: '2.1'
+docs: https://docs.airbyte.com/release_notes
+self_managed_notes: https://docs.airbyte.com/release_notes/self-managed
+breaking_changes: https://docs.airbyte.com/release_notes/breaking-changes
+entries:
+- version: '2.1'
+  date: '2026-04-03'
+  breaking: false
+  highlights:
+  - Breaking-change protection auto-creates a protective version pin at the latest safe stable version when pins are removed.
+  - Asynchronous schema discovery during connection create/edit (non-blocking UI for large schemas).
+  - Experimental release under the new version-assembly process.
+- version: '2.0'
+  date: '2025-10-14'
+  breaking: true
+  highlights:
+  - Major platform architecture milestone ("the data platform built for the AI era").
+  - Faster sync speed GA - 4-6x faster syncs on average with more economical resource use.
+  - Data Activation (reverse ETL) generally available - move data from the warehouse to operational tools.
+- version: '1.8'
+  date: '2025-08-11'
+  breaking: false
+  highlights:
+  - Platform improvements and connector-update management enhancements.

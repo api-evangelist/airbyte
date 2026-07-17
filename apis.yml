@@ -56,6 +56,40 @@ common:
   url: agentic-access/airbyte-agentic-access.yml
 - type: DomainSecurity
   url: security/airbyte-domain-security.yml
+- type: Packages
+  url: packages/airbyte-packages.yml
+- type: WellKnown
+  url: well-known/airbyte-well-known.yml
+- type: MCPServer
+  url: mcp/airbyte-mcp.yml
+- type: LLMsTxt
+  url: llms/airbyte-llms.txt
+- type: Overlay
+  url: overlays/airbyte-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/airbyte-conformance.yml
+- type: ErrorCatalog
+  url: errors/airbyte-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/airbyte-lifecycle.yml
+- type: OAuthScopes
+  url: scopes/airbyte-scopes.yml
+- type: Authentication
+  url: authentication/airbyte-authentication.yml
+- type: TrustCenter
+  url: security/airbyte-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/airbyte-vulnerability-disclosure.yml
+- type: Conventions
+  url: conventions/airbyte-conventions.yml
+- type: ChangeLog
+  url: changelog/airbyte-changelog.yml
+- type: CLI
+  url: cli/airbyte-cli.yml
+- type: Components
+  url: components/airbyte-components.yml
+- type: DataModel
+  url: data-model/airbyte-data-model.yml
 - type: Arazzo
   url: arazzo/airbyte-application-token-bootstrap-workflow.yml
   name: Airbyte Bootstrap an Application and Access Token
@@ -206,7 +240,7 @@ common:
 - type: LlmsText
   url: https://docs.airbyte.com/llms.txt
 created: '2025-01-08'
-modified: '2026-05-19'
+modified: '2026-06-20'
 position: Consumer
 description: Airbyte is an open-source data integration platform that enables businesses
   to easily and efficiently move and consolidate their data from various sources into

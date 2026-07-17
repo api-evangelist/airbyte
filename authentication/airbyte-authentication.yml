@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.airbyte.com/platform/using-airbyte/configuring-api-access
+docs: https://docs.airbyte.com/platform/using-airbyte/configuring-api-access
+discovery: https://airbyte.com/.well-known/openid-configuration
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  token_delivery: bearer
+schemes:
+- name: clientCredentials
+  type: oauth2
+  flow: clientCredentials
+  token_url_cloud: https://api.airbyte.com/v1/applications/token
+  token_url_self_managed: https://<YOUR_AIRBYTE_URL>/api/public/v1/applications/token
+  token_endpoint_auth_method: client_secret_post
+  token_ttl_seconds: 900
+  bearer_format: JWT (RS256)
+  scopes: [openid, api]
+  description: >-
+    The Airbyte public API authenticates with the OAuth 2.0 client_credentials
+    grant. Create an Application in the Airbyte UI (User settings > Applications)
+    to obtain a client_id and client_secret, then POST them with
+    grant_type=client_credentials to the token endpoint. The returned access
+    token expires after 15 minutes and is sent as an
+    'Authorization: Bearer <token>' header. The application represents the
+    creating user and inherits their permissions.
+notes: >-
+  The harvested OpenAPI (openapi/airbyte-openapi.yml) declares no
+  securitySchemes, so this profile is captured from the docs and the OIDC
+  discovery document rather than derived. Self-managed/Enterprise deployments
+  additionally support SSO (OIDC/SAML) and RBAC at the platform level.

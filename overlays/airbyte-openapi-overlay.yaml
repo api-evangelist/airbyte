@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Airbyte API
+  version: 1.0.0
+extends: openapi/airbyte-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: airbyte
+    x-apievangelist-enriched: '2026-06-20'
+    x-api-authentication: oauth2-client-credentials
+    x-api-token-endpoint: https://api.airbyte.com/v1/applications/token
+    x-api-token-ttl-seconds: 900
+    x-api-rate-limit: 60 requests/minute per workspace
+    x-api-status-page: https://status.airbyte.com
+    x-api-changelog: https://docs.airbyte.com/release_notes
+    x-api-trust-center: https://trust.airbyte.com/
+    x-api-certifications: [SOC 2 Type II, ISO 27001]
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/airbyte-authentication.yml
+      scopes: scopes/airbyte-scopes.yml
+      conventions: conventions/airbyte-conventions.yml
+      errors: errors/airbyte-problem-types.yml
+      lifecycle: lifecycle/airbyte-lifecycle.yml
+      data_model: data-model/airbyte-data-model.yml
+      mcp: mcp/airbyte-mcp.yml
+      packages: packages/airbyte-packages.yml
+- target: $.servers
+  update:
+    description: Airbyte public API v1 (OAuth2 client_credentials bearer auth).

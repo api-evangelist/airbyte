@@ -1,0 +1,72 @@
+generated: '2026-06-20'
+method: searched
+source: PyPI, Maven Central, Terraform Registry, npm, GitHub airbytehq
+packages:
+- language: python
+  registry: pypi
+  name: airbyte-api
+  version: 1.0.1
+  url: https://pypi.org/project/airbyte-api/
+  install: pip install airbyte-api
+  repo: https://github.com/airbytehq/airbyte-api-python-sdk
+  description: Python client SDK for the Airbyte public API (Speakeasy-generated).
+  official: true
+- language: java
+  registry: maven-central
+  name: com.airbyte:api
+  version: 1.4.1
+  url: https://central.sonatype.com/artifact/com.airbyte/api
+  install: 'implementation "com.airbyte:api:1.4.1"'
+  repo: https://github.com/airbytehq/airbyte-api-java-sdk
+  description: Java client SDK for the Airbyte public API.
+  official: true
+- language: python
+  registry: pypi
+  name: airbyte
+  version: 0.51.1
+  url: https://pypi.org/project/airbyte/
+  install: pip install airbyte
+  repo: https://github.com/airbytehq/PyAirbyte
+  description: PyAirbyte - run Airbyte connectors directly from Python.
+  official: true
+- language: python
+  registry: pypi
+  name: airbyte-cdk
+  url: https://pypi.org/project/airbyte-cdk/
+  install: pip install airbyte-cdk
+  repo: https://github.com/airbytehq/airbyte-python-cdk
+  description: Python Connector Development Kit for building custom Airbyte connectors.
+  official: true
+- language: terraform
+  registry: terraform-registry
+  name: airbytehq/airbyte
+  version: 1.3.0-rc1
+  url: https://registry.terraform.io/providers/airbytehq/airbyte/latest
+  install: 'terraform { required_providers { airbyte = { source = "airbytehq/airbyte" } } }'
+  repo: https://github.com/airbytehq/terraform-provider-airbyte
+  description: Terraform provider to manage Airbyte sources, destinations, and connections as code.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@airbyte-embedded/airbyte-embedded-widget"
+  version: 0.4.5
+  url: https://www.npmjs.com/package/@airbyte-embedded/airbyte-embedded-widget
+  install: npm install @airbyte-embedded/airbyte-embedded-widget
+  description: Embeddable JS widget for Airbyte Embedded (customer-facing source onboarding).
+  official: true
+- language: go
+  registry: github
+  name: abctl
+  url: https://github.com/airbytehq/abctl
+  install: brew install airbytehq/tap/abctl
+  repo: https://github.com/airbytehq/abctl
+  description: Airbyte CLI for deploying and managing a local/self-managed Airbyte instance.
+  official: true
+- language: helm
+  registry: artifacthub
+  name: airbyte
+  url: https://artifacthub.io/packages/helm/airbyte/airbyte
+  install: helm install airbyte airbyte/airbyte
+  repo: https://github.com/airbytehq/airbyte-platform
+  description: Official Helm chart for deploying Airbyte on Kubernetes.
+  official: true

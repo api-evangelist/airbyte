@@ -1,0 +1,36 @@
+generated: '2026-06-20'
+method: searched
+source: openapi/airbyte-openapi.yml + https://docs.airbyte.com/platform/using-airbyte/configuring-api-access + reference.airbyte.com
+base_url: https://api.airbyte.com/v1
+authentication:
+  style: oauth2-client-credentials
+  token_delivery: Authorization Bearer (JWT, 15-min TTL)
+  detail: authentication/airbyte-authentication.yml
+pagination:
+  style: limit-offset
+  params:
+    limit: max items per page (query)
+    offset: number of items to skip (query)
+  response_fields:
+    data: array under a named collection key (e.g. connections, sources)
+    next: next-page URL where provided
+versioning:
+  style: uri-path
+  current: v1
+  detail: lifecycle/airbyte-lifecycle.yml
+rate_limiting:
+  public_api: 60 requests/minute per workspace
+  throttled_status: 429
+  detail: rate-limits/airbyte-rate-limits.yml
+errors:
+  envelope: HTTP status code + description (no RFC 9457 problem+json)
+  detail: errors/airbyte-problem-types.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header is documented in the public API spec.
+request_tracing:
+  request_id_header: not documented
+metadata:
+  notes: Resources carry created/updated timestamps; tags provide user-defined grouping.
+filtering:
+  common_params: [workspaceIds, organizationId, includeDeleted, status, jobType, createdAtStart, createdAtEnd, updatedAtStart]

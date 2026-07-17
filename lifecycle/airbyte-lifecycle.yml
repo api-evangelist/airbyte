@@ -1,0 +1,26 @@
+generated: '2026-06-20'
+method: searched
+source: https://docs.airbyte.com/release_notes
+versioning:
+  scheme: uri-path
+  current: v1
+  api_base: https://api.airbyte.com/v1
+  platform_version: '2.1'
+  docs: https://docs.airbyte.com/release_notes
+release_cadence: >-
+  Monthly platform releases going forward (post-2.0), each with an associated
+  changelog. Semantic-style platform versioning (2.0, 2.1, ...).
+deprecation:
+  policy_url: https://docs.airbyte.com/release_notes/breaking-changes
+  breaking_change_list: https://docs.airbyte.com/release_notes/breaking-changes
+  sunset_header: false
+  deprecation_header: false
+  notes: >-
+    Airbyte maintains a dedicated breaking-change inventory with mitigation
+    steps. Version pins protect connectors from crossing breaking-change
+    boundaries during upgrades (added in 2.1).
+sla:
+  url: https://airbyte.com/pricing
+  notes: Uptime SLAs are offered on higher (Pro/Enterprise) tiers.
+status_page: https://status.airbyte.com
+deprecated_operations: []

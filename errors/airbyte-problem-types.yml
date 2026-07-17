@@ -1,0 +1,31 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/airbyte-openapi.yml
+format: http-status
+envelope: >-
+  Airbyte API error responses return a standard HTTP status code. The harvested
+  OpenAPI declares no application/problem+json media type or error schema, so
+  errors are described by status code and description only (not RFC 9457).
+problems:
+- status: 400
+  title: Invalid data
+  description: The request body or parameters failed validation.
+  occurrences: 25
+- status: 403
+  title: Not allowed
+  description: The authenticated principal lacks permission for the resource or action.
+  occurrences: 83
+- status: 404
+  title: Not found
+  description: The requested resource does not exist (or is not visible to the caller).
+  occurrences: 64
+- status: 409
+  title: Conflict
+  description: >-
+    The resource conflicts with existing state (e.g. a group with this name
+    already exists in the organization).
+  occurrences: 5
+- status: 422
+  title: Data issue
+  description: The request was well-formed but contains a semantic/data problem.
+  occurrences: 3

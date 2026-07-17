@@ -1,0 +1,26 @@
+generated: '2026-06-20'
+method: searched
+source: https://airbyte.com/.well-known/openid-configuration
+docs: https://docs.airbyte.com/platform/using-airbyte/configuring-api-access
+schemes:
+- name: clientCredentials
+  source: https://airbyte.com/.well-known/openid-configuration
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.airbyte.com/v1/applications/token
+scopes:
+- scope: openid
+  description: Standard OpenID Connect scope; returned in the client_credentials token.
+  flows: [clientCredentials]
+  sources: [https://airbyte.com/.well-known/openid-configuration]
+- scope: api
+  description: >-
+    Grants access to the Airbyte public API. Effective authorization is bound to
+    the permissions of the user that owns the Application (workspace/organization
+    RBAC), not to fine-grained OAuth scopes.
+  flows: [clientCredentials]
+  sources: [https://airbyte.com/.well-known/openid-configuration]
+notes: >-
+  Airbyte exposes only the coarse OIDC scopes 'openid' and 'api'. Access is
+  governed by workspace/organization RBAC roles attached to the Application's
+  owning user rather than by granular API scopes.

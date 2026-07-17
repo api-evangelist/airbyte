@@ -1,0 +1,17 @@
+generated: '2026-06-20'
+method: searched
+probe: true
+url: https://trust.airbyte.com/
+certifications:
+- SOC 2 Type II
+- ISO 27001
+evidence:
+- source: https://trust.airbyte.com/
+  kind: trust-center
+- source: https://docs.airbyte.com/platform/operating-airbyte/security
+  keywords: [soc 2 type ii, iso 27001, penetration test]
+notes: >-
+  Independent SOC 2 Type II assessment (report available on request); ISO 27001
+  certified since November 2022 (certificate available on request). Regular
+  third-party audits and penetration tests. trust.airbyte.com hosts the security
+  and compliance documentation.

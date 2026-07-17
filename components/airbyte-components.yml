@@ -1,0 +1,18 @@
+generated: '2026-06-20'
+method: searched
+source: https://www.npmjs.com/package/@airbyte-embedded/airbyte-embedded-widget + https://docs.airbyte.com
+families:
+- family: Airbyte Embedded
+  description: >-
+    Customer-facing, embeddable onboarding surface that lets your end users
+    connect their own data sources from within your app (powered by Airbyte's
+    600+ connectors). Rendered via an embeddable widget backed by scoped tokens.
+  loader: "@airbyte-embedded/airbyte-embedded-widget"
+  registry: npm
+  version: 0.4.5
+  install: npm install @airbyte-embedded/airbyte-embedded-widget
+  docs: https://docs.airbyte.com/embedded
+  openapi_surface: embedded_widget tag in openapi/airbyte-openapi.yml
+notes: >-
+  Distinct from the server-side SDKs in packages/. The embedded widget is a
+  client-side UI component for white-labeled source onboarding.

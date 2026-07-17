@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: live probes of /.well-known/* on Airbyte hosts
+hosts:
+- host: https://airbyte.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: airbyte-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://api.airbyte.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/jwks.json
+    status: 401
+- host: https://docs.airbyte.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+notes: >-
+  airbyte.com publishes an OIDC discovery document declaring the OAuth2
+  client_credentials grant against the token endpoint
+  https://api.airbyte.com/v1/applications/token with scopes [openid, api].
+  The api.airbyte.com well-known surface requires authentication (401).

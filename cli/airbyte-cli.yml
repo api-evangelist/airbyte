@@ -1,0 +1,28 @@
+generated: '2026-06-20'
+method: searched
+source: https://github.com/airbytehq/abctl + https://docs.airbyte.com
+clis:
+- name: abctl
+  title: Airbyte CLI
+  repo: https://github.com/airbytehq/abctl
+  purpose: Deploy and manage a local / self-managed Airbyte instance (Kind-based Kubernetes).
+  install:
+  - brew install airbytehq/tap/abctl
+  - curl -LsfS https://get.airbyte.com | bash -
+  command_groups:
+  - group: local
+    description: Manage a local Airbyte install.
+    commands: [install, uninstall, status, credentials, deployments]
+  - group: version
+    description: Print the abctl version.
+  - group: images
+    description: Manage the container images abctl uses.
+- name: pyairbyte
+  title: PyAirbyte (Python library / runner)
+  repo: https://github.com/airbytehq/PyAirbyte
+  package: airbyte (PyPI)
+  purpose: Run Airbyte connectors and read source data directly from Python; also ships the PyAirbyte MCP server (airbyte-mcp).
+notes: >-
+  abctl is the operator CLI for standing up self-managed Airbyte. Cloud/API
+  automation is done via the Terraform provider (airbytehq/airbyte) and the
+  public API SDKs rather than a dedicated cloud CLI.
