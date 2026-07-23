@@ -1,0 +1,705 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications Groups API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: Groups
+paths:
+  /groups:
+    get:
+      tags:
+      - Groups
+      summary: Airbyte List Groups
+      description: List all groups within the specified organization
+      parameters:
+      - name: organizationId
+        in: query
+        description: Filter groups by organization ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        description: Set the limit on the number of Groups returned. The default is 20 Groups.
+        schema:
+          format: int32
+          default: 20
+          maximum: 100
+          minimum: 1
+          type: integer
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning Groups. The default is 0.
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+        in: query
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsResponse'
+              examples:
+                listGroups200Example:
+                  summary: Default listGroups 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+                    next: example
+                    previous: example
+          description: List Groups.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroups
+      x-speakeasy-alias: listGroups
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - Groups
+      summary: Airbyte Create Group
+      description: Create a new group within an organization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                createGroup200Example:
+                  summary: Default createGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Group created successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '409':
+          description: Group with this name already exists in the organization
+      operationId: createGroup
+      x-speakeasy-alias: createGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - Groups
+      summary: Airbyte Get Group Details
+      description: Get a specific group by ID
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                getGroup200Example:
+                  summary: Default getGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Get a Group by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getGroup
+      x-speakeasy-alias: getGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - Groups
+      summary: Airbyte Update Group
+      description: Update an existing group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupUpdateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                updateGroup200Example:
+                  summary: Default updateGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Group updated successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: Group name conflict
+      operationId: updateGroup
+      x-speakeasy-alias: updateGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - Groups
+      summary: Airbyte Delete Group
+      description: Delete a group and remove all associated memberships
+      responses:
+        '204':
+          description: Group deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteGroup
+      x-speakeasy-alias: deleteGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/members:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - Groups
+      summary: Airbyte List Group Members
+      description: Get all members of a specific group
+      parameters:
+      - name: limit
+        description: Set the limit on the number of members returned. The default is 20.
+        schema:
+          format: int32
+          default: 20
+          maximum: 100
+          minimum: 1
+          type: integer
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning members. The default is 0.
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+        in: query
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMembersResponse'
+              examples:
+                listGroupMembers200Example:
+                  summary: Default listGroupMembers 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+                    next: example
+                    previous: example
+          description: List Group members.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroupMembers
+      x-speakeasy-alias: listGroupMembers
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - Groups
+      summary: Airbyte Add Member to Group
+      description: Add a user to a group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupMemberAddRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMemberResponse'
+              examples:
+                addGroupMember201Example:
+                  summary: Default addGroupMember 201 response
+                  x-microcks-default: true
+                  value:
+                    memberId: abc123
+                    groupId: abc123
+                    userId: abc123
+                    userEmail: user@example.com
+                    userName: example-name
+          description: Member added successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: User is already a member of this group
+      operationId: addGroupMember
+      x-speakeasy-alias: addGroupMember
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/members/{userId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    - name: userId
+      in: path
+      required: true
+      description: User identifier
+      schema:
+        type: string
+        format: uuid
+    delete:
+      tags:
+      - Groups
+      summary: Airbyte Remove Member from Group
+      description: Remove a user from a group
+      responses:
+        '204':
+          description: Member removed successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: removeGroupMember
+      x-speakeasy-alias: removeGroupMember
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/permissions:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - Groups
+      summary: Airbyte List Group Permissions
+      description: Get all permissions assigned to a group
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupPermissionsResponse'
+              examples:
+                listGroupPermissions200Example:
+                  summary: Default listGroupPermissions 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List Group permissions.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroupPermissions
+      x-speakeasy-alias: listGroupPermissions
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - Groups
+      summary: Airbyte Create Group Permission
+      description: Assign a permission to a group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupPermissionCreateRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupPermissionResponse'
+              examples:
+                createGroupPermission201Example:
+                  summary: Default createGroupPermission 201 response
+                  x-microcks-default: true
+                  value:
+                    permissionId: abc123
+                    groupId: abc123
+                    permissionType: instance_admin
+                    workspaceId: abc123
+                    organizationId: abc123
+          description: Permission created successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: Permission already exists for this group
+      operationId: createGroupPermission
+      x-speakeasy-alias: createGroupPermission
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/permissions/{permissionId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    - name: permissionId
+      in: path
+      required: true
+      description: Permission identifier
+      schema:
+        type: string
+        format: uuid
+    delete:
+      tags:
+      - Groups
+      summary: Airbyte Delete Group Permission
+      description: Remove a permission from a group
+      responses:
+        '204':
+          description: Permission deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteGroupPermission
+      x-speakeasy-alias: deleteGroupPermission
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    GroupPermissionResponse:
+      title: Root Type for GroupPermissionResponse
+      description: Provides details of a single group permission
+      type: object
+      required:
+      - permissionId
+      - groupId
+      - permissionType
+      properties:
+        permissionId:
+          type: string
+          format: uuid
+          description: The ID of the permission
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The workspace ID for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The organization ID for organization-scoped permissions
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupResponse:
+      title: Root Type for GroupResponse
+      description: Provides details of a single group
+      type: object
+      required:
+      - groupId
+      - name
+      - organizationId
+      - memberCount
+      properties:
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          nullable: true
+          description: Optional description of the group
+        organizationId:
+          type: string
+          format: uuid
+          description: The ID of the organization the group belongs to
+        memberCount:
+          type: integer
+          format: int64
+          description: The number of members in the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
+    GroupPermissionsResponse:
+      title: Root Type for GroupPermissionsResponse
+      description: List/Array of group permissions
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupPermissionResponse'
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMembersResponse:
+      title: Root Type for GroupMembersResponse
+      description: List/Array of group members
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupMemberResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMemberResponse:
+      title: Root Type for GroupMemberResponse
+      description: Provides details of a single group member
+      type: object
+      required:
+      - memberId
+      - groupId
+      - userId
+      - userEmail
+      - userName
+      properties:
+        memberId:
+          type: string
+          format: uuid
+          description: The ID of the group membership
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user
+        userEmail:
+          type: string
+          format: email
+          description: The email of the user
+        userName:
+          type: string
+          description: The name of the user
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupCreateRequest:
+      title: Root Type for GroupCreateRequest
+      description: Request body for creating a group
+      required:
+      - name
+      - organizationId
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          nullable: true
+          description: Optional description of the group
+        organizationId:
+          type: string
+          format: uuid
+          description: The ID of the organization the group belongs to
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionCreateRequest:
+      title: Root Type for GroupPermissionCreateRequest
+      description: Request body for creating a group permission
+      required:
+      - permissionType
+      type: object
+      properties:
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for organization-scoped permissions
+      oneOf:
+      - required:
+        - workspaceId
+      - required:
+        - organizationId
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupUpdateRequest:
+      title: Root Type for GroupUpdateRequest
+      description: Request body for updating a group
+      type: object
+      properties:
+        name:
+          type: string
+          description: The updated name of the group
+        description:
+          type: string
+          nullable: true
+          description: The updated description of the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMemberAddRequest:
+      title: Root Type for GroupMemberAddRequest
+      description: Request body for adding a member to a group
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user to add to the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupsResponse:
+      title: Root Type for GroupsResponse
+      description: List/Array of multiple groups
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true

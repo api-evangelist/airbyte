@@ -1,0 +1,267 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications DestinationDefinitions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: DestinationDefinitions
+paths:
+  /workspaces/{workspaceId}/definitions/destinations:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - DestinationDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionsResponse'
+              examples:
+                listDestinationDefinitions200Example:
+                  summary: Default listDestinationDefinitions 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listDestinationDefinitions
+      x-speakeasy-alias: listDestinationDefinitions
+      x-speakeasy-group: DestinationDefinitions
+      summary: Airbyte List Destination Definitions.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createDestinationDefinition
+      x-speakeasy-alias: createDestinationDefinition
+      x-speakeasy-group: DestinationDefinitions
+      summary: Airbyte Create a Destination Definition.
+      x-speakeasy-entity-operation: DestinationDefinition#create
+      tags:
+      - DestinationDefinitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDefinitionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                createDestinationDefinition200Example:
+                  summary: Default createDestinationDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /workspaces/{workspaceId}/definitions/destinations/{definitionId}:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    - name: definitionId
+      x-speakeasy-match: id
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - DestinationDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                getDestinationDefinition200Example:
+                  summary: Default getDestinationDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getDestinationDefinition
+      x-speakeasy-alias: getDestinationDefinition
+      x-speakeasy-group: DestinationDefinitions
+      summary: Airbyte Get Destination Definition Details.
+      x-speakeasy-entity-operation: DestinationDefinition#read
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - DestinationDefinitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDefinitionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                updateDestinationDefinition200Example:
+                  summary: Default updateDestinationDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateDestinationDefinition
+      x-speakeasy-alias: updateDestinationDefinition
+      x-speakeasy-group: DestinationDefinitions
+      summary: Airbyte Update Destination Definition Details.
+      x-speakeasy-entity-operation: DestinationDefinition#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - DestinationDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                deleteDestinationDefinition200Example:
+                  summary: Default deleteDestinationDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteDestinationDefinition
+      x-speakeasy-alias: deleteDestinationDefinition
+      x-speakeasy-group: DestinationDefinitions
+      summary: Airbyte Delete a Destination Definition.
+      x-speakeasy-entity-operation: DestinationDefinition#delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DefinitionResponse:
+      title: Root Type for DefinitionResponse
+      description: Provides details of a single connector definition.
+      type: object
+      x-speakeasy-component: true
+      required:
+      - id
+      - name
+      - dockerRepository
+      - dockerImageTag
+      properties:
+        id:
+          format: UUID
+          type: string
+        name:
+          type: string
+        dockerRepository:
+          type: string
+        dockerImageTag:
+          type: string
+        documentationUrl:
+          type: string
+    DefinitionsResponse:
+      title: Root Type for DefinitionsResponse
+      description: ''
+      x-speakeasy-component: true
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionResponse'
+    UpdateDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - name
+      - dockerImageTag
+      properties:
+        name:
+          type: string
+        dockerImageTag:
+          type: string
+    CreateDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - name
+      - dockerRepository
+      - dockerImageTag
+      properties:
+        name:
+          type: string
+        dockerRepository:
+          type: string
+        dockerImageTag:
+          type: string
+        documentationUrl:
+          type: string
+          format: uri

@@ -1,0 +1,215 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_group_permissions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_group_permissions
+paths:
+  /groups/{groupId}/permissions:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - public_group_permissions
+      summary: Airbyte List Group Permissions
+      description: Get all permissions assigned to a group
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupPermissionsResponse'
+              examples:
+                listGroupPermissions200Example:
+                  summary: Default listGroupPermissions 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List Group permissions.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroupPermissions
+      x-speakeasy-alias: listGroupPermissions
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - public_group_permissions
+      summary: Airbyte Create Group Permission
+      description: Assign a permission to a group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupPermissionCreateRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupPermissionResponse'
+              examples:
+                createGroupPermission201Example:
+                  summary: Default createGroupPermission 201 response
+                  x-microcks-default: true
+                  value:
+                    permissionId: abc123
+                    groupId: abc123
+                    permissionType: instance_admin
+                    workspaceId: abc123
+                    organizationId: abc123
+          description: Permission created successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: Permission already exists for this group
+      operationId: createGroupPermission
+      x-speakeasy-alias: createGroupPermission
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/permissions/{permissionId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    - name: permissionId
+      in: path
+      required: true
+      description: Permission identifier
+      schema:
+        type: string
+        format: uuid
+    delete:
+      tags:
+      - public_group_permissions
+      summary: Airbyte Delete Group Permission
+      description: Remove a permission from a group
+      responses:
+        '204':
+          description: Permission deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteGroupPermission
+      x-speakeasy-alias: deleteGroupPermission
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
+    GroupPermissionsResponse:
+      title: Root Type for GroupPermissionsResponse
+      description: List/Array of group permissions
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupPermissionResponse'
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionResponse:
+      title: Root Type for GroupPermissionResponse
+      description: Provides details of a single group permission
+      type: object
+      required:
+      - permissionId
+      - groupId
+      - permissionType
+      properties:
+        permissionId:
+          type: string
+          format: uuid
+          description: The ID of the permission
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The workspace ID for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: The organization ID for organization-scoped permissions
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionCreateRequest:
+      title: Root Type for GroupPermissionCreateRequest
+      description: Request body for creating a group permission
+      required:
+      - permissionType
+      type: object
+      properties:
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for organization-scoped permissions
+      oneOf:
+      - required:
+        - workspaceId
+      - required:
+        - organizationId
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true

@@ -1,0 +1,301 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_groups API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_groups
+paths:
+  /groups:
+    get:
+      tags:
+      - public_groups
+      summary: Airbyte List Groups
+      description: List all groups within the specified organization
+      parameters:
+      - name: organizationId
+        in: query
+        description: Filter groups by organization ID
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: limit
+        description: Set the limit on the number of Groups returned. The default is 20 Groups.
+        schema:
+          format: int32
+          default: 20
+          maximum: 100
+          minimum: 1
+          type: integer
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning Groups. The default is 0.
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+        in: query
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsResponse'
+              examples:
+                listGroups200Example:
+                  summary: Default listGroups 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+                    next: example
+                    previous: example
+          description: List Groups.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroups
+      x-speakeasy-alias: listGroups
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - public_groups
+      summary: Airbyte Create Group
+      description: Create a new group within an organization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupCreateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                createGroup200Example:
+                  summary: Default createGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Group created successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '409':
+          description: Group with this name already exists in the organization
+      operationId: createGroup
+      x-speakeasy-alias: createGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - public_groups
+      summary: Airbyte Get Group Details
+      description: Get a specific group by ID
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                getGroup200Example:
+                  summary: Default getGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Get a Group by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getGroup
+      x-speakeasy-alias: getGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - public_groups
+      summary: Airbyte Update Group
+      description: Update an existing group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupUpdateRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupResponse'
+              examples:
+                updateGroup200Example:
+                  summary: Default updateGroup 200 response
+                  x-microcks-default: true
+                  value:
+                    groupId: abc123
+                    name: example-name
+                    description: Example description
+                    organizationId: abc123
+                    memberCount: 1
+          description: Group updated successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: Group name conflict
+      operationId: updateGroup
+      x-speakeasy-alias: updateGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_groups
+      summary: Airbyte Delete Group
+      description: Delete a group and remove all associated memberships
+      responses:
+        '204':
+          description: Group deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteGroup
+      x-speakeasy-alias: deleteGroup
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    GroupResponse:
+      title: Root Type for GroupResponse
+      description: Provides details of a single group
+      type: object
+      required:
+      - groupId
+      - name
+      - organizationId
+      - memberCount
+      properties:
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          nullable: true
+          description: Optional description of the group
+        organizationId:
+          type: string
+          format: uuid
+          description: The ID of the organization the group belongs to
+        memberCount:
+          type: integer
+          format: int64
+          description: The number of members in the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupUpdateRequest:
+      title: Root Type for GroupUpdateRequest
+      description: Request body for updating a group
+      type: object
+      properties:
+        name:
+          type: string
+          description: The updated name of the group
+        description:
+          type: string
+          nullable: true
+          description: The updated description of the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupCreateRequest:
+      title: Root Type for GroupCreateRequest
+      description: Request body for creating a group
+      required:
+      - name
+      - organizationId
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          nullable: true
+          description: Optional description of the group
+        organizationId:
+          type: string
+          format: uuid
+          description: The ID of the organization the group belongs to
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupsResponse:
+      title: Root Type for GroupsResponse
+      description: List/Array of multiple groups
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true

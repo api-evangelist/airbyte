@@ -1,0 +1,99 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_connector_definitions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_connector_definitions
+paths:
+  /connector_definitions:
+    get:
+      tags:
+      - public_connector_definitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectorDefinitionsResponse'
+              examples:
+                listConnectorDefinitions200Example:
+                  summary: Default listConnectorDefinitions 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listConnectorDefinitions
+      x-speakeasy-alias: listConnectorDefinitions
+      x-speakeasy-group: ConnectorDefinitions
+      summary: Airbyte List Connector Definitions
+      parameters:
+      - name: type
+        description: The type of connector definition to list
+        schema:
+          $ref: '#/components/schemas/ConnectorType'
+        in: query
+        required: true
+      - name: workspaceId
+        description: The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated.
+        schema:
+          type: string
+          format: uuid
+        example: df08f6b0-b364-4cc1-9b3f-96f5d2fccfb2
+        in: query
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ConnectorDefinitionResponse:
+      title: Root Type for ConnectorDefinitionResponse
+      description: Provides details of a single connector definition.
+      type: object
+      required:
+      - id
+      - connectorDefinitionType
+      - name
+      - version
+      properties:
+        id:
+          format: UUID
+          type: string
+        name:
+          type: string
+        connectorDefinitionType:
+          $ref: '#/components/schemas/ConnectorType'
+        version:
+          type: string
+      example:
+        id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        name: Postgres
+        connectorDefinnitionType: source
+        version: 0.2.0
+      x-speakeasy-component: true
+    ConnectorDefinitionsResponse:
+      title: Root Type for DefinitionsResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectorDefinitionResponse'
+      x-speakeasy-component: true
+    ConnectorType:
+      type: string
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true

@@ -1,0 +1,397 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications Workspaces API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: Workspaces
+paths:
+  /workspaces:
+    get:
+      tags:
+      - Workspaces
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspacesResponse'
+              examples:
+                listWorkspaces200Example:
+                  summary: Default listWorkspaces 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listWorkspaces
+      x-speakeasy-alias: listWorkspaces
+      x-speakeasy-group: Workspaces
+      summary: Airbyte List Workspaces
+      parameters:
+      - name: workspaceIds
+        description: The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      - name: includeDeleted
+        description: Include deleted workspaces in the returned results.
+        schema:
+          default: false
+          type: boolean
+        in: query
+        required: false
+      - name: limit
+        description: Set the limit on the number of workspaces returned. The default is 20.
+        schema:
+          format: int32
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning workspaces. The default is 0
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          default: 0
+        in: query
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - Workspaces
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceCreateRequest'
+            examples:
+              Workspace Creation Request Example:
+                value:
+                  name: Company Workspace Name
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceResponse'
+              examples:
+                Workspace Creation Response Example:
+                  value:
+                    workspaceId: 9924bcd0-99be-453d-ba47-c2c9766f7da5
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: createWorkspace
+      x-speakeasy-alias: createWorkspace
+      x-speakeasy-group: Workspaces
+      summary: Airbyte Create a Workspace
+      x-speakeasy-entity-operation: Workspace#create
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /workspaces/{workspaceId}:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: UUID
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - Workspaces
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceResponse'
+              examples:
+                Workspace Get Response Example:
+                  value:
+                    workspaceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: Acme Company
+                    dataResidency: auto
+          description: Get a Workspace by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getWorkspace
+      x-speakeasy-alias: getWorkspace
+      x-speakeasy-group: Workspaces
+      summary: Airbyte Get Workspace Details
+      x-speakeasy-entity-operation: Workspace#read
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - Workspaces
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceUpdateRequest'
+            examples:
+              Workspace Update Request Example:
+                value:
+                  name: Company Workspace Name
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceResponse'
+              examples:
+                Workspace Update Response Example:
+                  value:
+                    workspaceId: 9924bcd0-99be-453d-ba47-c2c9766f7da5
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: updateWorkspace
+      x-speakeasy-alias: updateWorkspace
+      x-speakeasy-group: Workspaces
+      summary: Airbyte Update a Workspace
+      x-speakeasy-entity-operation: Workspace#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - Workspaces
+      responses:
+        '204':
+          description: The resource was deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteWorkspace
+      x-speakeasy-alias: deleteWorkspace
+      x-speakeasy-group: Workspaces
+      summary: Airbyte Delete a Workspace
+      x-speakeasy-entity-operation: Workspace#delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /workspaces/{workspaceId}/oauthCredentials:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: UUID
+        type: string
+      in: path
+      required: true
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceOAuthCredentialsRequest'
+        required: true
+      tags:
+      - Workspaces
+      responses:
+        '200':
+          description: OAuth credential override was successful.
+        '400':
+          description: A field in the body has not been set appropriately.
+        '403':
+          description: API key is invalid.
+      operationId: createOrUpdateWorkspaceOAuthCredentials
+      x-speakeasy-alias: createOrUpdateWorkspaceOAuthCredentials
+      x-speakeasy-group: Workspaces
+      summary: Airbyte Create OAuth Override Credentials for a Workspace and Source Type.
+      description: 'Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.
+
+        In order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination.'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    WorkspaceOAuthCredentialsRequest:
+      title: Root Type for WorkspaceOAuthCredentials
+      description: POST body for creating/updating workspace level OAuth credentials
+      required:
+      - actorType
+      - name
+      - configuration
+      type: object
+      properties:
+        actorType:
+          $ref: '#/components/schemas/ActorTypeEnum'
+        name:
+          type: string
+          description: The name of the source i.e. google-ads
+        configuration:
+          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
+      x-speakeasy-component: true
+    NotificationConfig:
+      description: Configures a notification.
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/EmailNotificationConfig'
+        webhook:
+          $ref: '#/components/schemas/WebhookNotificationConfig'
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspaceCreateRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          description: Name of the workspace
+          type: string
+        organizationId:
+          description: ID of organization to add workspace to.
+          format: uuid
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+        regionId:
+          type: string
+          format: uuid
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
+    WorkspaceUpdateRequest:
+      type: object
+      properties:
+        name:
+          description: Name of the workspace
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+        regionId:
+          type: string
+          format: uuid
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspacesResponse:
+      title: Root Type for WorkspacesResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkspaceResponse'
+      example:
+        next: https://api.airbyte.com/v1/workspaces?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/workspaces?limit=5&offset=0
+        data:
+          workspaceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+          name: Acme Company
+          dataResidency: auto
+      x-speakeasy-component: true
+    NotificationsConfig:
+      description: Configures workspace notifications.
+      type: object
+      properties:
+        failure:
+          $ref: '#/components/schemas/NotificationConfig'
+        success:
+          $ref: '#/components/schemas/NotificationConfig'
+        connectionUpdate:
+          $ref: '#/components/schemas/NotificationConfig'
+        connectionUpdateActionRequired:
+          $ref: '#/components/schemas/NotificationConfig'
+        syncDisabled:
+          $ref: '#/components/schemas/NotificationConfig'
+        syncDisabledWarning:
+          $ref: '#/components/schemas/NotificationConfig'
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    OAuthCredentialsConfiguration:
+      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
+      type: object
+      example:
+        credentials:
+          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+          client_secret: shhhhhh
+      x-speakeasy-component: true
+    WebhookNotificationConfig:
+      description: Configures a webhook notification.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        url:
+          type: string
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    EmailNotificationConfig:
+      description: Configures an email notification.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspaceResponse:
+      title: Root Type for WorkspaceResponse
+      description: Provides details of a single workspace.
+      type: object
+      required:
+      - workspaceId
+      - name
+      - dataResidency
+      - notifications
+      properties:
+        workspaceId:
+          format: UUID
+          type: string
+        name:
+          type: string
+        dataResidency:
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true

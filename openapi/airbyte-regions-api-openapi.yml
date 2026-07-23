@@ -1,0 +1,260 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications Regions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: Regions
+paths:
+  /regions:
+    get:
+      tags:
+      - Regions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionsResponse'
+              examples:
+                listRegions200Example:
+                  summary: Default listRegions 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List all regions for the organization
+        '403':
+          description: Not allowed
+      operationId: listRegions
+      summary: Airbyte List Regions
+      x-speakeasy-alias: listRegions
+      x-speakeasy-group: Regions
+      parameters:
+      - name: organizationId
+        description: The UUID of the organization to list regions for
+        schema:
+          type: string
+          format: uuid
+        in: query
+        required: true
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegionCreateRequest'
+        required: true
+      tags:
+      - Regions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionResponse'
+              examples:
+                createRegion200Example:
+                  summary: Default createRegion 200 response
+                  x-microcks-default: true
+                  value:
+                    regionId: abc123
+                    name: example-name
+                    organizationId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Successfully created region
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: createRegion
+      summary: Airbyte Create a Region
+      x-speakeasy-alias: createRegion
+      x-speakeasy-group: Dataplanes
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /regions/{regionId}:
+    parameters:
+    - name: regionId
+      schema:
+        type: string
+        format: uuid
+      in: path
+      required: true
+    get:
+      tags:
+      - Regions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionResponse'
+              examples:
+                getRegion200Example:
+                  summary: Default getRegion 200 response
+                  x-microcks-default: true
+                  value:
+                    regionId: abc123
+                    name: example-name
+                    organizationId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Get a region by the id in the path
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getRegion
+      x-speakeasy-alias: getRegion
+      x-speakeasy-group: Regions
+      summary: Airbyte Get a Region
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegionPatchRequest'
+        required: true
+      tags:
+      - Regions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionResponse'
+              examples:
+                updateRegion200Example:
+                  summary: Default updateRegion 200 response
+                  x-microcks-default: true
+                  value:
+                    regionId: abc123
+                    name: example-name
+                    organizationId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Successfully updated region
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateRegion
+      x-speakeasy-alias: updateRegion
+      x-speakeasy-group: Dataplanes
+      summary: Airbyte Update a Region
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - Regions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegionResponse'
+              examples:
+                deleteRegion200Example:
+                  summary: Default deleteRegion 200 response
+                  x-microcks-default: true
+                  value:
+                    regionId: abc123
+                    name: example-name
+                    organizationId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Successfully deleted region
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteRegion
+      x-speakeasy-alias: deleteRegion
+      x-speakeasy-group: Regions
+      summary: Airbyte Delete a Region
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    RegionCreateRequest:
+      type: object
+      required:
+      - name
+      - organizationId
+      properties:
+        name:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    RegionPatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    RegionsResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionResponse'
+      x-speakeasy-component: true
+    RegionResponse:
+      type: object
+      required:
+      - regionId
+      - name
+      - organizationId
+      - enabled
+      - createdAt
+      - updatedAt
+      properties:
+        regionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+        enabled:
+          type: boolean
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true

@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_health API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_health
+paths:
+  /health:
+    get:
+      tags:
+      - public_health
+      responses:
+        '200':
+          description: Successful operation
+      operationId: getHealthCheck
+      summary: Airbyte Health Check
+      security: []
+      x-speakeasy-alias: getHealthCheck
+      x-speakeasy-group: Health
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

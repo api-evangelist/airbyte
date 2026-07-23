@@ -1,0 +1,336 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_jobs API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_jobs
+paths:
+  /jobs:
+    get:
+      tags:
+      - public_jobs
+      parameters:
+      - name: connectionId
+        description: Filter the Jobs by connectionId.
+        schema:
+          format: UUID
+          type: string
+        in: query
+        required: false
+      - name: limit
+        description: Set the limit on the number of Jobs returned. The default is 20 Jobs.
+        schema:
+          format: int32
+          default: 20
+          maximum: 100
+          minimum: 1
+          type: integer
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning Jobs. The default is 0.
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+        in: query
+      - name: jobType
+        description: Filter the Jobs by jobType.
+        schema:
+          $ref: '#/components/schemas/JobTypeEnum'
+        in: query
+      - name: workspaceIds
+        description: The UUIDs of the workspaces you wish to list jobs for. Empty list will retrieve all allowed workspaces.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      - name: status
+        description: The Job status you want to filter by
+        schema:
+          $ref: '#/components/schemas/JobStatusEnum'
+        in: query
+        required: false
+      - name: createdAtStart
+        description: The start date to filter by
+        schema:
+          type: string
+          format: date-time
+        in: query
+        required: false
+        example: 1687450500000
+      - name: createdAtEnd
+        description: The end date to filter by
+        schema:
+          type: string
+          format: date-time
+        in: query
+        required: false
+        example: 1687450500000
+      - name: updatedAtStart
+        description: The start date to filter by
+        schema:
+          type: string
+          format: date-time
+        example: 1687450500000
+        in: query
+        required: false
+      - name: updatedAtEnd
+        description: The end date to filter by
+        schema:
+          type: string
+          format: date-time
+        in: query
+        required: false
+        example: 1687450500000
+      - name: orderBy
+        description: The field and method to use for ordering
+        schema:
+          type: string
+          pattern: \w+|(ASC|DESC)
+        in: query
+        required: false
+        example: updatedAt|DESC
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobsResponse'
+              examples:
+                Job List Response Example:
+                  value:
+                    next: https://api.airbyte.com/v1/jobs?limit=5&offset=10
+                    previous: https://api.airbyte.com/v1/jobs?limit=5&offset=0
+                    data:
+                    - id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                      status: running
+                      jobType: sync
+          description: List all the Jobs by connectionId.
+        '403':
+          description: Not allowed
+      operationId: listJobs
+      summary: Airbyte List Jobs by Sync Type
+      x-speakeasy-alias: listJobs
+      x-speakeasy-group: Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobCreateRequest'
+            examples:
+              Job Creation Request Example:
+                value:
+                  connectionId: e735894a-e773-4938-969f-45f53957b75b
+                  jobType: sync
+        required: true
+      tags:
+      - public_jobs
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+              examples:
+                Job Creation Response Example:
+                  value:
+                    jobId: 1234
+                    status: running
+                    jobType: sync
+          description: Kicks off a new Job based on the JobType. The connectionId is the resource that Job will be run for.
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: createJob
+      summary: Airbyte Trigger a Sync or Reset Job of a Connection
+      x-speakeasy-alias: createJob
+      x-speakeasy-group: Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /jobs/{jobId}:
+    parameters:
+    - name: jobId
+      schema:
+        format: int64
+        type: integer
+      in: path
+      required: true
+    get:
+      tags:
+      - public_jobs
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+              examples:
+                Job Get Response Example:
+                  value:
+                    id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    status: running
+                    jobType: sync
+          description: Get a Job by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getJob
+      x-speakeasy-alias: getJob
+      x-speakeasy-group: Jobs
+      summary: Airbyte Get Job Status and Details
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_jobs
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobResponse'
+              examples:
+                cancelJob200Example:
+                  summary: Default cancelJob 200 response
+                  x-microcks-default: true
+                  value:
+                    jobId: abc123
+                    status: pending
+                    jobType: sync
+                    startTime: example
+                    connectionId: abc123
+                    lastUpdatedAt: example
+                    duration: example
+                    bytesSynced: 1
+                    rowsSynced: 1
+          description: Cancel a Job.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: cancelJob
+      x-speakeasy-alias: cancelJob
+      x-speakeasy-group: Jobs
+      summary: Airbyte Cancel a Running Job
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    JobsResponse:
+      title: Root Type for JobsResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobResponse'
+      example:
+        next: https://api.airbyte.com/v1/jobs?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/jobs?limit=5&offset=0
+        data:
+        - id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+          status: running
+          jobType: sync
+          startTime: 2023-03-25 01:30:50+00:00
+      x-speakeasy-component: true
+    JobStatusEnum:
+      enum:
+      - pending
+      - running
+      - incomplete
+      - failed
+      - succeeded
+      - cancelled
+      type: string
+      x-speakeasy-component: true
+    JobCreateRequest:
+      title: Root Type for JobCreate
+      description: Creates a new Job from the configuration provided in the request body.
+      required:
+      - jobType
+      - connectionId
+      type: object
+      properties:
+        connectionId:
+          format: UUID
+          type: string
+        jobType:
+          $ref: '#/components/schemas/JobTypeEnum'
+      example:
+        connectionId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        jobType: sync
+      x-speakeasy-component: true
+    JobTypeEnum:
+      description: Enum that describes the different types of jobs that the platform runs.
+      enum:
+      - sync
+      - reset
+      - refresh
+      - clear
+      type: string
+      x-speakeasy-component: true
+    JobResponse:
+      title: Root Type for JobResponse
+      description: Provides details of a single job.
+      required:
+      - jobId
+      - status
+      - jobType
+      - startTime
+      - connectionId
+      type: object
+      properties:
+        jobId:
+          format: int64
+          type: integer
+        status:
+          $ref: '#/components/schemas/JobStatusEnum'
+        jobType:
+          $ref: '#/components/schemas/JobTypeEnum'
+        startTime:
+          type: string
+        connectionId:
+          format: UUID
+          type: string
+        lastUpdatedAt:
+          type: string
+        duration:
+          description: Duration of a sync in ISO_8601 format
+          type: string
+        bytesSynced:
+          format: int64
+          type: integer
+        rowsSynced:
+          format: int64
+          type: integer
+      example:
+        id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        status: running
+        jobType: sync
+        startTime: 2023-03-25 01:30:50+00:00
+        duration: PT8H6M12S
+      x-speakeasy-component: true

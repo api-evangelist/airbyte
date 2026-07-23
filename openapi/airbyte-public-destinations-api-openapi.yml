@@ -1,0 +1,468 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_destinations API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_destinations
+paths:
+  /destinations:
+    get:
+      tags:
+      - public_destinations
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationsResponse'
+              examples:
+                listDestinations200Example:
+                  summary: Default listDestinations 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listDestinations
+      x-speakeasy-alias: listDestinations
+      x-speakeasy-group: Destinations
+      summary: Airbyte List Destinations
+      parameters:
+      - name: workspaceIds
+        description: The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      - name: includeDeleted
+        description: Include deleted destinations in the returned results.
+        schema:
+          default: false
+          type: boolean
+        in: query
+        required: false
+      - name: limit
+        description: Set the limit on the number of destinations returned. The default is 20.
+        schema:
+          format: int32
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning destinations. The default is 0
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          default: 0
+        in: query
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestinationCreateRequest'
+            examples:
+              Destination Creation Request Example:
+                value:
+                  name: Postgres
+                  workspaceId: 2155ae5a-de39-4808-af6a-16fe7b8b4ed2
+                  configuration:
+                    airbyte_destination_name: postgres
+                    port: 5432
+                    schema: public
+                    ssl_mode:
+                      mode: prefer
+                    tunnel_method:
+                      tunnel_method: NO_TUNNEL
+                    host: localhost
+                    database: postgres
+                    username: postgres
+                    password: test
+      tags:
+      - public_destinations
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationResponse'
+              examples:
+                Destination Creation Response Example:
+                  value:
+                    destinationId: af0c3c67-aa61-419f-8922-95b0bf840e86
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: createDestination
+      x-speakeasy-alias: createDestination
+      x-speakeasy-entity-operation: Destination#create
+      x-speakeasy-group: Destinations
+      summary: Airbyte Create a Destination
+      description: Creates a destination given a name, workspace id, and a json blob containing the configuration for the source.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /destinations/{destinationId}:
+    parameters:
+    - name: destinationId
+      schema:
+        format: UUID
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - public_destinations
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationResponse'
+              examples:
+                Destination Get Response Example:
+                  value:
+                    destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: My Destination
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+                    configuration:
+                      conversion_window_days: 14
+                      customer_id: '1234567890'
+                      start_date: 1672531200000
+                      end_date: 1704067200000
+          description: Get a Destination by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getDestination
+      x-speakeasy-alias: getDestination
+      x-speakeasy-entity-operation: Destination#read
+      x-speakeasy-group: Destinations
+      summary: Airbyte Get Destination Details
+      parameters:
+      - in: query
+        name: includeSecretCoordinates
+        schema:
+          type: boolean
+        required: false
+        description: Rather than return *** for secret properties include the secret coordinate information
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_destinations
+      responses:
+        '204':
+          description: The resource was deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteDestination
+      x-speakeasy-alias: deleteDestination
+      x-speakeasy-entity-operation: Destination#delete
+      x-speakeasy-group: Destinations
+      summary: Airbyte Delete a Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - public_destinations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestinationPatchRequest'
+            examples:
+              Destination Update Request Example:
+                value:
+                  configuration:
+                    conversion_window_days: 14
+                    customer_id: '1234567890'
+                    start_date: 1672531200000
+                    end_date: 1704067200000
+                  name: My Destination
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationResponse'
+              examples:
+                Destination Update Response Example:
+                  value:
+                    destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: running
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+                    configuration:
+                      conversion_window_days: 14
+                      customer_id: '1234567890'
+                      start_date: 1672531200000
+                      end_date: 1704067200000
+          description: Update a Destination
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: patchDestination
+      x-speakeasy-alias: patchDestination
+      x-speakeasy-group: Destinations
+      summary: Airbyte Update a Destination
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - public_destinations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestinationPutRequest'
+            examples:
+              Destination Update Request Example:
+                value:
+                  configuration:
+                    conversion_window_days: 14
+                    customer_id: '1234567890'
+                    start_date: 1672531200000
+                    end_date: 1704067200000
+                  name: My Destination
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DestinationResponse'
+              examples:
+                Destination Update Response Example:
+                  value:
+                    destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: running
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+                    configuration:
+                      conversion_window_days: 14
+                      customer_id: '1234567890'
+                      start_date: 1672531200000
+                      end_date: 1704067200000
+          description: Update a Destination and fully overwrite it
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: putDestination
+      x-speakeasy-alias: putDestination
+      x-speakeasy-group: Destinations
+      x-speakeasy-entity-operation: Destination#update
+      summary: Airbyte Update a Destination and Fully Overwrite it
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    JobTypeResourceLimit:
+      x-speakeasy-component: true
+      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
+      type: object
+      additionalProperties: false
+      required:
+      - jobType
+      - resourceRequirements
+      properties:
+        jobType:
+          $ref: '#/components/schemas/JobType'
+        resourceRequirements:
+          $ref: '#/components/schemas/ResourceRequirements'
+    ScopedResourceRequirements:
+      x-speakeasy-component: true
+      description: actor or actor definition specific resource requirements. if default is set, these are the requirements that should be set for ALL jobs run for this actor definition. it is overriden by the job type specific configurations. if not set, the platform will use defaults. these values will be overriden by configuration at the connection level.
+      type: object
+      additionalProperties: false
+      properties:
+        default:
+          $ref: '#/components/schemas/ResourceRequirements'
+        jobSpecific:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobTypeResourceLimit'
+    ResourceRequirements:
+      x-speakeasy-component: true
+      description: optional resource requirements to run workers (blank for unbounded allocations)
+      type: object
+      properties:
+        cpu_request:
+          type: string
+        cpu_limit:
+          type: string
+        memory_request:
+          type: string
+        memory_limit:
+          type: string
+        ephemeral_storage_request:
+          type: string
+        ephemeral_storage_limit:
+          type: string
+    DestinationPutRequest:
+      required:
+      - name
+      - configuration
+      type: object
+      properties:
+        name:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/DestinationConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Destination
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DestinationResponse:
+      title: Root Type for DestinationResponse
+      description: Provides details of a single destination.
+      type: object
+      required:
+      - destinationId
+      - name
+      - destinationType
+      - definitionId
+      - workspaceId
+      - configuration
+      - createdAt
+      properties:
+        destinationId:
+          format: UUID
+          type: string
+        name:
+          type: string
+        destinationType:
+          type: string
+        definitionId:
+          format: UUID
+          type: string
+        workspaceId:
+          format: UUID
+          type: string
+        configuration:
+          $ref: '#/components/schemas/DestinationConfiguration'
+        createdAt:
+          format: int64
+          type: integer
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      example:
+        destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        name: Analytics Team Postgres
+        destinationType: postgres
+        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+        definitionId: 321d9b60-11d1-44cb-8c92-c246d53bf98e
+      x-speakeasy-component: true
+    DestinationsResponse:
+      title: Root Type for DestinationsResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DestinationResponse'
+      example:
+        next: https://api.airbyte.com/v1/destinations?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/destinations?limit=5&offset=0
+        data:
+          destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+          name: Analytics Team Postgres
+          destinationType: postgres
+          workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+      x-speakeasy-component: true
+    DestinationCreateRequest:
+      required:
+      - name
+      - workspaceId
+      - configuration
+      type: object
+      properties:
+        name:
+          description: Name of the destination e.g. dev-mysql-instance.
+          type: string
+        definitionId:
+          description: The UUID of the connector definition. One of configuration.destinationType or definitionId must be provided.
+          format: uuid
+          type: string
+        workspaceId:
+          format: uuid
+          type: string
+        configuration:
+          $ref: '#/components/schemas/DestinationConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Destination
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DestinationPatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/DestinationConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Destination
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DestinationConfiguration:
+      type: object
+      description: The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.
+      example:
+        user: charles
+      x-speakeasy-component: true
+    JobType:
+      x-speakeasy-component: true
+      description: enum that describes the different types of jobs that the platform runs.
+      type: string
+      enum:
+      - get_spec
+      - check_connection
+      - discover_schema
+      - sync
+      - reset_connection
+      - connection_updater
+      - replicate

@@ -1,0 +1,540 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications Sources API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: Sources
+paths:
+  /sources:
+    get:
+      tags:
+      - Sources
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourcesResponse'
+              examples:
+                listSources200Example:
+                  summary: Default listSources 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listSources
+      x-speakeasy-alias: listSources
+      x-speakeasy-group: Sources
+      summary: Airbyte List Sources
+      parameters:
+      - name: workspaceIds
+        description: The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        example: df08f6b0-b364-4cc1-9b3f-96f5d2fccfb2,b0796797-de23-4fc7-a5e2-7e131314718c
+        in: query
+        required: false
+      - name: includeDeleted
+        description: Include deleted sources in the returned results.
+        schema:
+          default: false
+          type: boolean
+        in: query
+        required: false
+      - name: limit
+        description: Set the limit on the number of sources returned. The default is 20.
+        schema:
+          format: int32
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning sources. The default is 0
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          default: 0
+        in: query
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourceCreateRequest'
+            examples:
+              Source Creation Request Example:
+                value:
+                  configuration:
+                    airbyte_source_name: google-ads
+                    conversion_window_days: 14
+                    customer_id: '1234567890'
+                    start_date: 1672531200000
+                    end_date: 1704067200000
+                  name: My Source
+                  workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+      tags:
+      - Sources
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                Source Creation Response Example:
+                  value:
+                    sourceId: 0c31738c-0b2d-4887-b506-e2cd1c39cc35
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: createSource
+      x-speakeasy-alias: createSource
+      x-speakeasy-group: Sources
+      x-speakeasy-entity-operation: Source#create
+      summary: Airbyte Create a Source
+      description: Creates a source given a name, workspace id, and a json blob containing the configuration for the source.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /sources/{sourceId}:
+    parameters:
+    - name: sourceId
+      schema:
+        format: UUID
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - Sources
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                Source Get Response Example:
+                  value:
+                    sourceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: running
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+          description: Get a Source by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getSource
+      x-speakeasy-alias: getSource
+      x-speakeasy-group: Sources
+      x-speakeasy-entity-operation: Source#read
+      summary: Airbyte Get Source Details
+      parameters:
+      - in: query
+        name: includeSecretCoordinates
+        schema:
+          type: boolean
+        required: false
+        description: Rather than return *** for secret properties include the secret coordinate information
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - Sources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourcePatchRequest'
+            examples:
+              Source Update Request Example:
+                value:
+                  configuration:
+                    airbyte_source_name: google-ads
+                    conversion_window_days: 14
+                    customer_id: '1234567890'
+                    start_date: 1672531200000
+                    end_date: 1704067200000
+                  name: My Source
+                  workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                Source Update Response Example:
+                  value:
+                    sourceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: running
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+          description: Update a Source
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: patchSource
+      x-speakeasy-alias: patchSource
+      x-speakeasy-group: Sources
+      summary: Airbyte Update a Source
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - Sources
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourcePutRequest'
+            examples:
+              Source Update Request Example:
+                value:
+                  configuration:
+                    airbyte_source_name: google-ads
+                    conversion_window_days: 14
+                    customer_id: '1234567890'
+                    start_date: 1672531200000
+                    end_date: 1704067200000
+                  name: My Source
+                  workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourceResponse'
+              examples:
+                Source Update Response Example:
+                  value:
+                    sourceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: running
+                    sourceType: postgres
+                    workspaceId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+          description: Update a source and fully overwrite it
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: putSource
+      x-speakeasy-alias: putSource
+      x-speakeasy-group: Sources
+      summary: Airbyte Update a Source and Fully Overwrite it
+      x-speakeasy-entity-operation: Source#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - Sources
+      responses:
+        '204':
+          description: The resource was deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteSource
+      x-speakeasy-alias: deleteSource
+      x-speakeasy-group: Sources
+      summary: Airbyte Delete a Source
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /sources/initiateOAuth:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitiateOauthRequest'
+        required: true
+      tags:
+      - Sources
+      responses:
+        '200':
+          $ref: '#/components/responses/InitiateOauthResponse'
+        '400':
+          description: A field in the body has not been set appropriately.
+        '403':
+          description: API key is invalid.
+      operationId: initiateOAuth
+      x-speakeasy-alias: initiateOAuth
+      x-speakeasy-group: Sources
+      summary: Airbyte Initiate OAuth for a Source
+      description: 'Given a source ID, workspace ID, and redirect URL, initiates OAuth for the source.
+
+
+        This returns a fully formed URL for performing user authentication against the relevant source identity provider (IdP). Once authentication has been completed, the IdP will redirect to an Airbyte endpoint which will save the access and refresh tokens off as a secret and return the secret ID to the redirect URL specified in the `secret_id` query string parameter.
+
+
+        That secret ID can be used to create a source with credentials in place of actual tokens.'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    JobTypeResourceLimit:
+      x-speakeasy-component: true
+      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
+      type: object
+      additionalProperties: false
+      required:
+      - jobType
+      - resourceRequirements
+      properties:
+        jobType:
+          $ref: '#/components/schemas/JobType'
+        resourceRequirements:
+          $ref: '#/components/schemas/ResourceRequirements'
+    ScopedResourceRequirements:
+      x-speakeasy-component: true
+      description: actor or actor definition specific resource requirements. if default is set, these are the requirements that should be set for ALL jobs run for this actor definition. it is overriden by the job type specific configurations. if not set, the platform will use defaults. these values will be overriden by configuration at the connection level.
+      type: object
+      additionalProperties: false
+      properties:
+        default:
+          $ref: '#/components/schemas/ResourceRequirements'
+        jobSpecific:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobTypeResourceLimit'
+    ResourceRequirements:
+      x-speakeasy-component: true
+      description: optional resource requirements to run workers (blank for unbounded allocations)
+      type: object
+      properties:
+        cpu_request:
+          type: string
+        cpu_limit:
+          type: string
+        memory_request:
+          type: string
+        memory_limit:
+          type: string
+        ephemeral_storage_request:
+          type: string
+        ephemeral_storage_limit:
+          type: string
+    SourceCreateRequest:
+      required:
+      - name
+      - workspaceId
+      - configuration
+      type: object
+      properties:
+        name:
+          description: Name of the source e.g. dev-mysql-instance.
+          type: string
+        definitionId:
+          description: The UUID of the connector definition. One of configuration.sourceType or definitionId must be provided.
+          format: uuid
+          type: string
+        workspaceId:
+          format: uuid
+          type: string
+        configuration:
+          $ref: '#/components/schemas/SourceConfiguration'
+        secretId:
+          description: Optional secretID obtained through the  OAuth redirect flow.
+          type: string
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Source
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    InitiateOauthRequest:
+      title: Root Type for initiate-oauth-post-body
+      required:
+      - redirectUrl
+      - workspaceId
+      type: object
+      properties:
+        name:
+          description: The name of the source to authenticate to. Deprecated - use sourceType instead.
+          type: string
+        sourceType:
+          description: The name of the source to authenticate to
+          type: string
+        redirectUrl:
+          description: The URL to redirect the user to with the OAuth secret stored in the secret_id query string parameter after authentication is complete.
+          type: string
+        workspaceId:
+          format: uuid
+          description: The workspace to create the secret and eventually the full source.
+          type: string
+        oAuthInputConfiguration:
+          $ref: '#/components/schemas/OAuthInputConfiguration'
+          description: Input configuration for OAuth required by some sources.
+        requestedScopes:
+          type: array
+          description: Optional OAuth scopes to request, overriding the connector's default scopes. Only supported for connectors that define scopes as an array.
+          items:
+            type: string
+        requestedOptionalScopes:
+          type: array
+          description: Optional OAuth optional_scopes to request, overriding the connector's default optional_scopes. Only applied when requestedScopes is also provided.
+          items:
+            type: string
+      example:
+        redirectUrl: https://cloud.airbyte.io/v1/api/oauth/callback
+        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+        destinationId: 3d93b16c-ff5f-421c-8908-5a3c82088f14
+      x-speakeasy-component: true
+    SourcesResponse:
+      title: Root Type for SourcesResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceResponse'
+      example:
+        next: https://api.airbyte.com/v1/sources?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/sources?limit=5&offset=0
+        data:
+          sourceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+          name: Analytics Team Postgres
+          sourceType: postgres
+          workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+      x-speakeasy-component: true
+    SourcePatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          example: My source
+        workspaceId:
+          format: uuid
+          type: string
+        configuration:
+          $ref: '#/components/schemas/SourceConfiguration'
+        secretId:
+          description: Optional secretID obtained through the  OAuth redirect flow.
+          type: string
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Source
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    SourcePutRequest:
+      required:
+      - name
+      - configuration
+      type: object
+      properties:
+        name:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/SourceConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Source
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    OAuthInputConfiguration:
+      $ref: '#/components/schemas/OAuthConfiguration'
+      x-speakeasy-component: true
+    SourceConfiguration:
+      type: object
+      description: The values required to configure the source. The schema for this must match the schema return by source_definition_specifications/get for the source.
+      example:
+        user: charles
+      x-speakeasy-component: true
+    OAuthConfiguration:
+      description: The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.
+      x-speakeasy-component: true
+    SourceResponse:
+      title: Root Type for SourceResponse
+      description: Provides details of a single source.
+      type: object
+      required:
+      - sourceId
+      - name
+      - sourceType
+      - workspaceId
+      - configuration
+      - definitionId
+      - createdAt
+      properties:
+        sourceId:
+          format: UUID
+          type: string
+        name:
+          type: string
+        sourceType:
+          type: string
+        definitionId:
+          format: UUID
+          type: string
+        workspaceId:
+          format: UUID
+          type: string
+        configuration:
+          $ref: '#/components/schemas/SourceConfiguration'
+        createdAt:
+          format: int64
+          type: integer
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      example:
+        sourceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        name: Analytics Team Postgres
+        sourceType: postgres
+        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+        definitionId: 321d9b60-11d1-44cb-8c92-c246d53bf98e
+      x-speakeasy-component: true
+    JobType:
+      x-speakeasy-component: true
+      description: enum that describes the different types of jobs that the platform runs.
+      type: string
+      enum:
+      - get_spec
+      - check_connection
+      - discover_schema
+      - sync
+      - reset_connection
+      - connection_updater
+      - replicate
+  responses:
+    InitiateOauthResponse:
+      content:
+        application/json: {}
+      description: Response from the initiate OAuth call should be an object with a single property which will be the `redirect_url`. If a user is redirected to this URL, they'll be prompted by the identity provider to authenticate.
+      x-speakeasy-component: true

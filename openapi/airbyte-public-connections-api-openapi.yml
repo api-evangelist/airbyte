@@ -1,0 +1,793 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_connections API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_connections
+paths:
+  /connections:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionCreateRequest'
+            examples:
+              Connection Creation Request Example:
+                value:
+                  sourceId: 95e66a59-8045-4307-9678-63bc3c9b8c93
+                  destinationId: e478de0d-a3a0-475c-b019-25f7dd29e281
+                  name: Postgres-to-Bigquery
+        required: true
+      tags:
+      - public_connections
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionResponse'
+              examples:
+                Connection Creation Response Example:
+                  value:
+                    connectionId: 9924bcd0-99be-453d-ba47-c2c9766f7da5
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+      operationId: createConnection
+      x-speakeasy-alias: createConnection
+      x-speakeasy-group: Connections
+      summary: Airbyte Create a Connection
+      x-speakeasy-entity-operation: Connection#create
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      tags:
+      - public_connections
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionsResponse'
+              examples:
+                listConnections200Example:
+                  summary: Default listConnections 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listConnections
+      x-speakeasy-alias: listConnections
+      x-speakeasy-group: Connections
+      summary: Airbyte List Connections
+      x-speakeasy-entity-operation: Connections#read
+      parameters:
+      - name: workspaceIds
+        description: The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      - name: tagIds
+        description: The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      - name: includeDeleted
+        description: Include deleted connections in the returned results.
+        schema:
+          default: false
+          type: boolean
+        in: query
+        required: false
+      - name: limit
+        description: Set the limit on the number of Connections returned. The default is 20.
+        schema:
+          format: int32
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 20
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning Connections. The default is 0
+        schema:
+          type: integer
+          format: int32
+          minimum: 0
+          default: 0
+        in: query
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /connections/{connectionId}:
+    parameters:
+    - name: connectionId
+      schema:
+        format: UUID
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - public_connections
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionResponse'
+              examples:
+                Connection Get Response Example:
+                  value:
+                    workspaceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: Postgres To Snowflake
+                    sourceId: 9924bcd0-99be-453d-ba47-c2c9766f7da5
+                    destinationId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+          description: Get a Connection by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getConnection
+      x-speakeasy-alias: getConnection
+      x-speakeasy-group: Connections
+      summary: Airbyte Get Connection Details
+      x-speakeasy-entity-operation: Connection#read
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - public_connections
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConnectionPatchRequest'
+            examples:
+              Connection Update Request Example:
+                value:
+                  sourceId: 95e66a59-8045-4307-9678-63bc3c9b8c93
+                  destinationId: e478de0d-a3a0-475c-b019-25f7dd29e281
+                  name: Postgres-to-Bigquery
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectionResponse'
+              examples:
+                Connection Get Response Example:
+                  value:
+                    workspaceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+                    name: Postgres To Snowflake
+                    sourceId: 9924bcd0-99be-453d-ba47-c2c9766f7da5
+                    destinationId: 744cc0ed-7f05-4949-9e60-2a814f90c035
+          description: Update a Connection by the id in the path.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: patchConnection
+      x-speakeasy-alias: patchConnection
+      x-speakeasy-group: Connections
+      summary: Airbyte Update Connection Details
+      x-speakeasy-entity-operation: Connection#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_connections
+      responses:
+        '204':
+          description: The resource was deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteConnection
+      x-speakeasy-alias: deleteConnection
+      x-speakeasy-group: Connections
+      summary: Airbyte Delete a Connection
+      x-speakeasy-entity-operation: Connection#delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    NonBreakingSchemaUpdatesBehaviorEnumNoDefault:
+      type: string
+      description: Set how Airbyte handles syncs when it detects a non-breaking schema change in the source
+      enum:
+      - ignore
+      - disable_connection
+      - propagate_columns
+      - propagate_fully
+      x-speakeasy-component: true
+    RowFilteringMapperConfiguration:
+      title: Row Filtering
+      type: object
+      properties:
+        conditions:
+          $ref: '#/components/schemas/RowFilteringOperation'
+      required:
+      - conditions
+      x-speakeasy-component: true
+    ConnectionScheduleResponse:
+      description: schedule for when the the connection should run, per the schedule type
+      type: object
+      required:
+      - scheduleType
+      properties:
+        scheduleType:
+          $ref: '#/components/schemas/ScheduleTypeWithBasicEnum'
+        cronExpression:
+          type: string
+        basicTiming:
+          type: string
+      x-speakeasy-component: true
+    ConfiguredStreamMapper:
+      type: object
+      required:
+      - type
+      - mapperConfiguration
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          $ref: '#/components/schemas/StreamMapperType'
+        mapperConfiguration:
+          $ref: '#/components/schemas/MapperConfiguration'
+      x-speakeasy-component: true
+    RowFilteringOperation:
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/RowFilteringOperationEqual'
+      - $ref: '#/components/schemas/RowFilteringOperationNot'
+      discriminator:
+        propertyName: type
+        mapping:
+          EQUAL: '#/components/schemas/RowFilteringOperationEqual'
+          NOT: '#/components/schemas/RowFilteringOperationNot'
+      x-speakeasy-component: true
+      x-airbyte-circular-ref: true
+    AirbyteApiConnectionSchedule:
+      description: schedule for when the the connection should run, per the schedule type
+      type: object
+      required:
+      - scheduleType
+      properties:
+        scheduleType:
+          $ref: '#/components/schemas/ScheduleTypeEnum'
+        cronExpression:
+          type: string
+      x-speakeasy-component: true
+    EncryptionMapperAESConfiguration:
+      title: Encryption - AES
+      type: object
+      properties:
+        algorithm:
+          $ref: '#/components/schemas/EncryptionMapperAlgorithm'
+        fieldNameSuffix:
+          type: string
+        key:
+          type: string
+          x-speakeasy-param-sensitive: true
+        mode:
+          type: string
+          enum:
+          - CBC
+          - CFB
+          - OFB
+          - CTR
+          - GCM
+          - ECB
+        padding:
+          type: string
+          enum:
+          - NoPadding
+          - PKCS5Padding
+        targetField:
+          type: string
+      required:
+      - algorithm
+      - key
+      - mode
+      - padding
+      - targetField
+      - fieldNameSuffix
+      x-speakeasy-component: true
+    StreamConfigurations:
+      description: A list of configured stream options for a connection.
+      type: object
+      properties:
+        streams:
+          type: array
+          format: set
+          items:
+            $ref: '#/components/schemas/StreamConfiguration'
+      x-speakeasy-component: true
+    RowFilteringOperationType:
+      type: string
+      enum:
+      - EQUAL
+      - NOT
+      x-speakeasy-component: true
+    StreamMapperType:
+      type: string
+      enum:
+      - hashing
+      - field-renaming
+      - row-filtering
+      - encryption
+      - field-filtering
+      x-speakeasy-component: true
+    FieldRenamingMapperConfiguration:
+      title: Field Renaming
+      type: object
+      properties:
+        newFieldName:
+          type: string
+          title: New Field Name
+          description: The new name for the field after renaming.
+        originalFieldName:
+          type: string
+          title: Original Field Name
+          description: The current name of the field to rename.
+      required:
+      - newFieldName
+      - originalFieldName
+      x-speakeasy-component: true
+    HashingMapperConfiguration:
+      title: Hashing
+      type: object
+      properties:
+        fieldNameSuffix:
+          type: string
+          title: Field name suffix
+          description: The suffix to append to the field name after hashing.
+        method:
+          type: string
+          enum:
+          - MD2
+          - MD5
+          - SHA-1
+          - SHA-224
+          - SHA-256
+          - SHA-384
+          - SHA-512
+          title: Hashing method
+          description: The hashing algorithm to use.
+        targetField:
+          type: string
+          title: Original Field Name
+          description: The name of the field to be hashed.
+      required:
+      - fieldNameSuffix
+      - method
+      - targetField
+      x-speakeasy-component: true
+    MapperConfiguration:
+      type: object
+      description: The values required to configure the mapper.
+      oneOf:
+      - $ref: '#/components/schemas/HashingMapperConfiguration'
+      - $ref: '#/components/schemas/FieldFilteringMapperConfiguration'
+      - $ref: '#/components/schemas/FieldRenamingMapperConfiguration'
+      - $ref: '#/components/schemas/RowFilteringMapperConfiguration'
+      - $ref: '#/components/schemas/EncryptionMapperConfiguration'
+      x-speakeasy-component: true
+    EncryptionMapperAlgorithm:
+      type: string
+      enum:
+      - RSA
+      - AES
+      x-speakeasy-component: true
+    WorkspaceId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    ConnectionSyncModeEnum:
+      enum:
+      - full_refresh_overwrite
+      - full_refresh_overwrite_deduped
+      - full_refresh_append
+      - full_refresh_update
+      - full_refresh_soft_delete
+      - incremental_append
+      - incremental_deduped_history
+      - incremental_update
+      - incremental_soft_delete
+      x-speakeasy-component: true
+    NonBreakingSchemaUpdatesBehaviorEnum:
+      type: string
+      description: Set how Airbyte handles syncs when it detects a non-breaking schema change in the source
+      enum:
+      - ignore
+      - disable_connection
+      - propagate_columns
+      - propagate_fully
+      default: ignore
+      x-speakeasy-component: true
+    ScheduleTypeWithBasicEnum:
+      type: string
+      enum:
+      - manual
+      - cron
+      - basic
+      x-speakeasy-component: true
+    ScheduleTypeEnum:
+      type: string
+      enum:
+      - manual
+      - cron
+      x-speakeasy-component: true
+    ConnectionResponse:
+      title: Root Type for ConnectionResponse
+      description: Provides details of a single connection.
+      type: object
+      required:
+      - connectionId
+      - name
+      - sourceId
+      - destinationId
+      - workspaceId
+      - status
+      - schedule
+      - configurations
+      - createdAt
+      - tags
+      properties:
+        connectionId:
+          format: UUID
+          type: string
+        name:
+          type: string
+        sourceId:
+          format: UUID
+          type: string
+        destinationId:
+          format: UUID
+          type: string
+        workspaceId:
+          format: UUID
+          type: string
+        status:
+          $ref: '#/components/schemas/ConnectionStatusEnum'
+        schedule:
+          $ref: '#/components/schemas/ConnectionScheduleResponse'
+        nonBreakingSchemaUpdatesBehavior:
+          $ref: '#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnum'
+        namespaceDefinition:
+          $ref: '#/components/schemas/NamespaceDefinitionEnum'
+        namespaceFormat:
+          type: string
+        prefix:
+          type: string
+        configurations:
+          $ref: '#/components/schemas/StreamConfigurations'
+        createdAt:
+          format: int64
+          type: integer
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        statusReason:
+          type: string
+      x-speakeasy-entity: Connection
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    SelectedFields:
+      description: Paths to the fields that will be included in the configured catalog.
+      type: array
+      format: set
+      items:
+        $ref: '#/components/schemas/SelectedFieldInfo'
+      x-speakeasy-component: true
+    RowFilteringOperationEqual:
+      type: object
+      title: EQUAL
+      required:
+      - comparisonValue
+      - fieldName
+      - type
+      properties:
+        comparisonValue:
+          type: string
+          title: Comparison Value
+          description: The value to compare the field against.
+        fieldName:
+          type: string
+          title: Field Name
+          description: The name of the field to apply the operation on.
+        type:
+          $ref: '#/components/schemas/RowFilteringOperationType'
+      x-speakeasy-component: true
+    NamespaceDefinitionEnumNoDefault:
+      type: string
+      description: Define the location where the data will be stored in the destination
+      enum:
+      - source
+      - destination
+      - custom_format
+      x-speakeasy-component: true
+    ConnectionStatusEnum:
+      type: string
+      enum:
+      - active
+      - inactive
+      - deprecated
+      - locked
+      x-speakeasy-component: true
+    RowFilteringOperationNot:
+      type: object
+      title: NOT
+      required:
+      - conditions
+      - type
+      properties:
+        conditions:
+          title: Sub-Conditions (NOT)
+          description: Conditions to evaluate with the NOT operator.
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/RowFilteringOperation'
+        type:
+          $ref: '#/components/schemas/RowFilteringOperationType'
+      x-speakeasy-component: true
+    TagId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    ConnectionCreateRequest:
+      required:
+      - sourceId
+      - destinationId
+      type: object
+      properties:
+        name:
+          description: Optional name of the connection
+          type: string
+        sourceId:
+          format: uuid
+          type: string
+        destinationId:
+          format: uuid
+          type: string
+        configurations:
+          $ref: '#/components/schemas/StreamConfigurations'
+        schedule:
+          $ref: '#/components/schemas/AirbyteApiConnectionSchedule'
+        dataResidency:
+          deprecated: true
+          x-speakeasy-deprecation-message: We no longer support modifying dataResidency on Community and Enterprise connections. All connections will use the dataResidency of their associated workspace.
+          type: string
+        namespaceDefinition:
+          $ref: '#/components/schemas/NamespaceDefinitionEnum'
+        namespaceFormat:
+          type: string
+          description: Used when namespaceDefinition is 'custom_format'. If blank then behaves like namespaceDefinition = 'destination'. If "${SOURCE_NAMESPACE}" then behaves like namespaceDefinition = 'source'.
+          default: null
+          example: ${SOURCE_NAMESPACE}
+        prefix:
+          type: string
+          description: Prefix that will be prepended to the name of each stream when it is written to the destination (ex. “airbyte_” causes “projects” => “airbyte_projects”).
+          default: ''
+        nonBreakingSchemaUpdatesBehavior:
+          $ref: '#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnum'
+        status:
+          $ref: '#/components/schemas/ConnectionStatusEnum'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      x-speakeasy-entity: Connection
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    NamespaceDefinitionEnum:
+      type: string
+      description: Define the location where the data will be stored in the destination
+      enum:
+      - source
+      - destination
+      - custom_format
+      default: destination
+      x-speakeasy-component: true
+    StreamConfiguration:
+      description: Configurations for a single stream.
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+          description: Namespace of the stream.
+        syncMode:
+          $ref: '#/components/schemas/ConnectionSyncModeEnum'
+        cursorField:
+          description: Path to the field that will be used to determine if a record is new or modified since the last sync. This field is REQUIRED if `sync_mode` is `incremental` unless there is a default.
+          type: array
+          items:
+            type: string
+        primaryKey:
+          description: Paths to the fields that will be used as primary key. This field is REQUIRED if `destination_sync_mode` is `*_dedup` unless it is already supplied by the source schema.
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+        includeFiles:
+          description: Whether to move raw files from the source to the destination during the sync.
+          type: boolean
+        destinationObjectName:
+          description: The name of the destination object that this stream will be written to, used for data activation destinations.
+          type: string
+        selectedFields:
+          description: By default (if not provided in the request) all fields will be synced. Otherwise, only the fields in this list will be synced.
+          $ref: '#/components/schemas/SelectedFields'
+        mappers:
+          description: Mappers that should be applied to the stream before writing to the destination.
+          type: array
+          items:
+            $ref: '#/components/schemas/ConfiguredStreamMapper'
+      x-speakeasy-component: true
+    FieldFilteringMapperConfiguration:
+      title: Field Filtering
+      type: object
+      properties:
+        targetField:
+          type: string
+          title: The Field to Filter
+          description: The name of the field to filter.
+      required:
+      - targetField
+      x-speakeasy-component: true
+    ConnectionsResponse:
+      title: Root Type for ConnectionsResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectionResponse'
+          default: []
+      example:
+        next: https://api.airbyte.com/v1/connections?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/connections?limit=5&offset=0
+        data:
+        - name: test-connection
+        - connection_id: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        - sourceId: 49237019-645d-47d4-b45b-5eddf97775ce
+        - destinationId: al312fs-0ab1-4f72-9ed7-0b8fc27c5826
+        - schedule:
+            scheduleType: manual
+        - status: active
+      x-speakeasy-component: true
+    EncryptionMapperConfiguration:
+      title: Encryption
+      type: object
+      oneOf:
+      - $ref: '#/components/schemas/EncryptionMapperRSAConfiguration'
+      - $ref: '#/components/schemas/EncryptionMapperAESConfiguration'
+      discriminator:
+        propertyName: algorithm
+        mapping:
+          RSA: '#/components/schemas/EncryptionMapperRSAConfiguration'
+          AES: '#/components/schemas/EncryptionMapperAESConfiguration'
+      x-speakeasy-component: true
+    ConnectionPatchRequest:
+      type: object
+      properties:
+        name:
+          description: Optional name of the connection
+          type: string
+        configurations:
+          $ref: '#/components/schemas/StreamConfigurations'
+        schedule:
+          $ref: '#/components/schemas/AirbyteApiConnectionSchedule'
+        dataResidency:
+          deprecated: true
+          x-speakeasy-deprecation-message: We no longer support modifying dataResidency on Community and Enterprise connections. All connections will use the dataResidency of their associated workspace.
+          type: string
+        namespaceDefinition:
+          $ref: '#/components/schemas/NamespaceDefinitionEnumNoDefault'
+        namespaceFormat:
+          type: string
+          description: Used when namespaceDefinition is 'custom_format'. If blank then behaves like namespaceDefinition = 'destination'. If "${SOURCE_NAMESPACE}" then behaves like namespaceDefinition = 'source'.
+          default: null
+          example: ${SOURCE_NAMESPACE}
+        prefix:
+          type: string
+          description: Prefix that will be prepended to the name of each stream when it is written to the destination (ex. “airbyte_” causes “projects” => “airbyte_projects”).
+        nonBreakingSchemaUpdatesBehavior:
+          $ref: '#/components/schemas/NonBreakingSchemaUpdatesBehaviorEnumNoDefault'
+        status:
+          $ref: '#/components/schemas/ConnectionStatusEnum'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+      x-speakeasy-entity: Connection
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    SelectedFieldInfo:
+      type: object
+      description: Path to a field/column/property in a stream to be selected. For example, if the field to be selected is a database column called "foo", this will be ["foo"]. Use multiple path elements for nested schemas.
+      properties:
+        fieldPath:
+          type: array
+          items:
+            type: string
+      x-speakeasy-component: true
+    EncryptionMapperRSAConfiguration:
+      title: Encryption - RSA
+      type: object
+      properties:
+        algorithm:
+          $ref: '#/components/schemas/EncryptionMapperAlgorithm'
+        fieldNameSuffix:
+          type: string
+        publicKey:
+          type: string
+        targetField:
+          type: string
+      required:
+      - algorithm
+      - publicKey
+      - targetField
+      - fieldNameSuffix
+      x-speakeasy-component: true
+    Tag:
+      description: A tag that can be associated with a connection. Useful for grouping and organizing connections in a workspace.
+      type: object
+      x-speakeasy-component: true
+      required:
+      - tagId
+      - workspaceId
+      - name
+      - color
+      properties:
+        tagId:
+          $ref: '#/components/schemas/TagId'
+        workspaceId:
+          $ref: '#/components/schemas/WorkspaceId'
+        name:
+          type: string
+        color:
+          type: string

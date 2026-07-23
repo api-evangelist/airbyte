@@ -1,0 +1,215 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_group_members API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_group_members
+paths:
+  /groups/{groupId}/members:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - public_group_members
+      summary: Airbyte List Group Members
+      description: Get all members of a specific group
+      parameters:
+      - name: limit
+        description: Set the limit on the number of members returned. The default is 20.
+        schema:
+          format: int32
+          default: 20
+          maximum: 100
+          minimum: 1
+          type: integer
+        in: query
+      - name: offset
+        description: Set the offset to start at when returning members. The default is 0.
+        schema:
+          format: int32
+          default: 0
+          minimum: 0
+          type: integer
+        in: query
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMembersResponse'
+              examples:
+                listGroupMembers200Example:
+                  summary: Default listGroupMembers 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+                    next: example
+                    previous: example
+          description: List Group members.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listGroupMembers
+      x-speakeasy-alias: listGroupMembers
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - public_group_members
+      summary: Airbyte Add Member to Group
+      description: Add a user to a group
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupMemberAddRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupMemberResponse'
+              examples:
+                addGroupMember201Example:
+                  summary: Default addGroupMember 201 response
+                  x-microcks-default: true
+                  value:
+                    memberId: abc123
+                    groupId: abc123
+                    userId: abc123
+                    userEmail: user@example.com
+                    userName: example-name
+          description: Member added successfully.
+        '400':
+          description: Invalid input
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+        '409':
+          description: User is already a member of this group
+      operationId: addGroupMember
+      x-speakeasy-alias: addGroupMember
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /groups/{groupId}/members/{userId}:
+    parameters:
+    - name: groupId
+      in: path
+      required: true
+      description: Group identifier
+      schema:
+        type: string
+        format: uuid
+    - name: userId
+      in: path
+      required: true
+      description: User identifier
+      schema:
+        type: string
+        format: uuid
+    delete:
+      tags:
+      - public_group_members
+      summary: Airbyte Remove Member from Group
+      description: Remove a user from a group
+      responses:
+        '204':
+          description: Member removed successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: removeGroupMember
+      x-speakeasy-alias: removeGroupMember
+      x-speakeasy-group: Groups
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    GroupMembersResponse:
+      title: Root Type for GroupMembersResponse
+      description: List/Array of group members
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupMemberResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMemberAddRequest:
+      title: Root Type for GroupMemberAddRequest
+      description: Request body for adding a member to a group
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user to add to the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMemberResponse:
+      title: Root Type for GroupMemberResponse
+      description: Provides details of a single group member
+      type: object
+      required:
+      - memberId
+      - groupId
+      - userId
+      - userEmail
+      - userName
+      properties:
+        memberId:
+          type: string
+          format: uuid
+          description: The ID of the group membership
+        groupId:
+          type: string
+          format: uuid
+          description: The ID of the group
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user
+        userEmail:
+          type: string
+          format: email
+          description: The email of the user
+        userName:
+          type: string
+          description: The name of the user
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true

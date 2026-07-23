@@ -1,0 +1,36 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_oauth API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_oauth
+paths:
+  /oauth/callback:
+    get:
+      tags:
+      - public_oauth
+      parameters:
+      - name: queryParams
+        description: Query parameters. Should contain state and code.
+        required: false
+        schema:
+          type: object
+          additionalProperties:
+            type: string
+        in: query
+      responses:
+        '302':
+          description: Redirect to the URL requested in the initiate call with the created secret ID.
+      operationId: oauthCallback
+      x-speakeasy-alias: oauthCallback
+      x-speakeasy-group: OAuth
+      summary: Airbyte Receive OAuth Callbacks
+      description: Redirected to by identity providers after authentication.
+      security: []
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

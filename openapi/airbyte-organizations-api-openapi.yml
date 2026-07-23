@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications Organizations API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: Organizations
+paths:
+  /organizations:
+    get:
+      tags:
+      - Organizations
+      summary: Airbyte List All Organizations for a User
+      description: Lists users organizations.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsResponse'
+              examples:
+                listOrganizationsForUser200Example:
+                  summary: Default listOrganizationsForUser 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List user's organizations.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listOrganizationsForUser
+      x-speakeasy-alias: listOrganizationsForUser
+      x-speakeasy-group: Organizations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /organizations/{organizationId}/oauthCredentials:
+    put:
+      parameters:
+      - name: organizationId
+        schema:
+          format: UUID
+          type: string
+        in: path
+        required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationOAuthCredentialsRequest'
+        required: true
+      tags:
+      - Organizations
+      responses:
+        '200':
+          description: OAuth credential override was successful.
+        '400':
+          description: A field in the body has not been set appropriately.
+        '403':
+          description: API key is invalid.
+      operationId: createOrUpdateOrganizationOAuthCredentials
+      x-speakeasy-alias: createOrUpdateOrganizationOAuthCredentials
+      x-speakeasy-group: Organizations
+      summary: Airbyte Create OAuth Override Credentials for an Organization and Source Type.
+      description: 'Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.
+
+        In order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination.'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /organizations/{organizationId}/oauthCredentials/{actorType}/{name}:
+    delete:
+      parameters:
+      - name: organizationId
+        schema:
+          format: UUID
+          type: string
+        in: path
+        required: true
+      - name: actorType
+        schema:
+          $ref: '#/components/schemas/ActorTypeEnum'
+        in: path
+        required: true
+      - name: name
+        schema:
+          type: string
+        in: path
+        required: true
+        description: The name of the source or destination i.e. google-ads
+      tags:
+      - Organizations
+      responses:
+        '204':
+          description: OAuth credential override was deleted successfully.
+        '400':
+          description: A field in the path has not been set appropriately.
+        '403':
+          description: API key is invalid.
+      operationId: deleteOrganizationOAuthCredentials
+      x-speakeasy-alias: deleteOrganizationOAuthCredentials
+      x-speakeasy-group: Organizations
+      summary: Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.
+      description: Delete a set of OAuth credentials that overrides the Airbyte-provided OAuth credentials used for source/destination OAuth.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    OrganizationId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    OrganizationsResponse:
+      title: Root Type for OrganizationsResponse
+      description: List/Array of multiple organizations.
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationResponse'
+      x-speakeasy-component: true
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
+    OrganizationOAuthCredentialsRequest:
+      title: Root Type for OrganizationOAuthCredentials
+      description: POST body for creating/updating organization level OAuth credentials
+      required:
+      - actorType
+      - name
+      - configuration
+      type: object
+      properties:
+        actorType:
+          $ref: '#/components/schemas/ActorTypeEnum'
+        name:
+          type: string
+          description: The name of the source i.e. google-ads
+        configuration:
+          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
+      x-speakeasy-component: true
+    OrganizationResponse:
+      title: Root Type for OrganizationResponse
+      description: Provides details of a single organization for a user.
+      type: object
+      required:
+      - organizationId
+      - organizationName
+      - email
+      properties:
+        organizationId:
+          $ref: '#/components/schemas/OrganizationId'
+        organizationName:
+          type: string
+        email:
+          type: string
+          format: email
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    OAuthCredentialsConfiguration:
+      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
+      type: object
+      example:
+        credentials:
+          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+          client_secret: shhhhhh
+      x-speakeasy-component: true

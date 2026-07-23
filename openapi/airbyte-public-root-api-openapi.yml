@@ -1,0 +1,27 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_root API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_root
+paths:
+  /:
+    get:
+      tags:
+      - public_root
+      responses:
+        '200':
+          content:
+            text/html: {}
+          description: Redirects to documentation
+      operationId: getDocumentation
+      x-speakeasy-alias: getDocumentation
+      summary: Airbyte Root Path, Currently Returns a Redirect to the Documentation
+      security: []
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK

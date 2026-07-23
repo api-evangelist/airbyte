@@ -1,0 +1,266 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications DeclarativeSourceDefinitions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: DeclarativeSourceDefinitions
+paths:
+  /workspaces/{workspaceId}/definitions/declarative_sources:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - DeclarativeSourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeclarativeSourceDefinitionsResponse'
+              examples:
+                listDeclarativeSourceDefinitions200Example:
+                  summary: Default listDeclarativeSourceDefinitions 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listDeclarativeSourceDefinitions
+      x-speakeasy-alias: listDeclarativeSourceDefinitions
+      x-speakeasy-group: DeclarativeSourceDefinitions
+      summary: Airbyte List Declarative Source Definitions.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      summary: Airbyte Create a Declarative Source Definition.
+      x-speakeasy-entity-operation: DeclarativeSourceDefinition#create
+      operationId: createDeclarativeSourceDefinition
+      x-speakeasy-alias: createDeclarativeSourceDefinition
+      x-speakeasy-group: DeclarativeSourceDefinitions
+      tags:
+      - DeclarativeSourceDefinitions
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+              examples:
+                createDeclarativeSourceDefinition200Example:
+                  summary: Default createDeclarativeSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    manifest: example
+                    version: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDeclarativeSourceDefinitionRequest'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /workspaces/{workspaceId}/definitions/declarative_sources/{definitionId}:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    - name: definitionId
+      x-speakeasy-match: id
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - DeclarativeSourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+              examples:
+                getDeclarativeSourceDefinition200Example:
+                  summary: Default getDeclarativeSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    manifest: example
+                    version: 1
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getDeclarativeSourceDefinition
+      x-speakeasy-alias: getDeclarativeSourceDefinition
+      x-speakeasy-group: DeclarativeSourceDefinitions
+      summary: Airbyte Get Declarative Source Definition Details.
+      x-speakeasy-entity-operation: DeclarativeSourceDefinition#read
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - DeclarativeSourceDefinitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDeclarativeSourceDefinitionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+              examples:
+                updateDeclarativeSourceDefinition200Example:
+                  summary: Default updateDeclarativeSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    manifest: example
+                    version: 1
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateDeclarativeSourceDefinition
+      x-speakeasy-alias: updateDeclarativeSourceDefinition
+      x-speakeasy-group: DeclarativeSourceDefinitions
+      summary: Airbyte Update Declarative Source Definition Details.
+      x-speakeasy-entity-operation: DeclarativeSourceDefinition#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - DeclarativeSourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+              examples:
+                deleteDeclarativeSourceDefinition200Example:
+                  summary: Default deleteDeclarativeSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    manifest: example
+                    version: 1
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteDeclarativeSourceDefinition
+      x-speakeasy-alias: deleteDeclarativeSourceDefinition
+      x-speakeasy-group: DeclarativeSourceDefinitions
+      summary: Airbyte Delete a Declarative Source Definition.
+      x-speakeasy-entity-operation: DeclarativeSourceDefinition#delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DeclarativeSourceDefinitionResponse:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - id
+      - name
+      - manifest
+      - version
+      properties:
+        id:
+          format: UUID
+          type: string
+        name:
+          type: string
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
+        version:
+          x-speakeasy-terraform-ignore: true
+          $ref: '#/components/schemas/ManifestVersion'
+    DeclarativeManifest:
+      x-speakeasy-component: true
+      x-speakeasy-type-override: any
+      x-speakeasy-terraform-custom-type:
+        imports:
+        - github.com/hashicorp/terraform-plugin-framework-jsontypes/jsontypes
+        schemaType: jsontypes.NormalizedType{}
+        valueType: jsontypes.Normalized
+      description: Low code CDK manifest JSON object
+      type: object
+    CreateDeclarativeSourceDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - workspaceId
+      - name
+      - manifest
+      properties:
+        name:
+          type: string
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
+    ManifestVersion:
+      x-speakeasy-component: true
+      type: integer
+      format: int64
+    DeclarativeSourceDefinitionsResponse:
+      title: Root Type for DeclarativeSourceDefinitionsResponse
+      description: ''
+      x-speakeasy-component: true
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+    UpdateDeclarativeSourceDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - manifest
+      properties:
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'

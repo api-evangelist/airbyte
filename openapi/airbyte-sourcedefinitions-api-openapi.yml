@@ -1,0 +1,267 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications SourceDefinitions API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: SourceDefinitions
+paths:
+  /workspaces/{workspaceId}/definitions/sources:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - SourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionsResponse'
+              examples:
+                listSourceDefinitions200Example:
+                  summary: Default listSourceDefinitions 200 response
+                  x-microcks-default: true
+                  value:
+                    previous: example
+                    next: example
+                    data: example
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listSourceDefinitions
+      x-speakeasy-alias: listSourceDefinitions
+      x-speakeasy-group: SourceDefinitions
+      summary: Airbyte List Source Definitions.
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createSourceDefinition
+      x-speakeasy-alias: createSourceDefinition
+      x-speakeasy-group: SourceDefinitions
+      summary: Airbyte Create a Source Definition.
+      x-speakeasy-entity-operation: SourceDefinition#create
+      tags:
+      - SourceDefinitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDefinitionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                createSourceDefinition200Example:
+                  summary: Default createSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /workspaces/{workspaceId}/definitions/sources/{definitionId}:
+    parameters:
+    - name: workspaceId
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    - name: definitionId
+      x-speakeasy-match: id
+      schema:
+        format: uuid
+        type: string
+      in: path
+      required: true
+    get:
+      tags:
+      - SourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                getSourceDefinition200Example:
+                  summary: Default getSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getSourceDefinition
+      x-speakeasy-alias: getSourceDefinition
+      x-speakeasy-group: SourceDefinitions
+      summary: Airbyte Get Source Definition Details.
+      x-speakeasy-entity-operation: SourceDefinition#read
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      tags:
+      - SourceDefinitions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDefinitionRequest'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                updateSourceDefinition200Example:
+                  summary: Default updateSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateSourceDefinition
+      x-speakeasy-alias: updateSourceDefinition
+      x-speakeasy-group: SourceDefinitions
+      summary: Airbyte Update Source Definition Details.
+      x-speakeasy-entity-operation: SourceDefinition#update
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - SourceDefinitions
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefinitionResponse'
+              examples:
+                deleteSourceDefinition200Example:
+                  summary: Default deleteSourceDefinition 200 response
+                  x-microcks-default: true
+                  value:
+                    id: abc123
+                    name: example-name
+                    dockerRepository: example
+                    dockerImageTag: example
+                    documentationUrl: https://example.com
+          description: Success
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteSourceDefinition
+      x-speakeasy-alias: deleteSourceDefinition
+      x-speakeasy-group: SourceDefinitions
+      summary: Airbyte Delete a Source Definition.
+      x-speakeasy-entity-operation: SourceDefinition#delete
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DefinitionResponse:
+      title: Root Type for DefinitionResponse
+      description: Provides details of a single connector definition.
+      type: object
+      x-speakeasy-component: true
+      required:
+      - id
+      - name
+      - dockerRepository
+      - dockerImageTag
+      properties:
+        id:
+          format: UUID
+          type: string
+        name:
+          type: string
+        dockerRepository:
+          type: string
+        dockerImageTag:
+          type: string
+        documentationUrl:
+          type: string
+    DefinitionsResponse:
+      title: Root Type for DefinitionsResponse
+      description: ''
+      x-speakeasy-component: true
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionResponse'
+    UpdateDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - name
+      - dockerImageTag
+      properties:
+        name:
+          type: string
+        dockerImageTag:
+          type: string
+    CreateDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - name
+      - dockerRepository
+      - dockerImageTag
+      properties:
+        name:
+          type: string
+        dockerRepository:
+          type: string
+        dockerImageTag:
+          type: string
+        documentationUrl:
+          type: string
+          format: uri

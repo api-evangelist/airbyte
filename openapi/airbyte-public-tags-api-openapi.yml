@@ -1,0 +1,257 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_tags API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_tags
+paths:
+  /tags:
+    get:
+      tags:
+      - public_tags
+      summary: Airbyte List All Tags
+      description: Lists all tags
+      parameters:
+      - name: workspaceIds
+        in: query
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        required: false
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsResponse'
+              examples:
+                listTags200Example:
+                  summary: Default listTags 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List Tags.
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listTags
+      x-speakeasy-alias: listTags
+      x-speakeasy-group: Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      tags:
+      - public_tags
+      summary: Airbyte Create a Tag
+      description: Create a tag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagCreateRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+              examples:
+                createTag200Example:
+                  summary: Default createTag 200 response
+                  x-microcks-default: true
+                  value:
+                    tagId: abc123
+                    name: example-name
+                    color: example
+                    workspaceId: abc123
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '409':
+          description: Tag with same name already exists
+      operationId: createTag
+      x-speakeasy-alias: createTag
+      x-speakeasy-group: Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /tags/{tagId}:
+    parameters:
+    - name: tagId
+      schema:
+        $ref: '#/components/schemas/TagId'
+      in: path
+      required: true
+    get:
+      tags:
+      - public_tags
+      summary: Airbyte Get a Tag
+      description: Get a tag
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+              examples:
+                getTag200Example:
+                  summary: Default getTag 200 response
+                  x-microcks-default: true
+                  value:
+                    tagId: abc123
+                    name: example-name
+                    color: example
+                    workspaceId: abc123
+          description: Successful operation
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getTag
+      x-speakeasy-alias: getTag
+      x-speakeasy-group: Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_tags
+      summary: Airbyte Delete a Tag
+      description: Delete a tag
+      responses:
+        '204':
+          description: The resource was deleted successfully
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteTag
+      x-speakeasy-alias: deleteTag
+      x-speakeasy-group: Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      tags:
+      - public_tags
+      summary: Airbyte Update a Tag
+      description: Update a tag
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagPatchRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagResponse'
+              examples:
+                updateTag200Example:
+                  summary: Default updateTag 200 response
+                  x-microcks-default: true
+                  value:
+                    tagId: abc123
+                    name: example-name
+                    color: example
+                    workspaceId: abc123
+          description: Successful operation
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateTag
+      x-speakeasy-alias: updateTag
+      x-speakeasy-group: Tags
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    TagPatchRequest:
+      required:
+      - name
+      - color
+      type: object
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+      x-speakeasy-entity: Tag
+      x-speakeasy-component: true
+    TagResponse:
+      title: Root Type for TagResponse
+      description: Provides details of a single tag.
+      type: object
+      required:
+      - tagId
+      - name
+      - color
+      - workspaceId
+      properties:
+        tagId:
+          $ref: '#/components/schemas/TagId'
+        name:
+          type: string
+        color:
+          description: A hexadecimal color value
+          type: string
+        workspaceId:
+          $ref: '#/components/schemas/WorkspaceId'
+      example:
+        tagId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        name: Analytics Team
+        color: FF5733
+        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+      x-speakeasy-component: true
+    WorkspaceId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    TagsResponse:
+      title: Root Type for TagsResponse
+      description: ''
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagResponse'
+      x-speakeasy-component: true
+    TagCreateRequest:
+      required:
+      - name
+      - color
+      - workspaceId
+      type: object
+      properties:
+        name:
+          type: string
+        color:
+          type: string
+        workspaceId:
+          $ref: '#/components/schemas/WorkspaceId'
+      x-speakeasy-entity: Tag
+      x-speakeasy-component: true
+    TagId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true

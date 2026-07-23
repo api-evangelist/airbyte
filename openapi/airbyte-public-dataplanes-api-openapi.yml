@@ -1,0 +1,260 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_dataplanes API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_dataplanes
+paths:
+  /dataplanes:
+    get:
+      tags:
+      - public_dataplanes
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataplanesResponse'
+              examples:
+                listDataplanes200Example:
+                  summary: Default listDataplanes 200 response
+                  x-microcks-default: true
+                  value:
+                    data: example
+          description: List dataplanes accessible to the current user
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: listDataplanes
+      summary: Airbyte List Dataplanes
+      x-speakeasy-alias: listDataplanes
+      x-speakeasy-group: Dataplanes
+      parameters:
+      - name: regionIds
+        description: The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.
+        schema:
+          type: array
+          items:
+            format: uuid
+            type: string
+        in: query
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataplaneCreateRequest'
+        required: true
+      tags:
+      - public_dataplanes
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataplaneCreateResponseBody'
+              examples:
+                createDataplane200Example:
+                  summary: Default createDataplane 200 response
+                  x-microcks-default: true
+                  value: {}
+          description: Successfully created dataplane
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: createDataplane
+      summary: Airbyte Create a Dataplane
+      x-speakeasy-alias: createDataplane
+      x-speakeasy-group: Dataplanes
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dataplanes/{dataplaneId}:
+    parameters:
+    - name: dataplaneId
+      schema:
+        type: string
+        format: uuid
+      in: path
+      required: true
+    get:
+      tags:
+      - public_dataplanes
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataplaneResponse'
+              examples:
+                getDataplane200Example:
+                  summary: Default getDataplane 200 response
+                  x-microcks-default: true
+                  value:
+                    dataplaneId: abc123
+                    name: example-name
+                    regionId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Get a dataplane by the id in the path
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getDataplane
+      x-speakeasy-alias: getDataplane
+      x-speakeasy-group: Dataplanes
+      summary: Airbyte Get a Dataplane
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataplanePatchRequest'
+        required: true
+      tags:
+      - public_dataplanes
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataplaneResponse'
+              examples:
+                updateDataplane200Example:
+                  summary: Default updateDataplane 200 response
+                  x-microcks-default: true
+                  value:
+                    dataplaneId: abc123
+                    name: example-name
+                    regionId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Successfully updated dataplane
+        '400':
+          description: Invalid data
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: updateDataplane
+      x-speakeasy-alias: updateDataplane
+      x-speakeasy-group: Dataplanes
+      summary: Airbyte Update a Dataplane
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      tags:
+      - public_dataplanes
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataplaneResponse'
+              examples:
+                deleteDataplane200Example:
+                  summary: Default deleteDataplane 200 response
+                  x-microcks-default: true
+                  value:
+                    dataplaneId: abc123
+                    name: example-name
+                    regionId: abc123
+                    enabled: true
+                    createdAt: example
+                    updatedAt: example
+          description: Successfully deleted dataplane
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: deleteDataplane
+      x-speakeasy-alias: deleteDataplane
+      x-speakeasy-group: Dataplanes
+      summary: Airbyte Delete a Dataplane
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    DataplaneResponse:
+      type: object
+      required:
+      - dataplaneId
+      - name
+      - regionId
+      - enabled
+      - createdAt
+      - updatedAt
+      properties:
+        dataplaneId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        regionId:
+          type: string
+          format: uuid
+        enabled:
+          type: boolean
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+      x-speakeasy-entity: Dataplane
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DataplanePatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Dataplane
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DataplanesResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataplaneResponse'
+      x-speakeasy-component: true
+    DataplaneCreateRequest:
+      type: object
+      required:
+      - regionId
+      - name
+      properties:
+        regionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Dataplane
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true

@@ -1,0 +1,181 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications embedded_widget API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: embedded_widget
+paths:
+  /embedded/widget_token:
+    post:
+      description: Get a token for the embedded widget. This endpoint is only available when Airbyte Embedded is enabled.
+      operationId: getEmbeddedWidget
+      x-speakeasy-alias: getEmbeddedWidget
+      x-speakeasy-group: EmbeddedWidget
+      summary: Airbyte Get a Widget Token for Airbyte Embedded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedWidgetRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedWidgetResponse'
+              examples:
+                getEmbeddedWidget200Example:
+                  summary: Default getEmbeddedWidget 200 response
+                  x-microcks-default: true
+                  value:
+                    token: example
+          description: Success
+      tags:
+      - embedded_widget
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /embedded/scoped_token:
+    post:
+      description: Generate a token scoped to an end-user workspace.
+      operationId: generateEmbeddedScopedToken
+      x-speakeasy-alias: generateEmbeddedScopedToken
+      x-speakeasy-group: EmbeddedScopedToken
+      summary: Airbyte Generate a Scoped Token for Airbyte Embedded
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedScopedTokenRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedScopedTokenResponse'
+              examples:
+                generateEmbeddedScopedToken200Example:
+                  summary: Default generateEmbeddedScopedToken 200 response
+                  x-microcks-default: true
+                  value:
+                    token: example
+          description: Success
+      tags:
+      - embedded_widget
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /embedded/organizations:
+    get:
+      summary: Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.
+      tags:
+      - embedded_widget
+      operationId: listEmbeddedOrganizationsByUser
+      x-speakeasy-alias: listEmbeddedOrganizationsByUser
+      x-speakeasy-group: EmbeddedWidget
+      responses:
+        '200':
+          description: Successfully retrieved organizations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedOrganizationsList'
+              examples:
+                listEmbeddedOrganizationsByUser200Example:
+                  summary: Default listEmbeddedOrganizationsByUser 200 response
+                  x-microcks-default: true
+                  value:
+                    organizations: example
+        '403':
+          $ref: '#/components/responses/ForbiddenResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EmbeddedWidgetResponse:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+      x-speakeasy-component: true
+    EmbeddedScopedTokenRequest:
+      type: object
+      required:
+      - workspaceId
+      properties:
+        workspaceId:
+          type: string
+          format: uuid
+      x-speakeasy-component: true
+    EmbeddedOrganizationsList:
+      required:
+      - organizations
+      properties:
+        organizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmbeddedOrganizationListItem'
+      x-speakeasy-component: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
+    EmbeddedWidgetRequest:
+      type: object
+      required:
+      - allowedOrigin
+      - externalUserId
+      - organizationId
+      properties:
+        allowedOrigin:
+          type: string
+        externalUserId:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+      x-speakeasy-component: true
+    EmbeddedOrganizationListItem:
+      type: object
+      required:
+      - organizationId
+      - organizationName
+      - permission
+      properties:
+        organizationId:
+          type: string
+          format: uuid
+        organizationName:
+          type: string
+        permission:
+          $ref: '#/components/schemas/PermissionType'
+      x-speakeasy-component: true
+    EmbeddedScopedTokenResponse:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+      x-speakeasy-component: true

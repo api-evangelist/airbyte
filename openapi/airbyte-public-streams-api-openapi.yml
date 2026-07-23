@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: airbyte-api Applications public_streams API
+  version: 1.0.0
+  description: Programmatically control Airbyte Cloud, OSS & Enterprise.
+servers:
+- url: https://api.airbyte.com/v1
+  description: Airbyte API v1
+tags:
+- name: public_streams
+paths:
+  /streams:
+    get:
+      tags:
+      - public_streams
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamPropertiesResponse'
+              examples:
+                getStreamProperties200Example:
+                  summary: Default getStreamProperties 200 response
+                  x-microcks-default: true
+                  value:
+                  - streamName: example-name
+                    syncModes: example
+                    streamnamespace: example-name
+                    defaultCursorField: example
+                    sourceDefinedCursorField: true
+                    sourceDefinedPrimaryKey: example
+                    propertyFields: example
+          description: Get the available streams properties for a source/destination pair.
+        '400':
+          description: Required parameters are missing
+        '403':
+          description: Not allowed
+        '404':
+          description: Not found
+      operationId: getStreamProperties
+      x-speakeasy-alias: getStreamProperties
+      x-speakeasy-group: Streams
+      summary: Airbyte Get Stream Properties
+      parameters:
+      - name: sourceId
+        description: ID of the source
+        schema:
+          format: UUID
+          type: string
+        in: query
+        required: true
+      - name: destinationId
+        description: ID of the destination
+        schema:
+          format: UUID
+          type: string
+        in: query
+        required: false
+      - name: ignoreCache
+        description: If true pull the latest schema from the source, else pull from cache (default false)
+        schema:
+          type: boolean
+          default: false
+        in: query
+        required: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    StreamPropertiesResponse:
+      description: A list of stream properties.
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamProperties'
+      x-speakeasy-component: true
+    ConnectionSyncModeEnum:
+      enum:
+      - full_refresh_overwrite
+      - full_refresh_overwrite_deduped
+      - full_refresh_append
+      - full_refresh_update
+      - full_refresh_soft_delete
+      - incremental_append
+      - incremental_deduped_history
+      - incremental_update
+      - incremental_soft_delete
+      x-speakeasy-component: true
+    StreamProperties:
+      description: The stream properties associated with a connection.
+      type: object
+      properties:
+        streamName:
+          type: string
+        syncModes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConnectionSyncModeEnum'
+        streamnamespace:
+          type: string
+        defaultCursorField:
+          type: array
+          items:
+            type: string
+        sourceDefinedCursorField:
+          type: boolean
+        sourceDefinedPrimaryKey:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+        propertyFields:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+      x-speakeasy-component: true
