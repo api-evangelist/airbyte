@@ -1,0 +1,117 @@
+{
+  "info": {
+    "_postman_id": "0c63b1c1-bfbb-4fe8-abcb-014a1eafe463",
+    "name": "airbyte-api Applications public_oauth API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:21.000Z",
+    "updatedAt": "2026-07-28T00:30:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0c63b1c1-bfbb-4fe8-abcb-014a1eafe463"
+  },
+  "item": [
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "callback",
+          "item": [
+            {
+              "name": "Airbyte Receive OAuth Callbacks",
+              "id": "0b4092ec-959c-4633-b45c-4586260575da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/callback?idd=<string>&ea35e=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "callback"
+                  ],
+                  "query": [
+                    {
+                      "description": "Query parameters. Should contain state and code.",
+                      "key": "idd",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Query parameters. Should contain state and code.",
+                      "key": "ea35e",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Redirected to by identity providers after authentication."
+              },
+              "response": [
+                {
+                  "id": "5a3d724d-282b-4d4e-bddd-ddf35538b9fd",
+                  "name": "Redirect to the URL requested in the initiate call with the created secret ID.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/callback?idd=<string>&ea35e=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "callback"
+                      ],
+                      "query": [
+                        {
+                          "description": "Query parameters. Should contain state and code.",
+                          "key": "idd",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Query parameters. Should contain state and code.",
+                          "key": "ea35e",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Found",
+                  "code": 302,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-5a3d724d-282b-4d4e-bddd-ddf35538b9fd"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:22.000Z",
+              "updatedAt": "2026-07-28T00:30:22.000Z",
+              "uid": "35240-0b4092ec-959c-4633-b45c-4586260575da"
+            }
+          ],
+          "id": "18aa7867-366c-4ff1-8021-ba52ab1b671d",
+          "createdAt": "2026-07-28T00:30:22.000Z",
+          "updatedAt": "2026-07-28T00:30:22.000Z",
+          "uid": "35240-18aa7867-366c-4ff1-8021-ba52ab1b671d"
+        }
+      ],
+      "id": "c6bf5383-3363-4950-a157-d88718d0ef5c",
+      "createdAt": "2026-07-28T00:30:22.000Z",
+      "updatedAt": "2026-07-28T00:30:22.000Z",
+      "uid": "35240-c6bf5383-3363-4950-a157-d88718d0ef5c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

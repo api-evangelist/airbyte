@@ -1,0 +1,1125 @@
+{
+  "info": {
+    "_postman_id": "16838f78-7972-4800-acda-f7c3992d60b3",
+    "name": "airbyte-api Applications public_workspaces API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:30.000Z",
+    "updatedAt": "2026-07-28T00:30:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-16838f78-7972-4800-acda-f7c3992d60b3"
+  },
+  "item": [
+    {
+      "name": "workspaces",
+      "item": [
+        {
+          "name": "{workspaceId}",
+          "item": [
+            {
+              "name": "oauthCredentials",
+              "item": [
+                {
+                  "name": "Airbyte Create OAuth Override Credentials for a Workspace and Source Type.",
+                  "id": "31351062-240b-472f-a20c-94cb2b75c838",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"actorType\": \"destination\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId/oauthCredentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId",
+                        "oauthCredentials"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e7f0ee4c-03f9-4024-bb4a-f1918c77853f",
+                          "key": "workspaceId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.\nIn order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination."
+                  },
+                  "response": [
+                    {
+                      "id": "4274ac6e-ad68-456b-844a-c3b16280d5f6",
+                      "name": "OAuth credential override was successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"destination\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workspaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:31.000Z",
+                      "updatedAt": "2026-07-28T00:30:31.000Z",
+                      "uid": "35240-4274ac6e-ad68-456b-844a-c3b16280d5f6"
+                    },
+                    {
+                      "id": "4518e5c9-5aa7-42a1-ad4b-5d45fb9e4f0b",
+                      "name": "A field in the body has not been set appropriately.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"destination\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workspaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:31.000Z",
+                      "updatedAt": "2026-07-28T00:30:31.000Z",
+                      "uid": "35240-4518e5c9-5aa7-42a1-ad4b-5d45fb9e4f0b"
+                    },
+                    {
+                      "id": "6cb2cea0-91cf-4ebb-81e1-ea7f8630c352",
+                      "name": "API key is invalid.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"destination\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workspaceId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:31.000Z",
+                      "updatedAt": "2026-07-28T00:30:31.000Z",
+                      "uid": "35240-6cb2cea0-91cf-4ebb-81e1-ea7f8630c352"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-31351062-240b-472f-a20c-94cb2b75c838"
+                }
+              ],
+              "id": "e4608a2e-0442-47c8-a7a9-01b4310eb5d8",
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-e4608a2e-0442-47c8-a7a9-01b4310eb5d8"
+            },
+            {
+              "name": "Airbyte Get Workspace Details",
+              "id": "4fc5f7cc-e1f9-4bf7-ac55-9400e07dc4b8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "53987f64-eed6-4c9a-adc3-914e4182fa4b",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b0c13163-bae7-4699-9983-8eb29a59b68d",
+                  "name": "Get a Workspace by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"workspaceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataResidency\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-b0c13163-bae7-4699-9983-8eb29a59b68d"
+                },
+                {
+                  "id": "9310f5a1-a57e-4e4d-ad58-66e953635879",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-9310f5a1-a57e-4e4d-ad58-66e953635879"
+                },
+                {
+                  "id": "cf2f1b0a-8743-4c59-9762-22a1ce0cbf71",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-cf2f1b0a-8743-4c59-9762-22a1ce0cbf71"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-4fc5f7cc-e1f9-4bf7-ac55-9400e07dc4b8"
+            },
+            {
+              "name": "Airbyte Update a Workspace",
+              "id": "aa7d1ecf-5300-4339-9657-3498a177cd8b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "ddfc0643-54eb-475f-af1b-6dc56cb84e41",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "89c2dd63-165f-42a9-a3d7-4cc8dd39b831",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"workspaceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataResidency\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-89c2dd63-165f-42a9-a3d7-4cc8dd39b831"
+                },
+                {
+                  "id": "0932fd6e-a151-4d5d-8a80-9214dbf5ec9f",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-0932fd6e-a151-4d5d-8a80-9214dbf5ec9f"
+                },
+                {
+                  "id": "6c0a60ac-00f7-4708-8a6b-1ca584666e0f",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-6c0a60ac-00f7-4708-8a6b-1ca584666e0f"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-aa7d1ecf-5300-4339-9657-3498a177cd8b"
+            },
+            {
+              "name": "Airbyte Delete a Workspace",
+              "id": "a837e979-44ec-428f-8719-cbfb03f0e42e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces",
+                    ":workspaceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "40c1bded-41f4-43aa-8e70-491798d3a925",
+                      "key": "workspaceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2c126493-d2f6-4b78-8f63-67f680af2e5b",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-2c126493-d2f6-4b78-8f63-67f680af2e5b"
+                },
+                {
+                  "id": "a5fb920b-3b83-4cc3-9aef-4eeebfb0627c",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-a5fb920b-3b83-4cc3-9aef-4eeebfb0627c"
+                },
+                {
+                  "id": "9756100f-2338-4863-9002-fab72df072a0",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/workspaces/:workspaceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workspaces",
+                        ":workspaceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workspaceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:31.000Z",
+                  "updatedAt": "2026-07-28T00:30:31.000Z",
+                  "uid": "35240-9756100f-2338-4863-9002-fab72df072a0"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-a837e979-44ec-428f-8719-cbfb03f0e42e"
+            }
+          ],
+          "id": "04ca70a6-aa67-4903-9e6f-e264f59fee7e",
+          "createdAt": "2026-07-28T00:30:31.000Z",
+          "updatedAt": "2026-07-28T00:30:31.000Z",
+          "uid": "35240-04ca70a6-aa67-4903-9e6f-e264f59fee7e"
+        },
+        {
+          "name": "Airbyte List Workspaces",
+          "id": "9c6a4870-2c42-431e-80ae-59e44c7225f5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workspaces?workspaceIds=<uuid>&workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspaces"
+              ],
+              "query": [
+                {
+                  "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "Include deleted workspaces in the returned results.",
+                  "key": "includeDeleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Set the limit on the number of workspaces returned. The default is 20.",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Set the offset to start at when returning workspaces. The default is 0",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0d43fe71-2e7b-44e4-adc7-6873775ab759",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted workspaces in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of workspaces returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning workspaces. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"workspaceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dataResidency\": \"<string>\",\n      \"notifications\": {\n        \"failure\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"success\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"connectionUpdate\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"connectionUpdateActionRequired\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"syncDisabled\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"syncDisabledWarning\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        }\n      }\n    },\n    {\n      \"workspaceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dataResidency\": \"<string>\",\n      \"notifications\": {\n        \"failure\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"success\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"connectionUpdate\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"connectionUpdateActionRequired\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"syncDisabled\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        },\n        \"syncDisabledWarning\": {\n          \"email\": {\n            \"enabled\": \"<boolean>\"\n          },\n          \"webhook\": {\n            \"enabled\": \"<boolean>\",\n            \"url\": \"<string>\"\n          }\n        }\n      }\n    }\n  ],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-0d43fe71-2e7b-44e4-adc7-6873775ab759"
+            },
+            {
+              "id": "22f70887-4d96-4aea-97df-b6374c6b3ebf",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted workspaces in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of workspaces returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning workspaces. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-22f70887-4d96-4aea-97df-b6374c6b3ebf"
+            },
+            {
+              "id": "13d76841-907e-42f6-99ff-9ff24a5ee1de",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to fetch. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted workspaces in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of workspaces returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning workspaces. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-13d76841-907e-42f6-99ff-9ff24a5ee1de"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:31.000Z",
+          "updatedAt": "2026-07-28T00:30:31.000Z",
+          "uid": "35240-9c6a4870-2c42-431e-80ae-59e44c7225f5"
+        },
+        {
+          "name": "Airbyte Create a Workspace",
+          "id": "36a6816b-ca09-4db1-b5b9-107184af1a6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/workspaces",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workspaces"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "92365212-d65d-47b3-b02c-f7e3bf45ea9b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"workspaceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dataResidency\": \"<string>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  }\n}",
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-92365212-d65d-47b3-b02c-f7e3bf45ea9b"
+            },
+            {
+              "id": "5244d57c-7dbd-44a5-b882-0393578c1d19",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-5244d57c-7dbd-44a5-b882-0393578c1d19"
+            },
+            {
+              "id": "b301965c-9c58-4571-b7c7-7be8c1770455",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"notifications\": {\n    \"failure\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"success\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdate\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"connectionUpdateActionRequired\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabled\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    },\n    \"syncDisabledWarning\": {\n      \"email\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"webhook\": {\n        \"enabled\": \"<boolean>\",\n        \"url\": \"<string>\"\n      }\n    }\n  },\n  \"regionId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workspaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workspaces"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:31.000Z",
+              "updatedAt": "2026-07-28T00:30:31.000Z",
+              "uid": "35240-b301965c-9c58-4571-b7c7-7be8c1770455"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:31.000Z",
+          "updatedAt": "2026-07-28T00:30:31.000Z",
+          "uid": "35240-36a6816b-ca09-4db1-b5b9-107184af1a6f"
+        }
+      ],
+      "id": "8d3cc3b6-ebfc-4f8f-a0ae-3b51bcbd8453",
+      "createdAt": "2026-07-28T00:30:31.000Z",
+      "updatedAt": "2026-07-28T00:30:31.000Z",
+      "uid": "35240-8d3cc3b6-ebfc-4f8f-a0ae-3b51bcbd8453"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

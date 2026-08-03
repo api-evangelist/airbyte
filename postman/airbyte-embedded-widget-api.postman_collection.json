@@ -1,0 +1,349 @@
+{
+  "info": {
+    "_postman_id": "af8f6310-7902-4046-b5c2-aa56d8988c59",
+    "name": "airbyte-api Applications embedded_widget API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:19.000Z",
+    "updatedAt": "2026-07-28T00:29:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af8f6310-7902-4046-b5c2-aa56d8988c59"
+  },
+  "item": [
+    {
+      "name": "embedded",
+      "item": [
+        {
+          "name": "widget_token",
+          "item": [
+            {
+              "name": "Airbyte Get a Widget Token for Airbyte Embedded",
+              "id": "62c57950-68b4-4835-83fe-06116b36248b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allowedOrigin\": \"<string>\",\n  \"externalUserId\": \"<string>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/embedded/widget_token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "embedded",
+                    "widget_token"
+                  ]
+                },
+                "description": "Get a token for the embedded widget. This endpoint is only available when Airbyte Embedded is enabled."
+              },
+              "response": [
+                {
+                  "id": "feb48ba7-f79f-461b-b194-65d09fb88e14",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"allowedOrigin\": \"<string>\",\n  \"externalUserId\": \"<string>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/embedded/widget_token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "embedded",
+                        "widget_token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"token\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:19.000Z",
+                  "updatedAt": "2026-07-28T00:29:19.000Z",
+                  "uid": "35240-feb48ba7-f79f-461b-b194-65d09fb88e14"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:19.000Z",
+              "updatedAt": "2026-07-28T00:29:19.000Z",
+              "uid": "35240-62c57950-68b4-4835-83fe-06116b36248b"
+            }
+          ],
+          "id": "60378cec-ef19-4a5a-925d-8c6a320b3419",
+          "createdAt": "2026-07-28T00:29:19.000Z",
+          "updatedAt": "2026-07-28T00:29:19.000Z",
+          "uid": "35240-60378cec-ef19-4a5a-925d-8c6a320b3419"
+        },
+        {
+          "name": "scoped_token",
+          "item": [
+            {
+              "name": "Airbyte Generate a Scoped Token for Airbyte Embedded",
+              "id": "954fca32-8c64-42ff-92a6-119bc758fbab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/embedded/scoped_token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "embedded",
+                    "scoped_token"
+                  ]
+                },
+                "description": "Generate a token scoped to an end-user workspace."
+              },
+              "response": [
+                {
+                  "id": "070eede0-1f89-4fb1-b821-f0c180c2db15",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workspaceId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/embedded/scoped_token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "embedded",
+                        "scoped_token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"token\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:19.000Z",
+                  "updatedAt": "2026-07-28T00:29:19.000Z",
+                  "uid": "35240-070eede0-1f89-4fb1-b821-f0c180c2db15"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:19.000Z",
+              "updatedAt": "2026-07-28T00:29:19.000Z",
+              "uid": "35240-954fca32-8c64-42ff-92a6-119bc758fbab"
+            }
+          ],
+          "id": "30de0d37-94b1-41de-a616-25244887e4b4",
+          "createdAt": "2026-07-28T00:29:19.000Z",
+          "updatedAt": "2026-07-28T00:29:19.000Z",
+          "uid": "35240-30de0d37-94b1-41de-a616-25244887e4b4"
+        },
+        {
+          "name": "organizations",
+          "item": [
+            {
+              "name": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.",
+              "id": "5c5d42ee-ff41-4f95-94b1-5f5623cd041c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/embedded/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "embedded",
+                    "organizations"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "4635dcfe-3d95-4b9e-bd7a-fd7b19091fd7",
+                  "name": "Successfully retrieved organizations",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/embedded/organizations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "embedded",
+                        "organizations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"organizations\": [\n    {\n      \"organizationId\": \"<uuid>\",\n      \"organizationName\": \"<string>\",\n      \"permission\": \"workspace_runner\"\n    },\n    {\n      \"organizationId\": \"<uuid>\",\n      \"organizationName\": \"<string>\",\n      \"permission\": \"workspace_reader\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T00:29:19.000Z",
+                  "updatedAt": "2026-07-28T00:29:19.000Z",
+                  "uid": "35240-4635dcfe-3d95-4b9e-bd7a-fd7b19091fd7"
+                },
+                {
+                  "id": "357597af-eb11-4aa5-a2e6-576d993035bc",
+                  "name": "403 response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/embedded/organizations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "embedded",
+                        "organizations"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:19.000Z",
+                  "updatedAt": "2026-07-28T00:29:19.000Z",
+                  "uid": "35240-357597af-eb11-4aa5-a2e6-576d993035bc"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:19.000Z",
+              "updatedAt": "2026-07-28T00:29:19.000Z",
+              "uid": "35240-5c5d42ee-ff41-4f95-94b1-5f5623cd041c"
+            }
+          ],
+          "id": "4a0d2567-3bb4-415d-a0bd-ba1468b744a9",
+          "createdAt": "2026-07-28T00:29:19.000Z",
+          "updatedAt": "2026-07-28T00:29:19.000Z",
+          "uid": "35240-4a0d2567-3bb4-415d-a0bd-ba1468b744a9"
+        }
+      ],
+      "id": "fa0ddee9-2847-4877-bf3e-02c2dec11c1a",
+      "createdAt": "2026-07-28T00:29:19.000Z",
+      "updatedAt": "2026-07-28T00:29:19.000Z",
+      "uid": "35240-fa0ddee9-2847-4877-bf3e-02c2dec11c1a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

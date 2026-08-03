@@ -1,0 +1,1195 @@
+{
+  "info": {
+    "_postman_id": "c2555af8-c7d1-4fe9-a183-b8a5a70bea3e",
+    "name": "airbyte-api Applications Destinations API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:18.000Z",
+    "updatedAt": "2026-07-28T00:29:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c2555af8-c7d1-4fe9-a183-b8a5a70bea3e"
+  },
+  "item": [
+    {
+      "name": "destinations",
+      "item": [
+        {
+          "name": "{destinationId}",
+          "item": [
+            {
+              "name": "Airbyte Get Destination Details",
+              "id": "5a87a252-ef20-49a5-91e6-74bd8bd8aaad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/destinations/:destinationId?includeSecretCoordinates=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Rather than return *** for secret properties include the secret coordinate information",
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f50232a9-dfe9-48b5-b1f4-2ac46cea17cf",
+                      "key": "destinationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ec5379df-6f0c-4101-9267-9d689395a7e2",
+                  "name": "Get a Destination by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"destinationId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"destinationType\": \"<string>\",\n  \"definitionId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"reset_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-ec5379df-6f0c-4101-9267-9d689395a7e2"
+                },
+                {
+                  "id": "82c05bc4-c8e4-4971-9104-fb07ebcc25ce",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-82c05bc4-c8e4-4971-9104-fb07ebcc25ce"
+                },
+                {
+                  "id": "8d6e4838-5347-4628-9ba7-3f86c963585a",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-8d6e4838-5347-4628-9ba7-3f86c963585a"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-5a87a252-ef20-49a5-91e6-74bd8bd8aaad"
+            },
+            {
+              "name": "Airbyte Delete a Destination",
+              "id": "f1894bb8-07f7-4d3e-a65f-06cf5b0e7756",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/destinations/:destinationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e5293837-4d66-4227-8191-1245350bdc3b",
+                      "key": "destinationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ec7c8739-3109-4cd7-96e5-9472e9a9f14d",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-ec7c8739-3109-4cd7-96e5-9472e9a9f14d"
+                },
+                {
+                  "id": "0e3a1b69-3963-4146-8869-673c4f2a1304",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-0e3a1b69-3963-4146-8869-673c4f2a1304"
+                },
+                {
+                  "id": "525cd2de-7110-46a3-b5ea-5adf7c649491",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-525cd2de-7110-46a3-b5ea-5adf7c649491"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-f1894bb8-07f7-4d3e-a65f-06cf5b0e7756"
+            },
+            {
+              "name": "Airbyte Update a Destination",
+              "id": "d3d5fad4-b604-46ae-a438-cfb87bdc5153",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations/:destinationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c1db0200-87fc-4004-a66b-990d543e1bf6",
+                      "key": "destinationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a3a3fa32-adb5-464e-b336-3bdde36dd0b2",
+                  "name": "Update a Destination",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"destinationId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"destinationType\": \"<string>\",\n  \"definitionId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"reset_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-a3a3fa32-adb5-464e-b336-3bdde36dd0b2"
+                },
+                {
+                  "id": "ace9c9b1-15d9-4610-98f2-9ba2adbe9c8c",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-ace9c9b1-15d9-4610-98f2-9ba2adbe9c8c"
+                },
+                {
+                  "id": "a31ab0b4-d849-4809-9a03-cc20d72e92a6",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-a31ab0b4-d849-4809-9a03-cc20d72e92a6"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-d3d5fad4-b604-46ae-a438-cfb87bdc5153"
+            },
+            {
+              "name": "Airbyte Update a Destination and Fully Overwrite it",
+              "id": "a7dded87-cc2a-4426-b47e-c8a8e227cf9f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"connection_updater\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations/:destinationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "53077f1d-5791-4c78-a2c8-55908d242800",
+                      "key": "destinationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3eac0353-dc2a-4088-9ad8-db11c9447105",
+                  "name": "Update a Destination and fully overwrite it",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"connection_updater\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"destinationId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"destinationType\": \"<string>\",\n  \"definitionId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"reset_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-3eac0353-dc2a-4088-9ad8-db11c9447105"
+                },
+                {
+                  "id": "ac3f85e6-fc1e-4815-80db-50d5b4affc75",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"connection_updater\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-ac3f85e6-fc1e-4815-80db-50d5b4affc75"
+                },
+                {
+                  "id": "1e9aabae-f66c-4fab-ad8f-9a6c448e0862",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"connection_updater\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/destinations/:destinationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "destinations",
+                        ":destinationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "destinationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:18.000Z",
+                  "updatedAt": "2026-07-28T00:29:18.000Z",
+                  "uid": "35240-1e9aabae-f66c-4fab-ad8f-9a6c448e0862"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-a7dded87-cc2a-4426-b47e-c8a8e227cf9f"
+            }
+          ],
+          "id": "11467e93-fa16-49e1-a9cd-8694e87d55d6",
+          "createdAt": "2026-07-28T00:29:18.000Z",
+          "updatedAt": "2026-07-28T00:29:18.000Z",
+          "uid": "35240-11467e93-fa16-49e1-a9cd-8694e87d55d6"
+        },
+        {
+          "name": "Airbyte List Destinations",
+          "id": "d9454793-48ac-4a19-9eb5-23f3eb04068d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/destinations?workspaceIds=<uuid>&workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "destinations"
+              ],
+              "query": [
+                {
+                  "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "Include deleted destinations in the returned results.",
+                  "key": "includeDeleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Set the limit on the number of destinations returned. The default is 20.",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Set the offset to start at when returning destinations. The default is 0",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6131b0cc-cb9b-48f2-b28a-87f5e41a374f",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/destinations?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted destinations in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of destinations returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning destinations. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"destinationId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"destinationType\": \"<string>\",\n      \"definitionId\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"configuration\": {},\n      \"createdAt\": \"<long>\",\n      \"resourceAllocation\": {\n        \"default\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        },\n        \"jobSpecific\": [\n          {\n            \"jobType\": \"connection_updater\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          },\n          {\n            \"jobType\": \"reset_connection\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"destinationId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"destinationType\": \"<string>\",\n      \"definitionId\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"configuration\": {},\n      \"createdAt\": \"<long>\",\n      \"resourceAllocation\": {\n        \"default\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        },\n        \"jobSpecific\": [\n          {\n            \"jobType\": \"discover_schema\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          },\n          {\n            \"jobType\": \"replicate\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          }\n        ]\n      }\n    }\n  ],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-6131b0cc-cb9b-48f2-b28a-87f5e41a374f"
+            },
+            {
+              "id": "01e807ea-4ee9-4090-b727-d5b5e264bad2",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/destinations?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted destinations in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of destinations returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning destinations. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-01e807ea-4ee9-4090-b727-d5b5e264bad2"
+            },
+            {
+              "id": "0d882594-2d6d-401f-bc7e-c273e177e166",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/destinations?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted destinations in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of destinations returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning destinations. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-0d882594-2d6d-401f-bc7e-c273e177e166"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:18.000Z",
+          "updatedAt": "2026-07-28T00:29:18.000Z",
+          "uid": "35240-d9454793-48ac-4a19-9eb5-23f3eb04068d"
+        },
+        {
+          "name": "Airbyte Create a Destination",
+          "id": "29dfd762-9b3f-4b42-b4dd-f85e56b86d32",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/destinations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "destinations"
+              ]
+            },
+            "description": "Creates a destination given a name, workspace id, and a json blob containing the configuration for the source."
+          },
+          "response": [
+            {
+              "id": "f6419356-7407-4c29-a868-07c197369720",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"destinationId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"destinationType\": \"<string>\",\n  \"definitionId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"reset_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-f6419356-7407-4c29-a868-07c197369720"
+            },
+            {
+              "id": "fb8124cb-c4ec-4507-9b11-d79ea09ccc27",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-fb8124cb-c4ec-4507-9b11-d79ea09ccc27"
+            },
+            {
+              "id": "f6ea32ff-4cbf-47b1-abd5-5d059b2162a4",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-f6ea32ff-4cbf-47b1-abd5-5d059b2162a4"
+            },
+            {
+              "id": "f2944a77-9a94-4547-b6f6-f9bb226ce9ff",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/destinations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "destinations"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:18.000Z",
+              "updatedAt": "2026-07-28T00:29:18.000Z",
+              "uid": "35240-f2944a77-9a94-4547-b6f6-f9bb226ce9ff"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:18.000Z",
+          "updatedAt": "2026-07-28T00:29:18.000Z",
+          "uid": "35240-29dfd762-9b3f-4b42-b4dd-f85e56b86d32"
+        }
+      ],
+      "id": "b4bbc56e-4a85-4d25-93be-355c74288370",
+      "createdAt": "2026-07-28T00:29:18.000Z",
+      "updatedAt": "2026-07-28T00:29:18.000Z",
+      "uid": "35240-b4bbc56e-4a85-4d25-93be-355c74288370"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

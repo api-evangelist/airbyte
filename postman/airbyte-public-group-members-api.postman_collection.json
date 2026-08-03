@@ -1,0 +1,723 @@
+{
+  "info": {
+    "_postman_id": "6e199c27-6586-4585-87fe-d7a353ff727d",
+    "name": "airbyte-api Applications public_group_members API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:09.000Z",
+    "updatedAt": "2026-07-28T00:30:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e199c27-6586-4585-87fe-d7a353ff727d"
+  },
+  "item": [
+    {
+      "name": "groups",
+      "item": [
+        {
+          "name": "{groupId}",
+          "item": [
+            {
+              "name": "members",
+              "item": [
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "Airbyte Remove Member from Group",
+                      "id": "f927cc10-f718-4e3c-9f76-c876bab86905",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3dfca277-1af0-4f0c-b206-5a6b062a5a0b",
+                              "key": "groupId",
+                              "value": "<uuid>",
+                              "description": "(Required) Group identifier"
+                            },
+                            {
+                              "id": "3aedc239-965c-4f04-befb-d3e3e23f8d96",
+                              "key": "userId",
+                              "value": "<uuid>",
+                              "description": "(Required) User identifier"
+                            }
+                          ]
+                        },
+                        "description": "Remove a user from a group"
+                      },
+                      "response": [
+                        {
+                          "id": "1dc14716-5fda-474d-b086-87b4b0aabeaf",
+                          "name": "Member removed successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/members/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "members",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-1dc14716-5fda-474d-b086-87b4b0aabeaf"
+                        },
+                        {
+                          "id": "4bbc150a-3aac-42fe-ac69-e673d7393a01",
+                          "name": "Not allowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/members/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "members",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-4bbc150a-3aac-42fe-ac69-e673d7393a01"
+                        },
+                        {
+                          "id": "9c148e7c-dbcc-4ad2-b7a3-2a924abebcb8",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/members/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "members",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-9c148e7c-dbcc-4ad2-b7a3-2a924abebcb8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:09.000Z",
+                      "updatedAt": "2026-07-28T00:30:09.000Z",
+                      "uid": "35240-f927cc10-f718-4e3c-9f76-c876bab86905"
+                    }
+                  ],
+                  "id": "8167d6e7-50c1-4519-902b-da9bf12de496",
+                  "createdAt": "2026-07-28T00:30:09.000Z",
+                  "updatedAt": "2026-07-28T00:30:09.000Z",
+                  "uid": "35240-8167d6e7-50c1-4519-902b-da9bf12de496"
+                },
+                {
+                  "name": "Airbyte List Group Members",
+                  "id": "82727903-a9c9-4377-b0b6-03fc80b0ec3c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId/members?limit=20&offset=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId",
+                        "members"
+                      ],
+                      "query": [
+                        {
+                          "description": "Set the limit on the number of members returned. The default is 20.",
+                          "key": "limit",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Set the offset to start at when returning members. The default is 0.",
+                          "key": "offset",
+                          "value": "0"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e7ec8505-d8d3-4da3-8b35-9de762b1425f",
+                          "key": "groupId",
+                          "value": "<uuid>",
+                          "description": "(Required) Group identifier"
+                        }
+                      ]
+                    },
+                    "description": "Get all members of a specific group"
+                  },
+                  "response": [
+                    {
+                      "id": "3eab3713-1415-43c0-baa6-abb6968c1b90",
+                      "name": "List Group members.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Set the limit on the number of members returned. The default is 20.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Set the offset to start at when returning members. The default is 0.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"memberId\": \"<uuid>\",\n      \"groupId\": \"<uuid>\",\n      \"userId\": \"<uuid>\",\n      \"userEmail\": \"<email>\",\n      \"userName\": \"<string>\"\n    },\n    {\n      \"memberId\": \"<uuid>\",\n      \"groupId\": \"<uuid>\",\n      \"userId\": \"<uuid>\",\n      \"userEmail\": \"<email>\",\n      \"userName\": \"<string>\"\n    }\n  ],\n  \"next\": \"<string>\",\n  \"previous\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-3eab3713-1415-43c0-baa6-abb6968c1b90"
+                    },
+                    {
+                      "id": "236fc7b4-3538-4f8a-a4f1-067100c01b0b",
+                      "name": "Not allowed",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Set the limit on the number of members returned. The default is 20.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Set the offset to start at when returning members. The default is 0.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-236fc7b4-3538-4f8a-a4f1-067100c01b0b"
+                    },
+                    {
+                      "id": "720f403b-98df-455e-9f70-a1ca8dafcc7c",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members?limit=20&offset=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Set the limit on the number of members returned. The default is 20.",
+                              "key": "limit",
+                              "value": "20"
+                            },
+                            {
+                              "description": "Set the offset to start at when returning members. The default is 0.",
+                              "key": "offset",
+                              "value": "0"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-720f403b-98df-455e-9f70-a1ca8dafcc7c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:09.000Z",
+                  "updatedAt": "2026-07-28T00:30:09.000Z",
+                  "uid": "35240-82727903-a9c9-4377-b0b6-03fc80b0ec3c"
+                },
+                {
+                  "name": "Airbyte Add Member to Group",
+                  "id": "50b18286-ebef-4d09-9380-288ed5cf541a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId/members",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId",
+                        "members"
+                      ],
+                      "variable": [
+                        {
+                          "id": "739eb47b-66a1-41bc-9783-2dfa796e4b63",
+                          "key": "groupId",
+                          "value": "<uuid>",
+                          "description": "(Required) Group identifier"
+                        }
+                      ]
+                    },
+                    "description": "Add a user to a group"
+                  },
+                  "response": [
+                    {
+                      "id": "48c3b445-5aee-4f1c-8f62-92174c366bdc",
+                      "name": "Member added successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"memberId\": \"<uuid>\",\n  \"groupId\": \"<uuid>\",\n  \"userId\": \"<uuid>\",\n  \"userEmail\": \"<email>\",\n  \"userName\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-48c3b445-5aee-4f1c-8f62-92174c366bdc"
+                    },
+                    {
+                      "id": "f3c18920-edbd-4fa6-8d8c-27094d8f7138",
+                      "name": "Invalid input",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-f3c18920-edbd-4fa6-8d8c-27094d8f7138"
+                    },
+                    {
+                      "id": "9dce3fd8-6a3f-4cbc-8726-49c5c60f0c9f",
+                      "name": "Not allowed",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-9dce3fd8-6a3f-4cbc-8726-49c5c60f0c9f"
+                    },
+                    {
+                      "id": "cd48f0a7-a153-4e48-8a77-6f9788eea661",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-cd48f0a7-a153-4e48-8a77-6f9788eea661"
+                    },
+                    {
+                      "id": "f3c96ac2-94b7-4e8b-9d63-917c9cc35e72",
+                      "name": "User is already a member of this group",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<uuid>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/members",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "members"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-f3c96ac2-94b7-4e8b-9d63-917c9cc35e72"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:09.000Z",
+                  "updatedAt": "2026-07-28T00:30:09.000Z",
+                  "uid": "35240-50b18286-ebef-4d09-9380-288ed5cf541a"
+                }
+              ],
+              "id": "a6948ef2-89fa-45da-9b95-7935fef46a7d",
+              "createdAt": "2026-07-28T00:30:09.000Z",
+              "updatedAt": "2026-07-28T00:30:09.000Z",
+              "uid": "35240-a6948ef2-89fa-45da-9b95-7935fef46a7d"
+            }
+          ],
+          "id": "be81ff0b-9219-4094-92c1-6ba642b6f901",
+          "createdAt": "2026-07-28T00:30:09.000Z",
+          "updatedAt": "2026-07-28T00:30:09.000Z",
+          "uid": "35240-be81ff0b-9219-4094-92c1-6ba642b6f901"
+        }
+      ],
+      "id": "d4730325-4db9-4db7-9ac0-f2ef57935e5e",
+      "createdAt": "2026-07-28T00:30:09.000Z",
+      "updatedAt": "2026-07-28T00:30:09.000Z",
+      "uid": "35240-d4730325-4db9-4db7-9ac0-f2ef57935e5e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

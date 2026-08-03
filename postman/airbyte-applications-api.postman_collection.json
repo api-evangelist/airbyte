@@ -1,0 +1,799 @@
+{
+  "info": {
+    "_postman_id": "7ad9404d-3b07-4c48-ba1a-f4a528140039",
+    "name": "airbyte-api Applications API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:11.000Z",
+    "updatedAt": "2026-07-28T00:29:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ad9404d-3b07-4c48-ba1a-f4a528140039"
+  },
+  "item": [
+    {
+      "name": "applications",
+      "item": [
+        {
+          "name": "{applicationId}",
+          "item": [
+            {
+              "name": "Airbyte Get an Application Detail",
+              "id": "fd52b7b7-b380-40f2-911f-f54ac3758fc3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:applicationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fdf03129-523f-429c-80b5-0880fdf0c031",
+                      "key": "applicationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b7e49069-54e7-4d42-8bfc-adb5de9fed49",
+                  "name": "Get an Application by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"createdAt\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-b7e49069-54e7-4d42-8bfc-adb5de9fed49"
+                },
+                {
+                  "id": "6c331419-7532-4121-83e5-6e1d53460314",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-6c331419-7532-4121-83e5-6e1d53460314"
+                },
+                {
+                  "id": "c1b620dc-389f-465a-8503-58f80db8f079",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-c1b620dc-389f-465a-8503-58f80db8f079"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-fd52b7b7-b380-40f2-911f-f54ac3758fc3"
+            },
+            {
+              "name": "Airbyte Deletes an Application",
+              "id": "d5780f36-38b6-4742-9580-273adf8eac21",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications/:applicationId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    ":applicationId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "60e21ccb-6659-4830-afed-15f1ca670d5d",
+                      "key": "applicationId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "922481b8-4368-4867-8672-354653141752",
+                  "name": "Delete an Application.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"createdAt\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-922481b8-4368-4867-8672-354653141752"
+                },
+                {
+                  "id": "0fdadf5f-fafa-433f-a3ef-3db91cf9c656",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-0fdadf5f-fafa-433f-a3ef-3db91cf9c656"
+                },
+                {
+                  "id": "b09d4eb7-4b3f-4c94-827b-dbec0266b3b0",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/:applicationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        ":applicationId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "applicationId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-b09d4eb7-4b3f-4c94-827b-dbec0266b3b0"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-d5780f36-38b6-4742-9580-273adf8eac21"
+            }
+          ],
+          "id": "f77cb6cd-5d48-4501-8928-bdf471467a41",
+          "createdAt": "2026-07-28T00:29:12.000Z",
+          "updatedAt": "2026-07-28T00:29:12.000Z",
+          "uid": "35240-f77cb6cd-5d48-4501-8928-bdf471467a41"
+        },
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "Airbyte Get an Access Token",
+              "id": "abdcfc0d-3254-4c52-8a2f-7fd99457f970",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant-type\": \"client_credentials\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications",
+                    "token"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1cd1b9fe-721c-40d9-a8a9-190b0aa08642",
+                  "name": "Creates an Access Token.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant-type\": \"client_credentials\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": \"<long>\"\n}",
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-1cd1b9fe-721c-40d9-a8a9-190b0aa08642"
+                },
+                {
+                  "id": "6cde8699-dabb-4cf8-b673-332fd718d812",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant-type\": \"client_credentials\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-6cde8699-dabb-4cf8-b673-332fd718d812"
+                },
+                {
+                  "id": "da1caf87-e7a4-46b1-adc8-2c86d09eeeb8",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant-type\": \"client_credentials\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/applications/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "applications",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:12.000Z",
+                  "updatedAt": "2026-07-28T00:29:12.000Z",
+                  "uid": "35240-da1caf87-e7a4-46b1-adc8-2c86d09eeeb8"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-abdcfc0d-3254-4c52-8a2f-7fd99457f970"
+            }
+          ],
+          "id": "d9bf66c1-680d-4671-aa5f-2c705164c107",
+          "createdAt": "2026-07-28T00:29:12.000Z",
+          "updatedAt": "2026-07-28T00:29:12.000Z",
+          "uid": "35240-d9bf66c1-680d-4671-aa5f-2c705164c107"
+        },
+        {
+          "name": "Airbyte List Applications",
+          "id": "9d10deda-e938-430c-8cad-6dacacec734c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf81db0e-3298-4eae-b81c-be8ff2820eeb",
+              "name": "List all Applications a User has permission to view.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"applications\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"createdAt\": \"<long>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"clientId\": \"<string>\",\n      \"clientSecret\": \"<string>\",\n      \"createdAt\": \"<long>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-cf81db0e-3298-4eae-b81c-be8ff2820eeb"
+            },
+            {
+              "id": "2ba8794f-6715-45e4-8a31-31e4f6c07d8a",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-2ba8794f-6715-45e4-8a31-31e4f6c07d8a"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:12.000Z",
+          "updatedAt": "2026-07-28T00:29:12.000Z",
+          "uid": "35240-9d10deda-e938-430c-8cad-6dacacec734c"
+        },
+        {
+          "name": "Airbyte Create an Application",
+          "id": "ffda2bf7-0622-4b98-a0f4-094f7ee55de8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/applications",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "applications"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18a596ff-893d-4102-9696-1c3808e552f1",
+              "name": "Creates a new Application.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\",\n  \"createdAt\": \"<long>\"\n}",
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-18a596ff-893d-4102-9696-1c3808e552f1"
+            },
+            {
+              "id": "db0fed00-7da9-4e5c-9416-f6e5a7dae438",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-db0fed00-7da9-4e5c-9416-f6e5a7dae438"
+            },
+            {
+              "id": "ecf035c7-4ede-4d3d-a238-d7f2a4628f42",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/applications",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "applications"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:12.000Z",
+              "updatedAt": "2026-07-28T00:29:12.000Z",
+              "uid": "35240-ecf035c7-4ede-4d3d-a238-d7f2a4628f42"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:12.000Z",
+          "updatedAt": "2026-07-28T00:29:12.000Z",
+          "uid": "35240-ffda2bf7-0622-4b98-a0f4-094f7ee55de8"
+        }
+      ],
+      "id": "3a4a280e-95d8-40bc-b333-b2a44f6e1b6c",
+      "createdAt": "2026-07-28T00:29:12.000Z",
+      "updatedAt": "2026-07-28T00:29:12.000Z",
+      "uid": "35240-3a4a280e-95d8-40bc-b333-b2a44f6e1b6c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,943 @@
+{
+  "info": {
+    "_postman_id": "69eba862-7c11-42b7-b3ed-fff360ec05c7",
+    "name": "airbyte-api Applications public_connections API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:29.000Z",
+    "updatedAt": "2026-07-28T00:29:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69eba862-7c11-42b7-b3ed-fff360ec05c7"
+  },
+  "item": [
+    {
+      "name": "connections",
+      "item": [
+        {
+          "name": "{connectionId}",
+          "item": [
+            {
+              "name": "Airbyte Get Connection Details",
+              "id": "a8baf7e3-4d0b-4483-ac73-89f6604b3ee4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/connections/:connectionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c78c1bf7-dcf0-40a3-82a8-37a368e2022d",
+                      "key": "connectionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d2071e98-e745-4b37-9b6f-82aa135e558e",
+                  "name": "Get a Connection by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"destinationId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"status\": \"active\",\n  \"schedule\": {\n    \"scheduleType\": \"basic\",\n    \"cronExpression\": \"<string>\",\n    \"basicTiming\": \"<string>\"\n  },\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-1\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-256\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"createdAt\": \"<long>\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ],\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"statusReason\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-d2071e98-e745-4b37-9b6f-82aa135e558e"
+                },
+                {
+                  "id": "57307525-2c3f-43bd-91fb-8bd70e42432a",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-57307525-2c3f-43bd-91fb-8bd70e42432a"
+                },
+                {
+                  "id": "772dc6d2-9eb3-44ed-9b12-c369868f9047",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-772dc6d2-9eb3-44ed-9b12-c369868f9047"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:29.000Z",
+              "updatedAt": "2026-07-28T00:29:29.000Z",
+              "uid": "35240-a8baf7e3-4d0b-4483-ac73-89f6604b3ee4"
+            },
+            {
+              "name": "Airbyte Update Connection Details",
+              "id": "767ff646-c39b-40ed-ad8b-6738360af8e5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"encryption\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"<string>\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"propagate_fully\",\n  \"status\": \"inactive\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/connections/:connectionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "16aea0ca-a1a1-44d8-b110-f8513fd5b62e",
+                      "key": "connectionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "68611f7a-41fb-45cb-9cdc-9dd3327c860f",
+                  "name": "Update a Connection by the id in the path.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"encryption\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"<string>\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"propagate_fully\",\n  \"status\": \"inactive\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"destinationId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"status\": \"active\",\n  \"schedule\": {\n    \"scheduleType\": \"basic\",\n    \"cronExpression\": \"<string>\",\n    \"basicTiming\": \"<string>\"\n  },\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-1\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-256\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"createdAt\": \"<long>\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ],\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"statusReason\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-68611f7a-41fb-45cb-9cdc-9dd3327c860f"
+                },
+                {
+                  "id": "7f699d1e-780c-4bf4-ace2-6727a22eb2a0",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"encryption\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"<string>\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"propagate_fully\",\n  \"status\": \"inactive\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-7f699d1e-780c-4bf4-ace2-6727a22eb2a0"
+                },
+                {
+                  "id": "1217d18f-c9d1-498d-b9dd-1f9a4e09b386",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"encryption\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"<string>\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"propagate_fully\",\n  \"status\": \"inactive\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-1217d18f-c9d1-498d-b9dd-1f9a4e09b386"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:29.000Z",
+              "updatedAt": "2026-07-28T00:29:29.000Z",
+              "uid": "35240-767ff646-c39b-40ed-ad8b-6738360af8e5"
+            },
+            {
+              "name": "Airbyte Delete a Connection",
+              "id": "a974d88c-f6e1-442e-872f-7705ecc98b45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/connections/:connectionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "54b1663f-a9e0-4bbd-a155-047d94a1056b",
+                      "key": "connectionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9a4c9cf5-68cd-421a-87dd-b84bb9a1ca1e",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-9a4c9cf5-68cd-421a-87dd-b84bb9a1ca1e"
+                },
+                {
+                  "id": "9c6879cb-892b-41aa-8e08-674bd8189b92",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-9c6879cb-892b-41aa-8e08-674bd8189b92"
+                },
+                {
+                  "id": "5f069692-ec6d-4099-be58-61cd2391bfe7",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/connections/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connections",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "connectionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:30.000Z",
+                  "updatedAt": "2026-07-28T00:29:30.000Z",
+                  "uid": "35240-5f069692-ec6d-4099-be58-61cd2391bfe7"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:29.000Z",
+              "updatedAt": "2026-07-28T00:29:29.000Z",
+              "uid": "35240-a974d88c-f6e1-442e-872f-7705ecc98b45"
+            }
+          ],
+          "id": "9b0cd9aa-ee64-4d4b-8ffb-eea6962a8790",
+          "createdAt": "2026-07-28T00:29:29.000Z",
+          "updatedAt": "2026-07-28T00:29:29.000Z",
+          "uid": "35240-9b0cd9aa-ee64-4d4b-8ffb-eea6962a8790"
+        },
+        {
+          "name": "Airbyte Create a Connection",
+          "id": "f030cf63-017b-4613-a593-6f8272c6edf3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceId\": \"<uuid>\",\n  \"destinationId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-384\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"status\": \"deprecated\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/connections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connections"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b953d1bb-2fc3-44e3-8270-51781b52c5d8",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"<uuid>\",\n  \"destinationId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-384\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"status\": \"deprecated\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceId\": \"<string>\",\n  \"destinationId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"status\": \"active\",\n  \"schedule\": {\n    \"scheduleType\": \"basic\",\n    \"cronExpression\": \"<string>\",\n    \"basicTiming\": \"<string>\"\n  },\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_append\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-1\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-256\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-224\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"createdAt\": \"<long>\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ],\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"statusReason\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-b953d1bb-2fc3-44e3-8270-51781b52c5d8"
+            },
+            {
+              "id": "a3437b50-003f-4df1-acb4-8ad7d771b065",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"<uuid>\",\n  \"destinationId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-384\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"status\": \"deprecated\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-a3437b50-003f-4df1-acb4-8ad7d771b065"
+            },
+            {
+              "id": "4abbf7ff-81a5-4022-9981-e3e3f5f21ebf",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"<uuid>\",\n  \"destinationId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"full_refresh_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"hashing\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"MD5\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"incremental_soft_delete\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          {\n            \"fieldPath\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": \"row-filtering\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-512\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": \"field-renaming\",\n            \"mapperConfiguration\": {\n              \"fieldNameSuffix\": \"<string>\",\n              \"method\": \"SHA-384\",\n              \"targetField\": \"<string>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"manual\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"status\": \"deprecated\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/connections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-4abbf7ff-81a5-4022-9981-e3e3f5f21ebf"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:29.000Z",
+          "updatedAt": "2026-07-28T00:29:29.000Z",
+          "uid": "35240-f030cf63-017b-4613-a593-6f8272c6edf3"
+        },
+        {
+          "name": "Airbyte List Connections",
+          "id": "b9542a67-c7c0-40ed-8a68-7c1298182d98",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connections?workspaceIds=<uuid>&workspaceIds=<uuid>&tagIds=<uuid>&tagIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connections"
+              ],
+              "query": [
+                {
+                  "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.",
+                  "key": "tagIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.",
+                  "key": "tagIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "Include deleted connections in the returned results.",
+                  "key": "includeDeleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Set the limit on the number of Connections returned. The default is 20.",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Set the offset to start at when returning Connections. The default is 0",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "86151e9f-a454-468f-b2f8-e8870c4955cb",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/connections?workspaceIds=<uuid>&tagIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.",
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted connections in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of Connections returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Connections. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-86151e9f-a454-468f-b2f8-e8870c4955cb"
+            },
+            {
+              "id": "44b9f5f1-aa23-4cc3-8a88-5ec0ca943a33",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/connections?workspaceIds=<uuid>&tagIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.",
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted connections in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of Connections returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Connections. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-44b9f5f1-aa23-4cc3-8a88-5ec0ca943a33"
+            },
+            {
+              "id": "e81fba60-f0b8-4476-88d3-0eb90841630a",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/connections?workspaceIds=<uuid>&tagIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connections"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections.",
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted connections in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of Connections returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Connections. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:30.000Z",
+              "updatedAt": "2026-07-28T00:29:30.000Z",
+              "uid": "35240-e81fba60-f0b8-4476-88d3-0eb90841630a"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:29.000Z",
+          "updatedAt": "2026-07-28T00:29:29.000Z",
+          "uid": "35240-b9542a67-c7c0-40ed-8a68-7c1298182d98"
+        }
+      ],
+      "id": "f6ed4c97-4df3-4b73-9bbb-35f8c1d97ce8",
+      "createdAt": "2026-07-28T00:29:29.000Z",
+      "updatedAt": "2026-07-28T00:29:29.000Z",
+      "uid": "35240-f6ed4c97-4df3-4b73-9bbb-35f8c1d97ce8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

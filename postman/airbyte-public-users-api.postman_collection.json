@@ -1,0 +1,229 @@
+{
+  "info": {
+    "_postman_id": "d8307156-61bf-4c6d-b7d2-958ff2ee12de",
+    "name": "airbyte-api Applications public_users API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:29.000Z",
+    "updatedAt": "2026-07-28T00:30:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8307156-61bf-4c6d-b7d2-958ff2ee12de"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "Airbyte List All Users Within an Organization",
+          "id": "6dd0c5ab-9e6c-4eaf-9587-283ca624e6f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/users?organizationId=<string>&ids=<string>&ids=<string>&emails=<email>&emails=<email>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "organizationId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List of user IDs to filter by",
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List of user IDs to filter by",
+                  "key": "ids",
+                  "value": "<string>"
+                },
+                {
+                  "description": "List of user emails to filter by",
+                  "key": "emails",
+                  "value": "<email>"
+                },
+                {
+                  "description": "List of user emails to filter by",
+                  "key": "emails",
+                  "value": "<email>"
+                }
+              ]
+            },
+            "description": "Organization Admin user can list all users within the same organization. Also provide filtering on a list of user IDs or/and a list of user emails."
+          },
+          "response": [
+            {
+              "id": "ebe15d84-f4c7-48b2-bcc0-47050ff15c5e",
+              "name": "List Users.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/users?organizationId=<string>&ids=<string>&emails=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user IDs to filter by",
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user emails to filter by",
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"email\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"email\": \"<email>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:30:30.000Z",
+              "updatedAt": "2026-07-28T00:30:30.000Z",
+              "uid": "35240-ebe15d84-f4c7-48b2-bcc0-47050ff15c5e"
+            },
+            {
+              "id": "445ccd05-8c72-4051-8993-7b7514e8e00d",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users?organizationId=<string>&ids=<string>&emails=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user IDs to filter by",
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user emails to filter by",
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:30.000Z",
+              "updatedAt": "2026-07-28T00:30:30.000Z",
+              "uid": "35240-445ccd05-8c72-4051-8993-7b7514e8e00d"
+            },
+            {
+              "id": "5b288678-2f2b-4901-8be1-0400a226a298",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/users?organizationId=<string>&ids=<string>&emails=<email>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user IDs to filter by",
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "List of user emails to filter by",
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:30.000Z",
+              "updatedAt": "2026-07-28T00:30:30.000Z",
+              "uid": "35240-5b288678-2f2b-4901-8be1-0400a226a298"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:30.000Z",
+          "updatedAt": "2026-07-28T00:30:30.000Z",
+          "uid": "35240-6dd0c5ab-9e6c-4eaf-9587-283ca624e6f0"
+        }
+      ],
+      "id": "7666b608-f004-4194-afdb-11de2c9e027c",
+      "createdAt": "2026-07-28T00:30:30.000Z",
+      "updatedAt": "2026-07-28T00:30:30.000Z",
+      "uid": "35240-7666b608-f004-4194-afdb-11de2c9e027c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

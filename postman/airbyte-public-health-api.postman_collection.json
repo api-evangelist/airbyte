@@ -1,0 +1,81 @@
+{
+  "info": {
+    "_postman_id": "db90e813-56d8-481a-91e5-c2282cea5c48",
+    "name": "airbyte-api Applications public_health API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:19.000Z",
+    "updatedAt": "2026-07-28T00:30:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-db90e813-56d8-481a-91e5-c2282cea5c48"
+  },
+  "item": [
+    {
+      "name": "health",
+      "item": [
+        {
+          "name": "Airbyte Health Check",
+          "id": "18c9bdb2-859f-4fcc-8669-c88913f76d3f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5f0f52c1-c24d-4067-8181-59280a271c5b",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:20.000Z",
+              "updatedAt": "2026-07-28T00:30:20.000Z",
+              "uid": "35240-5f0f52c1-c24d-4067-8181-59280a271c5b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:20.000Z",
+          "updatedAt": "2026-07-28T00:30:20.000Z",
+          "uid": "35240-18c9bdb2-859f-4fcc-8669-c88913f76d3f"
+        }
+      ],
+      "id": "8fc3dde9-469d-4cee-865e-56228ceb918a",
+      "createdAt": "2026-07-28T00:30:20.000Z",
+      "updatedAt": "2026-07-28T00:30:20.000Z",
+      "uid": "35240-8fc3dde9-469d-4cee-865e-56228ceb918a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

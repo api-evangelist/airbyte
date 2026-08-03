@@ -1,0 +1,96 @@
+{
+  "info": {
+    "_postman_id": "d0db3d82-7785-4862-a5fb-9921b356fb11",
+    "name": "airbyte-api Applications public_root API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:25.000Z",
+    "updatedAt": "2026-07-28T00:30:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d0db3d82-7785-4862-a5fb-9921b356fb11"
+  },
+  "item": [
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Airbyte Root Path, Currently Returns a Redirect to the Documentation",
+          "id": "6b346f86-4635-4214-8529-cfd9267f5061",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1a3f26dc-2313-4460-9384-670e8e70fcb9",
+              "name": "Redirects to documentation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "",
+              "createdAt": "2026-07-28T00:30:25.000Z",
+              "updatedAt": "2026-07-28T00:30:25.000Z",
+              "uid": "35240-1a3f26dc-2313-4460-9384-670e8e70fcb9"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:25.000Z",
+          "updatedAt": "2026-07-28T00:30:25.000Z",
+          "uid": "35240-6b346f86-4635-4214-8529-cfd9267f5061"
+        }
+      ],
+      "id": "28e42ec6-3d00-48df-b412-264c99898740",
+      "createdAt": "2026-07-28T00:30:25.000Z",
+      "updatedAt": "2026-07-28T00:30:25.000Z",
+      "uid": "35240-28e42ec6-3d00-48df-b412-264c99898740"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,918 @@
+{
+  "info": {
+    "_postman_id": "3914d19d-b0ad-4677-b937-9068652ff0a2",
+    "name": "airbyte-api Applications DestinationDefinitions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:16.000Z",
+    "updatedAt": "2026-07-28T00:29:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3914d19d-b0ad-4677-b937-9068652ff0a2"
+  },
+  "item": [
+    {
+      "name": "workspaces",
+      "item": [
+        {
+          "name": "{workspaceId}",
+          "item": [
+            {
+              "name": "definitions",
+              "item": [
+                {
+                  "name": "destinations",
+                  "item": [
+                    {
+                      "name": "{definitionId}",
+                      "item": [
+                        {
+                          "name": "Airbyte Get Destination Definition Details.",
+                          "id": "9909a19a-4480-4bdb-a129-6f91f9dc41b5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fa421199-d96f-4459-a888-5aaaf6fcc616",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "20485f98-7e9e-4a79-b043-d28907211be3",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "025b131e-a0d8-41dc-a375-a444931f2b05",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-025b131e-a0d8-41dc-a375-a444931f2b05"
+                            },
+                            {
+                              "id": "fbce9c2a-863c-40db-8b4b-c1145d9e2ad4",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-fbce9c2a-863c-40db-8b4b-c1145d9e2ad4"
+                            },
+                            {
+                              "id": "c2f04a53-8cd5-42bc-9ec6-4cf50e4da456",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-c2f04a53-8cd5-42bc-9ec6-4cf50e4da456"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-9909a19a-4480-4bdb-a129-6f91f9dc41b5"
+                        },
+                        {
+                          "name": "Airbyte Update Destination Definition Details.",
+                          "id": "e903f294-74e7-4ba9-bef7-d66e0ba8f5b3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"dockerImageTag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "82b08cc3-a053-4596-af3c-37abbd64e989",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "251b61ba-d019-40f3-bdad-011acbc7bb01",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "004df069-4398-463f-b64b-c35982412f5b",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"dockerImageTag\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-004df069-4398-463f-b64b-c35982412f5b"
+                            },
+                            {
+                              "id": "c735c6aa-abaa-4385-a2a9-8d9d68d3e1ea",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"dockerImageTag\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-c735c6aa-abaa-4385-a2a9-8d9d68d3e1ea"
+                            },
+                            {
+                              "id": "f6823efe-1e62-4c75-8f10-2a6f1147ba77",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"dockerImageTag\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-f6823efe-1e62-4c75-8f10-2a6f1147ba77"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-e903f294-74e7-4ba9-bef7-d66e0ba8f5b3"
+                        },
+                        {
+                          "name": "Airbyte Delete a Destination Definition.",
+                          "id": "fc926127-24f2-4e78-9255-9a0eb2b94ef7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b6961e0b-112c-4c5d-9bf3-323a4c3b3540",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "37480e90-091b-4e41-96a0-699a2031406d",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e42528ba-3349-4e28-8406-94bc26309900",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-e42528ba-3349-4e28-8406-94bc26309900"
+                            },
+                            {
+                              "id": "06210ef7-06d2-4bbc-8de0-7f39c997e302",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-06210ef7-06d2-4bbc-8de0-7f39c997e302"
+                            },
+                            {
+                              "id": "bb97c0b8-1f25-41eb-96c2-2a2738b34056",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "destinations",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:17.000Z",
+                              "updatedAt": "2026-07-28T00:29:17.000Z",
+                              "uid": "35240-bb97c0b8-1f25-41eb-96c2-2a2738b34056"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-fc926127-24f2-4e78-9255-9a0eb2b94ef7"
+                        }
+                      ],
+                      "id": "6e640a59-6997-4797-9cb8-cad190c3456a",
+                      "createdAt": "2026-07-28T00:29:17.000Z",
+                      "updatedAt": "2026-07-28T00:29:17.000Z",
+                      "uid": "35240-6e640a59-6997-4797-9cb8-cad190c3456a"
+                    },
+                    {
+                      "name": "Airbyte List Destination Definitions.",
+                      "id": "2a967da4-466a-4387-9c8b-45117cac64a7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "definitions",
+                            "destinations"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cbc6923e-757f-455f-b6b6-dd63528c1e94",
+                              "key": "workspaceId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "670d457e-ba87-4d18-ae50-ccd98b382172",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dockerRepository\": \"<string>\",\n      \"dockerImageTag\": \"<string>\",\n      \"documentationUrl\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"dockerRepository\": \"<string>\",\n      \"dockerImageTag\": \"<string>\",\n      \"documentationUrl\": \"<string>\"\n    }\n  ],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-670d457e-ba87-4d18-ae50-ccd98b382172"
+                        },
+                        {
+                          "id": "03605dee-4be4-433e-ae9f-9cedb9050110",
+                          "name": "Not allowed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-03605dee-4be4-433e-ae9f-9cedb9050110"
+                        },
+                        {
+                          "id": "6e6aae98-b1c8-45e2-8dce-83c40c77e35f",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-6e6aae98-b1c8-45e2-8dce-83c40c77e35f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:29:17.000Z",
+                      "updatedAt": "2026-07-28T00:29:17.000Z",
+                      "uid": "35240-2a967da4-466a-4387-9c8b-45117cac64a7"
+                    },
+                    {
+                      "name": "Airbyte Create a Destination Definition.",
+                      "id": "9b61f723-dae7-4c4e-9998-96440847fcbe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "definitions",
+                            "destinations"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9533353c-1be6-4d74-bc99-c2108bdf5aea",
+                              "key": "workspaceId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2ea9fd5e-6657-4692-98f7-1d7f9665020a",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<uri>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/destinations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "destinations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"dockerRepository\": \"<string>\",\n  \"dockerImageTag\": \"<string>\",\n  \"documentationUrl\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:29:17.000Z",
+                          "updatedAt": "2026-07-28T00:29:17.000Z",
+                          "uid": "35240-2ea9fd5e-6657-4692-98f7-1d7f9665020a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:29:17.000Z",
+                      "updatedAt": "2026-07-28T00:29:17.000Z",
+                      "uid": "35240-9b61f723-dae7-4c4e-9998-96440847fcbe"
+                    }
+                  ],
+                  "id": "039b78a9-c9ab-47ba-9543-4c1fbc27b71e",
+                  "createdAt": "2026-07-28T00:29:17.000Z",
+                  "updatedAt": "2026-07-28T00:29:17.000Z",
+                  "uid": "35240-039b78a9-c9ab-47ba-9543-4c1fbc27b71e"
+                }
+              ],
+              "id": "4a48f598-1371-4f20-a209-8cd4f9264b3d",
+              "createdAt": "2026-07-28T00:29:17.000Z",
+              "updatedAt": "2026-07-28T00:29:17.000Z",
+              "uid": "35240-4a48f598-1371-4f20-a209-8cd4f9264b3d"
+            }
+          ],
+          "id": "1160d3b5-20d9-4959-b926-4ec239e04874",
+          "createdAt": "2026-07-28T00:29:17.000Z",
+          "updatedAt": "2026-07-28T00:29:17.000Z",
+          "uid": "35240-1160d3b5-20d9-4959-b926-4ec239e04874"
+        }
+      ],
+      "id": "b91bc9ef-9040-4565-a1da-9d5d46a25e36",
+      "createdAt": "2026-07-28T00:29:17.000Z",
+      "updatedAt": "2026-07-28T00:29:17.000Z",
+      "uid": "35240-b91bc9ef-9040-4565-a1da-9d5d46a25e36"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

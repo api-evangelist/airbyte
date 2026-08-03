@@ -1,0 +1,1035 @@
+{
+  "info": {
+    "_postman_id": "ed7819f2-47ca-40f1-8527-8e5dcbeafa39",
+    "name": "airbyte-api Applications Permissions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:23.000Z",
+    "updatedAt": "2026-07-28T00:29:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed7819f2-47ca-40f1-8527-8e5dcbeafa39"
+  },
+  "item": [
+    {
+      "name": "permissions",
+      "item": [
+        {
+          "name": "{permissionId}",
+          "item": [
+            {
+              "name": "Airbyte Get Permission Details",
+              "id": "92cd5f5c-be88-4160-8ac0-6034cbfacfd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/permissions/:permissionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions",
+                    ":permissionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0779760e-e090-4b67-ba48-0b108bbff2e3",
+                      "key": "permissionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ce645e9a-c597-4da5-8d2c-e9e647fd86b2",
+                  "name": "Get a Permission by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"permissionId\": \"<uuid>\",\n  \"permissionType\": \"organization_admin\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-ce645e9a-c597-4da5-8d2c-e9e647fd86b2"
+                },
+                {
+                  "id": "74796d88-e61e-4e36-a6bc-93571ee7d9c1",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-74796d88-e61e-4e36-a6bc-93571ee7d9c1"
+                },
+                {
+                  "id": "6ca97182-8349-470c-b9cd-aca38a54bbca",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-6ca97182-8349-470c-b9cd-aca38a54bbca"
+                },
+                {
+                  "id": "555881da-48f2-4d86-9ee2-bd86d2d31029",
+                  "name": "Data issue",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-555881da-48f2-4d86-9ee2-bd86d2d31029"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-92cd5f5c-be88-4160-8ac0-6034cbfacfd3"
+            },
+            {
+              "name": "Airbyte Update a Permission",
+              "id": "974dc15a-83a5-4ba4-8538-34ecd891de4f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/permissions/:permissionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions",
+                    ":permissionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "79e508a8-4aa7-4a99-b8ce-56d93656d1f6",
+                      "key": "permissionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "73808252-e3db-4343-b319-855e8dde9643",
+                  "name": "Successful updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"permissionId\": \"<uuid>\",\n  \"permissionType\": \"organization_admin\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-73808252-e3db-4343-b319-855e8dde9643"
+                },
+                {
+                  "id": "eae11fd7-30a4-49d0-8d11-b34fea4c1119",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-eae11fd7-30a4-49d0-8d11-b34fea4c1119"
+                },
+                {
+                  "id": "a45c162a-ee2c-4814-9ebe-f5ffb3cb7579",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-a45c162a-ee2c-4814-9ebe-f5ffb3cb7579"
+                },
+                {
+                  "id": "bcc399e4-098b-498c-a8c7-f0fa9eb92479",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-bcc399e4-098b-498c-a8c7-f0fa9eb92479"
+                },
+                {
+                  "id": "2b0e404b-97a4-4a46-8010-524f9bc18473",
+                  "name": "Data issue",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"permissionType\": \"workspace_reader\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-2b0e404b-97a4-4a46-8010-524f9bc18473"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-974dc15a-83a5-4ba4-8538-34ecd891de4f"
+            },
+            {
+              "name": "Airbyte Delete a Permission",
+              "id": "4fd6ac03-a7bd-4b03-aaaa-c6c9d3cb6c36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/permissions/:permissionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions",
+                    ":permissionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5edfa930-e9fe-4d70-9ed4-93064d20b9d4",
+                      "key": "permissionId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "89dec01b-5077-48f3-9a6c-f139389b267c",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-89dec01b-5077-48f3-9a6c-f139389b267c"
+                },
+                {
+                  "id": "f55c6555-ba45-43bb-8765-86e17df600f6",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-f55c6555-ba45-43bb-8765-86e17df600f6"
+                },
+                {
+                  "id": "2fe30906-17c6-4796-9e71-e6a08bd55ba6",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-2fe30906-17c6-4796-9e71-e6a08bd55ba6"
+                },
+                {
+                  "id": "650323a3-55a3-4623-8d21-5e09f0a79ebd",
+                  "name": "Data issue",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/permissions/:permissionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "permissions",
+                        ":permissionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "permissionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:24.000Z",
+                  "updatedAt": "2026-07-28T00:29:24.000Z",
+                  "uid": "35240-650323a3-55a3-4623-8d21-5e09f0a79ebd"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-4fd6ac03-a7bd-4b03-aaaa-c6c9d3cb6c36"
+            }
+          ],
+          "id": "5e0d2476-2f74-4ceb-b651-661d42969314",
+          "createdAt": "2026-07-28T00:29:24.000Z",
+          "updatedAt": "2026-07-28T00:29:24.000Z",
+          "uid": "35240-5e0d2476-2f74-4ceb-b651-661d42969314"
+        },
+        {
+          "name": "Airbyte List Permissions by User Id",
+          "id": "940e45fa-663a-4a0c-8904-ef2d2f03caea",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/permissions?userId=<string>&organizationId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permissions"
+              ],
+              "query": [
+                {
+                  "description": "User Id in permission.",
+                  "key": "userId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "This is required if you want to read someone else's permissions, and you should have organization admin or a higher role.",
+                  "key": "organizationId",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b727a459-2751-4c2b-9ddd-510bc80c51f7",
+              "name": "List Permissions.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/permissions?userId=<string>&organizationId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "User Id in permission.",
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is required if you want to read someone else's permissions, and you should have organization admin or a higher role.",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"permissionId\": \"<uuid>\",\n      \"permissionType\": \"organization_admin\",\n      \"userId\": \"<uuid>\",\n      \"scope\": \"none\",\n      \"scopeId\": \"<uuid>\"\n    },\n    {\n      \"permissionId\": \"<uuid>\",\n      \"permissionType\": \"organization_reader\",\n      \"userId\": \"<uuid>\",\n      \"scope\": \"workspace\",\n      \"scopeId\": \"<uuid>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-b727a459-2751-4c2b-9ddd-510bc80c51f7"
+            },
+            {
+              "id": "73f4c06f-f293-43a6-9565-1c8908d5252d",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/permissions?userId=<string>&organizationId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "User Id in permission.",
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is required if you want to read someone else's permissions, and you should have organization admin or a higher role.",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-73f4c06f-f293-43a6-9565-1c8908d5252d"
+            },
+            {
+              "id": "e92c460f-d90a-450f-9631-1a75fc746685",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/permissions?userId=<string>&organizationId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ],
+                  "query": [
+                    {
+                      "description": "User Id in permission.",
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "This is required if you want to read someone else's permissions, and you should have organization admin or a higher role.",
+                      "key": "organizationId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-e92c460f-d90a-450f-9631-1a75fc746685"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:24.000Z",
+          "updatedAt": "2026-07-28T00:29:24.000Z",
+          "uid": "35240-940e45fa-663a-4a0c-8904-ef2d2f03caea"
+        },
+        {
+          "name": "Airbyte Create a Permission",
+          "id": "2c1ebb37-9dce-4958-a9d6-e74d74b3cf57",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"permissionType\": \"workspace_runner\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/permissions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "permissions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3673696f-6463-4cf0-8944-0501d4955e7d",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"permissionType\": \"workspace_runner\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/permissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"permissionId\": \"<uuid>\",\n  \"permissionType\": \"organization_admin\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-3673696f-6463-4cf0-8944-0501d4955e7d"
+            },
+            {
+              "id": "a9b4f604-3c27-4677-9e91-deff81d3b7b2",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"permissionType\": \"workspace_runner\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/permissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-a9b4f604-3c27-4677-9e91-deff81d3b7b2"
+            },
+            {
+              "id": "10f01561-05f1-45b3-8f21-6b4110463d14",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"permissionType\": \"workspace_runner\",\n  \"userId\": \"<uuid>\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/permissions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "permissions"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:24.000Z",
+              "updatedAt": "2026-07-28T00:29:24.000Z",
+              "uid": "35240-10f01561-05f1-45b3-8f21-6b4110463d14"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:24.000Z",
+          "updatedAt": "2026-07-28T00:29:24.000Z",
+          "uid": "35240-2c1ebb37-9dce-4958-a9d6-e74d74b3cf57"
+        }
+      ],
+      "id": "01b53ba0-e1ae-44e9-9867-77821d217eb3",
+      "createdAt": "2026-07-28T00:29:24.000Z",
+      "updatedAt": "2026-07-28T00:29:24.000Z",
+      "uid": "35240-01b53ba0-e1ae-44e9-9867-77821d217eb3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

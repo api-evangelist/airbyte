@@ -1,0 +1,918 @@
+{
+  "info": {
+    "_postman_id": "746440ef-5e9d-4d3b-a981-b56e255b454f",
+    "name": "airbyte-api Applications DeclarativeSourceDefinitions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:16.000Z",
+    "updatedAt": "2026-07-28T00:29:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-746440ef-5e9d-4d3b-a981-b56e255b454f"
+  },
+  "item": [
+    {
+      "name": "workspaces",
+      "item": [
+        {
+          "name": "{workspaceId}",
+          "item": [
+            {
+              "name": "definitions",
+              "item": [
+                {
+                  "name": "declarative_sources",
+                  "item": [
+                    {
+                      "name": "{definitionId}",
+                      "item": [
+                        {
+                          "name": "Airbyte Get Declarative Source Definition Details.",
+                          "id": "759194cd-9f9e-454d-8063-1af2b10ddc95",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fd44e8b5-7ce6-4773-9727-b31fa6668825",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "bcd808bd-2480-4304-861e-6822e88389b2",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "df61ba01-ebb7-4887-ab44-e268a5fbc1a0",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"version\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-df61ba01-ebb7-4887-ab44-e268a5fbc1a0"
+                            },
+                            {
+                              "id": "b72a4936-c1eb-492a-83ad-f8c77169b1b3",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-b72a4936-c1eb-492a-83ad-f8c77169b1b3"
+                            },
+                            {
+                              "id": "bdd1c9c4-bc25-4bee-9900-e63008490617",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-bdd1c9c4-bc25-4bee-9900-e63008490617"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-759194cd-9f9e-454d-8063-1af2b10ddc95"
+                        },
+                        {
+                          "name": "Airbyte Update Declarative Source Definition Details.",
+                          "id": "2c5e7b1a-29b3-4e4d-ba70-4422b4711320",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"manifest\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9ea86e78-8b0a-4f03-a209-af305cb7d513",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a92181fc-616c-441b-97ac-ccf3869e5b05",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "961e1bf5-21cc-4123-ae58-132ee3b0dfb7",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"manifest\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"version\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-961e1bf5-21cc-4123-ae58-132ee3b0dfb7"
+                            },
+                            {
+                              "id": "a101ecd4-2aea-48d3-87e2-468793bb94e4",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"manifest\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-a101ecd4-2aea-48d3-87e2-468793bb94e4"
+                            },
+                            {
+                              "id": "aa6d68d7-b980-4611-a047-46037c27f62d",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"manifest\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-aa6d68d7-b980-4611-a047-46037c27f62d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-2c5e7b1a-29b3-4e4d-ba70-4422b4711320"
+                        },
+                        {
+                          "name": "Airbyte Delete a Declarative Source Definition.",
+                          "id": "e2be758b-9b67-4b7c-84e9-31d1d8034aab",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources",
+                                ":definitionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5c36d98e-b5ad-4e57-9de2-c352c9d23037",
+                                  "key": "workspaceId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "d3fd49d9-0ecb-4875-b717-d2eeaaba8161",
+                                  "key": "definitionId",
+                                  "value": "<uuid>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "86838b43-9286-415c-bee9-3cdbcec9ec9c",
+                              "name": "Success",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"version\": \"<long>\"\n}",
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-86838b43-9286-415c-bee9-3cdbcec9ec9c"
+                            },
+                            {
+                              "id": "2724d323-203a-4070-aa5c-f41ad38e8d81",
+                              "name": "Not allowed",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-2724d323-203a-4070-aa5c-f41ad38e8d81"
+                            },
+                            {
+                              "id": "399909e8-ae0f-4170-85cd-082a0be91c03",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources/:definitionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "workspaces",
+                                    ":workspaceId",
+                                    "definitions",
+                                    "declarative_sources",
+                                    ":definitionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "workspaceId"
+                                    },
+                                    {
+                                      "key": "definitionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:16.000Z",
+                              "updatedAt": "2026-07-28T00:29:16.000Z",
+                              "uid": "35240-399909e8-ae0f-4170-85cd-082a0be91c03"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-e2be758b-9b67-4b7c-84e9-31d1d8034aab"
+                        }
+                      ],
+                      "id": "a551ddc0-3cc6-4294-80a0-3a4a565fc7be",
+                      "createdAt": "2026-07-28T00:29:16.000Z",
+                      "updatedAt": "2026-07-28T00:29:16.000Z",
+                      "uid": "35240-a551ddc0-3cc6-4294-80a0-3a4a565fc7be"
+                    },
+                    {
+                      "name": "Airbyte List Declarative Source Definitions.",
+                      "id": "21a0af14-2d3a-434e-a146-cd1dba0c575e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "definitions",
+                            "declarative_sources"
+                          ],
+                          "variable": [
+                            {
+                              "id": "18d9d8a2-c377-44e5-98c9-00027b8be3d0",
+                              "key": "workspaceId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "97230440-6e80-44fb-bddc-9fa3c2ea5832",
+                          "name": "Successful operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"manifest\": {},\n      \"version\": \"<long>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"manifest\": {},\n      \"version\": \"<long>\"\n    }\n  ],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-97230440-6e80-44fb-bddc-9fa3c2ea5832"
+                        },
+                        {
+                          "id": "9e392a4b-6ed2-4e12-bd2c-0603ad48b798",
+                          "name": "Not allowed",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-9e392a4b-6ed2-4e12-bd2c-0603ad48b798"
+                        },
+                        {
+                          "id": "0d1025ce-29a5-441b-a4d6-cfcf0727ad28",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-0d1025ce-29a5-441b-a4d6-cfcf0727ad28"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:29:16.000Z",
+                      "updatedAt": "2026-07-28T00:29:16.000Z",
+                      "uid": "35240-21a0af14-2d3a-434e-a146-cd1dba0c575e"
+                    },
+                    {
+                      "name": "Airbyte Create a Declarative Source Definition.",
+                      "id": "971eb4c6-744a-455c-a4b4-1d81f6330569",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"workspaceId\": 89075334\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workspaces",
+                            ":workspaceId",
+                            "definitions",
+                            "declarative_sources"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a8375334-4139-4d9e-b4eb-1e34abf7d660",
+                              "key": "workspaceId",
+                              "value": "<uuid>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6c0d197c-966a-4b0d-8b2e-ac0f4850c7ea",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"workspaceId\": 89075334\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/workspaces/:workspaceId/definitions/declarative_sources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "workspaces",
+                                ":workspaceId",
+                                "definitions",
+                                "declarative_sources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workspaceId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"manifest\": {},\n  \"version\": \"<long>\"\n}",
+                          "createdAt": "2026-07-28T00:29:16.000Z",
+                          "updatedAt": "2026-07-28T00:29:16.000Z",
+                          "uid": "35240-6c0d197c-966a-4b0d-8b2e-ac0f4850c7ea"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:29:16.000Z",
+                      "updatedAt": "2026-07-28T00:29:16.000Z",
+                      "uid": "35240-971eb4c6-744a-455c-a4b4-1d81f6330569"
+                    }
+                  ],
+                  "id": "badb9047-ece3-4c77-bb04-f906b5d6ed1e",
+                  "createdAt": "2026-07-28T00:29:16.000Z",
+                  "updatedAt": "2026-07-28T00:29:16.000Z",
+                  "uid": "35240-badb9047-ece3-4c77-bb04-f906b5d6ed1e"
+                }
+              ],
+              "id": "8a0fe356-6574-44a6-ae86-a6cf3b2f917c",
+              "createdAt": "2026-07-28T00:29:16.000Z",
+              "updatedAt": "2026-07-28T00:29:16.000Z",
+              "uid": "35240-8a0fe356-6574-44a6-ae86-a6cf3b2f917c"
+            }
+          ],
+          "id": "778d1209-ea15-439e-9600-434f335bf736",
+          "createdAt": "2026-07-28T00:29:16.000Z",
+          "updatedAt": "2026-07-28T00:29:16.000Z",
+          "uid": "35240-778d1209-ea15-439e-9600-434f335bf736"
+        }
+      ],
+      "id": "b34c372d-e731-4b56-a20d-3b969fe11226",
+      "createdAt": "2026-07-28T00:29:16.000Z",
+      "updatedAt": "2026-07-28T00:29:16.000Z",
+      "uid": "35240-b34c372d-e731-4b56-a20d-3b969fe11226"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

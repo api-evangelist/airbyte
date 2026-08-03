@@ -1,0 +1,675 @@
+{
+  "info": {
+    "_postman_id": "6ac40116-c5a0-447a-bdfe-2169378a906a",
+    "name": "airbyte-api Applications public_group_permissions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:17.000Z",
+    "updatedAt": "2026-07-28T00:30:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6ac40116-c5a0-447a-bdfe-2169378a906a"
+  },
+  "item": [
+    {
+      "name": "groups",
+      "item": [
+        {
+          "name": "{groupId}",
+          "item": [
+            {
+              "name": "permissions",
+              "item": [
+                {
+                  "name": "{permissionId}",
+                  "item": [
+                    {
+                      "name": "Airbyte Delete Group Permission",
+                      "id": "a4f50ef5-2319-4159-a62d-39dd7c6d7f06",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions/:permissionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions",
+                            ":permissionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2c9b9fb8-82e1-4e70-b124-59138bd15ee4",
+                              "key": "groupId",
+                              "value": "<uuid>",
+                              "description": "(Required) Group identifier"
+                            },
+                            {
+                              "id": "e9665402-1974-4d15-a396-4a732593242c",
+                              "key": "permissionId",
+                              "value": "<uuid>",
+                              "description": "(Required) Permission identifier"
+                            }
+                          ]
+                        },
+                        "description": "Remove a permission from a group"
+                      },
+                      "response": [
+                        {
+                          "id": "c6ea4aa2-74fd-4340-a063-363508f74206",
+                          "name": "Permission deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/permissions/:permissionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "permissions",
+                                ":permissionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "permissionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:18.000Z",
+                          "updatedAt": "2026-07-28T00:30:18.000Z",
+                          "uid": "35240-c6ea4aa2-74fd-4340-a063-363508f74206"
+                        },
+                        {
+                          "id": "0505cb40-51f8-4797-9fea-f95c35ca98cf",
+                          "name": "Not allowed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/permissions/:permissionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "permissions",
+                                ":permissionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "permissionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:18.000Z",
+                          "updatedAt": "2026-07-28T00:30:18.000Z",
+                          "uid": "35240-0505cb40-51f8-4797-9fea-f95c35ca98cf"
+                        },
+                        {
+                          "id": "b1b7d581-e5dd-42c0-b9a7-0f564eea09ee",
+                          "name": "Not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/groups/:groupId/permissions/:permissionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "groups",
+                                ":groupId",
+                                "permissions",
+                                ":permissionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "groupId"
+                                },
+                                {
+                                  "key": "permissionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:18.000Z",
+                          "updatedAt": "2026-07-28T00:30:18.000Z",
+                          "uid": "35240-b1b7d581-e5dd-42c0-b9a7-0f564eea09ee"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-a4f50ef5-2319-4159-a62d-39dd7c6d7f06"
+                    }
+                  ],
+                  "id": "f431782a-382e-40ac-bffb-b341bf7c56fc",
+                  "createdAt": "2026-07-28T00:30:18.000Z",
+                  "updatedAt": "2026-07-28T00:30:18.000Z",
+                  "uid": "35240-f431782a-382e-40ac-bffb-b341bf7c56fc"
+                },
+                {
+                  "name": "Airbyte List Group Permissions",
+                  "id": "82009aed-9e1f-4de2-9cae-9f64d43ff609",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId",
+                        "permissions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "852ee8db-e5cf-4660-84aa-8a70c15ba5fe",
+                          "key": "groupId",
+                          "value": "<uuid>",
+                          "description": "(Required) Group identifier"
+                        }
+                      ]
+                    },
+                    "description": "Get all permissions assigned to a group"
+                  },
+                  "response": [
+                    {
+                      "id": "cf30f230-6aac-429d-93fe-e93680979467",
+                      "name": "List Group permissions.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"permissionId\": \"<uuid>\",\n      \"groupId\": \"<uuid>\",\n      \"permissionType\": \"organization_admin\",\n      \"workspaceId\": \"<uuid>\",\n      \"organizationId\": \"<uuid>\"\n    },\n    {\n      \"permissionId\": \"<uuid>\",\n      \"groupId\": \"<uuid>\",\n      \"permissionType\": \"organization_reader\",\n      \"workspaceId\": \"<uuid>\",\n      \"organizationId\": \"<uuid>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-cf30f230-6aac-429d-93fe-e93680979467"
+                    },
+                    {
+                      "id": "6039f7e5-0f91-4314-aded-a145d3694a27",
+                      "name": "Not allowed",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-6039f7e5-0f91-4314-aded-a145d3694a27"
+                    },
+                    {
+                      "id": "379a746c-ef0d-4a59-a1b3-e11d873807a5",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-379a746c-ef0d-4a59-a1b3-e11d873807a5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:18.000Z",
+                  "updatedAt": "2026-07-28T00:30:18.000Z",
+                  "uid": "35240-82009aed-9e1f-4de2-9cae-9f64d43ff609"
+                },
+                {
+                  "name": "Airbyte Create Group Permission",
+                  "id": "0b192055-485d-4189-810b-b0fc716a7d65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId",
+                        "permissions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d536c692-0887-48f0-a0e8-53f54353eb73",
+                          "key": "groupId",
+                          "value": "<uuid>",
+                          "description": "(Required) Group identifier"
+                        }
+                      ]
+                    },
+                    "description": "Assign a permission to a group"
+                  },
+                  "response": [
+                    {
+                      "id": "d64194f8-c2ae-4dac-8f40-a61c05e4ca99",
+                      "name": "Permission created successfully.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"permissionId\": \"<uuid>\",\n  \"groupId\": \"<uuid>\",\n  \"permissionType\": \"organization_admin\",\n  \"workspaceId\": \"<uuid>\",\n  \"organizationId\": \"<uuid>\"\n}",
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-d64194f8-c2ae-4dac-8f40-a61c05e4ca99"
+                    },
+                    {
+                      "id": "e847adfc-10ad-4c47-8ede-65fde001b5b5",
+                      "name": "Invalid input",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-e847adfc-10ad-4c47-8ede-65fde001b5b5"
+                    },
+                    {
+                      "id": "3e83db6f-d77d-41e1-a3f0-e4f809083fac",
+                      "name": "Not allowed",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-3e83db6f-d77d-41e1-a3f0-e4f809083fac"
+                    },
+                    {
+                      "id": "248f17d8-6940-444b-81e0-8379ee555787",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-248f17d8-6940-444b-81e0-8379ee555787"
+                    },
+                    {
+                      "id": "790746c7-cbe1-44dd-b4ea-dbbef71ead8d",
+                      "name": "Permission already exists for this group",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workspaceId\": \"dolore nisi\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/groups/:groupId/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "groups",
+                            ":groupId",
+                            "permissions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "groupId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:18.000Z",
+                      "updatedAt": "2026-07-28T00:30:18.000Z",
+                      "uid": "35240-790746c7-cbe1-44dd-b4ea-dbbef71ead8d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:18.000Z",
+                  "updatedAt": "2026-07-28T00:30:18.000Z",
+                  "uid": "35240-0b192055-485d-4189-810b-b0fc716a7d65"
+                }
+              ],
+              "id": "7eeb1ea4-3745-4f60-98c0-70c809dd4d7d",
+              "createdAt": "2026-07-28T00:30:18.000Z",
+              "updatedAt": "2026-07-28T00:30:18.000Z",
+              "uid": "35240-7eeb1ea4-3745-4f60-98c0-70c809dd4d7d"
+            }
+          ],
+          "id": "2db5ae87-ff8b-425a-a118-abab161cf44e",
+          "createdAt": "2026-07-28T00:30:18.000Z",
+          "updatedAt": "2026-07-28T00:30:18.000Z",
+          "uid": "35240-2db5ae87-ff8b-425a-a118-abab161cf44e"
+        }
+      ],
+      "id": "35d84455-7399-420a-84b3-1679e1c21b98",
+      "createdAt": "2026-07-28T00:30:18.000Z",
+      "updatedAt": "2026-07-28T00:30:18.000Z",
+      "uid": "35240-35d84455-7399-420a-84b3-1679e1c21b98"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

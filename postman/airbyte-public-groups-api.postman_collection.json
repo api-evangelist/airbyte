@@ -1,0 +1,1036 @@
+{
+  "info": {
+    "_postman_id": "57c208f6-2b58-4fef-a599-68aa1de00050",
+    "name": "airbyte-api Applications public_groups API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:18.000Z",
+    "updatedAt": "2026-07-28T00:30:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-57c208f6-2b58-4fef-a599-68aa1de00050"
+  },
+  "item": [
+    {
+      "name": "groups",
+      "item": [
+        {
+          "name": "{groupId}",
+          "item": [
+            {
+              "name": "Airbyte Get Group Details",
+              "id": "704b8115-fc4c-49c3-be86-1621d99e6692",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups/:groupId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups",
+                    ":groupId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0d75dac4-22fb-4f33-aae2-44f997ebc68b",
+                      "key": "groupId",
+                      "value": "<uuid>",
+                      "description": "(Required) Group identifier"
+                    }
+                  ]
+                },
+                "description": "Get a specific group by ID"
+              },
+              "response": [
+                {
+                  "id": "4c04fa19-2eeb-46b7-b6e1-957da9e1b2aa",
+                  "name": "Get a Group by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"groupId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"memberCount\": \"<long>\",\n  \"description\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-4c04fa19-2eeb-46b7-b6e1-957da9e1b2aa"
+                },
+                {
+                  "id": "c28344dd-e647-4e33-8c0b-49c30478877d",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-c28344dd-e647-4e33-8c0b-49c30478877d"
+                },
+                {
+                  "id": "c19f9ecd-3bca-4b2c-9263-5dfdeaf26a8c",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-c19f9ecd-3bca-4b2c-9263-5dfdeaf26a8c"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-704b8115-fc4c-49c3-be86-1621d99e6692"
+            },
+            {
+              "name": "Airbyte Update Group",
+              "id": "844f3454-bea5-4bbd-8246-20042336a564",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups/:groupId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups",
+                    ":groupId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1e44afd0-4f4d-463f-a39f-5e41c0b49512",
+                      "key": "groupId",
+                      "value": "<uuid>",
+                      "description": "(Required) Group identifier"
+                    }
+                  ]
+                },
+                "description": "Update an existing group"
+              },
+              "response": [
+                {
+                  "id": "d852795d-9ea2-4da4-8be5-21a5e158c0c1",
+                  "name": "Group updated successfully.",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"groupId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"memberCount\": \"<long>\",\n  \"description\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-d852795d-9ea2-4da4-8be5-21a5e158c0c1"
+                },
+                {
+                  "id": "34474b6d-88bf-4b29-8640-e9df2416826a",
+                  "name": "Invalid input",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-34474b6d-88bf-4b29-8640-e9df2416826a"
+                },
+                {
+                  "id": "c3138765-6803-4292-98b7-6c3b3726c603",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-c3138765-6803-4292-98b7-6c3b3726c603"
+                },
+                {
+                  "id": "2690d93e-bbcd-4274-b3cf-11b425b6490e",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-2690d93e-bbcd-4274-b3cf-11b425b6490e"
+                },
+                {
+                  "id": "bb184414-a590-49ee-a211-300f9a8c49ae",
+                  "name": "Group name conflict",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-bb184414-a590-49ee-a211-300f9a8c49ae"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-844f3454-bea5-4bbd-8246-20042336a564"
+            },
+            {
+              "name": "Airbyte Delete Group",
+              "id": "df0e5804-5bf6-452a-a407-6d760c42b322",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/groups/:groupId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups",
+                    ":groupId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3b79adb1-c671-4e47-b7f3-48a1fcb823da",
+                      "key": "groupId",
+                      "value": "<uuid>",
+                      "description": "(Required) Group identifier"
+                    }
+                  ]
+                },
+                "description": "Delete a group and remove all associated memberships"
+              },
+              "response": [
+                {
+                  "id": "b606955b-0529-4520-9b73-1f9a32b03c50",
+                  "name": "Group deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-b606955b-0529-4520-9b73-1f9a32b03c50"
+                },
+                {
+                  "id": "4694006f-533e-4e3a-afc6-f2b684db3c29",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-4694006f-533e-4e3a-afc6-f2b684db3c29"
+                },
+                {
+                  "id": "990d5478-1a0d-4373-ae07-84f5879b06a3",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/groups/:groupId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "groups",
+                        ":groupId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "groupId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:19.000Z",
+                  "updatedAt": "2026-07-28T00:30:19.000Z",
+                  "uid": "35240-990d5478-1a0d-4373-ae07-84f5879b06a3"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-df0e5804-5bf6-452a-a407-6d760c42b322"
+            }
+          ],
+          "id": "29ffb381-a66e-4fe2-bb1e-4fe345586fec",
+          "createdAt": "2026-07-28T00:30:19.000Z",
+          "updatedAt": "2026-07-28T00:30:19.000Z",
+          "uid": "35240-29ffb381-a66e-4fe2-bb1e-4fe345586fec"
+        },
+        {
+          "name": "Airbyte List Groups",
+          "id": "d65583ee-790b-4d67-8782-bfb27a0408d4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/groups?organizationId=<uuid>&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "groups"
+              ],
+              "query": [
+                {
+                  "description": "(Required) Filter groups by organization ID",
+                  "key": "organizationId",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "Set the limit on the number of Groups returned. The default is 20 Groups.",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Set the offset to start at when returning Groups. The default is 0.",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "List all groups within the specified organization"
+          },
+          "response": [
+            {
+              "id": "c899da8a-423c-494f-88b1-b804ba202c02",
+              "name": "List Groups.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?organizationId=<uuid>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Filter groups by organization ID",
+                      "key": "organizationId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Set the limit on the number of Groups returned. The default is 20 Groups.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Groups. The default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"groupId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"organizationId\": \"<uuid>\",\n      \"memberCount\": \"<long>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"groupId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"organizationId\": \"<uuid>\",\n      \"memberCount\": \"<long>\",\n      \"description\": \"<string>\"\n    }\n  ],\n  \"next\": \"<string>\",\n  \"previous\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-c899da8a-423c-494f-88b1-b804ba202c02"
+            },
+            {
+              "id": "ba0a7d4c-5214-4935-9165-481940f2e1ee",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?organizationId=<uuid>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Filter groups by organization ID",
+                      "key": "organizationId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Set the limit on the number of Groups returned. The default is 20 Groups.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Groups. The default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-ba0a7d4c-5214-4935-9165-481940f2e1ee"
+            },
+            {
+              "id": "03c837cb-fe3e-4766-bb2b-ccafb12f14d4",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/groups?organizationId=<uuid>&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Filter groups by organization ID",
+                      "key": "organizationId",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Set the limit on the number of Groups returned. The default is 20 Groups.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning Groups. The default is 0.",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-03c837cb-fe3e-4766-bb2b-ccafb12f14d4"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:19.000Z",
+          "updatedAt": "2026-07-28T00:30:19.000Z",
+          "uid": "35240-d65583ee-790b-4d67-8782-bfb27a0408d4"
+        },
+        {
+          "name": "Airbyte Create Group",
+          "id": "81030814-54a1-4417-953d-2071e2ea7e95",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "groups"
+              ]
+            },
+            "description": "Create a new group within an organization"
+          },
+          "response": [
+            {
+              "id": "4018c9b0-26e8-4a9c-a66d-fefb3c7eaf35",
+              "name": "Group created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"groupId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"memberCount\": \"<long>\",\n  \"description\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-4018c9b0-26e8-4a9c-a66d-fefb3c7eaf35"
+            },
+            {
+              "id": "61c814b1-8045-46a7-9327-06b5c1c372a6",
+              "name": "Invalid input",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-61c814b1-8045-46a7-9327-06b5c1c372a6"
+            },
+            {
+              "id": "fed3e3f1-a6d3-4786-8f99-da1d460285e1",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-fed3e3f1-a6d3-4786-8f99-da1d460285e1"
+            },
+            {
+              "id": "16b9a540-27c5-4fb9-b814-06e85ae45473",
+              "name": "Group with this name already exists in the organization",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "groups"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:19.000Z",
+              "updatedAt": "2026-07-28T00:30:19.000Z",
+              "uid": "35240-16b9a540-27c5-4fb9-b814-06e85ae45473"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:19.000Z",
+          "updatedAt": "2026-07-28T00:30:19.000Z",
+          "uid": "35240-81030814-54a1-4417-953d-2071e2ea7e95"
+        }
+      ],
+      "id": "a98dc612-5f4d-4bcf-8f55-e1f1dc1c931a",
+      "createdAt": "2026-07-28T00:30:19.000Z",
+      "updatedAt": "2026-07-28T00:30:19.000Z",
+      "uid": "35240-a98dc612-5f4d-4bcf-8f55-e1f1dc1c931a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

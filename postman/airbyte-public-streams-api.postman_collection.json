@@ -1,0 +1,262 @@
+{
+  "info": {
+    "_postman_id": "02f1ebc6-c5ab-42b4-bea5-11dcd44b52a7",
+    "name": "airbyte-api Applications public_streams API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:28.000Z",
+    "updatedAt": "2026-07-28T00:30:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-02f1ebc6-c5ab-42b4-bea5-11dcd44b52a7"
+  },
+  "item": [
+    {
+      "name": "streams",
+      "item": [
+        {
+          "name": "Airbyte Get Stream Properties",
+          "id": "4637a570-2177-4cd2-b81b-f49514005a0b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/streams?sourceId=<string>&destinationId=<string>&ignoreCache=false",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "streams"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ID of the source",
+                  "key": "sourceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ID of the destination",
+                  "key": "destinationId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "If true pull the latest schema from the source, else pull from cache (default false)",
+                  "key": "ignoreCache",
+                  "value": "false"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a5563feb-20d9-4103-9ffa-7e9f7932efed",
+              "name": "Get the available streams properties for a source/destination pair.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/streams?sourceId=<string>&destinationId=<string>&ignoreCache=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "streams"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the source",
+                      "key": "sourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the destination",
+                      "key": "destinationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If true pull the latest schema from the source, else pull from cache (default false)",
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"streamName\": \"<string>\",\n    \"syncModes\": [\n      \"full_refresh_overwrite_deduped\",\n      \"incremental_soft_delete\"\n    ],\n    \"streamnamespace\": \"<string>\",\n    \"defaultCursorField\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sourceDefinedCursorField\": \"<boolean>\",\n    \"sourceDefinedPrimaryKey\": [\n      [\n        \"<string>\",\n        \"<string>\"\n      ],\n      [\n        \"<string>\",\n        \"<string>\"\n      ]\n    ],\n    \"propertyFields\": [\n      [\n        \"<string>\",\n        \"<string>\"\n      ],\n      [\n        \"<string>\",\n        \"<string>\"\n      ]\n    ]\n  },\n  {\n    \"streamName\": \"<string>\",\n    \"syncModes\": [\n      \"full_refresh_overwrite_deduped\",\n      \"incremental_update\"\n    ],\n    \"streamnamespace\": \"<string>\",\n    \"defaultCursorField\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sourceDefinedCursorField\": \"<boolean>\",\n    \"sourceDefinedPrimaryKey\": [\n      [\n        \"<string>\",\n        \"<string>\"\n      ],\n      [\n        \"<string>\",\n        \"<string>\"\n      ]\n    ],\n    \"propertyFields\": [\n      [\n        \"<string>\",\n        \"<string>\"\n      ],\n      [\n        \"<string>\",\n        \"<string>\"\n      ]\n    ]\n  }\n]",
+              "createdAt": "2026-07-28T00:30:28.000Z",
+              "updatedAt": "2026-07-28T00:30:28.000Z",
+              "uid": "35240-a5563feb-20d9-4103-9ffa-7e9f7932efed"
+            },
+            {
+              "id": "261638e1-38c6-4e39-8e54-7bf1e47fb743",
+              "name": "Required parameters are missing",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/streams?sourceId=<string>&destinationId=<string>&ignoreCache=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "streams"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the source",
+                      "key": "sourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the destination",
+                      "key": "destinationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If true pull the latest schema from the source, else pull from cache (default false)",
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:28.000Z",
+              "updatedAt": "2026-07-28T00:30:28.000Z",
+              "uid": "35240-261638e1-38c6-4e39-8e54-7bf1e47fb743"
+            },
+            {
+              "id": "37e27821-d04a-4a0b-aabb-63c79347e76e",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/streams?sourceId=<string>&destinationId=<string>&ignoreCache=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "streams"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the source",
+                      "key": "sourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the destination",
+                      "key": "destinationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If true pull the latest schema from the source, else pull from cache (default false)",
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:28.000Z",
+              "updatedAt": "2026-07-28T00:30:28.000Z",
+              "uid": "35240-37e27821-d04a-4a0b-aabb-63c79347e76e"
+            },
+            {
+              "id": "e7fe39fd-1fd7-4468-998f-6eb37f697c0a",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/streams?sourceId=<string>&destinationId=<string>&ignoreCache=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "streams"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ID of the source",
+                      "key": "sourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ID of the destination",
+                      "key": "destinationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "If true pull the latest schema from the source, else pull from cache (default false)",
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:28.000Z",
+              "updatedAt": "2026-07-28T00:30:28.000Z",
+              "uid": "35240-e7fe39fd-1fd7-4468-998f-6eb37f697c0a"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:28.000Z",
+          "updatedAt": "2026-07-28T00:30:28.000Z",
+          "uid": "35240-4637a570-2177-4cd2-b81b-f49514005a0b"
+        }
+      ],
+      "id": "ed4fd662-9343-4a11-b55b-b4e2cab78708",
+      "createdAt": "2026-07-28T00:30:28.000Z",
+      "updatedAt": "2026-07-28T00:30:28.000Z",
+      "uid": "35240-ed4fd662-9343-4a11-b55b-b4e2cab78708"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

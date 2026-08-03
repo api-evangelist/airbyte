@@ -1,0 +1,561 @@
+{
+  "info": {
+    "_postman_id": "2671bfca-42d6-4519-9b12-043f597d0114",
+    "name": "airbyte-api Applications Organizations API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:23.000Z",
+    "updatedAt": "2026-07-28T00:29:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2671bfca-42d6-4519-9b12-043f597d0114"
+  },
+  "item": [
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "{organizationId}",
+          "item": [
+            {
+              "name": "oauthCredentials",
+              "item": [
+                {
+                  "name": "{actorType}",
+                  "item": [
+                    {
+                      "name": "{name}",
+                      "item": [
+                        {
+                          "name": "Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.",
+                          "id": "4f6f5926-a60e-4672-90e7-aaba33a315e6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials/:actorType/:name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":organizationId",
+                                "oauthCredentials",
+                                ":actorType",
+                                ":name"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2aa832fc-a7b1-420a-828e-f1b50a2257c0",
+                                  "key": "organizationId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "4bb02519-9ea9-4623-bc95-4654d0cbcee4",
+                                  "key": "actorType",
+                                  "value": "destination",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "a7460252-95af-47c8-8593-5cc5d84a9317",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "description": "(Required) The name of the source or destination i.e. google-ads"
+                                }
+                              ]
+                            },
+                            "description": "Delete a set of OAuth credentials that overrides the Airbyte-provided OAuth credentials used for source/destination OAuth."
+                          },
+                          "response": [
+                            {
+                              "id": "f7997e7e-f5e8-4219-bb2a-bcb9cd2c15f4",
+                              "name": "OAuth credential override was deleted successfully.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials/:actorType/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "organizations",
+                                    ":organizationId",
+                                    "oauthCredentials",
+                                    ":actorType",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "organizationId"
+                                    },
+                                    {
+                                      "key": "actorType"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:23.000Z",
+                              "updatedAt": "2026-07-28T00:29:23.000Z",
+                              "uid": "35240-f7997e7e-f5e8-4219-bb2a-bcb9cd2c15f4"
+                            },
+                            {
+                              "id": "7a9d43fb-6912-498f-8582-b1d2a5f15ebb",
+                              "name": "A field in the path has not been set appropriately.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials/:actorType/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "organizations",
+                                    ":organizationId",
+                                    "oauthCredentials",
+                                    ":actorType",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "organizationId"
+                                    },
+                                    {
+                                      "key": "actorType"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:23.000Z",
+                              "updatedAt": "2026-07-28T00:29:23.000Z",
+                              "uid": "35240-7a9d43fb-6912-498f-8582-b1d2a5f15ebb"
+                            },
+                            {
+                              "id": "6b4ab8e7-7293-44d4-afa4-2e50e3f1d106",
+                              "name": "API key is invalid.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials/:actorType/:name",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "organizations",
+                                    ":organizationId",
+                                    "oauthCredentials",
+                                    ":actorType",
+                                    ":name"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "organizationId"
+                                    },
+                                    {
+                                      "key": "actorType"
+                                    },
+                                    {
+                                      "key": "name"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:29:23.000Z",
+                              "updatedAt": "2026-07-28T00:29:23.000Z",
+                              "uid": "35240-6b4ab8e7-7293-44d4-afa4-2e50e3f1d106"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:29:23.000Z",
+                          "updatedAt": "2026-07-28T00:29:23.000Z",
+                          "uid": "35240-4f6f5926-a60e-4672-90e7-aaba33a315e6"
+                        }
+                      ],
+                      "id": "1fe30755-37e7-4907-9fe3-1f9f26beb173",
+                      "createdAt": "2026-07-28T00:29:23.000Z",
+                      "updatedAt": "2026-07-28T00:29:23.000Z",
+                      "uid": "35240-1fe30755-37e7-4907-9fe3-1f9f26beb173"
+                    }
+                  ],
+                  "id": "f61222be-7340-4a9a-bdf3-a05678af09d7",
+                  "createdAt": "2026-07-28T00:29:23.000Z",
+                  "updatedAt": "2026-07-28T00:29:23.000Z",
+                  "uid": "35240-f61222be-7340-4a9a-bdf3-a05678af09d7"
+                },
+                {
+                  "name": "Airbyte Create OAuth Override Credentials for an Organization and Source Type.",
+                  "id": "a5a3875a-c55c-4893-bb4a-2b5a8d740d82",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"actorType\": \"source\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":organizationId",
+                        "oauthCredentials"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a7f18e8d-f59c-4259-802a-663e4faa8bff",
+                          "key": "organizationId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.\nIn order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination."
+                  },
+                  "response": [
+                    {
+                      "id": "ce3e6bd3-a050-4d41-82ec-2d7b75a53e32",
+                      "name": "OAuth credential override was successful.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"source\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":organizationId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:29:23.000Z",
+                      "updatedAt": "2026-07-28T00:29:23.000Z",
+                      "uid": "35240-ce3e6bd3-a050-4d41-82ec-2d7b75a53e32"
+                    },
+                    {
+                      "id": "66479e5f-1764-4c89-8178-47eb53c08cef",
+                      "name": "A field in the body has not been set appropriately.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"source\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":organizationId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:29:23.000Z",
+                      "updatedAt": "2026-07-28T00:29:23.000Z",
+                      "uid": "35240-66479e5f-1764-4c89-8178-47eb53c08cef"
+                    },
+                    {
+                      "id": "1dbe374b-85a0-40b7-a421-69a99c27c960",
+                      "name": "API key is invalid.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"actorType\": \"source\",\n  \"name\": \"<string>\",\n  \"configuration\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:organizationId/oauthCredentials",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":organizationId",
+                            "oauthCredentials"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:29:23.000Z",
+                      "updatedAt": "2026-07-28T00:29:23.000Z",
+                      "uid": "35240-1dbe374b-85a0-40b7-a421-69a99c27c960"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:29:23.000Z",
+                  "updatedAt": "2026-07-28T00:29:23.000Z",
+                  "uid": "35240-a5a3875a-c55c-4893-bb4a-2b5a8d740d82"
+                }
+              ],
+              "id": "d4bfa092-b137-4f94-95dc-133f1d48441b",
+              "createdAt": "2026-07-28T00:29:23.000Z",
+              "updatedAt": "2026-07-28T00:29:23.000Z",
+              "uid": "35240-d4bfa092-b137-4f94-95dc-133f1d48441b"
+            }
+          ],
+          "id": "1e12186c-49d8-448d-bf54-bbb7242c3499",
+          "createdAt": "2026-07-28T00:29:23.000Z",
+          "updatedAt": "2026-07-28T00:29:23.000Z",
+          "uid": "35240-1e12186c-49d8-448d-bf54-bbb7242c3499"
+        },
+        {
+          "name": "Airbyte List All Organizations for a User",
+          "id": "45306290-4ee1-46c5-88b8-5c9ed1062bf6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/organizations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "organizations"
+              ]
+            },
+            "description": "Lists users organizations."
+          },
+          "response": [
+            {
+              "id": "9c29cb1b-4a57-4f09-bb30-998a3311c8cf",
+              "name": "List user's organizations.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"organizationId\": \"<uuid>\",\n      \"organizationName\": \"<string>\",\n      \"email\": \"<email>\"\n    },\n    {\n      \"organizationId\": \"<uuid>\",\n      \"organizationName\": \"<string>\",\n      \"email\": \"<email>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:23.000Z",
+              "updatedAt": "2026-07-28T00:29:23.000Z",
+              "uid": "35240-9c29cb1b-4a57-4f09-bb30-998a3311c8cf"
+            },
+            {
+              "id": "7b62b37f-6ebe-4271-bd39-4665c9ec9c8b",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:23.000Z",
+              "updatedAt": "2026-07-28T00:29:23.000Z",
+              "uid": "35240-7b62b37f-6ebe-4271-bd39-4665c9ec9c8b"
+            },
+            {
+              "id": "63fb8c4e-ed58-43c7-a6b2-b869a1724fb3",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/organizations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "organizations"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:23.000Z",
+              "updatedAt": "2026-07-28T00:29:23.000Z",
+              "uid": "35240-63fb8c4e-ed58-43c7-a6b2-b869a1724fb3"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:23.000Z",
+          "updatedAt": "2026-07-28T00:29:23.000Z",
+          "uid": "35240-45306290-4ee1-46c5-88b8-5c9ed1062bf6"
+        }
+      ],
+      "id": "96aebde3-830c-40cf-a2cc-70429bcdbb7f",
+      "createdAt": "2026-07-28T00:29:23.000Z",
+      "updatedAt": "2026-07-28T00:29:23.000Z",
+      "uid": "35240-96aebde3-830c-40cf-a2cc-70429bcdbb7f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

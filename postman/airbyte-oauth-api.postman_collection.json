@@ -1,0 +1,107 @@
+{
+  "info": {
+    "_postman_id": "1934a4b3-d24b-40fa-8c12-e5bb48d44a64",
+    "name": "airbyte-api Applications OAuth API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:22.000Z",
+    "updatedAt": "2026-07-28T00:29:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1934a4b3-d24b-40fa-8c12-e5bb48d44a64"
+  },
+  "item": [
+    {
+      "name": "oauth",
+      "item": [
+        {
+          "name": "callback",
+          "item": [
+            {
+              "name": "Airbyte Receive OAuth Callbacks",
+              "id": "36a233ff-b626-416c-a67c-ad0d2a0563ed",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/oauth/callback?in_5=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth",
+                    "callback"
+                  ],
+                  "query": [
+                    {
+                      "description": "Query parameters. Should contain state and code.",
+                      "key": "in_5",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Redirected to by identity providers after authentication."
+              },
+              "response": [
+                {
+                  "id": "01b2beb6-3360-404c-b7bf-b90a89910589",
+                  "name": "Redirect to the URL requested in the initiate call with the created secret ID.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth/callback?in_5=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth",
+                        "callback"
+                      ],
+                      "query": [
+                        {
+                          "description": "Query parameters. Should contain state and code.",
+                          "key": "in_5",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Found",
+                  "code": 302,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:22.000Z",
+                  "updatedAt": "2026-07-28T00:29:22.000Z",
+                  "uid": "35240-01b2beb6-3360-404c-b7bf-b90a89910589"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:22.000Z",
+              "updatedAt": "2026-07-28T00:29:22.000Z",
+              "uid": "35240-36a233ff-b626-416c-a67c-ad0d2a0563ed"
+            }
+          ],
+          "id": "b0a32661-d517-47f6-9cf3-1ed17ad84824",
+          "createdAt": "2026-07-28T00:29:22.000Z",
+          "updatedAt": "2026-07-28T00:29:22.000Z",
+          "uid": "35240-b0a32661-d517-47f6-9cf3-1ed17ad84824"
+        }
+      ],
+      "id": "a87d83d8-e640-43c0-9472-deea9dd55a5f",
+      "createdAt": "2026-07-28T00:29:22.000Z",
+      "updatedAt": "2026-07-28T00:29:22.000Z",
+      "uid": "35240-a87d83d8-e640-43c0-9472-deea9dd55a5f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

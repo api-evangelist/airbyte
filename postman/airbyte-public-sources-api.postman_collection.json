@@ -1,0 +1,1346 @@
+{
+  "info": {
+    "_postman_id": "ed4456f7-1ac1-4a55-87a6-9eb548c44110",
+    "name": "airbyte-api Applications public_sources API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:27.000Z",
+    "updatedAt": "2026-07-28T00:30:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ed4456f7-1ac1-4a55-87a6-9eb548c44110"
+  },
+  "item": [
+    {
+      "name": "sources",
+      "item": [
+        {
+          "name": "{sourceId}",
+          "item": [
+            {
+              "name": "Airbyte Get Source Details",
+              "id": "0db03a4e-8019-4536-a361-0e1e9013d154",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sources/:sourceId?includeSecretCoordinates=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "query": [
+                    {
+                      "description": "Rather than return *** for secret properties include the secret coordinate information",
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "6f4e1f1a-64bd-4cf7-ba79-7a88f7f68d9e",
+                      "key": "sourceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "ce5f5252-705f-411a-8bbc-ba71dfe22a7e",
+                  "name": "Get a Source by the id in the path.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sourceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"definitionId\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-ce5f5252-705f-411a-8bbc-ba71dfe22a7e"
+                },
+                {
+                  "id": "01a23550-0234-4966-a2b4-fe0e2b30c5bc",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-01a23550-0234-4966-a2b4-fe0e2b30c5bc"
+                },
+                {
+                  "id": "6573199d-21ac-473e-b654-83e459f7847d",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId?includeSecretCoordinates=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Rather than return *** for secret properties include the secret coordinate information",
+                          "key": "includeSecretCoordinates",
+                          "value": "<boolean>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-6573199d-21ac-473e-b654-83e459f7847d"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-0db03a4e-8019-4536-a361-0e1e9013d154"
+            },
+            {
+              "name": "Airbyte Update a Source",
+              "id": "6bafc975-e551-4d9b-97c9-2dbcbe37eed7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources/:sourceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1f151a44-58aa-4e99-9d1c-5ec97a84a1c7",
+                      "key": "sourceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1b12bf8d-6d16-44ff-b471-2e20cd31ffbf",
+                  "name": "Update a Source",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sourceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"definitionId\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-1b12bf8d-6d16-44ff-b471-2e20cd31ffbf"
+                },
+                {
+                  "id": "a10ff622-7904-48f9-b81e-17d10acfcc2d",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-a10ff622-7904-48f9-b81e-17d10acfcc2d"
+                },
+                {
+                  "id": "37c3e0e0-8dbc-497a-ad3e-b1083a221ee5",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-37c3e0e0-8dbc-497a-ad3e-b1083a221ee5"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-6bafc975-e551-4d9b-97c9-2dbcbe37eed7"
+            },
+            {
+              "name": "Airbyte Update a Source and Fully Overwrite it",
+              "id": "2e5a9bca-9904-4aae-bb79-31385d69725b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources/:sourceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6a3301a1-5699-49ca-881f-e45c2db34234",
+                      "key": "sourceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "40caa6ff-e97d-4dd7-a7c8-65330067deff",
+                  "name": "Update a source and fully overwrite it",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sourceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"definitionId\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-40caa6ff-e97d-4dd7-a7c8-65330067deff"
+                },
+                {
+                  "id": "605f0ffb-9c33-497d-a507-85d3a26d5b99",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-605f0ffb-9c33-497d-a507-85d3a26d5b99"
+                },
+                {
+                  "id": "fd110b57-ad2a-48ac-a826-8094c5b2ae20",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": {},\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"discover_schema\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-fd110b57-ad2a-48ac-a826-8094c5b2ae20"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-2e5a9bca-9904-4aae-bb79-31385d69725b"
+            },
+            {
+              "name": "Airbyte Delete a Source",
+              "id": "148ac4a6-af01-4439-9161-88c62feef235",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sources/:sourceId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "99b7f205-dbe0-4935-b484-eca091c95548",
+                      "key": "sourceId",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6da5b4b3-e1b1-46e4-a8e2-be90945a700e",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-6da5b4b3-e1b1-46e4-a8e2-be90945a700e"
+                },
+                {
+                  "id": "4720e4ca-5440-4864-b5f5-34e7f1179c15",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-4720e4ca-5440-4864-b5f5-34e7f1179c15"
+                },
+                {
+                  "id": "1027e0bb-349c-4b19-8ac0-29be84fd6978",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/:sourceId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        ":sourceId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "sourceId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-1027e0bb-349c-4b19-8ac0-29be84fd6978"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-148ac4a6-af01-4439-9161-88c62feef235"
+            }
+          ],
+          "id": "1a1f60a7-94cf-4d49-a241-280f720d5d19",
+          "createdAt": "2026-07-28T00:30:27.000Z",
+          "updatedAt": "2026-07-28T00:30:27.000Z",
+          "uid": "35240-1a1f60a7-94cf-4d49-a241-280f720d5d19"
+        },
+        {
+          "name": "initiateOAuth",
+          "item": [
+            {
+              "name": "Airbyte Initiate OAuth for a Source",
+              "id": "521289c8-1df1-45b7-bce5-1d0bbf549026",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirectUrl\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"oAuthInputConfiguration\": {\n    \"description\": \"The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.\",\n    \"x-speakeasy-component\": true\n  },\n  \"requestedScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestedOptionalScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources/initiateOAuth",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources",
+                    "initiateOAuth"
+                  ]
+                },
+                "description": "Given a source ID, workspace ID, and redirect URL, initiates OAuth for the source.\n\nThis returns a fully formed URL for performing user authentication against the relevant source identity provider (IdP). Once authentication has been completed, the IdP will redirect to an Airbyte endpoint which will save the access and refresh tokens off as a secret and return the secret ID to the redirect URL specified in the `secret_id` query string parameter.\n\nThat secret ID can be used to create a source with credentials in place of actual tokens."
+              },
+              "response": [
+                {
+                  "id": "6ec78c3a-2299-447b-a8ca-47dd894e4769",
+                  "name": "Response from the initiate OAuth call should be an object with a single property which will be the `redirect_url`. If a user is redirected to this URL, they'll be prompted by the identity provider to authenticate.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"redirectUrl\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"oAuthInputConfiguration\": {\n    \"description\": \"The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.\",\n    \"x-speakeasy-component\": true\n  },\n  \"requestedScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestedOptionalScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/initiateOAuth",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        "initiateOAuth"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "",
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-6ec78c3a-2299-447b-a8ca-47dd894e4769"
+                },
+                {
+                  "id": "2dfc879e-896a-424e-bbe3-eb5fc3b21b67",
+                  "name": "A field in the body has not been set appropriately.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"redirectUrl\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"oAuthInputConfiguration\": {\n    \"description\": \"The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.\",\n    \"x-speakeasy-component\": true\n  },\n  \"requestedScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestedOptionalScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/initiateOAuth",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        "initiateOAuth"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-2dfc879e-896a-424e-bbe3-eb5fc3b21b67"
+                },
+                {
+                  "id": "a7c17590-9f38-4a94-b2d6-6bedcd14aa7d",
+                  "name": "API key is invalid.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"redirectUrl\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"oAuthInputConfiguration\": {\n    \"description\": \"The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.\",\n    \"x-speakeasy-component\": true\n  },\n  \"requestedScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestedOptionalScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/sources/initiateOAuth",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "sources",
+                        "initiateOAuth"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:27.000Z",
+                  "updatedAt": "2026-07-28T00:30:27.000Z",
+                  "uid": "35240-a7c17590-9f38-4a94-b2d6-6bedcd14aa7d"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-521289c8-1df1-45b7-bce5-1d0bbf549026"
+            }
+          ],
+          "id": "f685fa6c-0194-40d9-9de5-fa3800390b50",
+          "createdAt": "2026-07-28T00:30:27.000Z",
+          "updatedAt": "2026-07-28T00:30:27.000Z",
+          "uid": "35240-f685fa6c-0194-40d9-9de5-fa3800390b50"
+        },
+        {
+          "name": "Airbyte List Sources",
+          "id": "7fbadf8c-af38-43d0-8318-d0d3bc807a6f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/sources?workspaceIds=<uuid>&workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sources"
+              ],
+              "query": [
+                {
+                  "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.",
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "Include deleted sources in the returned results.",
+                  "key": "includeDeleted",
+                  "value": "false"
+                },
+                {
+                  "description": "Set the limit on the number of sources returned. The default is 20.",
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "description": "Set the offset to start at when returning sources. The default is 0",
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a6ef5001-a782-4fee-8c4c-ab6481bc9ca8",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/sources?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted sources in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of sources returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning sources. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"sourceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"configuration\": {},\n      \"definitionId\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"resourceAllocation\": {\n        \"default\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        },\n        \"jobSpecific\": [\n          {\n            \"jobType\": \"check_connection\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          },\n          {\n            \"jobType\": \"get_spec\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"sourceId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"sourceType\": \"<string>\",\n      \"workspaceId\": \"<string>\",\n      \"configuration\": {},\n      \"definitionId\": \"<string>\",\n      \"createdAt\": \"<long>\",\n      \"resourceAllocation\": {\n        \"default\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        },\n        \"jobSpecific\": [\n          {\n            \"jobType\": \"reset_connection\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          },\n          {\n            \"jobType\": \"replicate\",\n            \"resourceRequirements\": {\n              \"cpu_request\": \"<string>\",\n              \"cpu_limit\": \"<string>\",\n              \"memory_request\": \"<string>\",\n              \"memory_limit\": \"<string>\",\n              \"ephemeral_storage_request\": \"<string>\",\n              \"ephemeral_storage_limit\": \"<string>\"\n            }\n          }\n        ]\n      }\n    }\n  ],\n  \"previous\": \"<string>\",\n  \"next\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-a6ef5001-a782-4fee-8c4c-ab6481bc9ca8"
+            },
+            {
+              "id": "ace6b5d2-c542-4efe-8bd5-deab7abef911",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sources?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted sources in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of sources returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning sources. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-ace6b5d2-c542-4efe-8bd5-deab7abef911"
+            },
+            {
+              "id": "ce53de07-7863-485e-881b-9cea343e032b",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/sources?workspaceIds=<uuid>&includeDeleted=false&limit=20&offset=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces.",
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "description": "Include deleted sources in the returned results.",
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Set the limit on the number of sources returned. The default is 20.",
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Set the offset to start at when returning sources. The default is 0",
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-ce53de07-7863-485e-881b-9cea343e032b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:27.000Z",
+          "updatedAt": "2026-07-28T00:30:27.000Z",
+          "uid": "35240-7fbadf8c-af38-43d0-8318-d0d3bc807a6f"
+        },
+        {
+          "name": "Airbyte Create a Source",
+          "id": "0f95e7bf-80cd-423c-96d0-d151940c790e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sources",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sources"
+              ]
+            },
+            "description": "Creates a source given a name, workspace id, and a json blob containing the configuration for the source."
+          },
+          "response": [
+            {
+              "id": "c31a6448-0bd8-426e-b6f0-a037e6e6eee1",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"sourceId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"configuration\": {},\n  \"definitionId\": \"<string>\",\n  \"createdAt\": \"<long>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"check_connection\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-c31a6448-0bd8-426e-b6f0-a037e6e6eee1"
+            },
+            {
+              "id": "6627481b-8687-4cf0-b70c-f00ae8af910a",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-6627481b-8687-4cf0-b70c-f00ae8af910a"
+            },
+            {
+              "id": "d0f921e1-be42-4f97-93e4-0be5f08067b4",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": {},\n  \"definitionId\": \"<uuid>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"sync\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"get_spec\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sources",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sources"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:27.000Z",
+              "updatedAt": "2026-07-28T00:30:27.000Z",
+              "uid": "35240-d0f921e1-be42-4f97-93e4-0be5f08067b4"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:27.000Z",
+          "updatedAt": "2026-07-28T00:30:27.000Z",
+          "uid": "35240-0f95e7bf-80cd-423c-96d0-d151940c790e"
+        }
+      ],
+      "id": "b201eb82-c36b-482f-a2bb-d1da1e558385",
+      "createdAt": "2026-07-28T00:30:27.000Z",
+      "updatedAt": "2026-07-28T00:30:27.000Z",
+      "uid": "35240-b201eb82-c36b-482f-a2bb-d1da1e558385"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

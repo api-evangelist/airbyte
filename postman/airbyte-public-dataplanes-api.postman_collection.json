@@ -1,0 +1,963 @@
+{
+  "info": {
+    "_postman_id": "65263372-f3bf-4b5a-b3c3-bed12caff025",
+    "name": "airbyte-api Applications public_dataplanes API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:31.000Z",
+    "updatedAt": "2026-07-28T00:29:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-65263372-f3bf-4b5a-b3c3-bed12caff025"
+  },
+  "item": [
+    {
+      "name": "dataplanes",
+      "item": [
+        {
+          "name": "{dataplaneId}",
+          "item": [
+            {
+              "name": "Airbyte Get a Dataplane",
+              "id": "332620e6-1fa2-4a01-add7-6381b642132a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes",
+                    ":dataplaneId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f4a1b97e-670b-45d5-9142-1ddd1aebe476",
+                      "key": "dataplaneId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5b0bce2d-dd2f-415b-9a6a-471b3088ff2d",
+                  "name": "Get a dataplane by the id in the path",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"dataplaneId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"regionId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-5b0bce2d-dd2f-415b-9a6a-471b3088ff2d"
+                },
+                {
+                  "id": "c8154586-304b-466d-8362-44928bae0f25",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-c8154586-304b-466d-8362-44928bae0f25"
+                },
+                {
+                  "id": "821bfac3-7d29-4053-88c8-da4dfa7687f9",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-821bfac3-7d29-4053-88c8-da4dfa7687f9"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-332620e6-1fa2-4a01-add7-6381b642132a"
+            },
+            {
+              "name": "Airbyte Update a Dataplane",
+              "id": "a99fe7b0-9555-4d6d-9ae9-42befc01dd42",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes",
+                    ":dataplaneId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2552f445-7aef-46dd-884f-458b86d89e20",
+                      "key": "dataplaneId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "09fb3ead-6b03-47dd-ad45-6b3568ff1346",
+                  "name": "Successfully updated dataplane",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"dataplaneId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"regionId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-09fb3ead-6b03-47dd-ad45-6b3568ff1346"
+                },
+                {
+                  "id": "399b660c-664d-4434-aec3-e02d7c1ba3e5",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-399b660c-664d-4434-aec3-e02d7c1ba3e5"
+                },
+                {
+                  "id": "68b2263a-ea8f-4fa4-adcb-85e995b51fba",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-68b2263a-ea8f-4fa4-adcb-85e995b51fba"
+                },
+                {
+                  "id": "dcd0aa51-b478-4391-b40e-43c74845dbf5",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-dcd0aa51-b478-4391-b40e-43c74845dbf5"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-a99fe7b0-9555-4d6d-9ae9-42befc01dd42"
+            },
+            {
+              "name": "Airbyte Delete a Dataplane",
+              "id": "cb6d90f5-510c-4f35-8dec-5b25fa73be52",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes",
+                    ":dataplaneId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0ccd78a6-a390-46c0-9168-72c777ccd1d7",
+                      "key": "dataplaneId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2c0faf22-4310-4eb2-82db-7cd55746ef46",
+                  "name": "Successfully deleted dataplane",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"dataplaneId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"regionId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-2c0faf22-4310-4eb2-82db-7cd55746ef46"
+                },
+                {
+                  "id": "42dc2598-f00d-45c8-9901-b2204781f0ef",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-42dc2598-f00d-45c8-9901-b2204781f0ef"
+                },
+                {
+                  "id": "d9761698-a493-477c-9fbc-50e9b6a22882",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataplanes/:dataplaneId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataplanes",
+                        ":dataplaneId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "dataplaneId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:29:31.000Z",
+                  "updatedAt": "2026-07-28T00:29:31.000Z",
+                  "uid": "35240-d9761698-a493-477c-9fbc-50e9b6a22882"
+                }
+              ],
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-cb6d90f5-510c-4f35-8dec-5b25fa73be52"
+            }
+          ],
+          "id": "936055f0-f4a7-47eb-930a-da66be4bb3f6",
+          "createdAt": "2026-07-28T00:29:31.000Z",
+          "updatedAt": "2026-07-28T00:29:31.000Z",
+          "uid": "35240-936055f0-f4a7-47eb-930a-da66be4bb3f6"
+        },
+        {
+          "name": "Airbyte List Dataplanes",
+          "id": "8400a11c-e763-4ee9-8d87-fd4f9c9de839",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/dataplanes?regionIds=<uuid>&regionIds=<uuid>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dataplanes"
+              ],
+              "query": [
+                {
+                  "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.",
+                  "key": "regionIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.",
+                  "key": "regionIds",
+                  "value": "<uuid>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cd0f961e-828f-4086-b817-f137511e29f2",
+              "name": "List dataplanes accessible to the current user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes?regionIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.",
+                      "key": "regionIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"dataplaneId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"regionId\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    },\n    {\n      \"dataplaneId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"regionId\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-cd0f961e-828f-4086-b817-f137511e29f2"
+            },
+            {
+              "id": "baa19e12-9820-4520-ae92-c95d51b6a624",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes?regionIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.",
+                      "key": "regionIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-baa19e12-9820-4520-ae92-c95d51b6a624"
+            },
+            {
+              "id": "02989664-74fa-4071-a9b0-376b690499b3",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes?regionIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ],
+                  "query": [
+                    {
+                      "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user.",
+                      "key": "regionIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-02989664-74fa-4071-a9b0-376b690499b3"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:31.000Z",
+          "updatedAt": "2026-07-28T00:29:31.000Z",
+          "uid": "35240-8400a11c-e763-4ee9-8d87-fd4f9c9de839"
+        },
+        {
+          "name": "Airbyte Create a Dataplane",
+          "id": "9a752688-44c1-4bf3-8884-28879f10b99d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/dataplanes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dataplanes"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b6c383cd-5f4e-4a3f-ad2f-f763d45e1b0b",
+              "name": "Successfully created dataplane",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": \"reference #/components/schemas/DataplaneCreateResponseBody not found in the OpenAPI spec\"\n}",
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-b6c383cd-5f4e-4a3f-ad2f-f763d45e1b0b"
+            },
+            {
+              "id": "047dc4d2-be6f-4725-87f3-c9680a3af30f",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-047dc4d2-be6f-4725-87f3-c9680a3af30f"
+            },
+            {
+              "id": "36e80a30-6cf8-479d-b245-76c0fda853f9",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-36e80a30-6cf8-479d-b245-76c0fda853f9"
+            },
+            {
+              "id": "35bd7864-5f88-47e6-b3f5-0615f30f245b",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataplanes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataplanes"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:31.000Z",
+              "updatedAt": "2026-07-28T00:29:31.000Z",
+              "uid": "35240-35bd7864-5f88-47e6-b3f5-0615f30f245b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:31.000Z",
+          "updatedAt": "2026-07-28T00:29:31.000Z",
+          "uid": "35240-9a752688-44c1-4bf3-8884-28879f10b99d"
+        }
+      ],
+      "id": "fd9d2035-96d8-4fc3-91b5-b8ede3ff5ff2",
+      "createdAt": "2026-07-28T00:29:31.000Z",
+      "updatedAt": "2026-07-28T00:29:31.000Z",
+      "uid": "35240-fd9d2035-96d8-4fc3-91b5-b8ede3ff5ff2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

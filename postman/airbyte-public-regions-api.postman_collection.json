@@ -1,0 +1,882 @@
+{
+  "info": {
+    "_postman_id": "e2558f76-f237-4e73-878a-ee4fda90f982",
+    "name": "airbyte-api Applications public_regions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:24.000Z",
+    "updatedAt": "2026-07-28T00:30:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e2558f76-f237-4e73-878a-ee4fda90f982"
+  },
+  "item": [
+    {
+      "name": "regions",
+      "item": [
+        {
+          "name": "{regionId}",
+          "item": [
+            {
+              "name": "Airbyte Get a Region",
+              "id": "a73bdca1-2786-4f0d-a879-7badb1601bf3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/regions/:regionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions",
+                    ":regionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "138b7aca-60d9-47cd-b843-b21344ff5b8f",
+                      "key": "regionId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1e088001-7bf6-4b74-94b9-1bdbb7908235",
+                  "name": "Get a region by the id in the path",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-1e088001-7bf6-4b74-94b9-1bdbb7908235"
+                },
+                {
+                  "id": "0bd3cfcb-2d1c-452d-91b6-af5015dff102",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-0bd3cfcb-2d1c-452d-91b6-af5015dff102"
+                },
+                {
+                  "id": "78561d85-42b7-4f08-a45e-7a099e9c60f2",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-78561d85-42b7-4f08-a45e-7a099e9c60f2"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-a73bdca1-2786-4f0d-a879-7badb1601bf3"
+            },
+            {
+              "name": "Airbyte Update a Region",
+              "id": "9eda3fc9-aba3-4c16-a55b-054baf038d92",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/regions/:regionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions",
+                    ":regionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6397117e-c8a4-4043-b18b-ef941cead08f",
+                      "key": "regionId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2e3d9249-fd6f-4590-b726-e24fac79a8ff",
+                  "name": "Successfully updated region",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-2e3d9249-fd6f-4590-b726-e24fac79a8ff"
+                },
+                {
+                  "id": "195ab87a-c031-45f9-99bc-7a54730ff2ff",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-195ab87a-c031-45f9-99bc-7a54730ff2ff"
+                },
+                {
+                  "id": "a6b8c9f2-391b-491d-83af-5070071a5c66",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-a6b8c9f2-391b-491d-83af-5070071a5c66"
+                },
+                {
+                  "id": "fd1c7317-6268-4660-95b9-6b9a6ebefca2",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-fd1c7317-6268-4660-95b9-6b9a6ebefca2"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-9eda3fc9-aba3-4c16-a55b-054baf038d92"
+            },
+            {
+              "name": "Airbyte Delete a Region",
+              "id": "c97eb54b-7b7a-4db5-9d24-467464fbc3e8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/regions/:regionId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions",
+                    ":regionId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "823bb2d2-e704-4912-b7c1-b3e22c177ffa",
+                      "key": "regionId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b740484a-2675-4ca2-95fc-822a5c8a6318",
+                  "name": "Successfully deleted region",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-b740484a-2675-4ca2-95fc-822a5c8a6318"
+                },
+                {
+                  "id": "90520e18-a700-432f-86d5-48c65f685b27",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-90520e18-a700-432f-86d5-48c65f685b27"
+                },
+                {
+                  "id": "240ee801-9ff6-44c2-a78f-60b9e66e07d0",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/regions/:regionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "regions",
+                        ":regionId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "regionId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-240ee801-9ff6-44c2-a78f-60b9e66e07d0"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-c97eb54b-7b7a-4db5-9d24-467464fbc3e8"
+            }
+          ],
+          "id": "80118b45-142e-47d4-aaed-76e5322e3ea2",
+          "createdAt": "2026-07-28T00:30:24.000Z",
+          "updatedAt": "2026-07-28T00:30:24.000Z",
+          "uid": "35240-80118b45-142e-47d4-aaed-76e5322e3ea2"
+        },
+        {
+          "name": "Airbyte List Regions",
+          "id": "1203c51a-e755-45f0-9c23-64aab2ecc1ff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regions?organizationId=<uuid>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "regions"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The UUID of the organization to list regions for",
+                  "key": "organizationId",
+                  "value": "<uuid>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0276bbc4-e71c-4a96-99ab-ecb2875fee39",
+              "name": "List all regions for the organization",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/regions?organizationId=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The UUID of the organization to list regions for",
+                      "key": "organizationId",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"regionId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"organizationId\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    },\n    {\n      \"regionId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"organizationId\": \"<uuid>\",\n      \"enabled\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-0276bbc4-e71c-4a96-99ab-ecb2875fee39"
+            },
+            {
+              "id": "899b64b3-d484-43dc-a612-e2f7e04a9ada",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/regions?organizationId=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The UUID of the organization to list regions for",
+                      "key": "organizationId",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-899b64b3-d484-43dc-a612-e2f7e04a9ada"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:24.000Z",
+          "updatedAt": "2026-07-28T00:30:24.000Z",
+          "uid": "35240-1203c51a-e755-45f0-9c23-64aab2ecc1ff"
+        },
+        {
+          "name": "Airbyte Create a Region",
+          "id": "09631e29-b348-4462-873b-c68c61848070",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/regions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "regions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12d9679c-8dd8-477e-8680-b5aba3c39d8e",
+              "name": "Successfully created region",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/regions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"regionId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-12d9679c-8dd8-477e-8680-b5aba3c39d8e"
+            },
+            {
+              "id": "c3a9dff6-0637-4023-9d1b-23865722d542",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/regions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-c3a9dff6-0637-4023-9d1b-23865722d542"
+            },
+            {
+              "id": "da011198-9936-4ff3-a3a9-25227c4435df",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"organizationId\": \"<uuid>\",\n  \"enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/regions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-da011198-9936-4ff3-a3a9-25227c4435df"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:24.000Z",
+          "updatedAt": "2026-07-28T00:30:24.000Z",
+          "uid": "35240-09631e29-b348-4462-873b-c68c61848070"
+        }
+      ],
+      "id": "c2f26c9f-f647-411e-a920-9e2564b06da0",
+      "createdAt": "2026-07-28T00:30:24.000Z",
+      "updatedAt": "2026-07-28T00:30:24.000Z",
+      "uid": "35240-c2f26c9f-f647-411e-a920-9e2564b06da0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

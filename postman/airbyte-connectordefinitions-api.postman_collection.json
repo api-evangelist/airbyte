@@ -1,0 +1,198 @@
+{
+  "info": {
+    "_postman_id": "716c7e29-4bf2-40fc-96bf-0d9739038329",
+    "name": "airbyte-api Applications ConnectorDefinitions API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:29:14.000Z",
+    "updatedAt": "2026-07-28T00:29:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-716c7e29-4bf2-40fc-96bf-0d9739038329"
+  },
+  "item": [
+    {
+      "name": "connector_definitions",
+      "item": [
+        {
+          "name": "Airbyte List Connector Definitions",
+          "id": "64e8cbd3-13d5-4db1-a100-4bba0b2cfb1b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/connector_definitions?type=source&workspaceId=<uuid>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "connector_definitions"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The type of connector definition to list",
+                  "key": "type",
+                  "value": "source"
+                },
+                {
+                  "description": "The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated.",
+                  "key": "workspaceId",
+                  "value": "<uuid>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3eb2b505-4e11-4ea5-b9f8-29445d4b3ac7",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/connector_definitions?type=source&workspaceId=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connector_definitions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The type of connector definition to list",
+                      "key": "type",
+                      "value": "source"
+                    },
+                    {
+                      "description": "The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated.",
+                      "key": "workspaceId",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"connectorDefinitionType\": \"source\",\n      \"name\": \"<string>\",\n      \"version\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"connectorDefinitionType\": \"source\",\n      \"name\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:29:14.000Z",
+              "updatedAt": "2026-07-28T00:29:14.000Z",
+              "uid": "35240-3eb2b505-4e11-4ea5-b9f8-29445d4b3ac7"
+            },
+            {
+              "id": "1fd3cddd-3bc3-4eed-8da6-7c66a185830a",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/connector_definitions?type=source&workspaceId=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connector_definitions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The type of connector definition to list",
+                      "key": "type",
+                      "value": "source"
+                    },
+                    {
+                      "description": "The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated.",
+                      "key": "workspaceId",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:14.000Z",
+              "updatedAt": "2026-07-28T00:29:14.000Z",
+              "uid": "35240-1fd3cddd-3bc3-4eed-8da6-7c66a185830a"
+            },
+            {
+              "id": "4f4e19ad-1d41-4cfa-8ec5-d0cdb3f740a8",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/connector_definitions?type=source&workspaceId=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connector_definitions"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The type of connector definition to list",
+                      "key": "type",
+                      "value": "source"
+                    },
+                    {
+                      "description": "The UUID of the workspace you wish to list connector definitions for. One of this or organizationId must be populated.",
+                      "key": "workspaceId",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:29:14.000Z",
+              "updatedAt": "2026-07-28T00:29:14.000Z",
+              "uid": "35240-4f4e19ad-1d41-4cfa-8ec5-d0cdb3f740a8"
+            }
+          ],
+          "createdAt": "2026-07-28T00:29:14.000Z",
+          "updatedAt": "2026-07-28T00:29:14.000Z",
+          "uid": "35240-64e8cbd3-13d5-4db1-a100-4bba0b2cfb1b"
+        }
+      ],
+      "id": "e7f60635-c585-4001-9ffe-f35718f00741",
+      "createdAt": "2026-07-28T00:29:14.000Z",
+      "updatedAt": "2026-07-28T00:29:14.000Z",
+      "uid": "35240-e7f60635-c585-4001-9ffe-f35718f00741"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}

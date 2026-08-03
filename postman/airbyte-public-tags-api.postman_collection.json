@@ -1,0 +1,948 @@
+{
+  "info": {
+    "_postman_id": "9f0bc2fa-e8a5-41a1-bcb3-a7f8e0ff2e68",
+    "name": "airbyte-api Applications public_tags API",
+    "description": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:29.000Z",
+    "updatedAt": "2026-07-28T00:30:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9f0bc2fa-e8a5-41a1-bcb3-a7f8e0ff2e68"
+  },
+  "item": [
+    {
+      "name": "tags",
+      "item": [
+        {
+          "name": "{tagId}",
+          "item": [
+            {
+              "name": "Airbyte Get a Tag",
+              "id": "5e9b6440-71b4-4e48-bcc9-54faaf990f53",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tags/:tagId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags",
+                    ":tagId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7986c00f-ccc9-497c-931d-574a69601114",
+                      "key": "tagId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get a tag"
+              },
+              "response": [
+                {
+                  "id": "7197c22c-004b-4ff2-86fb-f9419deced62",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"tagId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-7197c22c-004b-4ff2-86fb-f9419deced62"
+                },
+                {
+                  "id": "09675725-deb0-48c2-a690-24f81a5497e0",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-09675725-deb0-48c2-a690-24f81a5497e0"
+                },
+                {
+                  "id": "83818cd6-fe4a-494e-8f09-8c0da46a2d87",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-83818cd6-fe4a-494e-8f09-8c0da46a2d87"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-5e9b6440-71b4-4e48-bcc9-54faaf990f53"
+            },
+            {
+              "name": "Airbyte Delete a Tag",
+              "id": "3128b7e4-232d-4af7-91f1-27cbaf5a3c03",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/tags/:tagId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags",
+                    ":tagId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3ced4cb2-8b75-4efd-816f-9c9d9bdfc591",
+                      "key": "tagId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Delete a tag"
+              },
+              "response": [
+                {
+                  "id": "f33c803d-a66e-4f8b-812e-b6d210abc093",
+                  "name": "The resource was deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-f33c803d-a66e-4f8b-812e-b6d210abc093"
+                },
+                {
+                  "id": "a7c26b04-0be5-415e-aa3d-9cc9510c43dd",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-a7c26b04-0be5-415e-aa3d-9cc9510c43dd"
+                },
+                {
+                  "id": "b7fb2ea8-4881-44a5-81b4-af9c2a3bfbb2",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-b7fb2ea8-4881-44a5-81b4-af9c2a3bfbb2"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-3128b7e4-232d-4af7-91f1-27cbaf5a3c03"
+            },
+            {
+              "name": "Airbyte Update a Tag",
+              "id": "cdd196fa-8a24-4015-a17b-0bad0deb539e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags/:tagId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags",
+                    ":tagId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "168b750e-912c-4f5f-aed2-4f2c8f90abe8",
+                      "key": "tagId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Update a tag"
+              },
+              "response": [
+                {
+                  "id": "ea7de404-0026-4b9f-89cd-3e2e48eadc19",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"tagId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-ea7de404-0026-4b9f-89cd-3e2e48eadc19"
+                },
+                {
+                  "id": "ce10be9d-4903-42cf-99a3-d717350633e2",
+                  "name": "Invalid data",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-ce10be9d-4903-42cf-99a3-d717350633e2"
+                },
+                {
+                  "id": "a4f7b213-e76c-4b2b-8c62-407bdc350032",
+                  "name": "Not allowed",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-a4f7b213-e76c-4b2b-8c62-407bdc350032"
+                },
+                {
+                  "id": "95b10897-ae69-4a66-99d2-8da42764a2cb",
+                  "name": "Not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/tags/:tagId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "tags",
+                        ":tagId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "tagId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:29.000Z",
+                  "updatedAt": "2026-07-28T00:30:29.000Z",
+                  "uid": "35240-95b10897-ae69-4a66-99d2-8da42764a2cb"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-cdd196fa-8a24-4015-a17b-0bad0deb539e"
+            }
+          ],
+          "id": "50a2b32a-583a-4ae0-b39e-6aa94596711b",
+          "createdAt": "2026-07-28T00:30:29.000Z",
+          "updatedAt": "2026-07-28T00:30:29.000Z",
+          "uid": "35240-50a2b32a-583a-4ae0-b39e-6aa94596711b"
+        },
+        {
+          "name": "Airbyte List All Tags",
+          "id": "3158ee76-d2df-446c-92ee-1801708f523e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tags?workspaceIds=<uuid>&workspaceIds=<uuid>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags"
+              ],
+              "query": [
+                {
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                },
+                {
+                  "key": "workspaceIds",
+                  "value": "<uuid>"
+                }
+              ]
+            },
+            "description": "Lists all tags"
+          },
+          "response": [
+            {
+              "id": "53c4ac99-203d-42db-9dc7-b7d4efbace55",
+              "name": "List Tags.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?workspaceIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\",\n      \"workspaceId\": \"<uuid>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\",\n      \"workspaceId\": \"<uuid>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-53c4ac99-203d-42db-9dc7-b7d4efbace55"
+            },
+            {
+              "id": "5d753d68-18e4-4095-95e3-5256a8d223a9",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?workspaceIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-5d753d68-18e4-4095-95e3-5256a8d223a9"
+            },
+            {
+              "id": "37bcda9e-04d4-4b6d-ad2d-51388184b9cf",
+              "name": "Not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/tags?workspaceIds=<uuid>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-37bcda9e-04d4-4b6d-ad2d-51388184b9cf"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:29.000Z",
+          "updatedAt": "2026-07-28T00:30:29.000Z",
+          "uid": "35240-3158ee76-d2df-446c-92ee-1801708f523e"
+        },
+        {
+          "name": "Airbyte Create a Tag",
+          "id": "e13a8f41-422a-4f6b-9825-5ad3ec38737e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tags",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tags"
+              ]
+            },
+            "description": "Create a tag"
+          },
+          "response": [
+            {
+              "id": "fbac6928-4702-489f-9d84-836c6cc6d71a",
+              "name": "Successful operation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"tagId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-fbac6928-4702-489f-9d84-836c6cc6d71a"
+            },
+            {
+              "id": "aebceb05-0b86-478a-9102-7b00f7d361a3",
+              "name": "Invalid data",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-aebceb05-0b86-478a-9102-7b00f7d361a3"
+            },
+            {
+              "id": "37673a14-11e6-46a4-aedf-10bea0648c46",
+              "name": "Not allowed",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-37673a14-11e6-46a4-aedf-10bea0648c46"
+            },
+            {
+              "id": "1eb77849-ca98-4a14-8f32-c44524f0001b",
+              "name": "Tag with same name already exists",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"color\": \"<string>\",\n  \"workspaceId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tags",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tags"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:30:29.000Z",
+              "updatedAt": "2026-07-28T00:30:29.000Z",
+              "uid": "35240-1eb77849-ca98-4a14-8f32-c44524f0001b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:30:29.000Z",
+          "updatedAt": "2026-07-28T00:30:29.000Z",
+          "uid": "35240-e13a8f41-422a-4f6b-9825-5ad3ec38737e"
+        }
+      ],
+      "id": "40954378-f18a-430b-8981-1165f16e656e",
+      "createdAt": "2026-07-28T00:30:29.000Z",
+      "updatedAt": "2026-07-28T00:30:29.000Z",
+      "uid": "35240-40954378-f18a-430b-8981-1165f16e656e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.airbyte.com/v1"
+    }
+  ]
+}
