@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications public_users API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public_users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List All Users Within an Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/users",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "List of user IDs to filter by"
+              },
+              {
+                "name": "emails",
+                "value": "",
+                "type": "query",
+                "description": "List of user emails to filter by"
+              }
+            ]
+          },
+          "docs": "Organization Admin user can list all users within the same organization. Also provide filtering on a list of user IDs or/and a list of user emails."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

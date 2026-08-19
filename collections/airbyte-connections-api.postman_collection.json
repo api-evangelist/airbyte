@@ -1,0 +1,957 @@
+{
+  "item": [
+    {
+      "id": "bc0de043-8f75-402b-b339-43acda948d77",
+      "name": "Connections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "98a629a4-b50d-4d2c-ac30-531d8b5520b8",
+          "name": "Airbyte Create a Connection",
+          "request": {
+            "name": "Airbyte Create a Connection",
+            "description": {},
+            "url": {
+              "path": [
+                "connections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceId\": \"<uuid>\",\n  \"destinationId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"<string>\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"<string>\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"<string>\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"destination\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"ignore\",\n  \"status\": \"<string>\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ed9370f-c572-4d6a-b731-3497a4616ca2",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"connectionId\": \"9924bcd0-99be-453d-ba47-c2c9766f7da5\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1bcbf8c-fce3-4b2c-996b-bd8eae49a051",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f319cd6b-f844-4d13-b65d-6d7344ffc945",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd0800a8-e348-47b2-9b4e-54ea1e9fff9e",
+          "name": "Airbyte List Connections",
+          "request": {
+            "name": "Airbyte List Connections",
+            "description": {},
+            "url": {
+              "path": [
+                "connections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list connections for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "tagIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections."
+                },
+                {
+                  "disabled": false,
+                  "key": "tagIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the tags you wish to list connections for. Empty list will retrieve all connections."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeleted",
+                  "value": "false",
+                  "description": "Include deleted connections in the returned results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Set the limit on the number of Connections returned. The default is 20."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Set the offset to start at when returning Connections. The default is 0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8729888-677d-4458-ad1c-06c884a126c5",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"previous\": \"example\",\n  \"next\": \"example\",\n  \"data\": \"example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dda9dbae-aed2-4668-bc8d-fcf755d0ab79",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16fc4310-4b50-434c-b5dd-9ad3e3df7009",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "tagIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5649891c-cdc0-443d-bcb6-bb12e468c431",
+          "name": "Airbyte Get Connection Details",
+          "request": {
+            "name": "Airbyte Get Connection Details",
+            "description": {},
+            "url": {
+              "path": [
+                "connections",
+                ":connectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "connectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d289fff5-582e-4ffd-9936-d2a79326e7cd",
+              "name": "Get a Connection by the id in the path.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workspaceId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"Postgres To Snowflake\",\n  \"sourceId\": \"9924bcd0-99be-453d-ba47-c2c9766f7da5\",\n  \"destinationId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14916582-7ed7-472b-83c0-f9b1cb3943ae",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f9254cd-d185-4df4-a8d7-bd3c7afd6736",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc34862c-5cca-4647-a52f-14011ad1e8a6",
+          "name": "Airbyte Update Connection Details",
+          "request": {
+            "name": "Airbyte Update Connection Details",
+            "description": {},
+            "url": {
+              "path": [
+                "connections",
+                ":connectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "connectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"configurations\": {\n    \"streams\": [\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"<string>\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      },\n      {\n        \"name\": \"<string>\",\n        \"namespace\": \"<string>\",\n        \"syncMode\": \"<string>\",\n        \"cursorField\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"primaryKey\": [\n          [\n            \"<string>\",\n            \"<string>\"\n          ],\n          [\n            \"<string>\",\n            \"<string>\"\n          ]\n        ],\n        \"includeFiles\": \"<boolean>\",\n        \"destinationObjectName\": \"<string>\",\n        \"selectedFields\": [\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"fieldPath\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"mappers\": [\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          },\n          {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"mapperConfiguration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": \"<uuid>\"\n          }\n        ]\n      }\n    ]\n  },\n  \"schedule\": {\n    \"scheduleType\": \"<string>\",\n    \"cronExpression\": \"<string>\"\n  },\n  \"dataResidency\": \"<string>\",\n  \"namespaceDefinition\": \"<string>\",\n  \"namespaceFormat\": null,\n  \"prefix\": \"<string>\",\n  \"nonBreakingSchemaUpdatesBehavior\": \"<string>\",\n  \"status\": \"<string>\",\n  \"tags\": [\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    },\n    {\n      \"tagId\": \"<uuid>\",\n      \"workspaceId\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"color\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c18edf37-f526-4335-9e53-cd4915aab37e",
+              "name": "Update a Connection by the id in the path.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workspaceId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"Postgres To Snowflake\",\n  \"sourceId\": \"9924bcd0-99be-453d-ba47-c2c9766f7da5\",\n  \"destinationId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64962fc4-0c27-4023-b483-363079cc2243",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e2c2085-c0ac-4f64-86e7-bf415d85c3c9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceId\": \"95e66a59-8045-4307-9678-63bc3c9b8c93\",\n  \"destinationId\": \"e478de0d-a3a0-475c-b019-25f7dd29e281\",\n  \"name\": \"Postgres-to-Bigquery\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d93d9fee-60d8-48ee-b3a9-1bb69cf2a0e3",
+          "name": "Airbyte Delete a Connection",
+          "request": {
+            "name": "Airbyte Delete a Connection",
+            "description": {},
+            "url": {
+              "path": [
+                "connections",
+                ":connectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "connectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "722dedaf-bd60-4991-bb90-8b9e07adab4e",
+              "name": "The resource was deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "28adcc8b-5f74-4240-876f-76ae94734fc3",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "176f409e-229d-43e6-a723-a49ab765e1be",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "connections",
+                    ":connectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "connectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e3d21fd-2298-4596-bc2b-8504280d8cbf",
+    "name": "airbyte-api Applications Connections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}

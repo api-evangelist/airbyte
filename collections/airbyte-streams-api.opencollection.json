@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications Streams API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Get Stream Properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/streams",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the source"
+              },
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "query",
+                "description": "ID of the destination"
+              },
+              {
+                "name": "ignoreCache",
+                "value": "",
+                "type": "query",
+                "description": "If true pull the latest schema from the source, else pull from cache (default false)"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Stream Properties"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

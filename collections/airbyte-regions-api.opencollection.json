@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications Regions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Regions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/regions",
+            "params": [
+              {
+                "name": "organizationId",
+                "value": "",
+                "type": "query",
+                "description": "The UUID of the organization to list regions for"
+              }
+            ]
+          },
+          "docs": "Airbyte List Regions"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/regions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Region"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Region",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/regions/:regionId",
+            "params": [
+              {
+                "name": "regionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Region"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications public_applications API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public_applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/applications"
+          },
+          "docs": "Airbyte List Applications"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/applications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create an Application"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get an Application Detail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get an Application Detail"
+        },
+        {
+          "info": {
+            "name": "Airbyte Deletes an Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/applications/:applicationId",
+            "params": [
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Deletes an Application"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/applications/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Get an Access Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

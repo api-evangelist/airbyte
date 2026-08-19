@@ -1,0 +1,1181 @@
+{
+  "item": [
+    {
+      "id": "073ec3e7-abba-45c6-850c-7c1863709039",
+      "name": "Destinations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d38b6c7-d5d7-4460-baa5-66322374fa76",
+          "name": "Airbyte List Destinations",
+          "request": {
+            "name": "Airbyte List Destinations",
+            "description": {},
+            "url": {
+              "path": [
+                "destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeleted",
+                  "value": "false",
+                  "description": "Include deleted destinations in the returned results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Set the limit on the number of destinations returned. The default is 20."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Set the offset to start at when returning destinations. The default is 0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc1bcecc-ea26-4281-a909-ab731bc24c24",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"previous\": \"example\",\n  \"next\": \"example\",\n  \"data\": \"example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3feb77f-a416-4c30-be00-0b66854b24e3",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f0c61600-c1fa-4c9b-94b6-589f482546fb",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88dfc184-70c4-43dc-b522-d169d7fb4aad",
+          "name": "Airbyte Create a Destination",
+          "request": {
+            "name": "Airbyte Create a Destination",
+            "description": {
+              "content": "Creates a destination given a name, workspace id, and a json blob containing the configuration for the source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": \"<object>\",\n  \"definitionId\": \"<uuid>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90f9e0bf-6924-47f5-ae47-0ac96b3f2a87",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Postgres\",\n  \"workspaceId\": \"2155ae5a-de39-4808-af6a-16fe7b8b4ed2\",\n  \"configuration\": {\n    \"airbyte_destination_name\": \"postgres\",\n    \"port\": 5432,\n    \"schema\": \"public\",\n    \"ssl_mode\": {\n      \"mode\": \"prefer\"\n    },\n    \"tunnel_method\": {\n      \"tunnel_method\": \"NO_TUNNEL\"\n    },\n    \"host\": \"localhost\",\n    \"database\": \"postgres\",\n    \"username\": \"postgres\",\n    \"password\": \"test\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destinationId\": \"af0c3c67-aa61-419f-8922-95b0bf840e86\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "41e50d95-dc9d-4b4b-9ce7-21120af61f4a",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Postgres\",\n  \"workspaceId\": \"2155ae5a-de39-4808-af6a-16fe7b8b4ed2\",\n  \"configuration\": {\n    \"airbyte_destination_name\": \"postgres\",\n    \"port\": 5432,\n    \"schema\": \"public\",\n    \"ssl_mode\": {\n      \"mode\": \"prefer\"\n    },\n    \"tunnel_method\": {\n      \"tunnel_method\": \"NO_TUNNEL\"\n    },\n    \"host\": \"localhost\",\n    \"database\": \"postgres\",\n    \"username\": \"postgres\",\n    \"password\": \"test\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6670019c-f188-40bc-a0a5-92f55fa2f093",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Postgres\",\n  \"workspaceId\": \"2155ae5a-de39-4808-af6a-16fe7b8b4ed2\",\n  \"configuration\": {\n    \"airbyte_destination_name\": \"postgres\",\n    \"port\": 5432,\n    \"schema\": \"public\",\n    \"ssl_mode\": {\n      \"mode\": \"prefer\"\n    },\n    \"tunnel_method\": {\n      \"tunnel_method\": \"NO_TUNNEL\"\n    },\n    \"host\": \"localhost\",\n    \"database\": \"postgres\",\n    \"username\": \"postgres\",\n    \"password\": \"test\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fad7bed7-c18f-40fd-8a69-c2216d53058a",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Postgres\",\n  \"workspaceId\": \"2155ae5a-de39-4808-af6a-16fe7b8b4ed2\",\n  \"configuration\": {\n    \"airbyte_destination_name\": \"postgres\",\n    \"port\": 5432,\n    \"schema\": \"public\",\n    \"ssl_mode\": {\n      \"mode\": \"prefer\"\n    },\n    \"tunnel_method\": {\n      \"tunnel_method\": \"NO_TUNNEL\"\n    },\n    \"host\": \"localhost\",\n    \"database\": \"postgres\",\n    \"username\": \"postgres\",\n    \"password\": \"test\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "135eba4d-85b3-4879-a24b-7edff2b1bfd3",
+          "name": "Airbyte Get Destination Details",
+          "request": {
+            "name": "Airbyte Get Destination Details",
+            "description": {},
+            "url": {
+              "path": [
+                "destinations",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeSecretCoordinates",
+                  "value": "<boolean>",
+                  "description": "Rather than return *** for secret properties include the secret coordinate information"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "destinationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89d29825-7a5c-43bf-9e65-c3ee584734aa",
+              "name": "Get a Destination by the id in the path.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destinationId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"My Destination\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\",\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66b0dc15-3477-42ad-879f-9969460a279a",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ff771a3e-ffe9-4874-a85c-8ce769318136",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62f869cc-205f-422c-a4d1-63f06110294d",
+          "name": "Airbyte Delete a Destination",
+          "request": {
+            "name": "Airbyte Delete a Destination",
+            "description": {},
+            "url": {
+              "path": [
+                "destinations",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "destinationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e13b599e-94be-42d0-b00e-3b54f9e1ccd7",
+              "name": "The resource was deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ef18aea-9d51-4f02-ab38-46fe7b20c9b7",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5420238-c989-4390-8277-255c7666d09b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19c265ed-2dd8-4197-b6b9-608f928317ab",
+          "name": "Airbyte Update a Destination",
+          "request": {
+            "name": "Airbyte Update a Destination",
+            "description": {},
+            "url": {
+              "path": [
+                "destinations",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "destinationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": \"<object>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "51818337-f03e-4567-a81d-e04920cb10b7",
+              "name": "Update a Destination",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destinationId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"running\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\",\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65dd5a01-6c1c-4a80-acc2-5418d9b15b8f",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8cb7122-dc24-4e5f-9d6a-d06d3171219f",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a4341d8-b460-4a68-bd18-ccc539813796",
+          "name": "Airbyte Update a Destination and Fully Overwrite it",
+          "request": {
+            "name": "Airbyte Update a Destination and Fully Overwrite it",
+            "description": {},
+            "url": {
+              "path": [
+                "destinations",
+                ":destinationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "destinationId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": \"<object>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "084ad2db-abc4-4fe4-a890-6677e7289dda",
+              "name": "Update a Destination and fully overwrite it",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"destinationId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"running\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\",\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "804b4881-71db-4be0-a486-4a9497acb8c8",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "544f4957-eeb4-4790-be61-6a293ad0f3f5",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "destinations",
+                    ":destinationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "destinationId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Destination\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cec60e43-acbc-4332-b55b-eb9b72fd8897",
+    "name": "airbyte-api Applications Destinations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}

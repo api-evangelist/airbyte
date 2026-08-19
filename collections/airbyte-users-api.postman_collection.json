@@ -1,0 +1,254 @@
+{
+  "item": [
+    {
+      "id": "54a942f3-f9ae-4374-af3d-00117ee29e3a",
+      "name": "Users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3de683b-4535-496f-9f7a-9a4bfb240a7f",
+          "name": "Airbyte List All Users Within an Organization",
+          "request": {
+            "name": "Airbyte List All Users Within an Organization",
+            "description": {
+              "content": "Organization Admin user can list all users within the same organization. Also provide filtering on a list of user IDs or/and a list of user emails.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organizationId",
+                  "value": "<UUID>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<UUID>",
+                  "description": "List of user IDs to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<UUID>",
+                  "description": "List of user IDs to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<email>",
+                  "description": "List of user emails to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<email>",
+                  "description": "List of user emails to filter by"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a74ce78c-2b0a-4160-aa5f-7045470c4360",
+              "name": "List Users.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": \"example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eba87f8b-b964-4b50-a1fa-2d9338691439",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "575f1b78-530f-4930-90e1-7a7e9df67959",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organizationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<email>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c33f0c79-3b45-4a07-b744-2322455d9975",
+    "name": "airbyte-api Applications Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}

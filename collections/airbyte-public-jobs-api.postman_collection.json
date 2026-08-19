@@ -1,0 +1,783 @@
+{
+  "item": [
+    {
+      "id": "8fd3a3db-bbb6-4705-b9d4-5c16aea83240",
+      "name": "public_jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d93bfa9f-1948-41cc-8bf8-fde98d204dfc",
+          "name": "Airbyte List Jobs by Sync Type",
+          "request": {
+            "name": "Airbyte List Jobs by Sync Type",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "connectionId",
+                  "value": "<UUID>",
+                  "description": "Filter the Jobs by connectionId."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Set the limit on the number of Jobs returned. The default is 20 Jobs."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Set the offset to start at when returning Jobs. The default is 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "jobType",
+                  "value": "<string>",
+                  "description": "Filter the Jobs by jobType."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list jobs for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list jobs for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "The Job status you want to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtStart",
+                  "value": "<dateTime>",
+                  "description": "The start date to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAtEnd",
+                  "value": "<dateTime>",
+                  "description": "The end date to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtStart",
+                  "value": "<dateTime>",
+                  "description": "The start date to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "updatedAtEnd",
+                  "value": "<dateTime>",
+                  "description": "The end date to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "<string>",
+                  "description": "The field and method to use for ordering"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ef07bab-4b77-44ae-8fe6-6e850a874685",
+              "name": "List all the Jobs by connectionId.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "connectionId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "jobType",
+                      "value": "clear"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "incomplete"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtStart",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtEnd",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "updatedAt|DESC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"next\": \"https://api.airbyte.com/v1/jobs?limit=5&offset=10\",\n  \"previous\": \"https://api.airbyte.com/v1/jobs?limit=5&offset=0\",\n  \"data\": [\n    {\n      \"id\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n      \"status\": \"running\",\n      \"jobType\": \"sync\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e87d3ade-bcac-44b8-911a-8d4d661f418b",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "connectionId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "jobType",
+                      "value": "clear"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "incomplete"
+                    },
+                    {
+                      "key": "createdAtStart",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdAtEnd",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtStart",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "updatedAtEnd",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "updatedAt|DESC"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da02b89c-f58d-4ab3-a596-73f6b45d2797",
+          "name": "Airbyte Trigger a Sync or Reset Job of a Connection",
+          "request": {
+            "name": "Airbyte Trigger a Sync or Reset Job of a Connection",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobType\": \"<string>\",\n  \"connectionId\": \"<UUID>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eb1bd7ed-981f-4725-9ccb-2e86e3389fc4",
+              "name": "Kicks off a new Job based on the JobType. The connectionId is the resource that Job will be run for.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectionId\": \"e735894a-e773-4938-969f-45f53957b75b\",\n  \"jobType\": \"sync\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobId\": 1234,\n  \"status\": \"running\",\n  \"jobType\": \"sync\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de6b0375-73e9-41f3-a844-9ec2ef820df6",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectionId\": \"e735894a-e773-4938-969f-45f53957b75b\",\n  \"jobType\": \"sync\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0490937e-812d-4d56-bdf4-3d6bd402aecf",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"connectionId\": \"e735894a-e773-4938-969f-45f53957b75b\",\n  \"jobType\": \"sync\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "439b7b3c-fe5c-434c-a0ed-46527d032bac",
+          "name": "Airbyte Get Job Status and Details",
+          "request": {
+            "name": "Airbyte Get Job Status and Details",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f39a9565-2949-493d-a367-34de24a4a9c7",
+              "name": "Get a Job by the id in the path.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"status\": \"running\",\n  \"jobType\": \"sync\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "82236310-6e71-4fde-a8a8-fd8353449aab",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab8f90f7-8415-40ad-bd6c-ad736b22bac9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75346486-240e-4b39-b2c2-52d586889212",
+          "name": "Airbyte Cancel a Running Job",
+          "request": {
+            "name": "Airbyte Cancel a Running Job",
+            "description": {},
+            "url": {
+              "path": [
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1fdeddb-0fe6-4333-8b00-e494b3fa71ba",
+              "name": "Cancel a Job.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"jobId\": \"abc123\",\n  \"status\": \"pending\",\n  \"jobType\": \"sync\",\n  \"startTime\": \"example\",\n  \"connectionId\": \"abc123\",\n  \"lastUpdatedAt\": \"example\",\n  \"duration\": \"example\",\n  \"bytesSynced\": 1,\n  \"rowsSynced\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f15bdf06-00b1-478c-8aa1-4869a451a3a6",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "107ac630-f8e5-4425-b530-527b8f0ed56f",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e685bee1-aa55-49c3-8fa4-a4bed3282f3a",
+    "name": "airbyte-api Applications public_jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}

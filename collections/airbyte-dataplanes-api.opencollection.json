@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications Dataplanes API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dataplanes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Dataplanes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/dataplanes",
+            "params": [
+              {
+                "name": "regionIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the regions to filter by. If provided, only dataplanes belonging to these regions will be returned. Empty list will retrieve all dataplanes accessible to the current user."
+              }
+            ]
+          },
+          "docs": "Airbyte List Dataplanes"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/dataplanes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Create a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Dataplane"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Dataplane",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/dataplanes/:dataplaneId",
+            "params": [
+              {
+                "name": "dataplaneId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Dataplane"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

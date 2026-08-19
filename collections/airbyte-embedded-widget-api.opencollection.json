@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications embedded_widget API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "embedded_widget",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Get a Widget Token for Airbyte Embedded",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/embedded/widget_token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a token for the embedded widget. This endpoint is only available when Airbyte Embedded is enabled."
+        },
+        {
+          "info": {
+            "name": "Airbyte Generate a Scoped Token for Airbyte Embedded",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/embedded/scoped_token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a token scoped to an end-user workspace."
+        },
+        {
+          "info": {
+            "name": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/embedded/organizations"
+          },
+          "docs": "Airbyte List Organizations That a User Has Access to That Have Embedded Enabled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications public_root API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public_root",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte Root Path, Currently Returns a Redirect to the Documentation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/"
+          },
+          "docs": "Airbyte Root Path, Currently Returns a Redirect to the Documentation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

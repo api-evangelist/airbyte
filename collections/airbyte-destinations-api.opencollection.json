@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications Destinations API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Destinations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Destinations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/destinations",
+            "params": [
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list destinations for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted destinations in the returned results."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of destinations returned. The default is 20."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning destinations. The default is 0"
+              }
+            ]
+          },
+          "docs": "Airbyte List Destinations"
+        },
+        {
+          "info": {
+            "name": "Airbyte Create a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/destinations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a destination given a name, workspace id, and a json blob containing the configuration for the source."
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Destination Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeSecretCoordinates",
+                "value": "",
+                "type": "query",
+                "description": "Rather than return *** for secret properties include the secret coordinate information"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Destination Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Destination and Fully Overwrite it",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Destination and Fully Overwrite it"
+        },
+        {
+          "info": {
+            "name": "Airbyte Update a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Update a Destination"
+        },
+        {
+          "info": {
+            "name": "Airbyte Delete a Destination",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/destinations/:destinationId",
+            "params": [
+              {
+                "name": "destinationId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Delete a Destination"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

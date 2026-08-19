@@ -1,0 +1,1313 @@
+{
+  "item": [
+    {
+      "id": "fd1092e6-eee1-46ac-8e3c-b483115f407f",
+      "name": "Sources",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "877b2d79-47f9-4618-ae74-63ac7d71ccf7",
+          "name": "Airbyte List Sources",
+          "request": {
+            "name": "Airbyte List Sources",
+            "description": {},
+            "url": {
+              "path": [
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaceIds",
+                  "value": "<uuid>",
+                  "description": "The UUIDs of the workspaces you wish to list sources for. Empty list will retrieve all allowed workspaces."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeleted",
+                  "value": "false",
+                  "description": "Include deleted sources in the returned results."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Set the limit on the number of sources returned. The default is 20."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Set the offset to start at when returning sources. The default is 0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4bf4915-1cf5-466e-8d71-36f16ce89974",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"previous\": \"example\",\n  \"next\": \"example\",\n  \"data\": \"example\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f5a8c37-e8b0-43dd-add6-c40e976ab630",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cfb8aa68-13ea-4929-a73d-75aee3cced96",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "workspaceIds",
+                      "value": "<uuid>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "20"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fd319d1-ad46-44e0-aa7d-01e294e9195d",
+          "name": "Airbyte Create a Source",
+          "request": {
+            "name": "Airbyte Create a Source",
+            "description": {
+              "content": "Creates a source given a name, workspace id, and a json blob containing the configuration for the source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": \"<object>\",\n  \"definitionId\": \"<uuid>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "533a4f87-6173-40e0-8d09-6200416f53fe",
+              "name": "Successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": \"0c31738c-0b2d-4887-b506-e2cd1c39cc35\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "deded07a-0c9a-42f3-bdf1-106c3cccfddb",
+              "name": "Invalid data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "266ee357-5827-4cf5-9af8-d8f908de7d6a",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e1d6238-c92a-4f0b-aa29-a9eebc9cbe2d",
+          "name": "Airbyte Get Source Details",
+          "request": {
+            "name": "Airbyte Get Source Details",
+            "description": {},
+            "url": {
+              "path": [
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeSecretCoordinates",
+                  "value": "<boolean>",
+                  "description": "Rather than return *** for secret properties include the secret coordinate information"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "429e2c05-2d82-4671-b865-fb80cc05a37f",
+              "name": "Get a Source by the id in the path.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"running\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "303d8971-4b95-4223-a057-d72f6b600d40",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a33c969-3fd6-49c0-b9bc-f53af8261cf7",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeSecretCoordinates",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d95a0ac7-eae1-45ca-954f-336e7a6c00c8",
+          "name": "Airbyte Update a Source",
+          "request": {
+            "name": "Airbyte Update a Source",
+            "description": {},
+            "url": {
+              "path": [
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"configuration\": \"<object>\",\n  \"secretId\": \"<string>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "31c35abb-9607-4571-8250-1aa87a70d595",
+              "name": "Update a Source",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"running\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d59d4716-4203-4770-94a8-483d9e44d4b9",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22a26577-ee61-43b8-9825-16f33ea21efb",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af2f87b8-a484-4cb1-aa7c-b0f739df1803",
+          "name": "Airbyte Update a Source and Fully Overwrite it",
+          "request": {
+            "name": "Airbyte Update a Source and Fully Overwrite it",
+            "description": {},
+            "url": {
+              "path": [
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"configuration\": \"<object>\",\n  \"resourceAllocation\": {\n    \"default\": {\n      \"cpu_request\": \"<string>\",\n      \"cpu_limit\": \"<string>\",\n      \"memory_request\": \"<string>\",\n      \"memory_limit\": \"<string>\",\n      \"ephemeral_storage_request\": \"<string>\",\n      \"ephemeral_storage_limit\": \"<string>\"\n    },\n    \"jobSpecific\": [\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      },\n      {\n        \"jobType\": \"<string>\",\n        \"resourceRequirements\": {\n          \"cpu_request\": \"<string>\",\n          \"cpu_limit\": \"<string>\",\n          \"memory_request\": \"<string>\",\n          \"memory_limit\": \"<string>\",\n          \"ephemeral_storage_request\": \"<string>\",\n          \"ephemeral_storage_limit\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd75aef6-d511-4e5b-b8a7-b8244d8c238d",
+              "name": "Update a source and fully overwrite it",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sourceId\": \"18dccc91-0ab1-4f72-9ed7-0b8fc27c5826\",\n  \"name\": \"running\",\n  \"sourceType\": \"postgres\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cf821db-649e-42b4-b069-a60e12e530cd",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46b8cf00-b1a8-4020-aa86-d645d1417c10",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"configuration\": {\n    \"airbyte_source_name\": \"google-ads\",\n    \"conversion_window_days\": 14,\n    \"customer_id\": \"1234567890\",\n    \"start_date\": 1672531200000,\n    \"end_date\": 1704067200000\n  },\n  \"name\": \"My Source\",\n  \"workspaceId\": \"744cc0ed-7f05-4949-9e60-2a814f90c035\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "718142f0-7b93-470e-86ee-02af04779973",
+          "name": "Airbyte Delete a Source",
+          "request": {
+            "name": "Airbyte Delete a Source",
+            "description": {},
+            "url": {
+              "path": [
+                "sources",
+                ":sourceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<UUID>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bb3b3aca-56f0-4839-8629-dc9bb1263bd3",
+              "name": "The resource was deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e9443b5-cb5e-4e29-99b4-48c044f8dcc6",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "329bf58d-29dc-405a-adfa-110e2339692b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    ":sourceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<UUID>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2fac89f-9188-4927-ba6a-95eae83efb39",
+          "name": "Airbyte Initiate OAuth for a Source",
+          "request": {
+            "name": "Airbyte Initiate OAuth for a Source",
+            "description": {
+              "content": "Given a source ID, workspace ID, and redirect URL, initiates OAuth for the source.\n\nThis returns a fully formed URL for performing user authentication against the relevant source identity provider (IdP). Once authentication has been completed, the IdP will redirect to an Airbyte endpoint which will save the access and refresh tokens off as a secret and return the secret ID to the redirect URL specified in the `secret_id` query string parameter.\n\nThat secret ID can be used to create a source with credentials in place of actual tokens.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sources",
+                "initiateOAuth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"redirectUrl\": \"<string>\",\n  \"workspaceId\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"sourceType\": \"<string>\",\n  \"oAuthInputConfiguration\": {},\n  \"requestedScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"requestedOptionalScopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "86cb3c98-1013-4906-8589-588eb9b6b70f",
+              "name": "Response from the initiate OAuth call should be an object with a single property which will be the `redirect_url`. If a user is redirected to this URL, they'll be prompted by the identity provider to authenticate.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "initiateOAuth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirectUrl\": \"https://cloud.airbyte.io/v1/api/oauth/callback\",\n  \"workspaceId\": \"871d9b60-11d1-44cb-8c92-c246d53bf87e\",\n  \"destinationId\": \"3d93b16c-ff5f-421c-8908-5a3c82088f14\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2666733-225a-4978-9cb3-7c2dac4a4e1c",
+              "name": "A field in the body has not been set appropriately.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "initiateOAuth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirectUrl\": \"https://cloud.airbyte.io/v1/api/oauth/callback\",\n  \"workspaceId\": \"871d9b60-11d1-44cb-8c92-c246d53bf87e\",\n  \"destinationId\": \"3d93b16c-ff5f-421c-8908-5a3c82088f14\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6435695-e260-408c-9ebf-09819ea49ad8",
+              "name": "API key is invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sources",
+                    "initiateOAuth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirectUrl\": \"https://cloud.airbyte.io/v1/api/oauth/callback\",\n  \"workspaceId\": \"871d9b60-11d1-44cb-8c92-c246d53bf87e\",\n  \"destinationId\": \"3d93b16c-ff5f-421c-8908-5a3c82088f14\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "989d4d52-a205-46c5-bfe8-2d460e2054de",
+    "name": "airbyte-api Applications Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}

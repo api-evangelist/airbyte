@@ -1,0 +1,148 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "airbyte-api Applications public_jobs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public_jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Airbyte List Jobs by Sync Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/jobs",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Jobs by connectionId."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Set the limit on the number of Jobs returned. The default is 20 Jobs."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Set the offset to start at when returning Jobs. The default is 0."
+              },
+              {
+                "name": "jobType",
+                "value": "",
+                "type": "query",
+                "description": "Filter the Jobs by jobType."
+              },
+              {
+                "name": "workspaceIds",
+                "value": "",
+                "type": "query",
+                "description": "The UUIDs of the workspaces you wish to list jobs for. Empty list will retrieve all allowed workspaces."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The Job status you want to filter by"
+              },
+              {
+                "name": "createdAtStart",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The start date to filter by"
+              },
+              {
+                "name": "createdAtEnd",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The end date to filter by"
+              },
+              {
+                "name": "updatedAtStart",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The start date to filter by"
+              },
+              {
+                "name": "updatedAtEnd",
+                "value": "1687450500000",
+                "type": "query",
+                "description": "The end date to filter by"
+              },
+              {
+                "name": "orderBy",
+                "value": "updatedAt|DESC",
+                "type": "query",
+                "description": "The field and method to use for ordering"
+              }
+            ]
+          },
+          "docs": "Airbyte List Jobs by Sync Type"
+        },
+        {
+          "info": {
+            "name": "Airbyte Trigger a Sync or Reset Job of a Connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.airbyte.com/v1/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Airbyte Trigger a Sync or Reset Job of a Connection"
+        },
+        {
+          "info": {
+            "name": "Airbyte Get Job Status and Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.airbyte.com/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Get Job Status and Details"
+        },
+        {
+          "info": {
+            "name": "Airbyte Cancel a Running Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.airbyte.com/v1/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Airbyte Cancel a Running Job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

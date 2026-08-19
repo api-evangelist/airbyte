@@ -9,10 +9,8 @@ servers:
   url: https://airbyte.mcp.kapa.ai
   install: claude mcp add --transport http airbyte-docs https://airbyte.mcp.kapa.ai
   auth: Google account (rate-limited; 40 req/hour, 200 req/day per user)
-  description: >-
-    Semantic search across Airbyte docs, website, OpenAPI specs, YouTube videos,
-    and GitHub issues/discussions/PRs. Helps agents build connectors, use
-    PyAirbyte, configure the API, and troubleshoot.
+  description: Semantic search across Airbyte docs, website, OpenAPI specs, YouTube videos, and GitHub
+    issues/discussions/PRs. Helps agents build connectors, use PyAirbyte, configure the API, and troubleshoot.
   docs: https://docs.airbyte.com/community/mcp-servers/airbyte-knowledge-mcp
 - name: pyairbyte-mcp
   title: PyAirbyte MCP Server
@@ -20,23 +18,26 @@ servers:
   install: uvx --python=3.11 --from=airbyte@latest airbyte-mcp
   package: airbyte (PyPI)
   status: experimental
-  description: >-
-    Run and manage Airbyte connectors locally through PyAirbyte. Tools list
-    available connectors, fetch connector info, read dotenv secrets, and inspect
-    Airbyte Cloud workspace connections and destinations.
+  description: Run and manage Airbyte connectors locally through PyAirbyte. Tools list available connectors,
+    fetch connector info, read dotenv secrets, and inspect Airbyte Cloud workspace connections and destinations.
   docs: https://docs.airbyte.com/developers/mcp-servers/pyairbyte-mcp
 - name: airbyte-agent-mcp
   title: Agent MCP (Airbyte Agents)
   transport: http
-  description: >-
-    Connects MCP-capable agents (Claude, Cursor, VS Code, ChatGPT, Codex) to
-    business data through Airbyte Agents' 600+ connectors. Credentials stay in
-    the MCP server; the LLM only sees env var names.
+  description: Connects MCP-capable agents (Claude, Cursor, VS Code, ChatGPT, Codex) to business data
+    through Airbyte Agents' 600+ connectors. Credentials stay in the MCP server; the LLM only sees env
+    var names.
   docs: https://docs.airbyte.com/ai-agents
 - name: airbyte-replication-mcp
   title: Airbyte Replication MCP Server
   transport: stdio
-  description: >-
-    Manage Airbyte data replication through MCP clients - list connectors,
-    validate configurations, and run sync operations.
+  description: Manage Airbyte data replication through MCP clients - list connectors, validate configurations,
+    and run sync operations.
   docs: https://docs.airbyte.com/community/mcp-servers/pyairbyte-mcp
+deployment:
+  mode: remote
+  endpoint: https://airbyte.mcp.kapa.ai
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

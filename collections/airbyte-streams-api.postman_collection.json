@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "bad90437-19b7-4235-91a0-5ee9ab8ac96b",
+      "name": "Streams",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3728f187-b016-4189-a1ea-b6abd563eecb",
+          "name": "Airbyte Get Stream Properties",
+          "request": {
+            "name": "Airbyte Get Stream Properties",
+            "description": {},
+            "url": {
+              "path": [
+                "streams"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceId",
+                  "value": "<UUID>",
+                  "description": "(Required) ID of the source"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationId",
+                  "value": "<UUID>",
+                  "description": "ID of the destination"
+                },
+                {
+                  "disabled": false,
+                  "key": "ignoreCache",
+                  "value": "false",
+                  "description": "If true pull the latest schema from the source, else pull from cache (default false)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ceff85d9-ac4d-4962-8989-ea75a3a4826a",
+              "name": "Get the available streams properties for a source/destination pair.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "destinationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"streamName\": \"example-name\",\n    \"syncModes\": \"example\",\n    \"streamnamespace\": \"example-name\",\n    \"defaultCursorField\": \"example\",\n    \"sourceDefinedCursorField\": true,\n    \"sourceDefinedPrimaryKey\": \"example\",\n    \"propertyFields\": \"example\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d001f3e-8c81-463a-b427-319ce13a4996",
+              "name": "Required parameters are missing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "destinationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7c78c5a-7e99-42db-82b3-83084bc85b1c",
+              "name": "Not allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "destinationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cf6157f-3242-41f3-882b-0c445228acb2",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "destinationId",
+                      "value": "<UUID>"
+                    },
+                    {
+                      "key": "ignoreCache",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.airbyte.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "101bccb0-efe8-4229-b7c0-7a8a5c0a35d8",
+    "name": "airbyte-api Applications Streams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatically control Airbyte Cloud, OSS & Enterprise.",
+      "type": "text/plain"
+    }
+  }
+}
