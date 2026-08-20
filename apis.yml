@@ -7,6 +7,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -189,7 +191,8 @@ apis:
   description: The embedded_widget API from Airbyte — 3 operation(s) for embedded_widget.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - embedded_widget
   properties:
   - type: OpenAPI
@@ -216,6 +219,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
@@ -242,6 +247,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -268,6 +275,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
@@ -294,6 +303,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -346,6 +357,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Public
+  tags_raw:
   - public
   properties:
   - type: OpenAPI
@@ -371,7 +384,8 @@ apis:
   description: The public_applications API from Airbyte — 3 operation(s) for public_applications.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_applications
   properties:
   - type: OpenAPI
@@ -397,7 +411,8 @@ apis:
   description: The public_connections API from Airbyte — 2 operation(s) for public_connections.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_connections
   properties:
   - type: OpenAPI
@@ -424,7 +439,8 @@ apis:
     The public_connector_definitions API from Airbyte — 1 operation(s) for public_connector_definitions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_connector_definitions
   properties:
   - type: OpenAPI
@@ -450,7 +466,8 @@ apis:
   description: The public_dataplanes API from Airbyte — 2 operation(s) for public_dataplanes.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_dataplanes
   properties:
   - type: OpenAPI
@@ -477,7 +494,8 @@ apis:
     The public_declarative_source_definitions API from Airbyte — 2 operation(s) for public_declarative_source_definitions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_declarative_source_definitions
   properties:
   - type: OpenAPI
@@ -504,7 +522,8 @@ apis:
     The public_destination_definitions API from Airbyte — 2 operation(s) for public_destination_definitions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_destination_definitions
   properties:
   - type: OpenAPI
@@ -530,7 +549,8 @@ apis:
   description: The public_destinations API from Airbyte — 2 operation(s) for public_destinations.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_destinations
   properties:
   - type: OpenAPI
@@ -556,7 +576,8 @@ apis:
   description: The public_group_members API from Airbyte — 2 operation(s) for public_group_members.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_group_members
   properties:
   - type: OpenAPI
@@ -583,7 +604,8 @@ apis:
     The public_group_permissions API from Airbyte — 2 operation(s) for public_group_permissions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_group_permissions
   properties:
   - type: OpenAPI
@@ -609,7 +631,8 @@ apis:
   description: The public_groups API from Airbyte — 2 operation(s) for public_groups.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_groups
   properties:
   - type: OpenAPI
@@ -636,6 +659,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - Public Health
+  tags_raw:
   - public_health
   properties:
   - type: OpenAPI
@@ -661,7 +686,8 @@ apis:
   description: The public_jobs API from Airbyte — 2 operation(s) for public_jobs.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_jobs
   properties:
   - type: OpenAPI
@@ -687,7 +713,8 @@ apis:
   description: The public_oauth API from Airbyte — 1 operation(s) for public_oauth.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_oauth
   properties:
   - type: OpenAPI
@@ -713,7 +740,8 @@ apis:
   description: The public_organizations API from Airbyte — 3 operation(s) for public_organizations.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_organizations
   properties:
   - type: OpenAPI
@@ -739,7 +767,8 @@ apis:
   description: The public_permissions API from Airbyte — 2 operation(s) for public_permissions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_permissions
   properties:
   - type: OpenAPI
@@ -765,7 +794,8 @@ apis:
   description: The public_regions API from Airbyte — 2 operation(s) for public_regions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_regions
   properties:
   - type: OpenAPI
@@ -791,7 +821,8 @@ apis:
   description: The public_root API from Airbyte — 1 operation(s) for public_root.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_root
   properties:
   - type: OpenAPI
@@ -818,7 +849,8 @@ apis:
     The public_source_definitions API from Airbyte — 2 operation(s) for public_source_definitions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_source_definitions
   properties:
   - type: OpenAPI
@@ -844,7 +876,8 @@ apis:
   description: The public_sources API from Airbyte — 3 operation(s) for public_sources.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_sources
   properties:
   - type: OpenAPI
@@ -870,7 +903,8 @@ apis:
   description: The public_streams API from Airbyte — 1 operation(s) for public_streams.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_streams
   properties:
   - type: OpenAPI
@@ -896,7 +930,8 @@ apis:
   description: The public_tags API from Airbyte — 2 operation(s) for public_tags.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_tags
   properties:
   - type: OpenAPI
@@ -922,7 +957,8 @@ apis:
   description: The public_users API from Airbyte — 1 operation(s) for public_users.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_users
   properties:
   - type: OpenAPI
@@ -948,7 +984,8 @@ apis:
   description: The public_workspaces API from Airbyte — 3 operation(s) for public_workspaces.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - public_workspaces
   properties:
   - type: OpenAPI
@@ -1105,6 +1142,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -1153,6 +1192,14 @@ apis:
     url: graphql/airbyte-graphql.md
 name: Airbyte
 tags:
+- Data Integration
+- ETL
+- ELT
+- Open-Source
+- Data Pipeline
+- Connectors
+- Data
+tags_raw:
 - Data Integration
 - ETL
 - ELT
