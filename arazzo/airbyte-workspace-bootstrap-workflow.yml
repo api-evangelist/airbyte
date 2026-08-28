@@ -10,8 +10,14 @@ info:
     read and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: airbyteApi
-  url: ../openapi/airbyte-openapi.yml
+- name: publicConnectionsApi
+  url: ../openapi/airbyte-public-connections-api-openapi.yml
+  type: openapi
+- name: publicTagsApi
+  url: ../openapi/airbyte-public-tags-api-openapi.yml
+  type: openapi
+- name: publicWorkspacesApi
+  url: ../openapi/airbyte-public-workspaces-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: bootstrap-workspace

@@ -11,8 +11,20 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: airbyteApi
-  url: ../openapi/airbyte-openapi.yml
+- name: publicConnectionsApi
+  url: ../openapi/airbyte-public-connections-api-openapi.yml
+  type: openapi
+- name: publicDestinationsApi
+  url: ../openapi/airbyte-public-destinations-api-openapi.yml
+  type: openapi
+- name: publicJobsApi
+  url: ../openapi/airbyte-public-jobs-api-openapi.yml
+  type: openapi
+- name: publicSourcesApi
+  url: ../openapi/airbyte-public-sources-api-openapi.yml
+  type: openapi
+- name: publicStreamsApi
+  url: ../openapi/airbyte-public-streams-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-pipeline
