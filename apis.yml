@@ -308,7 +308,8 @@ apis:
   description: The public_health API from Airbyte — 1 operation(s) for public_health.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
-  tags: []
+  tags:
+  - Public Health
   tags_raw:
   - public_health
   properties:
