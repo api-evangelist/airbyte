@@ -894,7 +894,7 @@ common:
   url: https://docs.airbyte.com/llms.txt
 created: '2025-01-08'
 modified: '2026-06-20'
-position: Consumer
+position: Consuming
 description: Airbyte is an open-source data integration platform that enables businesses
   to easily and efficiently move and consolidate their data from various sources into
   one centralized location. With Airbyte, organizations can seamlessly connect and
