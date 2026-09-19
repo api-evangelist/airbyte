@@ -1,5 +1,8 @@
 aid: airbyte
 url: https://raw.githubusercontent.com/api-evangelist/airbyte/refs/heads/main/apis.yml
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-17
 apis:
 - aid: airbyte:airbyte-public-api
   name: Airbyte public API
