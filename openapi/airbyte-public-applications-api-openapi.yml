@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_applications API
+  title: airbyte-api Public Applications API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -185,6 +185,39 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ApplicationReadList:
+      required:
+      - applications
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationRead'
+      x-speakeasy-component: true
+    ApplicationCreate:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+      x-speakeasy-component: true
+    ApplicationTokenRequestWithGrant:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        grant-type:
+          enum:
+          - client_credentials
+      x-speakeasy-component: true
     ApplicationRead:
       required:
       - id
@@ -205,39 +238,6 @@ components:
         createdAt:
           type: integer
           format: int64
-      x-speakeasy-component: true
-    ApplicationReadList:
-      required:
-      - applications
-      type: object
-      properties:
-        applications:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationRead'
-      x-speakeasy-component: true
-    ApplicationTokenRequestWithGrant:
-      required:
-      - client_id
-      - client_secret
-      - grant_type
-      type: object
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        grant-type:
-          enum:
-          - client_credentials
-      x-speakeasy-component: true
-    ApplicationCreate:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
       x-speakeasy-component: true
     PublicAccessTokenResponse:
       required:

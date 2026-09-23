@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_regions API
+  title: airbyte-api Public Regions API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -195,6 +195,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    RegionPatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
     RegionCreateRequest:
       type: object
       required:
@@ -210,26 +220,6 @@ components:
           type: boolean
       x-speakeasy-entity: Region
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    RegionPatchRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Region
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    RegionsResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegionResponse'
       x-speakeasy-component: true
     RegionResponse:
       type: object
@@ -257,4 +247,14 @@ components:
           type: string
       x-speakeasy-entity: Region
       x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    RegionsResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionResponse'
       x-speakeasy-component: true

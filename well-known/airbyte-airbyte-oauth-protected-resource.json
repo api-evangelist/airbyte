@@ -1,0 +1,1 @@
+{"resource":"https://airbyte.mcp.kapa.ai/","authorization_servers":["https://mcp.kapa.ai/auth/public"],"scopes_supported":["openid"],"bearer_methods_supported":["header"]}

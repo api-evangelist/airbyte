@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_group_permissions API
+  title: airbyte-api Public Group Permissions API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -124,33 +124,30 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PermissionType:
-      type: string
-      description: Describes what actions/endpoints the permission entitles to
-      enum:
-      - instance_admin
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_owner
-      - workspace_admin
-      - workspace_runner
-      - workspace_editor
-      - workspace_reader
-      x-speakeasy-component: true
-    GroupPermissionsResponse:
-      title: Root Type for GroupPermissionsResponse
-      description: List/Array of group permissions
+    GroupPermissionCreateRequest:
+      title: Root Type for GroupPermissionCreateRequest
+      description: Request body for creating a group permission
       required:
-      - data
+      - permissionType
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupPermissionResponse'
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for organization-scoped permissions
+      oneOf:
+      - required:
+        - workspaceId
+      - required:
+        - organizationId
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true
@@ -186,30 +183,33 @@ components:
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true
-    GroupPermissionCreateRequest:
-      title: Root Type for GroupPermissionCreateRequest
-      description: Request body for creating a group permission
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
+    GroupPermissionsResponse:
+      title: Root Type for GroupPermissionsResponse
+      description: List/Array of group permissions
       required:
-      - permissionType
+      - data
       type: object
       properties:
-        permissionType:
-          $ref: '#/components/schemas/PermissionType'
-        workspaceId:
-          type: string
-          format: uuid
-          nullable: true
-          description: Required for workspace-scoped permissions
-        organizationId:
-          type: string
-          format: uuid
-          nullable: true
-          description: Required for organization-scoped permissions
-      oneOf:
-      - required:
-        - workspaceId
-      - required:
-        - organizationId
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupPermissionResponse'
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true

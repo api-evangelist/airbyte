@@ -1,4 +1,4 @@
-generated: '2026-06-20'
+generated: '2026-09-19'
 method: searched
 source: live probes of /.well-known/* on Airbyte hosts
 hosts:
@@ -25,8 +25,36 @@ hosts:
   documents:
   - path: /.well-known/security.txt
     status: 404
-notes: >-
-  airbyte.com publishes an OIDC discovery document declaring the OAuth2
-  client_credentials grant against the token endpoint
-  https://api.airbyte.com/v1/applications/token with scopes [openid, api].
+- host: https://airbyte.mcp.kapa.ai
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: airbyte-airbyte-oauth-protected-resource.json
+    bytes: 171
+  path_echo_control: passed
+- host: https://mcp.kapa.ai
+  documents:
+  - path: /.well-known/oauth-authorization-server/auth/public
+    status: 200
+    file: airbyte-mcp-oauth-authorization-server.json
+    bytes: 495
+  path_echo_control: passed
+notes: airbyte.com publishes an OIDC discovery document declaring the OAuth2 client_credentials grant
+  against the token endpoint https://api.airbyte.com/v1/applications/token with scopes [openid, api].
   The api.airbyte.com well-known surface requires authentication (401).
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://airbyte.mcp.kapa.ai
+    path: /.well-known/oauth-protected-resource
+    file: airbyte-airbyte-oauth-protected-resource.json
+  - host: https://mcp.kapa.ai
+    path: /.well-known/oauth-authorization-server/auth/public
+    file: airbyte-mcp-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

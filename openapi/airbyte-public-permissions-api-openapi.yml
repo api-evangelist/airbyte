@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_permissions API
+  title: airbyte-api Public Permissions API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -198,6 +198,18 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PermissionsResponse:
+      title: Root Type for PermissionsResponse
+      description: List/Array of multiple permissions
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PermissionResponseRead'
+      x-speakeasy-component: true
     PublicPermissionType:
       type: string
       description: Subset of `PermissionType` (removing `instance_admin`), could be used in public-api.
@@ -211,60 +223,6 @@ components:
       - workspace_editor
       - workspace_runner
       - workspace_reader
-      x-speakeasy-component: true
-    PermissionScope:
-      description: Scope of a single permission, e.g. workspace, organization
-      type: string
-      enum:
-      - workspace
-      - organization
-      - none
-      x-speakeasy-component: true
-    OrganizationId:
-      type: string
-      format: uuid
-      x-speakeasy-component: true
-    UserId:
-      type: string
-      description: Internal Airbyte user ID
-      format: uuid
-      x-speakeasy-component: true
-    PermissionType:
-      type: string
-      description: Describes what actions/endpoints the permission entitles to
-      enum:
-      - instance_admin
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_owner
-      - workspace_admin
-      - workspace_runner
-      - workspace_editor
-      - workspace_reader
-      x-speakeasy-component: true
-    PermissionCreateRequest:
-      required:
-      - permissionType
-      - userId
-      type: object
-      properties:
-        permissionType:
-          $ref: '#/components/schemas/PublicPermissionType'
-        userId:
-          $ref: '#/components/schemas/UserId'
-        workspaceId:
-          $ref: '#/components/schemas/WorkspaceId'
-        organizationId:
-          $ref: '#/components/schemas/OrganizationId'
-      x-speakeasy-entity: Permission
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    WorkspaceId:
-      type: string
-      format: uuid
       x-speakeasy-component: true
     PermissionResponse:
       title: Root Type for PermissionResponse
@@ -289,27 +247,9 @@ components:
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    PermissionUpdateRequest:
-      required:
-      - permissionType
-      type: object
-      properties:
-        permissionType:
-          $ref: '#/components/schemas/PermissionType'
-      x-speakeasy-entity: Permission
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    PermissionsResponse:
-      title: Root Type for PermissionsResponse
-      description: List/Array of multiple permissions
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PermissionResponseRead'
+    OrganizationId:
+      type: string
+      format: uuid
       x-speakeasy-component: true
     PermissionResponseRead:
       title: Root type for PermissionResponseRead
@@ -336,4 +276,64 @@ components:
           $ref: '#/components/schemas/PermissionScope'
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    PermissionCreateRequest:
+      required:
+      - permissionType
+      - userId
+      type: object
+      properties:
+        permissionType:
+          $ref: '#/components/schemas/PublicPermissionType'
+        userId:
+          $ref: '#/components/schemas/UserId'
+        workspaceId:
+          $ref: '#/components/schemas/WorkspaceId'
+        organizationId:
+          $ref: '#/components/schemas/OrganizationId'
+      x-speakeasy-entity: Permission
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    PermissionScope:
+      description: Scope of a single permission, e.g. workspace, organization
+      type: string
+      enum:
+      - workspace
+      - organization
+      - none
+      x-speakeasy-component: true
+    PermissionUpdateRequest:
+      required:
+      - permissionType
+      type: object
+      properties:
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+      x-speakeasy-entity: Permission
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
+    WorkspaceId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    UserId:
+      type: string
+      description: Internal Airbyte user ID
+      format: uuid
       x-speakeasy-component: true

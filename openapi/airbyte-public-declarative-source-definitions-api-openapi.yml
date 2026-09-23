@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_declarative_source_definitions API
+  title: airbyte-api Public Declarative Source Definitions API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -42,12 +42,12 @@ paths:
       operationId: listDeclarativeSourceDefinitions
       x-speakeasy-alias: listDeclarativeSourceDefinitions
       x-speakeasy-group: DeclarativeSourceDefinitions
-      summary: Airbyte List Declarative Source Definitions.
+      summary: Airbyte List Declarative Source Definitions
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
     post:
-      summary: Airbyte Create a Declarative Source Definition.
+      summary: Airbyte Create a Declarative Source Definition
       x-speakeasy-entity-operation: DeclarativeSourceDefinition#create
       operationId: createDeclarativeSourceDefinition
       x-speakeasy-alias: createDeclarativeSourceDefinition
@@ -120,7 +120,7 @@ paths:
       operationId: getDeclarativeSourceDefinition
       x-speakeasy-alias: getDeclarativeSourceDefinition
       x-speakeasy-group: DeclarativeSourceDefinitions
-      summary: Airbyte Get Declarative Source Definition Details.
+      summary: Airbyte Get Declarative Source Definition Details
       x-speakeasy-entity-operation: DeclarativeSourceDefinition#read
       x-microcks-operation:
         delay: 0
@@ -157,7 +157,7 @@ paths:
       operationId: updateDeclarativeSourceDefinition
       x-speakeasy-alias: updateDeclarativeSourceDefinition
       x-speakeasy-group: DeclarativeSourceDefinitions
-      summary: Airbyte Update Declarative Source Definition Details.
+      summary: Airbyte Update Declarative Source Definition Details
       x-speakeasy-entity-operation: DeclarativeSourceDefinition#update
       x-microcks-operation:
         delay: 0
@@ -188,13 +188,63 @@ paths:
       operationId: deleteDeclarativeSourceDefinition
       x-speakeasy-alias: deleteDeclarativeSourceDefinition
       x-speakeasy-group: DeclarativeSourceDefinitions
-      summary: Airbyte Delete a Declarative Source Definition.
+      summary: Airbyte Delete a Declarative Source Definition
       x-speakeasy-entity-operation: DeclarativeSourceDefinition#delete
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
 components:
   schemas:
+    DeclarativeSourceDefinitionsResponse:
+      title: Root Type for DeclarativeSourceDefinitionsResponse
+      description: ''
+      x-speakeasy-component: true
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
+    CreateDeclarativeSourceDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - workspaceId
+      - name
+      - manifest
+      properties:
+        name:
+          type: string
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
+    DeclarativeManifest:
+      x-speakeasy-component: true
+      x-speakeasy-type-override: any
+      x-speakeasy-terraform-custom-type:
+        imports:
+        - github.com/hashicorp/terraform-plugin-framework-jsontypes/jsontypes
+        schemaType: jsontypes.NormalizedType{}
+        valueType: jsontypes.Normalized
+      description: Low code CDK manifest JSON object
+      type: object
+    ManifestVersion:
+      x-speakeasy-component: true
+      type: integer
+      format: int64
+    UpdateDeclarativeSourceDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - manifest
+      properties:
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
     DeclarativeSourceDefinitionResponse:
       type: object
       x-speakeasy-component: true
@@ -214,53 +264,3 @@ components:
         version:
           x-speakeasy-terraform-ignore: true
           $ref: '#/components/schemas/ManifestVersion'
-    DeclarativeManifest:
-      x-speakeasy-component: true
-      x-speakeasy-type-override: any
-      x-speakeasy-terraform-custom-type:
-        imports:
-        - github.com/hashicorp/terraform-plugin-framework-jsontypes/jsontypes
-        schemaType: jsontypes.NormalizedType{}
-        valueType: jsontypes.Normalized
-      description: Low code CDK manifest JSON object
-      type: object
-    CreateDeclarativeSourceDefinitionRequest:
-      type: object
-      x-speakeasy-component: true
-      required:
-      - workspaceId
-      - name
-      - manifest
-      properties:
-        name:
-          type: string
-        manifest:
-          $ref: '#/components/schemas/DeclarativeManifest'
-    ManifestVersion:
-      x-speakeasy-component: true
-      type: integer
-      format: int64
-    DeclarativeSourceDefinitionsResponse:
-      title: Root Type for DeclarativeSourceDefinitionsResponse
-      description: ''
-      x-speakeasy-component: true
-      required:
-      - data
-      type: object
-      properties:
-        previous:
-          type: string
-        next:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeclarativeSourceDefinitionResponse'
-    UpdateDeclarativeSourceDefinitionRequest:
-      type: object
-      x-speakeasy-component: true
-      required:
-      - manifest
-      properties:
-        manifest:
-          $ref: '#/components/schemas/DeclarativeManifest'

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_organizations API
+  title: airbyte-api Public Organizations API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -65,7 +65,7 @@ paths:
       operationId: createOrUpdateOrganizationOAuthCredentials
       x-speakeasy-alias: createOrUpdateOrganizationOAuthCredentials
       x-speakeasy-group: Organizations
-      summary: Airbyte Create OAuth Override Credentials for an Organization and Source Type.
+      summary: Airbyte Create OAuth Override Credentials for an Organization and Source Type
       description: 'Create/update a set of OAuth credentials to override the Airbyte-provided OAuth credentials used for source/destination OAuth.
 
         In order to determine what the credential configuration needs to be, please see the connector specification of the relevant source/destination.'
@@ -104,13 +104,27 @@ paths:
       operationId: deleteOrganizationOAuthCredentials
       x-speakeasy-alias: deleteOrganizationOAuthCredentials
       x-speakeasy-group: Organizations
-      summary: Airbyte Delete OAuth Override Credentials for an Organization and Source/destination Type.
+      summary: Airbyte Delete OAuth Override Credentials for an Organization and…
       description: Delete a set of OAuth credentials that overrides the Airbyte-provided OAuth credentials used for source/destination OAuth.
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
 components:
   schemas:
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
+    OAuthCredentialsConfiguration:
+      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
+      type: object
+      example:
+        credentials:
+          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+          client_secret: shhhhhh
+      x-speakeasy-component: true
     OrganizationId:
       type: string
       format: uuid
@@ -126,12 +140,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrganizationResponse'
-      x-speakeasy-component: true
-    ActorTypeEnum:
-      description: Whether you're setting this override for a source or destination
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true
     OrganizationOAuthCredentialsRequest:
       title: Root Type for OrganizationOAuthCredentials
@@ -167,12 +175,4 @@ components:
           type: string
           format: email
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    OAuthCredentialsConfiguration:
-      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
-      type: object
-      example:
-        credentials:
-          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-          client_secret: shhhhhh
       x-speakeasy-component: true

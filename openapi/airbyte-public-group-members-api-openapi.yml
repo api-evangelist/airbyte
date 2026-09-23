@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_group_members API
+  title: airbyte-api Public Group Members API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -144,42 +144,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GroupMembersResponse:
-      title: Root Type for GroupMembersResponse
-      description: List/Array of group members
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupMemberResponse'
-        next:
-          type: string
-          description: Link to the next page of results
-          nullable: true
-        previous:
-          type: string
-          description: Link to the previous page of results
-          nullable: true
-      x-speakeasy-component: true
-      x-speakeasy-entity: GroupMember
-      x-speakeasy-param-suppress-computed-diff: true
-    GroupMemberAddRequest:
-      title: Root Type for GroupMemberAddRequest
-      description: Request body for adding a member to a group
-      required:
-      - userId
-      type: object
-      properties:
-        userId:
-          type: string
-          format: uuid
-          description: The ID of the user to add to the group
-      x-speakeasy-component: true
-      x-speakeasy-entity: GroupMember
-      x-speakeasy-param-suppress-computed-diff: true
     GroupMemberResponse:
       title: Root Type for GroupMemberResponse
       description: Provides details of a single group member
@@ -210,6 +174,42 @@ components:
         userName:
           type: string
           description: The name of the user
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMemberAddRequest:
+      title: Root Type for GroupMemberAddRequest
+      description: Request body for adding a member to a group
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+          format: uuid
+          description: The ID of the user to add to the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupMember
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupMembersResponse:
+      title: Root Type for GroupMembersResponse
+      description: List/Array of group members
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupMemberResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
       x-speakeasy-component: true
       x-speakeasy-entity: GroupMember
       x-speakeasy-param-suppress-computed-diff: true

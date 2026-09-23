@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: airbyte-api Applications public_destinations API
+  title: airbyte-api Public Destinations API
   version: 1.0.0
   description: Programmatically control Airbyte Cloud, OSS & Enterprise.
 servers:
@@ -288,6 +288,41 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    DestinationConfiguration:
+      type: object
+      description: The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.
+      example:
+        user: charles
+      x-speakeasy-component: true
+    ResourceRequirements:
+      x-speakeasy-component: true
+      description: optional resource requirements to run workers (blank for unbounded allocations)
+      type: object
+      properties:
+        cpu_request:
+          type: string
+        cpu_limit:
+          type: string
+        memory_request:
+          type: string
+        memory_limit:
+          type: string
+        ephemeral_storage_request:
+          type: string
+        ephemeral_storage_limit:
+          type: string
+    JobType:
+      x-speakeasy-component: true
+      description: enum that describes the different types of jobs that the platform runs.
+      type: string
+      enum:
+      - get_spec
+      - check_connection
+      - discover_schema
+      - sync
+      - reset_connection
+      - connection_updater
+      - replicate
     JobTypeResourceLimit:
       x-speakeasy-component: true
       description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
@@ -313,27 +348,31 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JobTypeResourceLimit'
-    ResourceRequirements:
-      x-speakeasy-component: true
-      description: optional resource requirements to run workers (blank for unbounded allocations)
+    DestinationsResponse:
+      title: Root Type for DestinationsResponse
+      description: ''
+      required:
+      - data
       type: object
       properties:
-        cpu_request:
+        previous:
           type: string
-        cpu_limit:
+        next:
           type: string
-        memory_request:
-          type: string
-        memory_limit:
-          type: string
-        ephemeral_storage_request:
-          type: string
-        ephemeral_storage_limit:
-          type: string
-    DestinationPutRequest:
-      required:
-      - name
-      - configuration
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DestinationResponse'
+      example:
+        next: https://api.airbyte.com/v1/destinations?limit=5&offset=10
+        previous: https://api.airbyte.com/v1/destinations?limit=5&offset=0
+        data:
+          destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+          name: Analytics Team Postgres
+          destinationType: postgres
+          workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+      x-speakeasy-component: true
+    DestinationPatchRequest:
       type: object
       properties:
         name:
@@ -386,30 +425,6 @@ components:
         workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
         definitionId: 321d9b60-11d1-44cb-8c92-c246d53bf98e
       x-speakeasy-component: true
-    DestinationsResponse:
-      title: Root Type for DestinationsResponse
-      description: ''
-      required:
-      - data
-      type: object
-      properties:
-        previous:
-          type: string
-        next:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DestinationResponse'
-      example:
-        next: https://api.airbyte.com/v1/destinations?limit=5&offset=10
-        previous: https://api.airbyte.com/v1/destinations?limit=5&offset=0
-        data:
-          destinationId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
-          name: Analytics Team Postgres
-          destinationType: postgres
-          workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-      x-speakeasy-component: true
     DestinationCreateRequest:
       required:
       - name
@@ -435,7 +450,10 @@ components:
       x-speakeasy-entity: Destination
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    DestinationPatchRequest:
+    DestinationPutRequest:
+      required:
+      - name
+      - configuration
       type: object
       properties:
         name:
@@ -448,21 +466,3 @@ components:
       x-speakeasy-entity: Destination
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    DestinationConfiguration:
-      type: object
-      description: The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.
-      example:
-        user: charles
-      x-speakeasy-component: true
-    JobType:
-      x-speakeasy-component: true
-      description: enum that describes the different types of jobs that the platform runs.
-      type: string
-      enum:
-      - get_spec
-      - check_connection
-      - discover_schema
-      - sync
-      - reset_connection
-      - connection_updater
-      - replicate
