@@ -205,6 +205,16 @@ components:
       x-speakeasy-entity: Region
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
+    RegionsResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionResponse'
+      x-speakeasy-component: true
     RegionCreateRequest:
       type: object
       required:
@@ -247,14 +257,4 @@ components:
           type: string
       x-speakeasy-entity: Region
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    RegionsResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegionResponse'
       x-speakeasy-component: true

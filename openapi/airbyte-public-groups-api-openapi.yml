@@ -208,6 +208,28 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    GroupsResponse:
+      title: Root Type for GroupsResponse
+      description: List/Array of multiple groups
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupResponse'
+        next:
+          type: string
+          description: Link to the next page of results
+          nullable: true
+        previous:
+          type: string
+          description: Link to the previous page of results
+          nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
     GroupResponse:
       title: Root Type for GroupResponse
       description: Provides details of a single group
@@ -240,25 +262,18 @@ components:
       x-speakeasy-component: true
       x-speakeasy-entity: Group
       x-speakeasy-param-suppress-computed-diff: true
-    GroupsResponse:
-      title: Root Type for GroupsResponse
-      description: List/Array of multiple groups
-      required:
-      - data
+    GroupUpdateRequest:
+      title: Root Type for GroupUpdateRequest
+      description: Request body for updating a group
       type: object
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupResponse'
-        next:
+        name:
           type: string
-          description: Link to the next page of results
-          nullable: true
-        previous:
+          description: The updated name of the group
+        description:
           type: string
-          description: Link to the previous page of results
           nullable: true
+          description: The updated description of the group
       x-speakeasy-component: true
       x-speakeasy-entity: Group
       x-speakeasy-param-suppress-computed-diff: true
@@ -281,21 +296,6 @@ components:
           type: string
           format: uuid
           description: The ID of the organization the group belongs to
-      x-speakeasy-component: true
-      x-speakeasy-entity: Group
-      x-speakeasy-param-suppress-computed-diff: true
-    GroupUpdateRequest:
-      title: Root Type for GroupUpdateRequest
-      description: Request body for updating a group
-      type: object
-      properties:
-        name:
-          type: string
-          description: The updated name of the group
-        description:
-          type: string
-          nullable: true
-          description: The updated description of the group
       x-speakeasy-component: true
       x-speakeasy-entity: Group
       x-speakeasy-param-suppress-computed-diff: true

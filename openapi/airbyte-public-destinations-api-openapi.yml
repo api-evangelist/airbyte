@@ -288,54 +288,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DestinationConfiguration:
-      type: object
-      description: The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.
-      example:
-        user: charles
-      x-speakeasy-component: true
-    ResourceRequirements:
-      x-speakeasy-component: true
-      description: optional resource requirements to run workers (blank for unbounded allocations)
-      type: object
-      properties:
-        cpu_request:
-          type: string
-        cpu_limit:
-          type: string
-        memory_request:
-          type: string
-        memory_limit:
-          type: string
-        ephemeral_storage_request:
-          type: string
-        ephemeral_storage_limit:
-          type: string
-    JobType:
-      x-speakeasy-component: true
-      description: enum that describes the different types of jobs that the platform runs.
-      type: string
-      enum:
-      - get_spec
-      - check_connection
-      - discover_schema
-      - sync
-      - reset_connection
-      - connection_updater
-      - replicate
-    JobTypeResourceLimit:
-      x-speakeasy-component: true
-      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
-      type: object
-      additionalProperties: false
-      required:
-      - jobType
-      - resourceRequirements
-      properties:
-        jobType:
-          $ref: '#/components/schemas/JobType'
-        resourceRequirements:
-          $ref: '#/components/schemas/ResourceRequirements'
     ScopedResourceRequirements:
       x-speakeasy-component: true
       description: actor or actor definition specific resource requirements. if default is set, these are the requirements that should be set for ALL jobs run for this actor definition. it is overriden by the job type specific configurations. if not set, the platform will use defaults. these values will be overriden by configuration at the connection level.
@@ -348,6 +300,37 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/JobTypeResourceLimit'
+    DestinationConfiguration:
+      type: object
+      description: The values required to configure the destination. The schema for this must match the schema return by destination_definition_specifications/get for the destinationDefinition.
+      example:
+        user: charles
+      x-speakeasy-component: true
+    DestinationPatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/DestinationConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Destination
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    JobType:
+      x-speakeasy-component: true
+      description: enum that describes the different types of jobs that the platform runs.
+      type: string
+      enum:
+      - get_spec
+      - check_connection
+      - discover_schema
+      - sync
+      - reset_connection
+      - connection_updater
+      - replicate
     DestinationsResponse:
       title: Root Type for DestinationsResponse
       description: ''
@@ -371,19 +354,6 @@ components:
           name: Analytics Team Postgres
           destinationType: postgres
           workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-      x-speakeasy-component: true
-    DestinationPatchRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        configuration:
-          $ref: '#/components/schemas/DestinationConfiguration'
-        resourceAllocation:
-          $ref: '#/components/schemas/ScopedResourceRequirements'
-      x-implements: io.airbyte.api.common.ConfigurableActor
-      x-speakeasy-entity: Destination
-      x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
     DestinationResponse:
       title: Root Type for DestinationResponse
@@ -425,6 +395,36 @@ components:
         workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
         definitionId: 321d9b60-11d1-44cb-8c92-c246d53bf98e
       x-speakeasy-component: true
+    ResourceRequirements:
+      x-speakeasy-component: true
+      description: optional resource requirements to run workers (blank for unbounded allocations)
+      type: object
+      properties:
+        cpu_request:
+          type: string
+        cpu_limit:
+          type: string
+        memory_request:
+          type: string
+        memory_limit:
+          type: string
+        ephemeral_storage_request:
+          type: string
+        ephemeral_storage_limit:
+          type: string
+    JobTypeResourceLimit:
+      x-speakeasy-component: true
+      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
+      type: object
+      additionalProperties: false
+      required:
+      - jobType
+      - resourceRequirements
+      properties:
+        jobType:
+          $ref: '#/components/schemas/JobType'
+        resourceRequirements:
+          $ref: '#/components/schemas/ResourceRequirements'
     DestinationCreateRequest:
       required:
       - name

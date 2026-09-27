@@ -151,6 +151,36 @@ components:
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionsResponse:
+      title: Root Type for GroupPermissionsResponse
+      description: List/Array of group permissions
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupPermissionResponse'
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
+      x-speakeasy-component: true
     GroupPermissionResponse:
       title: Root Type for GroupPermissionResponse
       description: Provides details of a single group permission
@@ -180,36 +210,6 @@ components:
           format: uuid
           nullable: true
           description: The organization ID for organization-scoped permissions
-      x-speakeasy-component: true
-      x-speakeasy-entity: GroupPermission
-      x-speakeasy-param-suppress-computed-diff: true
-    PermissionType:
-      type: string
-      description: Describes what actions/endpoints the permission entitles to
-      enum:
-      - instance_admin
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_owner
-      - workspace_admin
-      - workspace_runner
-      - workspace_editor
-      - workspace_reader
-      x-speakeasy-component: true
-    GroupPermissionsResponse:
-      title: Root Type for GroupPermissionsResponse
-      description: List/Array of group permissions
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupPermissionResponse'
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true

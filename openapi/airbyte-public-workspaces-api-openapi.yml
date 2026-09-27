@@ -235,6 +235,96 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    EmailNotificationConfig:
+      description: Configures an email notification.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WebhookNotificationConfig:
+      description: Configures a webhook notification.
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        url:
+          type: string
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspaceUpdateRequest:
+      type: object
+      properties:
+        name:
+          description: Name of the workspace
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+        regionId:
+          type: string
+          format: uuid
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    NotificationConfig:
+      description: Configures a notification.
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/EmailNotificationConfig'
+        webhook:
+          $ref: '#/components/schemas/WebhookNotificationConfig'
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspaceResponse:
+      title: Root Type for WorkspaceResponse
+      description: Provides details of a single workspace.
+      type: object
+      required:
+      - workspaceId
+      - name
+      - dataResidency
+      - notifications
+      properties:
+        workspaceId:
+          format: UUID
+          type: string
+        name:
+          type: string
+        dataResidency:
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    WorkspaceOAuthCredentialsRequest:
+      title: Root Type for WorkspaceOAuthCredentials
+      description: POST body for creating/updating workspace level OAuth credentials
+      required:
+      - actorType
+      - name
+      - configuration
+      type: object
+      properties:
+        actorType:
+          $ref: '#/components/schemas/ActorTypeEnum'
+        name:
+          type: string
+          description: The name of the source i.e. google-ads
+        configuration:
+          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
+      x-speakeasy-component: true
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
     WorkspacesResponse:
       title: Root Type for WorkspacesResponse
       description: ''
@@ -257,26 +347,6 @@ components:
           workspaceId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
           name: Acme Company
           dataResidency: auto
-      x-speakeasy-component: true
-    WorkspaceUpdateRequest:
-      type: object
-      properties:
-        name:
-          description: Name of the workspace
-          type: string
-        notifications:
-          $ref: '#/components/schemas/NotificationsConfig'
-        regionId:
-          type: string
-          format: uuid
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    ActorTypeEnum:
-      description: Whether you're setting this override for a source or destination
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true
     OAuthCredentialsConfiguration:
       description: The configuration for this source/destination based on the OAuth section of the relevant specification.
@@ -305,17 +375,6 @@ components:
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    WebhookNotificationConfig:
-      description: Configures a webhook notification.
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        url:
-          type: string
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
     WorkspaceCreateRequest:
       required:
       - name
@@ -333,65 +392,6 @@ components:
         regionId:
           type: string
           format: uuid
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    WorkspaceOAuthCredentialsRequest:
-      title: Root Type for WorkspaceOAuthCredentials
-      description: POST body for creating/updating workspace level OAuth credentials
-      required:
-      - actorType
-      - name
-      - configuration
-      type: object
-      properties:
-        actorType:
-          $ref: '#/components/schemas/ActorTypeEnum'
-        name:
-          type: string
-          description: The name of the source i.e. google-ads
-        configuration:
-          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
-      x-speakeasy-component: true
-    WorkspaceResponse:
-      title: Root Type for WorkspaceResponse
-      description: Provides details of a single workspace.
-      type: object
-      required:
-      - workspaceId
-      - name
-      - dataResidency
-      - notifications
-      properties:
-        workspaceId:
-          format: UUID
-          type: string
-        name:
-          type: string
-        dataResidency:
-          type: string
-        notifications:
-          $ref: '#/components/schemas/NotificationsConfig'
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    NotificationConfig:
-      description: Configures a notification.
-      type: object
-      properties:
-        email:
-          $ref: '#/components/schemas/EmailNotificationConfig'
-        webhook:
-          $ref: '#/components/schemas/WebhookNotificationConfig'
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    EmailNotificationConfig:
-      description: Configures an email notification.
-      type: object
-      properties:
-        enabled:
-          type: boolean
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true

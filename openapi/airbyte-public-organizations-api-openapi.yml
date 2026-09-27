@@ -111,52 +111,9 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ActorTypeEnum:
-      description: Whether you're setting this override for a source or destination
-      enum:
-      - source
-      - destination
-      x-speakeasy-component: true
-    OAuthCredentialsConfiguration:
-      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
-      type: object
-      example:
-        credentials:
-          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-          client_secret: shhhhhh
-      x-speakeasy-component: true
     OrganizationId:
       type: string
       format: uuid
-      x-speakeasy-component: true
-    OrganizationsResponse:
-      title: Root Type for OrganizationsResponse
-      description: List/Array of multiple organizations.
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationResponse'
-      x-speakeasy-component: true
-    OrganizationOAuthCredentialsRequest:
-      title: Root Type for OrganizationOAuthCredentials
-      description: POST body for creating/updating organization level OAuth credentials
-      required:
-      - actorType
-      - name
-      - configuration
-      type: object
-      properties:
-        actorType:
-          $ref: '#/components/schemas/ActorTypeEnum'
-        name:
-          type: string
-          description: The name of the source i.e. google-ads
-        configuration:
-          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
       x-speakeasy-component: true
     OrganizationResponse:
       title: Root Type for OrganizationResponse
@@ -175,4 +132,47 @@ components:
           type: string
           format: email
       x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    OrganizationOAuthCredentialsRequest:
+      title: Root Type for OrganizationOAuthCredentials
+      description: POST body for creating/updating organization level OAuth credentials
+      required:
+      - actorType
+      - name
+      - configuration
+      type: object
+      properties:
+        actorType:
+          $ref: '#/components/schemas/ActorTypeEnum'
+        name:
+          type: string
+          description: The name of the source i.e. google-ads
+        configuration:
+          $ref: '#/components/schemas/OAuthCredentialsConfiguration'
+      x-speakeasy-component: true
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
+    OAuthCredentialsConfiguration:
+      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
+      type: object
+      example:
+        credentials:
+          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+          client_secret: shhhhhh
+      x-speakeasy-component: true
+    OrganizationsResponse:
+      title: Root Type for OrganizationsResponse
+      description: List/Array of multiple organizations.
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationResponse'
       x-speakeasy-component: true

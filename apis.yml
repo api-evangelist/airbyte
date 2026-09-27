@@ -5,7 +5,7 @@ x-docs-platform-confidence: medium
 x-docs-platform-checked: 2026-09-17
 apis:
 - aid: airbyte:airbyte-public-api
-  name: Airbyte public API
+  name: Airbyte Public API
   description: The public API from Airbyte — 47 operation(s) for public.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -33,7 +33,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-applications-api
-  name: Airbyte public_applications API
+  name: Airbyte Public Applications API
   description: The public_applications API from Airbyte — 3 operation(s) for public_applications.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -60,7 +60,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-connections-api
-  name: Airbyte public_connections API
+  name: Airbyte Public Connections API
   description: The public_connections API from Airbyte — 2 operation(s) for public_connections.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -87,7 +87,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-connector-definitions-api
-  name: Airbyte public_connector_definitions API
+  name: Airbyte Public Connector Definitions API
   description: >-
     The public_connector_definitions API from Airbyte — 1 operation(s) for public_connector_definitions.
   humanURL: https://airbyte.com
@@ -115,7 +115,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-dataplanes-api
-  name: Airbyte public_dataplanes API
+  name: Airbyte Public Dataplanes API
   description: The public_dataplanes API from Airbyte — 2 operation(s) for public_dataplanes.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -142,7 +142,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-declarative-source-definitions-api
-  name: Airbyte public_declarative_source_definitions API
+  name: Airbyte Public Declarative Source Definitions API
   description: >-
     The public_declarative_source_definitions API from Airbyte — 2 operation(s) for public_declarative_source_definitions.
   humanURL: https://airbyte.com
@@ -170,7 +170,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-destination-definitions-api
-  name: Airbyte public_destination_definitions API
+  name: Airbyte Public Destination Definitions API
   description: >-
     The public_destination_definitions API from Airbyte — 2 operation(s) for public_destination_definitions.
   humanURL: https://airbyte.com
@@ -198,7 +198,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-destinations-api
-  name: Airbyte public_destinations API
+  name: Airbyte Public Destinations API
   description: The public_destinations API from Airbyte — 2 operation(s) for public_destinations.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -225,7 +225,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-group-members-api
-  name: Airbyte public_group_members API
+  name: Airbyte Public Group Members API
   description: The public_group_members API from Airbyte — 2 operation(s) for public_group_members.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -252,7 +252,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-group-permissions-api
-  name: Airbyte public_group_permissions API
+  name: Airbyte Public Group Permissions API
   description: >-
     The public_group_permissions API from Airbyte — 2 operation(s) for public_group_permissions.
   humanURL: https://airbyte.com
@@ -280,7 +280,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-groups-api
-  name: Airbyte public_groups API
+  name: Airbyte Public Groups API
   description: The public_groups API from Airbyte — 2 operation(s) for public_groups.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -307,7 +307,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-health-api
-  name: Airbyte public_health API
+  name: Airbyte Public Health API
   description: The public_health API from Airbyte — 1 operation(s) for public_health.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -335,7 +335,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-jobs-api
-  name: Airbyte public_jobs API
+  name: Airbyte Public Jobs API
   description: The public_jobs API from Airbyte — 2 operation(s) for public_jobs.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -362,7 +362,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-oauth-api
-  name: Airbyte public_oauth API
+  name: Airbyte Public OAUTH API
   description: The public_oauth API from Airbyte — 1 operation(s) for public_oauth.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -389,7 +389,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-organizations-api
-  name: Airbyte public_organizations API
+  name: Airbyte Public Organizations API
   description: The public_organizations API from Airbyte — 3 operation(s) for public_organizations.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -416,7 +416,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-permissions-api
-  name: Airbyte public_permissions API
+  name: Airbyte Public Permissions API
   description: The public_permissions API from Airbyte — 2 operation(s) for public_permissions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -443,7 +443,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-regions-api
-  name: Airbyte public_regions API
+  name: Airbyte Public Regions API
   description: The public_regions API from Airbyte — 2 operation(s) for public_regions.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -470,7 +470,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-root-api
-  name: Airbyte public_root API
+  name: Airbyte Public Root API
   description: The public_root API from Airbyte — 1 operation(s) for public_root.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -497,7 +497,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-source-definitions-api
-  name: Airbyte public_source_definitions API
+  name: Airbyte Public Source Definitions API
   description: >-
     The public_source_definitions API from Airbyte — 2 operation(s) for public_source_definitions.
   humanURL: https://airbyte.com
@@ -525,7 +525,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-sources-api
-  name: Airbyte public_sources API
+  name: Airbyte Public Sources API
   description: The public_sources API from Airbyte — 3 operation(s) for public_sources.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -552,7 +552,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-streams-api
-  name: Airbyte public_streams API
+  name: Airbyte Public Streams API
   description: The public_streams API from Airbyte — 1 operation(s) for public_streams.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -579,7 +579,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-tags-api
-  name: Airbyte public_tags API
+  name: Airbyte Public Tags API
   description: The public_tags API from Airbyte — 2 operation(s) for public_tags.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -606,7 +606,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-users-api
-  name: Airbyte public_users API
+  name: Airbyte Public Users API
   description: The public_users API from Airbyte — 1 operation(s) for public_users.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -633,7 +633,7 @@ apis:
   - type: GraphQL
     url: graphql/airbyte-graphql.md
 - aid: airbyte:airbyte-public-workspaces-api
-  name: Airbyte public_workspaces API
+  name: Airbyte Public Workspaces API
   description: The public_workspaces API from Airbyte — 3 operation(s) for public_workspaces.
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
@@ -664,7 +664,7 @@ tags:
 - Data Integration
 - ETL
 - ELT
-- Open-Source
+- Open Source
 - Data Pipeline
 - Connectors
 - Data
@@ -676,9 +676,14 @@ tags_raw:
 - Data Pipeline
 - Connectors
 - Data
+- Open-Source
 type: Index
 deliveryModel:
   model: unknown
+  license_evidence:
+    repo: airbytehq/airbyte
+    spdx: NOASSERTION
+    stars: 22136
   open_source: unknown
   commercial: true
   callable_host: true
@@ -688,7 +693,7 @@ deliveryModel:
   - openapi
   - pricing
   - repository-unlicensed
-  generated: '2026-08-28'
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: paid

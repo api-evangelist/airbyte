@@ -99,55 +99,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    EmbeddedScopedTokenResponse:
-      type: object
-      required:
-      - token
-      properties:
-        token:
-          type: string
-      x-speakeasy-component: true
-    EmbeddedScopedTokenRequest:
-      type: object
-      required:
-      - workspaceId
-      properties:
-        workspaceId:
-          type: string
-          format: uuid
-      x-speakeasy-component: true
-    EmbeddedOrganizationListItem:
-      type: object
-      required:
-      - organizationId
-      - organizationName
-      - permission
-      properties:
-        organizationId:
-          type: string
-          format: uuid
-        organizationName:
-          type: string
-        permission:
-          $ref: '#/components/schemas/PermissionType'
-      x-speakeasy-component: true
-    EmbeddedWidgetResponse:
-      type: object
-      required:
-      - token
-      properties:
-        token:
-          type: string
-      x-speakeasy-component: true
-    EmbeddedOrganizationsList:
-      required:
-      - organizations
-      properties:
-        organizations:
-          type: array
-          items:
-            $ref: '#/components/schemas/EmbeddedOrganizationListItem'
-      x-speakeasy-component: true
     PermissionType:
       type: string
       description: Describes what actions/endpoints the permission entitles to
@@ -164,6 +115,29 @@ components:
       - workspace_editor
       - workspace_reader
       x-speakeasy-component: true
+    EmbeddedScopedTokenResponse:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+      x-speakeasy-component: true
+    EmbeddedOrganizationListItem:
+      type: object
+      required:
+      - organizationId
+      - organizationName
+      - permission
+      properties:
+        organizationId:
+          type: string
+          format: uuid
+        organizationName:
+          type: string
+        permission:
+          $ref: '#/components/schemas/PermissionType'
+      x-speakeasy-component: true
     EmbeddedWidgetRequest:
       type: object
       required:
@@ -178,4 +152,30 @@ components:
         organizationId:
           type: string
           format: uuid
+      x-speakeasy-component: true
+    EmbeddedWidgetResponse:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+      x-speakeasy-component: true
+    EmbeddedScopedTokenRequest:
+      type: object
+      required:
+      - workspaceId
+      properties:
+        workspaceId:
+          type: string
+          format: uuid
+      x-speakeasy-component: true
+    EmbeddedOrganizationsList:
+      required:
+      - organizations
+      properties:
+        organizations:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmbeddedOrganizationListItem'
       x-speakeasy-component: true

@@ -79,6 +79,12 @@ components:
         connectorDefinnitionType: source
         version: 0.2.0
       x-speakeasy-component: true
+    ConnectorType:
+      type: string
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
     ConnectorDefinitionsResponse:
       title: Root Type for DefinitionsResponse
       description: ''
@@ -90,10 +96,4 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ConnectorDefinitionResponse'
-      x-speakeasy-component: true
-    ConnectorType:
-      type: string
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true

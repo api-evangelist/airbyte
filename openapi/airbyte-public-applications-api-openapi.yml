@@ -185,15 +185,26 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ApplicationReadList:
+    ApplicationRead:
       required:
-      - applications
+      - id
+      - name
+      - clientId
+      - clientSecret
+      - createdAt
       type: object
       properties:
-        applications:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationRead'
+        id:
+          type: string
+        name:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        createdAt:
+          type: integer
+          format: int64
       x-speakeasy-component: true
     ApplicationCreate:
       required:
@@ -218,27 +229,6 @@ components:
           enum:
           - client_credentials
       x-speakeasy-component: true
-    ApplicationRead:
-      required:
-      - id
-      - name
-      - clientId
-      - clientSecret
-      - createdAt
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        createdAt:
-          type: integer
-          format: int64
-      x-speakeasy-component: true
     PublicAccessTokenResponse:
       required:
       - access_token
@@ -254,4 +244,14 @@ components:
         expires_in:
           type: integer
           format: int64
+      x-speakeasy-component: true
+    ApplicationReadList:
+      required:
+      - applications
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationRead'
       x-speakeasy-component: true
