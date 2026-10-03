@@ -111,10 +111,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    OrganizationId:
-      type: string
-      format: uuid
-      x-speakeasy-component: true
     OrganizationResponse:
       title: Root Type for OrganizationResponse
       description: Provides details of a single organization for a user.
@@ -133,6 +129,10 @@ components:
           format: email
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
+    OrganizationId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
     OrganizationOAuthCredentialsRequest:
       title: Root Type for OrganizationOAuthCredentials
       description: POST body for creating/updating organization level OAuth credentials
@@ -149,12 +149,6 @@ components:
           description: The name of the source i.e. google-ads
         configuration:
           $ref: '#/components/schemas/OAuthCredentialsConfiguration'
-      x-speakeasy-component: true
-    ActorTypeEnum:
-      description: Whether you're setting this override for a source or destination
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true
     OAuthCredentialsConfiguration:
       description: The configuration for this source/destination based on the OAuth section of the relevant specification.
@@ -175,4 +169,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OrganizationResponse'
+      x-speakeasy-component: true
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
       x-speakeasy-component: true

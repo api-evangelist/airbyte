@@ -99,30 +99,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PermissionType:
-      type: string
-      description: Describes what actions/endpoints the permission entitles to
-      enum:
-      - instance_admin
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_owner
-      - workspace_admin
-      - workspace_runner
-      - workspace_editor
-      - workspace_reader
-      x-speakeasy-component: true
-    EmbeddedScopedTokenResponse:
-      type: object
-      required:
-      - token
-      properties:
-        token:
-          type: string
-      x-speakeasy-component: true
     EmbeddedOrganizationListItem:
       type: object
       required:
@@ -137,21 +113,6 @@ components:
           type: string
         permission:
           $ref: '#/components/schemas/PermissionType'
-      x-speakeasy-component: true
-    EmbeddedWidgetRequest:
-      type: object
-      required:
-      - allowedOrigin
-      - externalUserId
-      - organizationId
-      properties:
-        allowedOrigin:
-          type: string
-        externalUserId:
-          type: string
-        organizationId:
-          type: string
-          format: uuid
       x-speakeasy-component: true
     EmbeddedWidgetResponse:
       type: object
@@ -169,6 +130,45 @@ components:
         workspaceId:
           type: string
           format: uuid
+      x-speakeasy-component: true
+    EmbeddedWidgetRequest:
+      type: object
+      required:
+      - allowedOrigin
+      - externalUserId
+      - organizationId
+      properties:
+        allowedOrigin:
+          type: string
+        externalUserId:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+      x-speakeasy-component: true
+    EmbeddedScopedTokenResponse:
+      type: object
+      required:
+      - token
+      properties:
+        token:
+          type: string
+      x-speakeasy-component: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
       x-speakeasy-component: true
     EmbeddedOrganizationsList:
       required:

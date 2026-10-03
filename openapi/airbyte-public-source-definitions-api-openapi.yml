@@ -221,22 +221,17 @@ components:
           type: string
         documentationUrl:
           type: string
-    DefinitionsResponse:
-      title: Root Type for DefinitionsResponse
-      description: ''
+    UpdateDefinitionRequest:
+      type: object
       x-speakeasy-component: true
       required:
-      - data
-      type: object
+      - name
+      - dockerImageTag
       properties:
-        previous:
+        name:
           type: string
-        next:
+        dockerImageTag:
           type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DefinitionResponse'
     CreateDefinitionRequest:
       type: object
       x-speakeasy-component: true
@@ -254,14 +249,19 @@ components:
         documentationUrl:
           type: string
           format: uri
-    UpdateDefinitionRequest:
-      type: object
+    DefinitionsResponse:
+      title: Root Type for DefinitionsResponse
+      description: ''
       x-speakeasy-component: true
       required:
-      - name
-      - dockerImageTag
+      - data
+      type: object
       properties:
-        name:
+        previous:
           type: string
-        dockerImageTag:
+        next:
           type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionResponse'

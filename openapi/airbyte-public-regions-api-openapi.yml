@@ -195,6 +195,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    RegionCreateRequest:
+      type: object
+      required:
+      - name
+      - organizationId
+      properties:
+        name:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
     RegionPatchRequest:
       type: object
       properties:
@@ -214,22 +230,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RegionResponse'
-      x-speakeasy-component: true
-    RegionCreateRequest:
-      type: object
-      required:
-      - name
-      - organizationId
-      properties:
-        name:
-          type: string
-        organizationId:
-          type: string
-          format: uuid
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Region
-      x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
     RegionResponse:
       type: object

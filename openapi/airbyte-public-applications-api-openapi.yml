@@ -185,6 +185,31 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ApplicationTokenRequestWithGrant:
+      required:
+      - client_id
+      - client_secret
+      - grant_type
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        grant-type:
+          enum:
+          - client_credentials
+      x-speakeasy-component: true
+    ApplicationReadList:
+      required:
+      - applications
+      type: object
+      properties:
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationRead'
+      x-speakeasy-component: true
     ApplicationRead:
       required:
       - id
@@ -214,21 +239,6 @@ components:
         name:
           type: string
       x-speakeasy-component: true
-    ApplicationTokenRequestWithGrant:
-      required:
-      - client_id
-      - client_secret
-      - grant_type
-      type: object
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        grant-type:
-          enum:
-          - client_credentials
-      x-speakeasy-component: true
     PublicAccessTokenResponse:
       required:
       - access_token
@@ -244,14 +254,4 @@ components:
         expires_in:
           type: integer
           format: int64
-      x-speakeasy-component: true
-    ApplicationReadList:
-      required:
-      - applications
-      type: object
-      properties:
-        applications:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationRead'
       x-speakeasy-component: true

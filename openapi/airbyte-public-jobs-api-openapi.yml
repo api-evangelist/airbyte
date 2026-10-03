@@ -233,23 +233,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    JobCreateRequest:
-      title: Root Type for JobCreate
-      description: Creates a new Job from the configuration provided in the request body.
-      required:
-      - jobType
-      - connectionId
-      type: object
-      properties:
-        connectionId:
-          format: UUID
-          type: string
-        jobType:
-          $ref: '#/components/schemas/JobTypeEnum'
-      example:
-        connectionId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
-        jobType: sync
-      x-speakeasy-component: true
     JobResponse:
       title: Root Type for JobResponse
       description: Provides details of a single job.
@@ -291,25 +274,6 @@ components:
         startTime: 2023-03-25 01:30:50+00:00
         duration: PT8H6M12S
       x-speakeasy-component: true
-    JobStatusEnum:
-      enum:
-      - pending
-      - running
-      - incomplete
-      - failed
-      - succeeded
-      - cancelled
-      type: string
-      x-speakeasy-component: true
-    JobTypeEnum:
-      description: Enum that describes the different types of jobs that the platform runs.
-      enum:
-      - sync
-      - reset
-      - refresh
-      - clear
-      type: string
-      x-speakeasy-component: true
     JobsResponse:
       title: Root Type for JobsResponse
       description: ''
@@ -333,4 +297,40 @@ components:
           status: running
           jobType: sync
           startTime: 2023-03-25 01:30:50+00:00
+      x-speakeasy-component: true
+    JobTypeEnum:
+      description: Enum that describes the different types of jobs that the platform runs.
+      enum:
+      - sync
+      - reset
+      - refresh
+      - clear
+      type: string
+      x-speakeasy-component: true
+    JobCreateRequest:
+      title: Root Type for JobCreate
+      description: Creates a new Job from the configuration provided in the request body.
+      required:
+      - jobType
+      - connectionId
+      type: object
+      properties:
+        connectionId:
+          format: UUID
+          type: string
+        jobType:
+          $ref: '#/components/schemas/JobTypeEnum'
+      example:
+        connectionId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
+        jobType: sync
+      x-speakeasy-component: true
+    JobStatusEnum:
+      enum:
+      - pending
+      - running
+      - incomplete
+      - failed
+      - succeeded
+      - cancelled
+      type: string
       x-speakeasy-component: true

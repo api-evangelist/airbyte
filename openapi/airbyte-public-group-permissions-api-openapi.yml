@@ -124,47 +124,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GroupPermissionCreateRequest:
-      title: Root Type for GroupPermissionCreateRequest
-      description: Request body for creating a group permission
-      required:
-      - permissionType
-      type: object
-      properties:
-        permissionType:
-          $ref: '#/components/schemas/PermissionType'
-        workspaceId:
-          type: string
-          format: uuid
-          nullable: true
-          description: Required for workspace-scoped permissions
-        organizationId:
-          type: string
-          format: uuid
-          nullable: true
-          description: Required for organization-scoped permissions
-      oneOf:
-      - required:
-        - workspaceId
-      - required:
-        - organizationId
-      x-speakeasy-component: true
-      x-speakeasy-entity: GroupPermission
-      x-speakeasy-param-suppress-computed-diff: true
-    GroupPermissionsResponse:
-      title: Root Type for GroupPermissionsResponse
-      description: List/Array of group permissions
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupPermissionResponse'
-      x-speakeasy-component: true
-      x-speakeasy-entity: GroupPermission
-      x-speakeasy-param-suppress-computed-diff: true
     PermissionType:
       type: string
       description: Describes what actions/endpoints the permission entitles to
@@ -210,6 +169,47 @@ components:
           format: uuid
           nullable: true
           description: The organization ID for organization-scoped permissions
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionCreateRequest:
+      title: Root Type for GroupPermissionCreateRequest
+      description: Request body for creating a group permission
+      required:
+      - permissionType
+      type: object
+      properties:
+        permissionType:
+          $ref: '#/components/schemas/PermissionType'
+        workspaceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for workspace-scoped permissions
+        organizationId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Required for organization-scoped permissions
+      oneOf:
+      - required:
+        - workspaceId
+      - required:
+        - organizationId
+      x-speakeasy-component: true
+      x-speakeasy-entity: GroupPermission
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupPermissionsResponse:
+      title: Root Type for GroupPermissionsResponse
+      description: List/Array of group permissions
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupPermissionResponse'
       x-speakeasy-component: true
       x-speakeasy-entity: GroupPermission
       x-speakeasy-param-suppress-computed-diff: true
