@@ -1,0 +1,53 @@
+slug: airbyte
+provider: Airbyte
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: public_permissions
+  spec_file: airbyte-public-permissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: POST /permissions "Create a Permission"; GET /permissions "List Permissions by User Id"; schemas
+    PermissionType, PermissionScope, UserId
+  reason: Full CRUD over permissions scoped to users, organisations and workspaces is authorisation/access
+    administration, mapping to Identity & Access Management.
+- tag: public_group_permissions
+  spec_file: airbyte-public-group-permissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: '"Create Group Permission", schemas PermissionType, GroupPermissionCreateRequest'
+  reason: Explicit permission grant/revoke per group is access control administration, squarely Identity
+    & Access Management.
+- tag: public_applications
+  spec_file: airbyte-public-applications-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.72
+  evidence: '"Create an Application", "Get an Access Token", schema ApplicationTokenRequestWithGrant'
+  reason: Applications here are OAuth client registrations used to obtain access tokens against the public
+    API — issuance and stewardship of developer credentials.
+- tag: public_sources
+  spec_file: airbyte-public-sources-api-openapi.yml
+  capability_id: BC-610
+  capability_id_l1: BC-610
+  capability_name: Information & Data Management
+  confidence: 0.7
+  evidence: POST /sources createSource; schemas SourceConfiguration, SourcesResponse, InitiateOauthRequest
+  reason: Configuration of data sources from which the platform extracts and consolidates data — core
+    data integration, under Information & Data Management. No single L2 matches source/connector configuration
+    specifically.

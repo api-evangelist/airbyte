@@ -711,6 +711,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/airbyte.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/airbyte-capability-edges.yml
+  name: Airbyte Business Capability Map
 - type: Website
   url: https://www.airbyte.com/
 - type: PostmanWorkspace
