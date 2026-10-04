@@ -208,21 +208,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GroupUpdateRequest:
-      title: Root Type for GroupUpdateRequest
-      description: Request body for updating a group
-      type: object
-      properties:
-        name:
-          type: string
-          description: The updated name of the group
-        description:
-          type: string
-          nullable: true
-          description: The updated description of the group
-      x-speakeasy-component: true
-      x-speakeasy-entity: Group
-      x-speakeasy-param-suppress-computed-diff: true
     GroupsResponse:
       title: Root Type for GroupsResponse
       description: List/Array of multiple groups
@@ -242,6 +227,43 @@ components:
           type: string
           description: Link to the previous page of results
           nullable: true
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupUpdateRequest:
+      title: Root Type for GroupUpdateRequest
+      description: Request body for updating a group
+      type: object
+      properties:
+        name:
+          type: string
+          description: The updated name of the group
+        description:
+          type: string
+          nullable: true
+          description: The updated description of the group
+      x-speakeasy-component: true
+      x-speakeasy-entity: Group
+      x-speakeasy-param-suppress-computed-diff: true
+    GroupCreateRequest:
+      title: Root Type for GroupCreateRequest
+      description: Request body for creating a group
+      required:
+      - name
+      - organizationId
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the group
+        description:
+          type: string
+          nullable: true
+          description: Optional description of the group
+        organizationId:
+          type: string
+          format: uuid
+          description: The ID of the organization the group belongs to
       x-speakeasy-component: true
       x-speakeasy-entity: Group
       x-speakeasy-param-suppress-computed-diff: true
@@ -274,28 +296,6 @@ components:
           type: integer
           format: int64
           description: The number of members in the group
-      x-speakeasy-component: true
-      x-speakeasy-entity: Group
-      x-speakeasy-param-suppress-computed-diff: true
-    GroupCreateRequest:
-      title: Root Type for GroupCreateRequest
-      description: Request body for creating a group
-      required:
-      - name
-      - organizationId
-      type: object
-      properties:
-        name:
-          type: string
-          description: The name of the group
-        description:
-          type: string
-          nullable: true
-          description: Optional description of the group
-        organizationId:
-          type: string
-          format: uuid
-          description: The ID of the organization the group belongs to
       x-speakeasy-component: true
       x-speakeasy-entity: Group
       x-speakeasy-param-suppress-computed-diff: true

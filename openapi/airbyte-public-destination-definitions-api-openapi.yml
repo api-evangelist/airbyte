@@ -221,6 +221,22 @@ components:
           type: string
         documentationUrl:
           type: string
+    DefinitionsResponse:
+      title: Root Type for DefinitionsResponse
+      description: ''
+      x-speakeasy-component: true
+      required:
+      - data
+      type: object
+      properties:
+        previous:
+          type: string
+        next:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DefinitionResponse'
     UpdateDefinitionRequest:
       type: object
       x-speakeasy-component: true
@@ -249,19 +265,3 @@ components:
         documentationUrl:
           type: string
           format: uri
-    DefinitionsResponse:
-      title: Root Type for DefinitionsResponse
-      description: ''
-      x-speakeasy-component: true
-      required:
-      - data
-      type: object
-      properties:
-        previous:
-          type: string
-        next:
-          type: string
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DefinitionResponse'

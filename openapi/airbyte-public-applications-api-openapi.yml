@@ -185,30 +185,29 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ApplicationTokenRequestWithGrant:
+    PublicAccessTokenResponse:
       required:
-      - client_id
-      - client_secret
-      - grant_type
+      - access_token
+      - token_type
+      - expires_in
       type: object
       properties:
-        client_id:
+        access_token:
           type: string
-        client_secret:
-          type: string
-        grant-type:
+        token_type:
           enum:
-          - client_credentials
+          - Bearer
+        expires_in:
+          type: integer
+          format: int64
       x-speakeasy-component: true
-    ApplicationReadList:
+    ApplicationCreate:
       required:
-      - applications
+      - name
       type: object
       properties:
-        applications:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApplicationRead'
+        name:
+          type: string
       x-speakeasy-component: true
     ApplicationRead:
       required:
@@ -231,27 +230,28 @@ components:
           type: integer
           format: int64
       x-speakeasy-component: true
-    ApplicationCreate:
+    ApplicationReadList:
       required:
-      - name
+      - applications
       type: object
       properties:
-        name:
-          type: string
+        applications:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApplicationRead'
       x-speakeasy-component: true
-    PublicAccessTokenResponse:
+    ApplicationTokenRequestWithGrant:
       required:
-      - access_token
-      - token_type
-      - expires_in
+      - client_id
+      - client_secret
+      - grant_type
       type: object
       properties:
-        access_token:
+        client_id:
           type: string
-        token_type:
+        client_secret:
+          type: string
+        grant-type:
           enum:
-          - Bearer
-        expires_in:
-          type: integer
-          format: int64
+          - client_credentials
       x-speakeasy-component: true

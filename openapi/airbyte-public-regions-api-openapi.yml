@@ -195,42 +195,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RegionCreateRequest:
-      type: object
-      required:
-      - name
-      - organizationId
-      properties:
-        name:
-          type: string
-        organizationId:
-          type: string
-          format: uuid
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Region
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    RegionPatchRequest:
-      type: object
-      properties:
-        name:
-          type: string
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Region
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    RegionsResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegionResponse'
-      x-speakeasy-component: true
     RegionResponse:
       type: object
       required:
@@ -255,6 +219,42 @@ components:
           type: string
         updatedAt:
           type: string
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    RegionCreateRequest:
+      type: object
+      required:
+      - name
+      - organizationId
+      properties:
+        name:
+          type: string
+        organizationId:
+          type: string
+          format: uuid
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Region
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    RegionsResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegionResponse'
+      x-speakeasy-component: true
+    RegionPatchRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        enabled:
+          type: boolean
       x-speakeasy-entity: Region
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true

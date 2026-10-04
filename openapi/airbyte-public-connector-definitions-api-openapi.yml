@@ -54,6 +54,12 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ConnectorType:
+      type: string
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
     ConnectorDefinitionResponse:
       title: Root Type for ConnectorDefinitionResponse
       description: Provides details of a single connector definition.
@@ -78,12 +84,6 @@ components:
         name: Postgres
         connectorDefinnitionType: source
         version: 0.2.0
-      x-speakeasy-component: true
-    ConnectorType:
-      type: string
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true
     ConnectorDefinitionsResponse:
       title: Root Type for DefinitionsResponse

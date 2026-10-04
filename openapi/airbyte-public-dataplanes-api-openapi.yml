@@ -195,32 +195,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    DataplanesResponse:
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataplaneResponse'
-      x-speakeasy-component: true
-    DataplaneCreateRequest:
-      type: object
-      required:
-      - regionId
-      - name
-      properties:
-        regionId:
-          type: string
-          format: uuid
-        name:
-          type: string
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Dataplane
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
     DataplanePatchRequest:
       type: object
       properties:
@@ -230,6 +204,16 @@ components:
           type: boolean
       x-speakeasy-entity: Dataplane
       x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DataplanesResponse:
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataplaneResponse'
       x-speakeasy-component: true
     DataplaneResponse:
       type: object
@@ -255,6 +239,22 @@ components:
           type: string
         updatedAt:
           type: string
+      x-speakeasy-entity: Dataplane
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    DataplaneCreateRequest:
+      type: object
+      required:
+      - regionId
+      - name
+      properties:
+        regionId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        enabled:
+          type: boolean
       x-speakeasy-entity: Dataplane
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true

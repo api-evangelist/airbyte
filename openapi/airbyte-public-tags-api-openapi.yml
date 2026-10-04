@@ -183,19 +183,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TagCreateRequest:
+    TagPatchRequest:
       required:
       - name
       - color
-      - workspaceId
       type: object
       properties:
         name:
           type: string
         color:
           type: string
-        workspaceId:
-          $ref: '#/components/schemas/WorkspaceId'
       x-speakeasy-entity: Tag
       x-speakeasy-component: true
     TagResponse:
@@ -223,24 +220,23 @@ components:
         color: FF5733
         workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
       x-speakeasy-component: true
-    WorkspaceId:
-      type: string
-      format: uuid
-      x-speakeasy-component: true
     TagId:
       type: string
       format: uuid
       x-speakeasy-component: true
-    TagPatchRequest:
+    TagCreateRequest:
       required:
       - name
       - color
+      - workspaceId
       type: object
       properties:
         name:
           type: string
         color:
           type: string
+        workspaceId:
+          $ref: '#/components/schemas/WorkspaceId'
       x-speakeasy-entity: Tag
       x-speakeasy-component: true
     TagsResponse:
@@ -254,4 +250,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagResponse'
+      x-speakeasy-component: true
+    WorkspaceId:
+      type: string
+      format: uuid
       x-speakeasy-component: true

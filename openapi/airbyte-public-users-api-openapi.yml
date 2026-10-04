@@ -83,6 +83,11 @@ components:
       x-speakeasy-entity: User
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
+    UserId:
+      type: string
+      description: Internal Airbyte user ID
+      format: uuid
+      x-speakeasy-component: true
     UsersResponse:
       title: Root Type for UsersResponse
       description: List/Array of multiple users in an organization
@@ -97,8 +102,3 @@ components:
       x-speakeasy-component: true
       x-speakeasy-entity: User
       x-speakeasy-param-suppress-computed-diff: true
-    UserId:
-      type: string
-      description: Internal Airbyte user ID
-      format: uuid
-      x-speakeasy-component: true

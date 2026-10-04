@@ -274,6 +274,15 @@ components:
         startTime: 2023-03-25 01:30:50+00:00
         duration: PT8H6M12S
       x-speakeasy-component: true
+    JobTypeEnum:
+      description: Enum that describes the different types of jobs that the platform runs.
+      enum:
+      - sync
+      - reset
+      - refresh
+      - clear
+      type: string
+      x-speakeasy-component: true
     JobsResponse:
       title: Root Type for JobsResponse
       description: ''
@@ -298,13 +307,14 @@ components:
           jobType: sync
           startTime: 2023-03-25 01:30:50+00:00
       x-speakeasy-component: true
-    JobTypeEnum:
-      description: Enum that describes the different types of jobs that the platform runs.
+    JobStatusEnum:
       enum:
-      - sync
-      - reset
-      - refresh
-      - clear
+      - pending
+      - running
+      - incomplete
+      - failed
+      - succeeded
+      - cancelled
       type: string
       x-speakeasy-component: true
     JobCreateRequest:
@@ -323,14 +333,4 @@ components:
       example:
         connectionId: 18dccc91-0ab1-4f72-9ed7-0b8fc27c5826
         jobType: sync
-      x-speakeasy-component: true
-    JobStatusEnum:
-      enum:
-      - pending
-      - running
-      - incomplete
-      - failed
-      - succeeded
-      - cancelled
-      type: string
       x-speakeasy-component: true

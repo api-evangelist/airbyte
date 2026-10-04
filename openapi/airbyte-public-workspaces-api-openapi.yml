@@ -235,6 +235,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ActorTypeEnum:
+      description: Whether you're setting this override for a source or destination
+      enum:
+      - source
+      - destination
+      x-speakeasy-component: true
+    OAuthCredentialsConfiguration:
+      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
+      type: object
+      example:
+        credentials:
+          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+          client_secret: shhhhhh
+      x-speakeasy-component: true
+    WorkspaceUpdateRequest:
+      type: object
+      properties:
+        name:
+          description: Name of the workspace
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+        regionId:
+          type: string
+          format: uuid
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
     WorkspaceOAuthCredentialsRequest:
       title: Root Type for WorkspaceOAuthCredentials
       description: POST body for creating/updating workspace level OAuth credentials
@@ -252,23 +280,23 @@ components:
         configuration:
           $ref: '#/components/schemas/OAuthCredentialsConfiguration'
       x-speakeasy-component: true
-    WorkspaceCreateRequest:
-      required:
-      - name
+    EmailNotificationConfig:
+      description: Configures an email notification.
       type: object
       properties:
-        name:
-          description: Name of the workspace
-          type: string
-        organizationId:
-          description: ID of organization to add workspace to.
-          format: uuid
-          type: string
-        notifications:
-          $ref: '#/components/schemas/NotificationsConfig'
-        regionId:
-          type: string
-          format: uuid
+        enabled:
+          type: boolean
+      x-speakeasy-entity: Workspace
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
+    NotificationConfig:
+      description: Configures a notification.
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/EmailNotificationConfig'
+        webhook:
+          $ref: '#/components/schemas/WebhookNotificationConfig'
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
@@ -306,28 +334,22 @@ components:
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    NotificationConfig:
-      description: Configures a notification.
+    NotificationsConfig:
+      description: Configures workspace notifications.
       type: object
       properties:
-        email:
-          $ref: '#/components/schemas/EmailNotificationConfig'
-        webhook:
-          $ref: '#/components/schemas/WebhookNotificationConfig'
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    WorkspaceUpdateRequest:
-      type: object
-      properties:
-        name:
-          description: Name of the workspace
-          type: string
-        notifications:
-          $ref: '#/components/schemas/NotificationsConfig'
-        regionId:
-          type: string
-          format: uuid
+        failure:
+          $ref: '#/components/schemas/NotificationConfig'
+        success:
+          $ref: '#/components/schemas/NotificationConfig'
+        connectionUpdate:
+          $ref: '#/components/schemas/NotificationConfig'
+        connectionUpdateActionRequired:
+          $ref: '#/components/schemas/NotificationConfig'
+        syncDisabled:
+          $ref: '#/components/schemas/NotificationConfig'
+        syncDisabledWarning:
+          $ref: '#/components/schemas/NotificationConfig'
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
@@ -353,45 +375,23 @@ components:
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    OAuthCredentialsConfiguration:
-      description: The configuration for this source/destination based on the OAuth section of the relevant specification.
-      type: object
-      example:
-        credentials:
-          client_id: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-          client_secret: shhhhhh
-      x-speakeasy-component: true
-    NotificationsConfig:
-      description: Configures workspace notifications.
+    WorkspaceCreateRequest:
+      required:
+      - name
       type: object
       properties:
-        failure:
-          $ref: '#/components/schemas/NotificationConfig'
-        success:
-          $ref: '#/components/schemas/NotificationConfig'
-        connectionUpdate:
-          $ref: '#/components/schemas/NotificationConfig'
-        connectionUpdateActionRequired:
-          $ref: '#/components/schemas/NotificationConfig'
-        syncDisabled:
-          $ref: '#/components/schemas/NotificationConfig'
-        syncDisabledWarning:
-          $ref: '#/components/schemas/NotificationConfig'
+        name:
+          description: Name of the workspace
+          type: string
+        organizationId:
+          description: ID of organization to add workspace to.
+          format: uuid
+          type: string
+        notifications:
+          $ref: '#/components/schemas/NotificationsConfig'
+        regionId:
+          type: string
+          format: uuid
       x-speakeasy-entity: Workspace
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    EmailNotificationConfig:
-      description: Configures an email notification.
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      x-speakeasy-entity: Workspace
-      x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    ActorTypeEnum:
-      description: Whether you're setting this override for a source or destination
-      enum:
-      - source
-      - destination
       x-speakeasy-component: true

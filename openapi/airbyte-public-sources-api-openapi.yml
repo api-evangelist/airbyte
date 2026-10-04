@@ -300,62 +300,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    InitiateOauthRequest:
-      title: Root Type for initiate-oauth-post-body
-      required:
-      - redirectUrl
-      - workspaceId
-      type: object
-      properties:
-        name:
-          description: The name of the source to authenticate to. Deprecated - use sourceType instead.
-          type: string
-        sourceType:
-          description: The name of the source to authenticate to
-          type: string
-        redirectUrl:
-          description: The URL to redirect the user to with the OAuth secret stored in the secret_id query string parameter after authentication is complete.
-          type: string
-        workspaceId:
-          format: uuid
-          description: The workspace to create the secret and eventually the full source.
-          type: string
-        oAuthInputConfiguration:
-          $ref: '#/components/schemas/OAuthInputConfiguration'
-          description: Input configuration for OAuth required by some sources.
-        requestedScopes:
-          type: array
-          description: Optional OAuth scopes to request, overriding the connector's default scopes. Only supported for connectors that define scopes as an array.
-          items:
-            type: string
-        requestedOptionalScopes:
-          type: array
-          description: Optional OAuth optional_scopes to request, overriding the connector's default optional_scopes. Only applied when requestedScopes is also provided.
-          items:
-            type: string
-      example:
-        redirectUrl: https://cloud.airbyte.io/v1/api/oauth/callback
-        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-        destinationId: 3d93b16c-ff5f-421c-8908-5a3c82088f14
-      x-speakeasy-component: true
-    ScopedResourceRequirements:
-      x-speakeasy-component: true
-      description: actor or actor definition specific resource requirements. if default is set, these are the requirements that should be set for ALL jobs run for this actor definition. it is overriden by the job type specific configurations. if not set, the platform will use defaults. these values will be overriden by configuration at the connection level.
-      type: object
-      additionalProperties: false
-      properties:
-        default:
-          $ref: '#/components/schemas/ResourceRequirements'
-        jobSpecific:
-          type: array
-          items:
-            $ref: '#/components/schemas/JobTypeResourceLimit'
-    SourceConfiguration:
-      type: object
-      description: The values required to configure the source. The schema for this must match the schema return by source_definition_specifications/get for the source.
-      example:
-        user: charles
-      x-speakeasy-component: true
     SourcePatchRequest:
       type: object
       properties:
@@ -376,26 +320,15 @@ components:
       x-speakeasy-entity: Source
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
+    SourceConfiguration:
+      type: object
+      description: The values required to configure the source. The schema for this must match the schema return by source_definition_specifications/get for the source.
+      example:
+        user: charles
+      x-speakeasy-component: true
     OAuthConfiguration:
       description: The values required to configure OAuth flows. The schema for this must match the `OAuthConfigSpecification.oauthUserInputFromConnectorConfigSpecification` schema.
       x-speakeasy-component: true
-    ResourceRequirements:
-      x-speakeasy-component: true
-      description: optional resource requirements to run workers (blank for unbounded allocations)
-      type: object
-      properties:
-        cpu_request:
-          type: string
-        cpu_limit:
-          type: string
-        memory_request:
-          type: string
-        memory_limit:
-          type: string
-        ephemeral_storage_request:
-          type: string
-        ephemeral_storage_limit:
-          type: string
     SourceResponse:
       title: Root Type for SourceResponse
       description: Provides details of a single source.
@@ -436,6 +369,60 @@ components:
         workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
         definitionId: 321d9b60-11d1-44cb-8c92-c246d53bf98e
       x-speakeasy-component: true
+    InitiateOauthRequest:
+      title: Root Type for initiate-oauth-post-body
+      required:
+      - redirectUrl
+      - workspaceId
+      type: object
+      properties:
+        name:
+          description: The name of the source to authenticate to. Deprecated - use sourceType instead.
+          type: string
+        sourceType:
+          description: The name of the source to authenticate to
+          type: string
+        redirectUrl:
+          description: The URL to redirect the user to with the OAuth secret stored in the secret_id query string parameter after authentication is complete.
+          type: string
+        workspaceId:
+          format: uuid
+          description: The workspace to create the secret and eventually the full source.
+          type: string
+        oAuthInputConfiguration:
+          $ref: '#/components/schemas/OAuthInputConfiguration'
+          description: Input configuration for OAuth required by some sources.
+        requestedScopes:
+          type: array
+          description: Optional OAuth scopes to request, overriding the connector's default scopes. Only supported for connectors that define scopes as an array.
+          items:
+            type: string
+        requestedOptionalScopes:
+          type: array
+          description: Optional OAuth optional_scopes to request, overriding the connector's default optional_scopes. Only applied when requestedScopes is also provided.
+          items:
+            type: string
+      example:
+        redirectUrl: https://cloud.airbyte.io/v1/api/oauth/callback
+        workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
+        destinationId: 3d93b16c-ff5f-421c-8908-5a3c82088f14
+      x-speakeasy-component: true
+    SourcePutRequest:
+      required:
+      - name
+      - configuration
+      type: object
+      properties:
+        name:
+          type: string
+        configuration:
+          $ref: '#/components/schemas/SourceConfiguration'
+        resourceAllocation:
+          $ref: '#/components/schemas/ScopedResourceRequirements'
+      x-implements: io.airbyte.api.common.ConfigurableActor
+      x-speakeasy-entity: Source
+      x-speakeasy-param-suppress-computed-diff: true
+      x-speakeasy-component: true
     SourceCreateRequest:
       required:
       - name
@@ -464,21 +451,50 @@ components:
       x-speakeasy-entity: Source
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    SourcePutRequest:
-      required:
-      - name
-      - configuration
+    ResourceRequirements:
+      x-speakeasy-component: true
+      description: optional resource requirements to run workers (blank for unbounded allocations)
       type: object
       properties:
-        name:
+        cpu_request:
           type: string
-        configuration:
-          $ref: '#/components/schemas/SourceConfiguration'
-        resourceAllocation:
-          $ref: '#/components/schemas/ScopedResourceRequirements'
-      x-implements: io.airbyte.api.common.ConfigurableActor
-      x-speakeasy-entity: Source
-      x-speakeasy-param-suppress-computed-diff: true
+        cpu_limit:
+          type: string
+        memory_request:
+          type: string
+        memory_limit:
+          type: string
+        ephemeral_storage_request:
+          type: string
+        ephemeral_storage_limit:
+          type: string
+    JobTypeResourceLimit:
+      x-speakeasy-component: true
+      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
+      type: object
+      additionalProperties: false
+      required:
+      - jobType
+      - resourceRequirements
+      properties:
+        jobType:
+          $ref: '#/components/schemas/JobType'
+        resourceRequirements:
+          $ref: '#/components/schemas/ResourceRequirements'
+    ScopedResourceRequirements:
+      x-speakeasy-component: true
+      description: actor or actor definition specific resource requirements. if default is set, these are the requirements that should be set for ALL jobs run for this actor definition. it is overriden by the job type specific configurations. if not set, the platform will use defaults. these values will be overriden by configuration at the connection level.
+      type: object
+      additionalProperties: false
+      properties:
+        default:
+          $ref: '#/components/schemas/ResourceRequirements'
+        jobSpecific:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobTypeResourceLimit'
+    OAuthInputConfiguration:
+      $ref: '#/components/schemas/OAuthConfiguration'
       x-speakeasy-component: true
     JobType:
       x-speakeasy-component: true
@@ -515,22 +531,6 @@ components:
           name: Analytics Team Postgres
           sourceType: postgres
           workspaceId: 871d9b60-11d1-44cb-8c92-c246d53bf87e
-      x-speakeasy-component: true
-    JobTypeResourceLimit:
-      x-speakeasy-component: true
-      description: sets resource requirements for a specific job type for an actor or actor definition. these values override the default, if both are set.
-      type: object
-      additionalProperties: false
-      required:
-      - jobType
-      - resourceRequirements
-      properties:
-        jobType:
-          $ref: '#/components/schemas/JobType'
-        resourceRequirements:
-          $ref: '#/components/schemas/ResourceRequirements'
-    OAuthInputConfiguration:
-      $ref: '#/components/schemas/OAuthConfiguration'
       x-speakeasy-component: true
   responses:
     InitiateOauthResponse:
