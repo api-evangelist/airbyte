@@ -41,3 +41,18 @@ deployment:
   probe: gated
   checked: '2026-08-12'
   source: catalog MCP census
+rfc9728:
+  endpoint: https://airbyte.mcp.kapa.ai
+  metadata_url: https://airbyte.mcp.kapa.ai/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://airbyte.mcp.kapa.ai/
+    authorization_servers:
+    - https://mcp.kapa.ai/auth/public
+    scopes_supported:
+    - openid
+    bearer_methods_supported:
+    - header

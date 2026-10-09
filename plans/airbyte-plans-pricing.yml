@@ -116,3 +116,51 @@ plans:
       - name: Custom refresh frequency
       - name: Dedicated solutions architect
       - name: Business-critical support
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - period
+  plans:
+  - name: Core
+    access: freemium
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Standard
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Plus
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
+  - name: Pro
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
+  - name: Enterprise Flex
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
