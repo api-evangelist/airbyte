@@ -63,6 +63,25 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    UsersResponse:
+      title: Root Type for UsersResponse
+      description: List/Array of multiple users in an organization
+      required:
+      - data
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserResponse'
+      x-speakeasy-component: true
+      x-speakeasy-entity: User
+      x-speakeasy-param-suppress-computed-diff: true
+    UserId:
+      type: string
+      description: Internal Airbyte user ID
+      format: uuid
+      x-speakeasy-component: true
     UserResponse:
       title: Root Type for UserResponse
       description: Provides details of a single user in an organization.
@@ -83,22 +102,3 @@ components:
       x-speakeasy-entity: User
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    UserId:
-      type: string
-      description: Internal Airbyte user ID
-      format: uuid
-      x-speakeasy-component: true
-    UsersResponse:
-      title: Root Type for UsersResponse
-      description: List/Array of multiple users in an organization
-      required:
-      - data
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserResponse'
-      x-speakeasy-component: true
-      x-speakeasy-entity: User
-      x-speakeasy-param-suppress-computed-diff: true

@@ -195,37 +195,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    UpdateDeclarativeSourceDefinitionRequest:
-      type: object
-      x-speakeasy-component: true
-      required:
-      - manifest
-      properties:
-        manifest:
-          $ref: '#/components/schemas/DeclarativeManifest'
-    ManifestVersion:
-      x-speakeasy-component: true
-      type: integer
-      format: int64
-    DeclarativeSourceDefinitionResponse:
-      type: object
-      x-speakeasy-component: true
-      required:
-      - id
-      - name
-      - manifest
-      - version
-      properties:
-        id:
-          format: UUID
-          type: string
-        name:
-          type: string
-        manifest:
-          $ref: '#/components/schemas/DeclarativeManifest'
-        version:
-          x-speakeasy-terraform-ignore: true
-          $ref: '#/components/schemas/ManifestVersion'
     DeclarativeSourceDefinitionsResponse:
       title: Root Type for DeclarativeSourceDefinitionsResponse
       description: ''
@@ -264,3 +233,34 @@ components:
         valueType: jsontypes.Normalized
       description: Low code CDK manifest JSON object
       type: object
+    ManifestVersion:
+      x-speakeasy-component: true
+      type: integer
+      format: int64
+    UpdateDeclarativeSourceDefinitionRequest:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - manifest
+      properties:
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
+    DeclarativeSourceDefinitionResponse:
+      type: object
+      x-speakeasy-component: true
+      required:
+      - id
+      - name
+      - manifest
+      - version
+      properties:
+        id:
+          format: UUID
+          type: string
+        name:
+          type: string
+        manifest:
+          $ref: '#/components/schemas/DeclarativeManifest'
+        version:
+          x-speakeasy-terraform-ignore: true
+          $ref: '#/components/schemas/ManifestVersion'

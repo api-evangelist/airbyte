@@ -198,21 +198,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    PermissionType:
+    PermissionScope:
+      description: Scope of a single permission, e.g. workspace, organization
       type: string
-      description: Describes what actions/endpoints the permission entitles to
       enum:
-      - instance_admin
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_owner
-      - workspace_admin
-      - workspace_runner
-      - workspace_editor
-      - workspace_reader
+      - workspace
+      - organization
+      - none
+      x-speakeasy-component: true
+    OrganizationId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    UserId:
+      type: string
+      description: Internal Airbyte user ID
+      format: uuid
       x-speakeasy-component: true
     PermissionCreateRequest:
       required:
@@ -231,10 +232,6 @@ components:
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    OrganizationId:
-      type: string
-      format: uuid
-      x-speakeasy-component: true
     PermissionUpdateRequest:
       required:
       - permissionType
@@ -244,28 +241,6 @@ components:
           $ref: '#/components/schemas/PermissionType'
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    PermissionScope:
-      description: Scope of a single permission, e.g. workspace, organization
-      type: string
-      enum:
-      - workspace
-      - organization
-      - none
-      x-speakeasy-component: true
-    PublicPermissionType:
-      type: string
-      description: Subset of `PermissionType` (removing `instance_admin`), could be used in public-api.
-      enum:
-      - organization_admin
-      - organization_editor
-      - organization_runner
-      - organization_reader
-      - organization_member
-      - workspace_admin
-      - workspace_editor
-      - workspace_runner
-      - workspace_reader
       x-speakeasy-component: true
     PermissionResponseRead:
       title: Root type for PermissionResponseRead
@@ -293,11 +268,6 @@ components:
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
       x-speakeasy-component: true
-    UserId:
-      type: string
-      description: Internal Airbyte user ID
-      format: uuid
-      x-speakeasy-component: true
     PermissionsResponse:
       title: Root Type for PermissionsResponse
       description: List/Array of multiple permissions
@@ -309,6 +279,40 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PermissionResponseRead'
+      x-speakeasy-component: true
+    WorkspaceId:
+      type: string
+      format: uuid
+      x-speakeasy-component: true
+    PublicPermissionType:
+      type: string
+      description: Subset of `PermissionType` (removing `instance_admin`), could be used in public-api.
+      enum:
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_admin
+      - workspace_editor
+      - workspace_runner
+      - workspace_reader
+      x-speakeasy-component: true
+    PermissionType:
+      type: string
+      description: Describes what actions/endpoints the permission entitles to
+      enum:
+      - instance_admin
+      - organization_admin
+      - organization_editor
+      - organization_runner
+      - organization_reader
+      - organization_member
+      - workspace_owner
+      - workspace_admin
+      - workspace_runner
+      - workspace_editor
+      - workspace_reader
       x-speakeasy-component: true
     PermissionResponse:
       title: Root Type for PermissionResponse
@@ -332,8 +336,4 @@ components:
           $ref: '#/components/schemas/OrganizationId'
       x-speakeasy-entity: Permission
       x-speakeasy-param-suppress-computed-diff: true
-      x-speakeasy-component: true
-    WorkspaceId:
-      type: string
-      format: uuid
       x-speakeasy-component: true
