@@ -1,0 +1,19 @@
+openapi: 3.2.0
+info:
+  title: Airbyte marketing site .well Known API
+  version: 1.0.0
+  description: Discovery and documentation surface for airbyte.com. Programmatic data plane APIs are hosted at https://api.airbyte.com.
+servers:
+- url: https://airbyte.com
+tags:
+- name: .well Known
+paths:
+  /.well-known/api-catalog:
+    get:
+      operationId: getApiCatalog
+      summary: RFC 9727 API catalog
+      responses:
+        '200':
+          description: application/linkset+json
+      tags:
+      - .well Known

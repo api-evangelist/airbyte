@@ -1,0 +1,19 @@
+openapi: 3.2.0
+info:
+  title: Airbyte Marketing Site API
+  version: 1.0.0
+  description: Discovery and documentation surface for airbyte.com. Programmatic data plane APIs are hosted at https://api.airbyte.com.
+servers:
+- url: https://airbyte.com
+tags:
+- name: Airbyte Marketing Site
+paths:
+  /:
+    get:
+      operationId: getHomepage
+      summary: Marketing homepage
+      responses:
+        '200':
+          description: HTML homepage (default) or markdown when negotiated
+      tags:
+      - Airbyte Marketing Site
