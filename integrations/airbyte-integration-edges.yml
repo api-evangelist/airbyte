@@ -7,6 +7,7 @@ checked:
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
 - https://crates.io/api/v1
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
+- https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/
 - https://proxy.golang.org
 - https://pypi.org/pypi
 - https://registry.npmjs.org
@@ -39,32 +40,53 @@ edges:
   seller_name: Airbyte
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
-- partner_name: Pipedream
-  partner: pipedream
-  partner_match: aggregator
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
   type: marketplace
-  marketplace: pipedream-components
-  channel: open-source-node
-  relationship: ipaas-bridge
+  relationship: platform-app
   direction: third-party
-  evidence: https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/https_airbyte_com
-  category: null
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A092V4M9UE9-airbyte
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - Airbyte
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.airbyte/api
+  channel: package-registry
+  relationship: distribution-channel
   contract_reference:
-    register: Pipedream components (PipedreamHQ/pipedream components/)
+    register: Maven Central (public registry JSON)
     spec_file: null
-    role: ipaas-connector:pipedream
-    registered_name: https airbyte com
-    matched_domain: airbyte.com
-    matched_by: domain
-    detected_by: sweep-workflow-automation.py
-    detected: '2026-10-15'
-    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
-    app_slug: https_airbyte_com
-    actions: true
-    sources: false
-    builder: Pipedream repo (component)
-  detected_by: sweep-workflow-automation.py
-  first_seen: '2026-10-15'
+    language: Java/JVM
+    packages:
+    - name: com.airbyte:api
+      version: 2.0.0
+      released: '2025-04-16'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.airbyte/api
+      repo_leg: github-org:airbytehq
+      publisher_leg: groupId:airbyte.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 - partner_name: 100ms
   partner: 100ms-live
   partner_match: domain
@@ -11235,52 +11257,31 @@ edges:
     builder: unknown (community connector; contributor not in the record)
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
+- partner_name: Pipedream
+  partner: pipedream
+  partner_match: aggregator
   type: marketplace
-  relationship: platform-app
+  marketplace: pipedream-components
+  channel: open-source-node
+  relationship: ipaas-bridge
   direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A092V4M9UE9-airbyte
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - Airbyte
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
-- partner_name: Maven Central
-  partner: maven-central
-  partner_match: register
-  type: register
-  direction: provider-built
-  category: official SDK (Java/JVM)
-  evidence: https://central.sonatype.com/artifact/com.airbyte/api
-  channel: package-registry
-  relationship: distribution-channel
+  evidence: https://github.com/PipedreamHQ/pipedream/tree/d5872355ef27b4efa769f05352f2820c299a456e/components/https_airbyte_com
+  category: null
   contract_reference:
-    register: Maven Central (public registry JSON)
+    register: Pipedream components (PipedreamHQ/pipedream components/)
     spec_file: null
-    language: Java/JVM
-    packages:
-    - name: com.airbyte:api
-      version: 2.0.0
-      released: '2025-04-16'
-      released_field: lastUpdated
-      lapsed: false
-      page: https://central.sonatype.com/artifact/com.airbyte/api
-      repo_leg: github-org:airbytehq
-      publisher_leg: groupId:airbyte.com
-      matched_by: domain
-    current: true
-    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
-      24 months'
-    detected_by: sweep-official-sdks.py
-    detected: '2026-10-18'
-  detected_by: sweep-official-sdks.py
-  first_seen: '2026-10-18'
+    role: ipaas-connector:pipedream
+    registered_name: https airbyte com
+    matched_domain: airbyte.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: https_airbyte_com
+    actions: true
+    sources: false
+    builder: Pipedream repo (component)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 source:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
