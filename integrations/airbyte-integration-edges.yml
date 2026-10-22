@@ -23,6 +23,7 @@ checked:
 - opentofu/integrations/opentofu-integration-edges.yml
 - pulumi/integrations/pulumi-integration-edges.yml
 - terraform/integrations/terraform-integration-edges.yml
+- artifact-hub/integrations/artifact-hub-integration-edges.yml
 marketplace_apps:
 - marketplace: coverage
   channel: provider-built
@@ -11380,5 +11381,38 @@ edges:
   badges:
   - Verified publisher (Terraform partner tier)
   - Verified publisher (GitHub domain-verified organization)
+- partner_name: Artifact Hub (artifact-hub)
+  partner: artifact-hub
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: artifact-hub
+  evidence: https://artifacthub.io/packages/search?repo=airbyte
+  mirror_of: artifact-hub/integrations/artifact-hub-integration-edges.yml
+  apps:
+  - airbyte-api-server
+  - airbyte-bootloader
+  - airbyte-cron
+  - airbyte-keycloak
+  - airbyte-workload-api-server
+  - connector-builder-server
+  - connector-rollout-worker
+  - cron
+  - keycloak
+  - keycloak-setup
+  - metrics
+  - pod-sweeper
+  - server
+  - temporal
+  - temporal-ui
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Artifact Hub listing (Helm chart)
+  badges:
+  - 'Verified publisher (Artifact Hub verified publisher: repository ownership proven)'
 source:
 - https://github.com/PipedreamHQ/pipedream/tree/94800dd6de6640b942c65ea7ee655f71ac56d438/components/
