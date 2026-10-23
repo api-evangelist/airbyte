@@ -7,38 +7,41 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   arazzo/airbyte-application-token-bootstrap-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-cancel-running-job-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-destination-create-verify-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-find-connection-and-sync-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-provision-pipeline-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-reset-and-resync-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-source-create-verify-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-tag-connection-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-trigger-sync-and-poll-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   arazzo/airbyte-workspace-bootstrap-workflow.yml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: Arazzo whose sourceDescriptions are our split specs (../openapi/)
   authentication/airbyte-authentication.yml:
     method: searched
     evidence: declared in the artifact
+  capabilities/airbyte-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
   changelog/airbyte-changelog.yml:
     method: searched
     evidence: declared in the artifact
@@ -124,149 +127,149 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/airbyte-public-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-applications-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-applications-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-applications-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-applications-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-connections-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connections-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-connections-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connections-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-connector-definitions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connector-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-connector-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connector-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-dataplanes-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-dataplanes-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-dataplanes-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-dataplanes-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-declarative-source-definitions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-declarative-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-declarative-source-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-declarative-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-destination-definitions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-destination-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-destination-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-destination-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-destinations-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-destinations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-destinations-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-destinations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-group-members-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-members-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-group-members-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-members-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-group-permissions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-group-permissions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-groups-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-groups-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-groups-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-groups-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-health-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-health-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-health-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-health-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-jobs-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-jobs-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-jobs-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-jobs-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-oauth-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-oauth-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-oauth-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-oauth-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-organizations-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-organizations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-organizations-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-organizations-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-permissions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-permissions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-regions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-regions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-regions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-regions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-root-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-root-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-root-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-root-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-source-definitions-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-source-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-sources-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-sources-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-sources-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-sources-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-streams-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-streams-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-streams-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-streams-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-tags-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-tags-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-tags-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-tags-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-users-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-users-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-users-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-users-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-workspaces-api.opencollection.json:
-    method: derived
-    evidence: openapi/airbyte-public-workspaces-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-public-workspaces-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-workspaces-api
+    method: unknown
+    evidence: no authorship recorded
   collections/airbyte-regions-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -993,6 +996,12 @@ artifacts:
   graphql/airbyte-schema.graphql:
     method: unknown
     evidence: no authorship recorded
+  integrations/_index.yml:
+    method: generated
+    evidence: carries an API Evangelist house phrase
+  integrations/airbyte-integration-edges.yml:
+    method: searched
+    evidence: declared in the artifact
   json-ld/airbyte-context.jsonld:
     method: unknown
     evidence: no authorship recorded
@@ -2265,127 +2274,7 @@ artifacts:
   json-structure/airbyte-workspaces-response-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-24T161608.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T125852.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T133943.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T143147.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-25T154045.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-26T215308.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T094438.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T103455.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T123021.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T132314.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-27T140727.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-28T221322.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T213958.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-29T230545.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T203505.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-30T220315.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-31T223420.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T063623.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T210448.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-01T222808.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-02T224043.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T161828.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-03T174231.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T062714.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T212454.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-04T224856.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T055819.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T144739.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T195450.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-05T211839.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T011047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T211804.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-06T224210.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T200636.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-07T213054.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T214843.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-08T232836.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T204815.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-09-10T222408.yml:
+  kin/checks-2026-10-11T110117.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-12T062655.yml:
@@ -2469,6 +2358,21 @@ artifacts:
   kin/score-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T210408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-25T232841.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T000835.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-03T024842.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-10-11T110117.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/airbyte-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -2478,85 +2382,93 @@ artifacts:
   mcp/airbyte-mcp.yml:
     method: searched
     evidence: declared in the artifact
-  openapi/_original/airbyte-openapi.yml:
+  openapi/_original/airbyte-openapi.json:
     method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
-  openapi/airbyte-public-api-openapi.yml:
+    evidence: byte-identical to https://airbyte.com/openapi.json (sha256 5db3ae21c94d, fetched 2026-10-19)
+  openapi/airbyte-airbyte-marketing-site-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-applications-api-openapi.yml:
+  openapi/airbyte-well-known-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-connections-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-connector-definitions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-dataplanes-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-declarative-source-definitions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-destination-definitions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-destinations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-group-members-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-group-permissions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-groups-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-health-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-jobs-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-oauth-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-organizations-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-permissions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-regions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-root-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-source-definitions-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-sources-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-streams-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-tags-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-users-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/airbyte-public-workspaces-api-openapi.yml:
+  openapi/airbyte-x402-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   overlays/airbyte-openapi-overlay.yaml:
-    method: unknown
-    evidence: no authorship recorded
+    method: derived
+    evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/airbyte-public-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-applications-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-connections-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-connector-definitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-dataplanes-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-declarative-source-definitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-destination-definitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-destinations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-group-members-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-group-permissions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-groups-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-health-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-jobs-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-oauth-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-organizations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-permissions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-regions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-root-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-source-definitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-sources-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-streams-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-tags-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-users-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/airbyte-public-workspaces-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   packages/airbyte-packages.yml:
     method: searched
     evidence: declared in the artifact
@@ -2603,74 +2515,74 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   postman/airbyte-public-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-applications-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-applications-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-connections-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connections-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-connector-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-connector-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-dataplanes-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-dataplanes-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-declarative-source-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-declarative-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-destination-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-destination-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-group-members-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-members-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-group-permissions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-group-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-groups-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-groups-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-health-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-health-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-jobs-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-jobs-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-oauth-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-oauth-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-organizations-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-organizations-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-permissions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-permissions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-regions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-regions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-root-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-root-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-source-definitions-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-source-definitions-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-sources-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-sources-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-streams-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-streams-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-tags-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-tags-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-users-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-users-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-public-workspaces-api.postman_collection.json:
-    method: derived
-    evidence: openapi/airbyte-public-workspaces-api
+    method: unknown
+    evidence: no authorship recorded
   postman/airbyte-regions-api.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
