@@ -62,6 +62,8 @@ apis:
   humanURL: https://airbyte.com
   baseURL: https://api.airbyte.com/v1
   tags:
+  - x402
+  tags_raw:
   - X402
   properties:
   - type: OpenAPI
