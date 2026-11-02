@@ -1,0 +1,102 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://airbyte.com/pricing
+sources:
+- https://airbyte.com/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T120612
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: open-core
+  method: page
+  read: '2026-10-28'
+  evidence: Airbyte Core is free to self-host.
+  free_edition: Airbyte Core
+  managed_tier: Standard
+published: true
+note: 'Free trial: 14 days with 400 credits, about 100 GB of syncs. Pro/Enterprise Flex priced on capacity
+  (Data Workers), quote-based.'
+plan_count: 5
+currency: USD
+plans:
+- name: Standard
+  price_text: Starts at $20 /month
+  price: 20
+  currency: USD
+  period: month
+  unit: credits
+  included_quota: 5 credits included, about 1 GB of syncs.
+  overage: Pay only for the data you sync
+- name: Plus
+  price_text: Starts at $189 /month
+  price: 189
+  currency: USD
+  period: month
+  unit: credit package
+  included_quota: 40 credits · $189/mo
+  overage: 100 credits · $449/mo; 250 credits · $999/mo; 500 credits · $1,799/mo; 1,000 credits · $3,199/mo;
+    2,000 credits · $4,999/mo
+- name: Pro
+  price_text: Starts at Custom
+  period: none
+  unit: Data Workers
+- name: Enterprise Flex
+  price_text: Starts at Custom
+  period: none
+  unit: Data Workers
+- name: Airbyte Core
+  price_text: Airbyte Core is free to self-host.
+  period: none
+rate_limit_statements:
+- Max Sync Frequency 1 hr 15 min 5 min 5 min
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - credit
+  plans:
+  - name: Standard
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - month
+  - name: Plus
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Enterprise Flex
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - other
+    periods:
+    - none
+  - name: Airbyte Core
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
