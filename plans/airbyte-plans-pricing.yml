@@ -2,6 +2,7 @@
 generated: '2026-10-28'
 method: searched
 source: https://airbyte.com/pricing
+name: Airbyte API Plans
 sources:
 - https://airbyte.com/pricing
 provenance:
@@ -54,11 +55,13 @@ plans:
 rate_limit_statements:
 - Max Sync Frequency 1 hr 15 min 5 min 5 min
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
+  - metered
   units:
+  - compute
   - credit
   plans:
   - name: Standard
@@ -79,18 +82,18 @@ x-canonical:
     - month
   - name: Pro
     access: other
-    model: unstated
+    model: metered
     model_how: derived
     units:
-    - other
+    - compute
     periods:
     - none
   - name: Enterprise Flex
     access: other
-    model: unstated
+    model: metered
     model_how: derived
     units:
-    - other
+    - compute
     periods:
     - none
   - name: Airbyte Core

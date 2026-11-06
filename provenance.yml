@@ -998,6 +998,9 @@ artifacts:
   heartbeat/2026-11-02.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/airbyte-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -2351,6 +2354,9 @@ artifacts:
   lifecycle/airbyte-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
+  llms/airbyte-llms-provenance.yml:
+    method: searched
+    evidence: 'derive-llms-provenance.py: harvested'
   llms/airbyte-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -2446,6 +2452,9 @@ artifacts:
     evidence: declared in the artifact
   packages/airbyte-packages.yml:
     method: searched
+    evidence: declared in the artifact
+  patterns/airbyte-patterns.yml:
+    method: derived
     evidence: declared in the artifact
   plans/airbyte-plans-pricing.yml:
     method: searched
@@ -2588,6 +2597,9 @@ artifacts:
   rules/airbyte-jsonschema-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
+  rules/airbyte-rules.yml:
+    method: generated
+    evidence: declared in the artifact
   rules/airbyte-spectral-rules.yml:
     method: generated
     evidence: declared in the artifact
@@ -2606,9 +2618,15 @@ artifacts:
   sla/airbyte-sla.yml:
     method: searched
     evidence: declared in the artifact
+  vendors/airbyte-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/airbyte-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
+  vocabulary/airbyte-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
   well-known/airbyte-airbyte-oauth-protected-resource.json:
     method: unknown
     evidence: no authorship recorded
