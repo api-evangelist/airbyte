@@ -41,6 +41,15 @@ artifacts:
   capabilities/airbyte-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-10.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   changelog/airbyte-changelog.yml:
     method: searched
     evidence: declared in the artifact
@@ -317,6 +326,9 @@ artifacts:
   collections/airbyte.postman_collection.json:
     method: derived
     evidence: openapi/airbyte
+  compliance/airbyte-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
   components/airbyte-components.yml:
     method: searched
     evidence: declared in the artifact
@@ -326,8 +338,17 @@ artifacts:
   conventions/airbyte-conventions.yml:
     method: searched
     evidence: declared in the artifact
+  data-license/airbyte-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/airbyte-data-model.yml:
     method: derived
+    evidence: declared in the artifact
+  deprecation/airbyte-deprecation-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
+  eligibility/airbyte-eligibility.yml:
+    method: harvested
     evidence: declared in the artifact
   errors/airbyte-problem-types.yml:
     method: derived
@@ -996,6 +1017,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   heartbeat/2026-11-02.yml:
+    method: unknown
+    evidence: no authorship recorded
+  heartbeat/2026-11-06.yml:
+    method: unknown
+    evidence: no authorship recorded
+  heartbeat/2026-11-13.yml:
     method: unknown
     evidence: no authorship recorded
   hosts/airbyte-hosts.yml:
@@ -2282,7 +2309,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -2349,6 +2376,9 @@ artifacts:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-11-02T082323.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   lifecycle/airbyte-lifecycle.yml:
@@ -2591,6 +2621,9 @@ artifacts:
   postman/airbyte-workspaces-api.postman_collection.json:
     method: unknown
     evidence: no authorship recorded
+  privacy/airbyte-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/airbyte-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
@@ -2617,6 +2650,9 @@ artifacts:
     evidence: declared in the artifact
   sla/airbyte-sla.yml:
     method: searched
+    evidence: declared in the artifact
+  terms/airbyte-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
   vendors/airbyte-vendors.yml:
     method: unknown
