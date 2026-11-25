@@ -72,32 +72,11 @@ Airbyte is an open-source data integration platform that enables businesses to e
 
 Everything profiled for Airbyte is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/airbyte/](https://apis.io/providers/airbyte/)** — or go straight to one of the APIs or properties below.
 
-### APIs (24)
+### APIs (3)
 
-- [Airbyte Public API](https://apis.io/apis/airbyte/airbyte-public-api/) — The public API from Airbyte — 47 operation(s) for public.
-- [Airbyte Public Applications API](https://apis.io/apis/airbyte/airbyte-public-applications-api/) — The public_applications API from Airbyte — 3 operation(s) for public_applications.
-- [Airbyte Public Connections API](https://apis.io/apis/airbyte/airbyte-public-connections-api/) — The public_connections API from Airbyte — 2 operation(s) for public_connections.
-- [Airbyte Public Connector Definitions API](https://apis.io/apis/airbyte/airbyte-public-connector-definitions-api/) — The public_connector_definitions API from Airbyte — 1 operation(s) for public_connector_definitions.
-- [Airbyte Public Dataplanes API](https://apis.io/apis/airbyte/airbyte-public-dataplanes-api/) — The public_dataplanes API from Airbyte — 2 operation(s) for public_dataplanes.
-- [Airbyte Public Declarative Source Definitions API](https://apis.io/apis/airbyte/airbyte-public-declarative-source-definitions-api/) — The public_declarative_source_definitions API from Airbyte — 2 operation(s) for public_declarative_source_definitions.
-- [Airbyte Public Destination Definitions API](https://apis.io/apis/airbyte/airbyte-public-destination-definitions-api/) — The public_destination_definitions API from Airbyte — 2 operation(s) for public_destination_definitions.
-- [Airbyte Public Destinations API](https://apis.io/apis/airbyte/airbyte-public-destinations-api/) — The public_destinations API from Airbyte — 2 operation(s) for public_destinations.
-- [Airbyte Public Group Members API](https://apis.io/apis/airbyte/airbyte-public-group-members-api/) — The public_group_members API from Airbyte — 2 operation(s) for public_group_members.
-- [Airbyte Public Group Permissions API](https://apis.io/apis/airbyte/airbyte-public-group-permissions-api/) — The public_group_permissions API from Airbyte — 2 operation(s) for public_group_permissions.
-- [Airbyte Public Groups API](https://apis.io/apis/airbyte/airbyte-public-groups-api/) — The public_groups API from Airbyte — 2 operation(s) for public_groups.
-- [Airbyte Public Health API](https://apis.io/apis/airbyte/airbyte-public-health-api/) — The public_health API from Airbyte — 1 operation(s) for public_health.
-- [Airbyte Public Jobs API](https://apis.io/apis/airbyte/airbyte-public-jobs-api/) — The public_jobs API from Airbyte — 2 operation(s) for public_jobs.
-- [Airbyte Public OAUTH API](https://apis.io/apis/airbyte/airbyte-public-oauth-api/) — The public_oauth API from Airbyte — 1 operation(s) for public_oauth.
-- [Airbyte Public Organizations API](https://apis.io/apis/airbyte/airbyte-public-organizations-api/) — The public_organizations API from Airbyte — 3 operation(s) for public_organizations.
-- [Airbyte Public Permissions API](https://apis.io/apis/airbyte/airbyte-public-permissions-api/) — The public_permissions API from Airbyte — 2 operation(s) for public_permissions.
-- [Airbyte Public Regions API](https://apis.io/apis/airbyte/airbyte-public-regions-api/) — The public_regions API from Airbyte — 2 operation(s) for public_regions.
-- [Airbyte Public Root API](https://apis.io/apis/airbyte/airbyte-public-root-api/) — The public_root API from Airbyte — 1 operation(s) for public_root.
-- [Airbyte Public Source Definitions API](https://apis.io/apis/airbyte/airbyte-public-source-definitions-api/) — The public_source_definitions API from Airbyte — 2 operation(s) for public_source_definitions.
-- [Airbyte Public Sources API](https://apis.io/apis/airbyte/airbyte-public-sources-api/) — The public_sources API from Airbyte — 3 operation(s) for public_sources.
-- [Airbyte Public Streams API](https://apis.io/apis/airbyte/airbyte-public-streams-api/) — The public_streams API from Airbyte — 1 operation(s) for public_streams.
-- [Airbyte Public Tags API](https://apis.io/apis/airbyte/airbyte-public-tags-api/) — The public_tags API from Airbyte — 2 operation(s) for public_tags.
-- [Airbyte Public Users API](https://apis.io/apis/airbyte/airbyte-public-users-api/) — The public_users API from Airbyte — 1 operation(s) for public_users.
-- [Airbyte Public Workspaces API](https://apis.io/apis/airbyte/airbyte-public-workspaces-api/) — The public_workspaces API from Airbyte — 3 operation(s) for public_workspaces.
+- [Airbyte Airbyte Marketing Site API](https://apis.io/apis/airbyte/airbyte-airbyte-marketing-site-api/) — The Airbyte Marketing Site API from Airbyte — 1 operation(s) for airbyte marketing site.
+- [Airbyte .well Known API](https://apis.io/apis/airbyte/airbyte-well-known-api/) — The .well Known API from Airbyte — 1 operation(s) for .well known.
+- [Airbyte X402 API](https://apis.io/apis/airbyte/airbyte-x402-api/) — The X402 API from Airbyte — 1 operation(s) for x402.
 
 ### Published properties
 
@@ -302,11 +281,12 @@ OpenAPI overlays, including conversational phrasing for each operation.
 - [Airbyte Public Users Api Phrasing Overlay](https://apis.io/overlays/airbyte/airbyte-public-users-api-phrasing-overlay/)
 - [Airbyte Public Workspaces Api Phrasing Overlay](https://apis.io/overlays/airbyte/airbyte-public-workspaces-api-phrasing-overlay/)
 
-#### Governance rules (2)
+#### Governance rules (3)
 
 Spectral rulesets for the provider's contracts.
 
 - [Airbyte — jsonschema rules](https://apis.io/rules/airbyte/airbyte-jsonschema-spectral-rules/)
+- [Airbyte API Rules](https://apis.io/rules/airbyte/airbyte-rules/)
 - [Airbyte API Rules](https://apis.io/rules/airbyte/airbyte-spectral-rules/)
 
 #### Security (4)
@@ -324,11 +304,12 @@ The permissions the API asks for.
 
 - [Airbyte Scopes](https://apis.io/scopes/airbyte/airbyte-scopes/)
 
-#### Plans and pricing (1)
+#### Plans and pricing (2)
 
 Published plans, tiers and prices.
 
 - [Airbyte Plans Pricing](https://apis.io/plans/airbyte/airbyte-plans-pricing/)
+- [Airbyte Price Estimates](https://apis.io/plans/airbyte/airbyte-price-estimates/)
 
 #### Rate limits (1)
 
@@ -347,11 +328,15 @@ What the API costs to run, by operation.
 Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.airbyte.com/)
+- [Documentation](https://docs.airbyte.com/)
 - [Getting started](https://docs.airbyte.com)
+- [API reference](https://reference.airbyte.com/reference)
 - [Pricing](https://airbyte.com/pricing)
 - [Support](https://support.airbyte.com/hc/en-us)
 - [Changelog](https://docs.airbyte.com/category/release-notes/)
 - [Blog](https://airbyte.com/blog)
+- [Security](https://docs.airbyte.com/platform/operating-airbyte/security)
+- [Compliance](https://trust.airbyte.com/)
 - [Terms of service](https://airbyte.com/company/terms)
 - [Privacy policy](https://airbyte.com/company/privacy-policy)
 - [GitHub](https://github.com/airbytehq)
@@ -359,42 +344,46 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 69.1** — exemplar · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 77.5** — exemplar · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
-| Discoverability | 75.0 |
-| Contract quality | 53.7 |
-| Contract governance | 31.8 |
-| Operational transparency | 60.5 |
-| Developer ergonomics | 92.1 |
-| Access clarity | 60.5 |
+| Discoverability | 76.7 |
+| Contract quality | 51.1 |
+| Contract governance | 37.9 |
+| Operational transparency | 71.4 |
+| Developer ergonomics | 95.7 |
+| Access clarity | 97.9 |
 
-**Agent readiness 39.8** — agent-ready (gated down from agent-native)
+**Agent readiness 44.2** — agent-ready (gated down from agent-native)
 
 | Agent-readiness dimension | Result |
 |---|---|
 | Spec Presence | yes |
 | Agentic Access | derived (partial credit) |
-| Reversibility Documented | documented (partial credit) |
+| Reversibility Documented | na |
 | MCP Server | verified |
 | Auth Clarity | served (partial credit) |
-| Idempotency | — |
+| Idempotency | na |
 | Error Semantics | derived (partial credit) |
 | OpenAPI Examples | — |
 | Rate Limit Signal | derived (partial credit) |
 | Event Surface Described | — |
 | Agent Skills | unknown |
 | Well Known Catalog | — |
-| Consent Identity | — |
+| Consent Identity | signal |
 | Agent Card | — |
-| Dry Run Mode | — |
+| Dry Run Mode | na |
 | Delegated Identity | — |
 | Protected Resource Metadata | verified |
 | Dynamic Client Registration | — |
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | na |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
 
